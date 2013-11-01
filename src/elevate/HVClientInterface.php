@@ -1,35 +1,35 @@
 <?php
 
 
-    namespace elevate;
+namespace elevate;
 
-    /**
-     * Interface HVClientInterface
-     * @package biologis\HV
-     */
-    interface HVClientInterface
-    {
+/**
+ * Interface HVClientInterface
+ * @package biologis\HV
+ */
+interface HVClientInterface
+{
 
-        public function connect();
+    public function connect();
 
-        public function disconnect();
+    public function disconnect();
 
-        public function getAuthenticationURL($redirectUrl);
+    public function getAuthenticationURL($redirectUrl);
 
-        public function getPersonInfo();
+    public function getPersonInfo();
 
-        public function getThings($thingNameOrTypeId, $recordId, $options = array());
+    public function getThings($thingNameOrTypeId, $recordId, $options = array());
 
-        public function putThings($things, $recordId);
+    public function putThings($things, $recordId);
 
-        public function setHealthVaultAuthInstance($healthVaultAuthInstance);
+    public function setHealthVaultAuthInstance($healthVaultAuthInstance);
 
-        public function getHealthVaultAuthInstance();
+    public function getHealthVaultAuthInstance();
 
-        public function setHealthVaultPlatform($healthVaultPlatform);
+    public function setHealthVaultPlatform($healthVaultPlatform);
 
-        public function getHealthVaultPlatform();
+    public function getHealthVaultPlatform();
 
-        public function setConnector(HVRawConnectorInterface $connector);
+    public function setConnector(HVRawConnectorInterface $connector);
 
-    }
+}

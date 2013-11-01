@@ -16,7 +16,7 @@ class CommonTest extends BaseObjectTest
     {
         parent::setUp();
         $this->sampleXMLPath = __DIR__ . '/../SampleXML/Generic/Common.xml';
-        $this->common = new Common(
+        $this->common        = new Common(
             'Note',
             'A Source',
             'health, vault, microsoft',
@@ -24,7 +24,7 @@ class CommonTest extends BaseObjectTest
             '3323-43242-4324234-43242',
             '<extra><tag1>Something</tag1><tag2>Another Tag</tag2></extra>'
         );
-        $this->xmlString = $this->serializer->serialize($this->common, 'xml');
+        $this->xmlString     = $this->serializer->serialize($this->common, 'xml');
     }
 
     public function testDeserialize()
