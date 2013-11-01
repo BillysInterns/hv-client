@@ -15,12 +15,12 @@ use PhpCollection\Sequence;
 class DateTime {
 
     /**
-     * @Type("game\XMLObjects\Types\Date\Date")
+     * @Type("elevate\HVObjects\Generic\Date\Date")
      */
     protected $date;
 
     /**
-     * @Type("game\XMLObjects\Types\Date\Time")
+     * @Type("elevate\HVObjects\Generic\Date\Time")
      */
     protected $time;
 
