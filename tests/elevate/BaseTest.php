@@ -2,7 +2,7 @@
 
     namespace elevate\test;
 
-    require_once('vendor/autoload.php');
+    require_once('autoload.php');
 
     use biologis\HV\HVRawConnector;
     use elevate\HVClient;

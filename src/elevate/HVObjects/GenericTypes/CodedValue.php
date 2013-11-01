@@ -3,8 +3,6 @@
 
 namespace elevate\HVObjects\GenericTypes;
 
-require_once('vendor/autoload.php');
-
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;

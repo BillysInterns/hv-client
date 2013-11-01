@@ -3,7 +3,7 @@
 
 namespace elevate\test\HVObjects;
 
-require_once('vendor/autoload.php');
+require_once('autoload.php');
 
 class BaseObjectTest extends \PHPUnit_Framework_TestCase
 {
