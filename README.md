@@ -1,4 +1,4 @@
-HVClientLibPHP [![Build Status](https://travis-ci.org/communitychair1/HVClientLibPHP.png?branch=master)](https://travis-ci.org/communitychair1/HVClientLibPHP)
+HVClientLibPHP
 ==============
 
 An easy to use PHP library to connect to
@@ -8,7 +8,7 @@ on top of
 It adds a nicer object oriented programming interface and hides (most) of the
 complicated XML parts in the HealthVault protocol.
 
-This library was forked from [HVClientPHP](https://github.com/mkalkbrenner/HVClientLibPHP) and many new features have been created and added to the library. A list of changes is at the bottom of this document.
+This library was inspired from [HVClientPHP](https://github.com/mkalkbrenner/HVClientLibPHP) and many new features have been created and added to the library. A list of changes is at the bottom of this document.
 
 
 Installation
@@ -171,4 +171,4 @@ Changes And Additions
 Licence
 -------
 
-[GPLv2](https://raw.github.com/communitychair1/HVClientLibPHP/master/LICENSE.txt).
+[GPLv2](https://raw.github.com/BillysInterns/hv-client/master/LICENSE.md).
