@@ -11,14 +11,22 @@ use elevate\test\HVObjects\BaseObjectTest;
 class CodableValueTest extends BaseObjectTest
 {
 
+    private $codedValue;
+
+    private $codableValue;
+
+    private $xmlString;
+
+    public function setup()
+    {
+        parent::setUp();
+        $this->codedValue = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
+        $this->codableValue = new CodableValue('Code', array($this->codedValue));
+        $this->xmlString = $this->serializer->serialize($this->codableValue, 'xml');
+    }
+
     public function testSerialize()
     {
-        $codedValue = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
-
-        $codableValue = new CodableValue('Code', array($codedValue));
-
-        $xmlAssessment = $this->serializer->serialize($codableValue, 'xml');
-
         $this->assertXmlStringEqualsXmlString(
             '<?xml version="1.0" encoding="UTF-8"?>
             <result>
@@ -30,8 +38,17 @@ class CodableValueTest extends BaseObjectTest
                     <version><![CDATA[Version 4]]></version>
                 </code>
             </result>',
-            $xmlAssessment
+            $this->xmlString
         );
+    }
+
+    public function testDeserialize()
+    {
+        $codeableValue = $this->serializer->deserialize(
+            $this->xmlString, 'elevate\HVObjects\GenericTypes\CodableValue', 'xml'
+        );
+
+        $this->assertEquals($this->codableValue, $codeableValue);
     }
 }
  

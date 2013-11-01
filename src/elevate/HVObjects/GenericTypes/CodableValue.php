@@ -22,7 +22,7 @@ class CodableValue
     /**
      * @var array
      * @XmlList(inline=true, entry="code")
-     * @Type("array<game\XMLObjects\Types\Generic\CodedValue>")
+     * @Type("array<elevate\HVObjects\GenericTypes\CodedValue>")
      */
     protected $codes;
 
