@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: bnissen
- * Date: 11/1/13
- * Time: 11:32 AM
- * To change this template use File | Settings | File Templates.
- */
 
 namespace elevate\HVObjects\Thing\DataXML\Type;
 

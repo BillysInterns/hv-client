@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: bnissen
- * Date: 11/1/13
- * Time: 2:20 PM
- * To change this template use File | Settings | File Templates.
- */
 
 namespace elevate\HVObjects\Thing\DataXML;
 
@@ -19,9 +12,8 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use game\XMLObjects\DataXML;
-use game\XMLObjects\Thing;
-
+use elevate\HVObjects\Thing\DataXML\DataXML;
+use elevate\HVObjects\Thing\Thing;
 
 class Condition extends DataXML
 {

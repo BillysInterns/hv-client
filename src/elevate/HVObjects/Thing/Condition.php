@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: bnissen
- * Date: 11/1/13
- * Time: 2:20 PM
- * To change this template use File | Settings | File Templates.
- */
 
-namespace game\XMLObjects\Thing;
+namespace elevate\HVObjects\Thing;
 
 use JMS\Serializer\Annotation\XmlRoot;
 
@@ -15,7 +8,7 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlList;
 
-use game\XMLObjects\Thing;
+use elevate\HVObjects\Thing\Thing;
 
 /** @XmlRoot("thing") */
 class Condition extends Thing

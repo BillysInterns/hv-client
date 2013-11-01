@@ -1,5 +1,5 @@
 <?php
-namespace elevate\HVObjects\Generic;
+namespace elevate\HVObjects\Thing\DataXML;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use game\XMLObjects\Common;
+use elevate\HVObjects\Generic\Common;
 
 /** @XmlRoot("data-xml") */
 class DataXML
