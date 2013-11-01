@@ -4,8 +4,8 @@
 namespace elevate\test\HVObjects\GenericTypes;
 
 
-use elevate\HVObjects\GenericTypes\CodableValue;
-use elevate\HVObjects\GenericTypes\CodedValue;
+use elevate\HVObjects\Generic\CodableValue;
+use elevate\HVObjects\Generic\CodedValue;
 use elevate\test\HVObjects\BaseObjectTest;
 
 class CodableValueTest extends BaseObjectTest
@@ -45,7 +45,7 @@ class CodableValueTest extends BaseObjectTest
     public function testDeserialize()
     {
         $codeableValue = $this->serializer->deserialize(
-            $this->xmlString, 'elevate\HVObjects\GenericTypes\CodableValue', 'xml'
+            $this->xmlString, 'elevate\HVObjects\Generic\CodableValue', 'xml'
         );
 
         $this->assertEquals($this->codableValue, $codeableValue);

@@ -3,18 +3,25 @@
 
 namespace elevate\test\HVObjects\GenericTypes;
 
-use elevate\HVObjects\GenericTypes\CodedValue;
+use elevate\HVObjects\Generic\CodedValue;
 use elevate\test\HVObjects\BaseObjectTest;
 
 class CodedValueTest extends BaseObjectTest
 {
 
+    private $codedValue;
+
+    private $xmlString;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->codedValue = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
+        $this->xmlString = $this->serializer->serialize($this->codedValue, 'xml');
+    }
+
     public function testSerialize()
     {
-        $codedValue = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
-
-        $xmlAssessment = $this->serializer->serialize($codedValue, 'xml');
-
         $this->assertXmlStringEqualsXmlString(
             '<?xml version="1.0" encoding="UTF-8"?>
             <result>
@@ -23,9 +30,18 @@ class CodedValueTest extends BaseObjectTest
             <type><![CDATA[Value Test]]></type>
             <version><![CDATA[Version 4]]></version>
             </result>',
-            $xmlAssessment
+            $this->xmlString
         );
 
+    }
+
+    public function testDeserialize()
+    {
+        $codedValue = $this->serializer->deserialize(
+            $this->xmlString, 'elevate\HVObjects\Generic\CodedValue', 'xml'
+        );
+
+        $this->assertEquals($this->codedValue, $codedValue);
     }
 }
  

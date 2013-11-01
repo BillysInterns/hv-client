@@ -1,7 +1,7 @@
 <?php
 
 
-namespace elevate\HVObjects\GenericTypes;
+namespace elevate\HVObjects\Generic;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -22,7 +22,7 @@ class CodableValue
     /**
      * @var array
      * @XmlList(inline=true, entry="code")
-     * @Type("array<elevate\HVObjects\GenericTypes\CodedValue>")
+     * @Type("array<elevate\HVObjects\Generic\CodedValue>")
      */
     protected $codes;
 
