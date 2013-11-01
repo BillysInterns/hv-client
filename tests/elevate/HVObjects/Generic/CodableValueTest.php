@@ -1,7 +1,7 @@
 <?php
 
 
-namespace elevate\test\HVObjects\GenericTypes;
+namespace elevate\test\HVObjects\Generic;
 
 
 use elevate\HVObjects\Generic\CodableValue;
