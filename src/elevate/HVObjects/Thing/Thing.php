@@ -54,8 +54,4 @@ class Thing {
      */
     protected $dataXML;
 
-
-
-
-
 }

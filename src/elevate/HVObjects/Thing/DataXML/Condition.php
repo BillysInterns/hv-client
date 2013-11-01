@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: bnissen
- * Date: 11/1/13
- * Time: 2:20 PM
- * To change this template use File | Settings | File Templates.
- */
 
 namespace elevate\HVObjects\Thing\DataXML;
 
@@ -19,15 +12,37 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use game\XMLObjects\DataXML;
-use game\XMLObjects\Thing;
+use elevate\HVObjects\Thing\DataXML\DataXML;
+use elevate\HVObjects\Thing\Thing;
 
-
-class Condition extends DataXML{
+class Condition extends DataXML
+{
 
     /**
      * @Type("elevate\HVObjects\Thing\Type\Condition")
      * @SerializedName("condition")
      */
+<<<<<<< HEAD
     protected $condition;
+=======
+    protected $question;
+
+    /**
+     * @return mixed
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * @param mixed $question
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+    }
+
+
+>>>>>>> 70813b0d0e5ed300c26949da64dc9aad669fe904
 }

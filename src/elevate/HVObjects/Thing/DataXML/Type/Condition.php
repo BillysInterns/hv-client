@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: bnissen
- * Date: 11/1/13
- * Time: 11:32 AM
- * To change this template use File | Settings | File Templates.
- */
 
 namespace elevate\HVObjects\Thing\DataXML\Type;
 
@@ -21,33 +14,35 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 
 
+<<<<<<< HEAD
 /** @XmlRoot("condition") */
 class Condition{
+=======
+/** @XmlRoot("common") */
+class Condition
+{
+>>>>>>> 70813b0d0e5ed300c26949da64dc9aad669fe904
 
     /**
      * @Type("elevate\HVObjects\Generic\CodableValue")
      * @SerializedName("name")
      */
     protected $name;
-
     /**
      * @Type("elevate\HVObjects\Date\DateTime")
      * @SerializedName("onset-date")
      */
     protected $onsetDate;
-
     /**
      * @Type("elevate\HVObjects\Generic\CodableValue")
      * SerializedName("status")
      */
     protected $status;
-
     /**
      * @Type("elevate\HVObjects\Date\DateTime")
      * @SerializedName("stop-date")
      */
     protected $stopDate;
-
     /**
      * @Type("string")
      * @SerializedName("stop-reason")

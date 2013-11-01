@@ -9,10 +9,12 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlList;
 
-use game\XMLObjects\Thing;
+use elevate\HVObjects\Thing\Thing;
+
 
 /** @XmlRoot("thing") */
-class QuestionAnswer extends Thing {
+class QuestionAnswer extends Thing
+{
 
     /**
      * @var array elevate\HVObjects\Thing\DataXML\QuestionAnswer

@@ -13,11 +13,12 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use game\XMLObjects\DataXML;
-use game\XMLObjects\Thing;
+use elevate\HVObjects\Thing\DataXML\DataXML;
+use elevate\HVObjects\Thing\Thing;
 
 /** @XmlRoot("data-xml") */
-class QuestionAnswer extends DataXML {
+class QuestionAnswer extends DataXML
+{
 
     /**
      * @Type("elevate\HVObjects\Thing\Type\QuestionAnswer")
