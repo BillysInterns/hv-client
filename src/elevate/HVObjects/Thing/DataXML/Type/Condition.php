@@ -21,11 +21,11 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 
 
-/** @XmlRoot("common") */
+/** @XmlRoot("condition") */
 class Condition{
 
     /**
-     * @Type("elevate\HVObjects\GenericTypes\CodableValue")
+     * @Type("elevate\HVObjects\Generic\CodableValue")
      * @SerializedName("name")
      */
     protected $name;
@@ -37,7 +37,7 @@ class Condition{
     protected $onsetDate;
 
     /**
-     * @Type("elevate\HVObjects\GenericTypes\CodableValue")
+     * @Type("elevate\HVObjects\Generic\CodableValue")
      * SerializedName("status")
      */
     protected $status;

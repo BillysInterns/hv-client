@@ -29,24 +29,5 @@ class Condition extends DataXML{
      * @Type("elevate\HVObjects\Thing\Type\Condition")
      * @SerializedName("condition")
      */
-    protected $question;
-
-    /**
-     * @param mixed $question
-     */
-    public function setQuestion($question)
-    {
-        $this->question = $question;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQuestion()
-    {
-        return $this->question;
-    }
-
-
-
+    protected $condition;
 }
