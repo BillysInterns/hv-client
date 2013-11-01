@@ -22,32 +22,29 @@ use PhpCollection\Sequence;
 
 
 /** @XmlRoot("common") */
-class Condition{
+class Condition
+{
 
     /**
      * @Type("elevate\HVObjects\GenericTypes\CodableValue")
      * @SerializedName("name")
      */
     protected $name;
-
     /**
      * @Type("elevate\HVObjects\Date\DateTime")
      * @SerializedName("onset-date")
      */
     protected $onsetDate;
-
     /**
      * @Type("elevate\HVObjects\GenericTypes\CodableValue")
      * SerializedName("status")
      */
     protected $status;
-
     /**
      * @Type("elevate\HVObjects\Date\DateTime")
      * @SerializedName("stop-date")
      */
     protected $stopDate;
-
     /**
      * @Type("string")
      * @SerializedName("stop-reason")

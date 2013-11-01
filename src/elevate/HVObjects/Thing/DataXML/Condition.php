@@ -23,21 +23,14 @@ use game\XMLObjects\DataXML;
 use game\XMLObjects\Thing;
 
 
-class Condition extends DataXML{
+class Condition extends DataXML
+{
 
     /**
      * @Type("elevate\HVObjects\Thing\Type\Condition")
      * @SerializedName("condition")
      */
     protected $question;
-
-    /**
-     * @param mixed $question
-     */
-    public function setQuestion($question)
-    {
-        $this->question = $question;
-    }
 
     /**
      * @return mixed
@@ -47,6 +40,13 @@ class Condition extends DataXML{
         return $this->question;
     }
 
+    /**
+     * @param mixed $question
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+    }
 
 
 }

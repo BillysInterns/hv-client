@@ -17,7 +17,8 @@ use game\XMLObjects\DataXML;
 use game\XMLObjects\Thing;
 
 /** @XmlRoot("data-xml") */
-class QuestionAnswer extends DataXML {
+class QuestionAnswer extends DataXML
+{
 
     /**
      * @Type("elevate\HVObjects\Thing\Type\QuestionAnswer")

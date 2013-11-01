@@ -12,7 +12,8 @@ use JMS\Serializer\Annotation\XmlList;
 use game\XMLObjects\Thing;
 
 /** @XmlRoot("thing") */
-class QuestionAnswer extends Thing {
+class QuestionAnswer extends Thing
+{
 
     /**
      * @var array elevate\HVObjects\Thing\DataXML\QuestionAnswer

@@ -18,7 +18,8 @@ use JMS\Serializer\Annotation\XmlList;
 use game\XMLObjects\Thing;
 
 /** @XmlRoot("thing") */
-class Condition extends Thing{
+class Condition extends Thing
+{
 
     /**
      * @var array elevate\HVObjects\Thing\DataXML\Condition
@@ -28,14 +29,6 @@ class Condition extends Thing{
     protected $dataXML;
 
     /**
-     * @param array $dataXML
-     */
-    public function setDataXML($dataXML)
-    {
-        $this->dataXML = $dataXML;
-    }
-
-    /**
      * @return array
      */
     public function getDataXML()
@@ -43,7 +36,13 @@ class Condition extends Thing{
         return $this->dataXML;
     }
 
-
+    /**
+     * @param array $dataXML
+     */
+    public function setDataXML($dataXML)
+    {
+        $this->dataXML = $dataXML;
+    }
 
 
 }

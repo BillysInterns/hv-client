@@ -17,27 +17,25 @@ use game\XMLObjects\DataXML;
 use game\XMLObjects\Thing;
 
 /** @XmlRoot("question-answer") */
-class QuestionAnswer {
+class QuestionAnswer
+{
 
     /**
      * @Type("elevate\HVObjects\Generic\Date\DateTime")
      * @SerializedName("when")
      */
     protected $when;
-
     /**
      * @Type("elevate\HVObjects\Generic\CodableValue")
      * @SerializedName("question")
      */
     protected $question;
-
     /**
      * @var array
      * @XmlList(inline=true, entry="answer-choice")
      * @Type("array<elevate\HVObjects\Generic\CodableValue>")
      */
     protected $answerChoices;
-
     /**
      * @var array
      * @XmlList(inline=true, entry="answer")

@@ -14,7 +14,8 @@ use PhpCollection\Sequence;
 use game\XMLObjects\Common;
 
 /** @XmlRoot("data-xml") */
-class DataXML {
+class DataXML
+{
 
     /**
      * @Type("elevate\HVObjects\Common")

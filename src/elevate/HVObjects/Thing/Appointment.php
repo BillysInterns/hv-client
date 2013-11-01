@@ -10,6 +10,7 @@
 namespace game\XMLObjects\Thing;
 
 
-class Appointment {
+class Appointment
+{
 
 }
