@@ -14,7 +14,6 @@ class CodedValueTest extends BaseObjectTest
         $codedValue = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
 
         $xmlAssessment = $this->serializer->serialize($codedValue, 'xml');
-        print_r($xmlAssessment);
 
     }
 }
