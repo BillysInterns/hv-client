@@ -3,19 +3,24 @@
 
 namespace elevate\test\HVObjects;
 
-require_once('autoload.php');
-
-class BaseObjectTest extends \PHPUnit_Framework_TestCase
+abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
 {
     protected $serializer;
+
+    protected $sampleXMLPath;
+
+    protected $xmlString;
 
     protected function setUp()
     {
         $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
     }
 
-    public function testSetup()
+    public function testSerialize()
     {
-        $this->assertNotNull($this->serializer);
+        $this->assertXmlStringEqualsXmlFile(
+            $this->sampleXMLPath,
+            $this->xmlString
+        );
     }
 }

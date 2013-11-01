@@ -10,7 +10,9 @@
         convertWarningsToExceptions = "true"
         processIsolation            = "false"
         stopOnFailure               = "false"
-        syntaxCheck                 = "false" >
+        syntaxCheck                 = "false"
+        bootstrap                   = "autoload.php"
+        >
 
     <testsuites>
         <testsuite name="Project Test Suite">

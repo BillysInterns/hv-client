@@ -54,4 +54,21 @@ class Common
      */
     protected $extension;
 
+    public function __construct(
+        $note = null,
+        $source = null,
+        $tags = null,
+        $relatedThing = null,
+        $clientThingId = null,
+        $extension = null
+    )
+    {
+        $this->note = $note;
+        $this->source = $source;
+        $this->tags = $tags;
+        $this->relatedThing = $relatedThing;
+        $this->clientThingId = $clientThingId;
+        $this->extension = $extension;
+    }
+
 }
