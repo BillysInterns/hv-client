@@ -25,5 +25,14 @@ class DateTime {
      */
     protected $time;
 
+    /**
+     * @param $date
+     * @param $time
+     */
+    public function __construct($date, $time)
+    {
+        $this->date = $date;
+        $this->time = $time;
+    }
 
 }
