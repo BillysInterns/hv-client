@@ -3,7 +3,7 @@
  * Created by JetBrains PhpStorm.
  * User: bnissen
  * Date: 11/1/13
- * Time: 3:46 PM
+ * Time: 4:04 PM
  * To change this template use File | Settings | File Templates.
  */
 
@@ -20,45 +20,56 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
-
-/** @XmlRoot("person") */
-class Person
+/** @XmlRoot("Address") */
+class Address
 {
 
     /**
-     * @Type("elevate\HVObjects\Generic\Name")
-     * @SerializedName("name")
+     * @Type("string")
+     * @SerializedName("description")
      */
-    protected $name;
+    protected $description;
+
+    /**
+     * @Type("boolean")
+     * @SerializedName("is-primary")
+     */
+    protected $isPrimary;
 
     /**
      * @Type("string")
-     * @SerializedName("organization")
+     * @SerializedName("street")
      */
-    protected $organization;
+    protected $street;
 
     /**
      * @Type("string")
-     * @SerializedName("professional-training")
+     * @SerializedName("city")
      */
-    protected $professionalTraining;
+    protected $city;
 
     /**
      * @Type("string")
-     * @SerializedName("id")
+     * @SerializedName("state")
      */
-    protected $id;
+    protected $state;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Contact")
-     * @SerializedName("contact")
+     * @Type("string")
+     * @SerializedName("postcode")
      */
-    protected $contact;
+    protected $postCode;
 
     /**
-     * @Type("elevate\HVObjects\Generic\CodableValue")
-     * @SerializedName("type")
+     * @Type("string")
+     * @SerializedName("country")
      */
-    protected $type;
+    protected $country;
+
+    /**
+     * @Type("string")
+     * @SerializedName("county")
+     */
+    protected $county;
 
 }

@@ -3,7 +3,7 @@
  * Created by JetBrains PhpStorm.
  * User: bnissen
  * Date: 11/1/13
- * Time: 3:46 PM
+ * Time: 4:14 PM
  * To change this template use File | Settings | File Templates.
  */
 
@@ -20,45 +20,23 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
-
-/** @XmlRoot("person") */
-class Person
+/** @XmlRoot("phone") */
+class Phone
 {
 
     /**
-     * @Type("elevate\HVObjects\Generic\Name")
-     * @SerializedName("name")
+     * @Type("string")
      */
-    protected $name;
+    protected $description;
+
+    /**
+     * @Type("boolean")
+     */
+    protected $isPrimary;
 
     /**
      * @Type("string")
-     * @SerializedName("organization")
      */
-    protected $organization;
-
-    /**
-     * @Type("string")
-     * @SerializedName("professional-training")
-     */
-    protected $professionalTraining;
-
-    /**
-     * @Type("string")
-     * @SerializedName("id")
-     */
-    protected $id;
-
-    /**
-     * @Type("elevate\HVObjects\Generic\Contact")
-     * @SerializedName("contact")
-     */
-    protected $contact;
-
-    /**
-     * @Type("elevate\HVObjects\Generic\CodableValue")
-     * @SerializedName("type")
-     */
-    protected $type;
+    protected $number;
 
 }

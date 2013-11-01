@@ -3,7 +3,7 @@
  * Created by JetBrains PhpStorm.
  * User: bnissen
  * Date: 11/1/13
- * Time: 3:46 PM
+ * Time: 3:57 PM
  * To change this template use File | Settings | File Templates.
  */
 
@@ -21,44 +21,43 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 
 
-/** @XmlRoot("person") */
-class Person
+class Name
 {
 
     /**
-     * @Type("elevate\HVObjects\Generic\Name")
-     * @SerializedName("name")
-     */
-    protected $name;
-
-    /**
      * @Type("string")
-     * @SerializedName("organization")
+     * @SerializedName("full")
      */
-    protected $organization;
-
-    /**
-     * @Type("string")
-     * @SerializedName("professional-training")
-     */
-    protected $professionalTraining;
-
-    /**
-     * @Type("string")
-     * @SerializedName("id")
-     */
-    protected $id;
-
-    /**
-     * @Type("elevate\HVObjects\Generic\Contact")
-     * @SerializedName("contact")
-     */
-    protected $contact;
+    protected $full;
 
     /**
      * @Type("elevate\HVObjects\Generic\CodableValue")
-     * @SerializedName("type")
+     * @SerializedName("title")
      */
-    protected $type;
+    protected $title;
+
+    /**
+     * @Type("string")
+     * @SerializedName("first")
+     */
+    protected $first;
+
+    /**
+     * @Type("string")
+     * @SerializedName("middle")
+     */
+    protected $middle;
+
+    /**
+     * @Type("string")
+     * @SerializedName("last")
+     */
+    protected $last;
+
+    /**
+     * @Type("elevate\HVObjects\Generic\CodableValue")
+     * @SerializedName("suffix")
+     */
+    protected $suffix;
 
 }
