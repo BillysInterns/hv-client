@@ -20,7 +20,7 @@ class CodableValue
     protected $text;
 
     /**
-     * @var array
+     * @var array elevate\HVObjects\Generic\CodedValue
      * @XmlList(inline=true, entry="code")
      * @Type("array<elevate\HVObjects\Generic\CodedValue>")
      */

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace game\XMLObjects;
+namespace elevate\HVObjects\Thing;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -12,7 +12,7 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use game\XMLObjects\DataXML;
+use elevate\HVObjects\DataXML;
 
 /** @XmlRoot("thing") */
 class Thing {
@@ -48,7 +48,7 @@ class Thing {
 
 
     /**
-     * @var array game\XMLObjects\DataXML
+     * @var array elevate\HVObjects\DataXML\DataXML
      * @Type("game\XMLObjects\DataXML")
      * @serializedName("data-xml")
      */

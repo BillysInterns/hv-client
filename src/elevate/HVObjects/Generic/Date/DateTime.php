@@ -15,6 +15,7 @@ use PhpCollection\Sequence;
 class DateTime {
 
     /**
+     * @var elevate\HVObjects\Generic\Date\Date
      * @Type("elevate\HVObjects\Generic\Date\Date")
      */
     protected $date;
