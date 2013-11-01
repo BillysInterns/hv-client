@@ -38,4 +38,12 @@ class CodedValue
      */
     protected $versions;
 
+    public function __construct($value, $type, array $families = array(), array $versions = array())
+    {
+        $this->value = $value;
+        $this->type = $type;
+        $this->families = $families;
+        $this->versions = $versions;
+    }
+
 }
