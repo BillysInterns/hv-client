@@ -1,7 +1,7 @@
 <?php
 
 
-namespace elevate\HVObjects\GenericTypes;
+namespace elevate\HVObjects\Generic;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
