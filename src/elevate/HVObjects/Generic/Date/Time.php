@@ -39,4 +39,69 @@ class Time {
      */
     protected $milliseconds;
 
+    /**
+     * @param mixed $hour
+     */
+    public function setHour($hour)
+    {
+        $this->hour = $hour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHour()
+    {
+        return $this->hour;
+    }
+
+    /**
+     * @param mixed $milliseconds
+     */
+    public function setMilliseconds($milliseconds)
+    {
+        $this->milliseconds = $milliseconds;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMilliseconds()
+    {
+        return $this->milliseconds;
+    }
+
+    /**
+     * @param mixed $second
+     */
+    public function setSecond($second)
+    {
+        $this->second = $second;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSecond()
+    {
+        return $this->second;
+    }
+
+    /**
+     * @param mixed $minute
+     */
+    public function setMinute($minute)
+    {
+        $this->minute = $minute;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMinute()
+    {
+        return $this->minute;
+    }
+
+
 }
