@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<common>
+      <note><![CDATA[Note]]></note>
+      <source><![CDATA[A Source]]></source>
+      <tags><![CDATA[health, vault, microsoft]]></tags>
+      <related-thing><![CDATA[43252-432752-2342378421-473842]]></related-thing>
+      <client-thing-id><![CDATA[3323-43242-4324234-43242]]></client-thing-id>
+      <extension><![CDATA[<extra><tag1>Something</tag1><tag2>Another Tag</tag2></extra>]]></extension>
+</common>

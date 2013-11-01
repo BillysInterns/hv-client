@@ -26,37 +26,13 @@ class DateTime {
     protected $time;
 
     /**
-     * @param mixed $date
+     * @param $date
+     * @param $time
      */
-    public function setDate($date)
+    public function __construct($date, $time)
     {
         $this->date = $date;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param mixed $time
-     */
-    public function setTime($time)
-    {
         $this->time = $time;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getTime()
-    {
-        return $this->time;
-    }
-
-
 
 }

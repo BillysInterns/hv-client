@@ -34,52 +34,19 @@ class Date {
     protected $day;
 
     /**
-     * @param mixed $day
+     * @param $year
+     * @param $month
+     * @param $day
      */
-    public function setDay($day)
-    {
-        $this->day = $day;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDay()
-    {
-        return $this->day;
-    }
-
-    /**
-     * @param mixed $month
-     */
-    public function setMonth($month)
-    {
-        $this->month = $month;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMonth()
-    {
-        return $this->month;
-    }
-
-    /**
-     * @param mixed $year
-     */
-    public function setYear($year)
+    public function __construct(
+        $year,
+        $month,
+        $day
+    )
     {
         $this->year = $year;
+        $this->month = $month;
+        $this->day = $day;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getYear()
-    {
-        return $this->year;
-    }
-
 
 }

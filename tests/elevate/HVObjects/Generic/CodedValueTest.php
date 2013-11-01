@@ -11,28 +11,12 @@ class CodedValueTest extends BaseObjectTest
 
     private $codedValue;
 
-    private $xmlString;
-
     public function setUp()
     {
         parent::setUp();
+        $this->sampleXMLPath = __DIR__ . '/../SampleXML/Generic/CodedValue.xml';
         $this->codedValue = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
         $this->xmlString = $this->serializer->serialize($this->codedValue, 'xml');
-    }
-
-    public function testSerialize()
-    {
-        $this->assertXmlStringEqualsXmlString(
-            '<?xml version="1.0" encoding="UTF-8"?>
-            <result>
-            <value><![CDATA[5]]></value>
-            <family><![CDATA[Test Suite]]></family>
-            <type><![CDATA[Value Test]]></type>
-            <version><![CDATA[Version 4]]></version>
-            </result>',
-            $this->xmlString
-        );
-
     }
 
     public function testDeserialize()
