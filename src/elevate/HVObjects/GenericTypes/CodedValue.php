@@ -3,6 +3,8 @@
 
 namespace elevate\HVObjects\GenericTypes;
 
+require_once('vendor/autoload.php');
+
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -37,5 +39,13 @@ class CodedValue
      * @Type("array<string>")
      */
     protected $versions;
+
+    public function __construct($value, $type, array $families = array(), array $versions = array())
+    {
+        $this->value = $value;
+        $this->type = $type;
+        $this->families = $families;
+        $this->versions = $versions;
+    }
 
 }
