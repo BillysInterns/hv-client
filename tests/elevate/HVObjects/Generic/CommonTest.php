@@ -27,11 +27,13 @@ class CommonTest extends BaseObjectTest
         $this->xmlString = $this->serializer->serialize($this->common, 'xml');
     }
 
-
-
     public function testDeserialize()
     {
+        $common = $this->serializer->deserialize(
+            $this->xmlString, 'elevate\HVObjects\Generic\Common', 'xml'
+        );
 
+        $this->assertEquals($this->common, $common);
     }
 }
  
