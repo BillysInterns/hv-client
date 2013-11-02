@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @author troussos
+ */
 
 namespace elevate\HVObjects\Generic;
 

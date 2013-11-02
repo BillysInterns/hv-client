@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author arkzero
+ */
+
 namespace elevate\HVObjects\Thing\DataXML;
 
 use JMS\Serializer\Annotation\Type;
@@ -22,27 +26,5 @@ class Condition extends DataXML
      * @Type("elevate\HVObjects\Thing\Type\Condition")
      * @SerializedName("condition")
      */
-<<<<<<< HEAD
     protected $condition;
-=======
-    protected $question;
-
-    /**
-     * @return mixed
-     */
-    public function getQuestion()
-    {
-        return $this->question;
-    }
-
-    /**
-     * @param mixed $question
-     */
-    public function setQuestion($question)
-    {
-        $this->question = $question;
-    }
-
-
->>>>>>> 70813b0d0e5ed300c26949da64dc9aad669fe904
 }

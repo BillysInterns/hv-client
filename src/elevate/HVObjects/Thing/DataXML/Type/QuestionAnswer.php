@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @author ofields
+ */
 
 namespace elevate\HVObjects\Thing\DataXML\Type;
 

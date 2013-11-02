@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author troussos
+ */
+
 namespace elevate\HVObjects\Generic\Date;
 
 use JMS\Serializer\Annotation\Type;

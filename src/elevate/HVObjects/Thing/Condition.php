@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author arkzero
+ */
+
 namespace elevate\HVObjects\Thing;
 
 use JMS\Serializer\Annotation\XmlRoot;

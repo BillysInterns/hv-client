@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author troussos
+ */
+
 namespace elevate\test\HVObjects\Thing\DataXML\Type;
 
 use elevate\test\HVObjects\BaseObjectTest;

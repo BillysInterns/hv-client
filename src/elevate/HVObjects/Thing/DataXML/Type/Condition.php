@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author arkzero
+ */
 
 namespace elevate\HVObjects\Thing\DataXML\Type;
 
@@ -16,17 +19,12 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 
 
-<<<<<<< HEAD
-/** @XmlRoot("condition") */
-class Condition{
-=======
 /** @XmlRoot("common") */
 class Condition
 {
->>>>>>> 70813b0d0e5ed300c26949da64dc9aad669fe904
 
     /**
-     * @Type("elevate\HVObjects\Generic\CodableValue")
+     * @Type("elevate\HVObjects\GenericTypes\CodableValue")
      * @SerializedName("name")
      */
     protected $name;
@@ -36,7 +34,7 @@ class Condition
      */
     protected $onsetDate;
     /**
-     * @Type("elevate\HVObjects\Generic\CodableValue")
+     * @Type("elevate\HVObjects\GenericTypes\CodableValue")
      * SerializedName("status")
      */
     protected $status;
@@ -58,7 +56,7 @@ class Condition
      * @param DateTime     $stopDate
      * @param null         $stopReason
      */
-    function __construct(
+    public function __construct(
         CodableValue $name = NULL,
         DateTime $onsetDate = NULL,
         CodableValue $status = NULL,

@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @author ofields
+ */
+
 namespace elevate\HVObjects\Thing\DataXML;
 
 use JMS\Serializer\Annotation\Type;

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author troussos
+ */
+
 namespace elevate;
 
 use biologis\HV\HVRawConnector;
