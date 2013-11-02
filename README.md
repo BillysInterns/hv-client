@@ -1,5 +1,6 @@
 HVClientLibPHP
 ==============
+[![Build Status](https://travis-ci.org/BillysInterns/hv-client.png?branch=master)](https://travis-ci.org/BillysInterns/hv-client)
 
 An easy to use PHP library to connect to
 [Microsoft® HealthVault™](https://www.healthvault.com/)
