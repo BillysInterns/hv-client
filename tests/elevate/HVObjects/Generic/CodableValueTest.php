@@ -14,10 +14,10 @@ class CodableValueTest extends BaseObjectTest
 
     public static function setUpBeforeClass()
     {
-        CodableValueTest::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/CodableValue.xml';
-        CodableValueTest::$objectNamespace = 'elevate\HVObjects\Generic\CodableValue';
-        $codedValue                        = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
-        CodableValueTest::$testObject      = new CodableValue('Code', array($codedValue));
+        self::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/CodableValue.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Generic\CodableValue';
+        $codedValue            = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
+        self::$testObject      = new CodableValue('Code', array($codedValue));
         parent::setUpBeforeClass();
     }
 }

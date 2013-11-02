@@ -14,9 +14,9 @@ class TimeTest extends BaseObjectTest
 
     public static function setUpBeforeClass()
     {
-        TimeTest::$sampleXMLPath   = __DIR__ . '/../../SampleXML/Generic/Date/Time.xml';
-        TimeTest::$objectNamespace = 'elevate\HVObjects\Generic\Date\Time';
-        TimeTest::$testObject      = new Time('12', '20', '45');
+        self::$sampleXMLPath   = __DIR__ . '/../../SampleXML/Generic/Date/Time.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Generic\Date\Time';
+        self::$testObject      = new Time('12', '20', '45');
         parent::setUpBeforeClass();
     }
 }

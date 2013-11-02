@@ -9,37 +9,44 @@ namespace elevate\test\HVObjects;
 abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
 {
     protected static $serializer;
-    protected static $sampleXMLPath;
+    protected static $sampleXMLPath = null;
     protected static $xmlString;
-    protected static $testObject;
-    protected static $objectNamespace;
+    protected static $testObject = null;
+    protected static $objectNamespace = null;
 
     public function testSerialize()
     {
         $this->assertXmlStringEqualsXmlFile(
-            BaseObjectTest::$sampleXMLPath,
-            BaseObjectTest::$xmlString
+            self::$sampleXMLPath,
+            self::$xmlString
         );
     }
 
     public function testDeserialize()
     {
-        $object = BaseObjectTest::$serializer->deserialize(
-            BaseObjectTest::$xmlString, BaseObjectTest::$objectNamespace, 'xml'
+        $object = self::$serializer->deserialize(
+            self::$xmlString, self::$objectNamespace, 'xml'
         );
 
-        $this->assertEquals(BaseObjectTest::$testObject, $object);
+        $this->assertEquals(self::$testObject, $object);
     }
 
     public static function setUpBeforeClass()
     {
-        if(!isset(BaseObjectTest::$sampleXMLPath) || !isset(BaseObjectTest::$testObject) || !isset(BaseObjectTest::$objectNamespace))
+        if(is_null(self::$sampleXMLPath) || is_null(self::$testObject) || is_null(self::$objectNamespace))
         {
             throw new HVUnitTestBaseParameterNotDefinedException();
         }
 
-        BaseObjectTest::$serializer = \JMS\Serializer\SerializerBuilder::create()->build();
-        BaseObjectTest::$xmlString  = BaseObjectTest::$serializer->serialize(BaseObjectTest::$testObject, 'xml');
+        self::$serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        self::$xmlString  = self::$serializer->serialize(self::$testObject, 'xml');
+    }
+
+    public static function tearDownAfterClass()
+    {
+        self::$testObject = null;
+        self::$sampleXMLPath = null;
+        self::$objectNamespace = null;
     }
 }
 

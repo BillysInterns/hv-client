@@ -15,9 +15,9 @@ class CommonTest extends BaseObjectTest
 
     public static function setUpBeforeClass()
     {
-        CommonTest::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Common.xml';
-        CommonTest::$objectNamespace = 'elevate\HVObjects\Generic\Common';
-        CommonTest::$testObject      = new Common(
+        self::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Common.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Generic\Common';
+        self::$testObject      = new Common(
             'Note',
             'A Source',
             'health, vault, microsoft',

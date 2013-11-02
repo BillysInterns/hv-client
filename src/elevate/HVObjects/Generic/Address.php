@@ -16,7 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
-/** @XmlRoot("Address") */
+/** @XmlRoot("address") */
 class Address
 {
 

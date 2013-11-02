@@ -20,10 +20,10 @@
 
     public static function setUpBeforeClass()
        {
-           CodableValue::$sampleXMLPath = __DIR__ . '/../SampleXML/Generic/CodableValue.xml';
-           CodableValue$objectNamespace = 'elevate\HVObjects\Generic\CodableValue';
+           self::$sampleXMLPath = __DIR__ . '/../SampleXML/Generic/CodableValue.xml';
+           self = 'elevate\HVObjects\Generic\CodableValue';
            $codedValue                  = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
-           CodableValue::$testObject    = new CodableValue('Code', array($codedValue));
+           self::$testObject    = new CodableValue('Code', array($codedValue));
            parent::setUpBeforeClass();
        }
 

@@ -14,9 +14,9 @@ class CodedValueTest extends BaseObjectTest
 
     public static function setUpBeforeClass()
     {
-        CodedValueTest::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/CodedValue.xml';
-        CodedValueTest::$objectNamespace = 'elevate\HVObjects\Generic\CodedValue';
-        CodedValueTest::$testObject      = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
+        self::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/CodedValue.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Generic\CodedValue';
+        self::$testObject      = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
         parent::setUpBeforeClass();
     }
 

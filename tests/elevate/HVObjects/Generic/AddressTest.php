@@ -13,9 +13,9 @@ class AddressTest extends BaseObjectTest
 
     public static function setUpBeforeClass()
     {
-        AddressTest::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Address.xml';
-        AddressTest::$objectNamespace = 'elevate\HVObjects\Generic\Address';
-        AddressTest::$testObject      = new Address(
+        self::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Address.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Generic\Address';
+        self::$testObject      = new Address(
             'New Address', '123 Fake Street', 'Seattle', 'WA', '94627', 'Washington', 'USA', FALSE
         );
         parent::setUpBeforeClass();
