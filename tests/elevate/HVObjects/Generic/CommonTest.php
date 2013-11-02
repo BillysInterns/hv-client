@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @author troussos
+ */
 
 namespace elevate\test\HVObjects\Generic;
 
@@ -10,13 +13,11 @@ use elevate\test\HVObjects\BaseObjectTest;
 class CommonTest extends BaseObjectTest
 {
 
-    private $common;
-
     public function setUp()
     {
-        parent::setUp();
-        $this->sampleXMLPath = __DIR__ . '/../SampleXML/Generic/Common.xml';
-        $this->common        = new Common(
+        $this->sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Common.xml';
+        $this->objectNamespace = 'elevate\HVObjects\Generic\Common';
+        $this->testObject      = new Common(
             'Note',
             'A Source',
             'health, vault, microsoft',
@@ -24,16 +25,8 @@ class CommonTest extends BaseObjectTest
             '3323-43242-4324234-43242',
             '<extra><tag1>Something</tag1><tag2>Another Tag</tag2></extra>'
         );
-        $this->xmlString     = $this->serializer->serialize($this->common, 'xml');
+        parent::setUp();
     }
 
-    public function testDeserialize()
-    {
-        $common = $this->serializer->deserialize(
-            $this->xmlString, 'elevate\HVObjects\Generic\Common', 'xml'
-        );
-
-        $this->assertEquals($this->common, $common);
-    }
 }
  

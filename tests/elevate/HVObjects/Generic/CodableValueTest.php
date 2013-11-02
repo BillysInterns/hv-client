@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @author troussos
+ */
 
 namespace elevate\test\HVObjects\Generic;
 
@@ -11,25 +13,12 @@ use elevate\test\HVObjects\BaseObjectTest;
 class CodableValueTest extends BaseObjectTest
 {
 
-    private $codedValue;
-    private $codableValue;
-
     public function setup()
     {
+        $this->sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/CodableValue.xml';
+        $this->objectNamespace = 'elevate\HVObjects\Generic\CodableValue';
+        $codedValue            = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
+        $this->testObject      = new CodableValue('Code', array($codedValue));
         parent::setUp();
-        $this->sampleXMLPath = __DIR__ . '/../SampleXML/Generic/CodableValue.xml';
-        $this->codedValue    = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
-        $this->codableValue  = new CodableValue('Code', array($this->codedValue));
-        $this->xmlString     = $this->serializer->serialize($this->codableValue, 'xml');
-    }
-
-    public function testDeserialize()
-    {
-        $codeableValue = $this->serializer->deserialize(
-            $this->xmlString, 'elevate\HVObjects\Generic\CodableValue', 'xml'
-        );
-
-        $this->assertEquals($this->codableValue, $codeableValue);
     }
 }
- 
