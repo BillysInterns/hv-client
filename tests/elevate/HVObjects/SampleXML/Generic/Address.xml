@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Address>
+    <description><![CDATA[New Address]]></description>
+    <is-primary>false</is-primary>
+    <street><![CDATA[123 Fake Street]]></street>
+    <city><![CDATA[Seattle]]></city>
+    <state><![CDATA[WA]]></state>
+    <postcode><![CDATA[94627]]></postcode>
+    <country><![CDATA[USA]]></country>
+    <county><![CDATA[Washington]]></county>
+</Address>
