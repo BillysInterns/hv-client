@@ -13,11 +13,11 @@ use elevate\test\HVObjects\BaseObjectTest;
 class CommonTest extends BaseObjectTest
 {
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Common.xml';
-        $this->objectNamespace = 'elevate\HVObjects\Generic\Common';
-        $this->testObject      = new Common(
+        CommonTest::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Common.xml';
+        CommonTest::$objectNamespace = 'elevate\HVObjects\Generic\Common';
+        CommonTest::$testObject      = new Common(
             'Note',
             'A Source',
             'health, vault, microsoft',
@@ -25,7 +25,7 @@ class CommonTest extends BaseObjectTest
             '3323-43242-4324234-43242',
             '<extra><tag1>Something</tag1><tag2>Another Tag</tag2></extra>'
         );
-        parent::setUp();
+        parent::setUpBeforeClass();
     }
 
 }

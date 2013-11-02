@@ -12,12 +12,12 @@ use elevate\test\HVObjects\BaseObjectTest;
 class TimeTest extends BaseObjectTest
 {
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->sampleXMLPath   = __DIR__ . '/../../SampleXML/Generic/Date/Time.xml';
-        $this->objectNamespace = 'elevate\HVObjects\Generic\Date\Time';
-        $this->testObject      = new Time('12', '20', '45');
-        parent::setup();
+        TimeTest::$sampleXMLPath   = __DIR__ . '/../../SampleXML/Generic/Date/Time.xml';
+        TimeTest::$objectNamespace = 'elevate\HVObjects\Generic\Date\Time';
+        TimeTest::$testObject      = new Time('12', '20', '45');
+        parent::setUpBeforeClass();
     }
 }
  

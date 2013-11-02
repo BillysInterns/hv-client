@@ -8,32 +8,47 @@ namespace elevate\test\HVObjects;
 
 abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
 {
-    protected $serializer;
-    protected $sampleXMLPath;
-    protected $xmlString;
-    protected $testObject;
-    protected $objectNamespace;
+    protected static $serializer;
+    protected static $sampleXMLPath;
+    protected static $xmlString;
+    protected static $testObject;
+    protected static $objectNamespace;
 
     public function testSerialize()
     {
         $this->assertXmlStringEqualsXmlFile(
-            $this->sampleXMLPath,
-            $this->xmlString
+            BaseObjectTest::$sampleXMLPath,
+            BaseObjectTest::$xmlString
         );
     }
 
     public function testDeserialize()
     {
-        $object = $this->serializer->deserialize(
-            $this->xmlString, $this->objectNamespace, 'xml'
+        $object = BaseObjectTest::$serializer->deserialize(
+            BaseObjectTest::$xmlString, BaseObjectTest::$objectNamespace, 'xml'
         );
 
-        $this->assertEquals($this->testObject, $object);
+        $this->assertEquals(BaseObjectTest::$testObject, $object);
     }
 
-    protected function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
-        $this->xmlString  = $this->serializer->serialize($this->testObject, 'xml');
+        if(!isset(BaseObjectTest::$sampleXMLPath) || !isset(BaseObjectTest::$testObject) || !isset(BaseObjectTest::$objectNamespace))
+        {
+            throw new HVUnitTestBaseParameterNotDefinedException();
+        }
+
+        BaseObjectTest::$serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        BaseObjectTest::$xmlString  = BaseObjectTest::$serializer->serialize(BaseObjectTest::$testObject, 'xml');
     }
+}
+
+class HVUnitTestException extends \Exception
+{
+
+}
+
+class HVUnitTestBaseParameterNotDefinedException extends HVUnitTestException
+{
+
 }

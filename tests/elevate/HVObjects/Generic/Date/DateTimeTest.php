@@ -13,14 +13,14 @@ use elevate\test\HVObjects\BaseObjectTest;
 class DateTimeTest extends BaseObjectTest
 {
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->sampleXMLPath = __DIR__ . '/../../SampleXML/Generic/Date/DateTime.xml';
-        $this->objectNamespace = 'elevate\HVObjects\Generic\Date\DateTime';
+        DateTimeTest::$sampleXMLPath = __DIR__ . '/../../SampleXML/Generic/Date/DateTime.xml';
+        DateTimeTest::$objectNamespace = 'elevate\HVObjects\Generic\Date\DateTime';
         $date = new Date('2013', '12', '25');
         $time = new Time('12', '30', '12');
-        $this->testObject = new DateTime($date, $time);
-        parent::setup();
+        DateTimeTest::$testObject = new DateTime($date, $time);
+        parent::setUpBeforeClass();
     }
 }
  
