@@ -2,6 +2,8 @@
 
 namespace elevate\HVObjects\Thing\DataXML\Type;
 
+use elevate\HVObjects\Generic\CodableValue;
+use elevate\HVObjects\Generic\Date\DateTime;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -43,4 +45,27 @@ class Condition
      * @SerializedName("stop-reason")
      */
     protected $stopReason;
+
+    /**
+     * @param CodableValue $name
+     * @param DateTime     $onsetDate
+     * @param CodableValue $status
+     * @param DateTime     $stopDate
+     * @param null         $stopReason
+     */
+    function __construct(
+        CodableValue $name = NULL,
+        DateTime $onsetDate = NULL,
+        CodableValue $status = NULL,
+        DateTime $stopDate = NULL,
+        $stopReason = NULL
+    )
+    {
+        $this->name       = $name;
+        $this->onsetDate  = $onsetDate;
+        $this->status     = $status;
+        $this->stopDate   = $stopDate;
+        $this->stopReason = $stopReason;
+    }
+
 }
