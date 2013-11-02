@@ -22,6 +22,9 @@ class Condition extends DataXML
      * @Type("elevate\HVObjects\Thing\Type\Condition")
      * @SerializedName("condition")
      */
+<<<<<<< HEAD
+    protected $condition;
+=======
     protected $question;
 
     /**
@@ -41,4 +44,5 @@ class Condition extends DataXML
     }
 
 
+>>>>>>> 70813b0d0e5ed300c26949da64dc9aad669fe904
 }

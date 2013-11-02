@@ -1,5 +1,8 @@
 HVClientLibPHP
 ==============
+[![Build Status](https://travis-ci.org/BillysInterns/hv-client.png?branch=master)](https://travis-ci.org/BillysInterns/hv-client)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/BillysInterns/hv-client/badges/quality-score.png?s=d2c0e29fd9992c71ac7dca6210198d42ac3ee52b)](https://scrutinizer-ci.com/g/BillysInterns/hv-client/)
+[![Code Coverage](https://scrutinizer-ci.com/g/BillysInterns/hv-client/badges/coverage.png?s=279553c6fd46e5797c5178fc1a920816695389c9)](https://scrutinizer-ci.com/g/BillysInterns/hv-client/)
 
 An easy to use PHP library to connect to
 [Microsoft® HealthVault™](https://www.healthvault.com/)

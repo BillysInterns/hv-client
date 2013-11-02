@@ -4,7 +4,8 @@ namespace elevate\test\HVObjects;
 
 use elevate\test\HVObjects\BaseObjectTest;
 
-class ConditionTest extends BaseObjectTest{
+class ConditionTest extends BaseObjectTest
+{
 
     public function setUp()
     {
