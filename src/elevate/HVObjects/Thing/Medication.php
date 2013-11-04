@@ -10,8 +10,8 @@ use JMS\Serializer\Annotation\XmlRoot;
 class Medication extends Thing
 {
     /**
-     * @var array elevate\HVObjects\Thing\DataXML\Medication
-     * @Type("elevate\HVObjects\Thing\DataXML\Medication")
+     * @var array elevate\HVObjects\Thing\DataXML\MedicationDataXML
+     * @Type("elevate\HVObjects\Thing\DataXML\MedicationDataXML")
      * @serializedName("data-xml")
      */
     protected $dataXML;
