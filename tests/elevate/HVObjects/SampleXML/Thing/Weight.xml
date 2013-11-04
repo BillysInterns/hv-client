@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <type-id><![CDATA[3d34d87e-7fc1-4153-800f-f56592cb0d17]]></type-id>
+    <data-xml>
+        <common>
+            <note><![CDATA[Weight Note 2]]></note>
+            <source><![CDATA[Weight Source 45]]></source>
+            <tags><![CDATA[tageone, weight, another tag]]></tags>
+        </common>
+        <weight>
+            <when>
+                <date>
+                    <y>7</y>
+                    <m>12</m>
+                    <d>2013</d>
+                </date>
+                <time>
+                    <h>10</h>
+                    <m>43</m>
+                    <s>12</s>
+                    <f>0</f>
+                </time>
+            </when>
+            <value>
+                <kg>45</kg>
+                <display><![CDATA[90]]></display>
+            </value>
+        </weight>
+    </data-xml>
+</thing>
