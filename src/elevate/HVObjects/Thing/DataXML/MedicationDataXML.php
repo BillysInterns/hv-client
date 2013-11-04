@@ -17,7 +17,7 @@ use game\XMLObjects\DataXML;
 use game\XMLObjects\Thing;
 
 /** @XmlRoot("data-xml") */
-class Medication extends DataXML
+class MedicationDataXML extends DataXML
 {
 
     /**

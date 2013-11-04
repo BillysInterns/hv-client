@@ -17,7 +17,7 @@ use game\XMLObjects\DataXML;
 use game\XMLObjects\Thing;
 
 /** @XmlRoot("medication") */
-class Medication
+class MedicationType
 {
     /**
      * @Type("elevate\HVObjects\Generic\CodableValue")
