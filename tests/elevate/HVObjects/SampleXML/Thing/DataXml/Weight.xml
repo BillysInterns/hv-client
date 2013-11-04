@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <common>
+        <note><![CDATA[Weight Note]]></note>
+        <source><![CDATA[Weight Source]]></source>
+        <tags><![CDATA[Weight, hv]]></tags>
+    </common>
+    <weight>
+        <when>
+            <date>
+                <y>10</y>
+                <m>12</m>
+                <d>2013</d>
+            </date>
+            <time>
+                <h>10</h>
+                <m>39</m>
+                <s>12</s>
+                <f>0</f>
+            </time>
+        </when>
+        <value>
+            <kg>34</kg>
+            <display><![CDATA[56]]></display>
+        </value>
+    </weight>
+</result>

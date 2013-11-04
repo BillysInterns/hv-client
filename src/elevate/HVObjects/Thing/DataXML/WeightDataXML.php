@@ -20,20 +20,20 @@ use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Generic\Common;
-use elevate\HVObjects\Thing\DataXML\Type\HeightType;
+use elevate\HVObjects\Thing\DataXML\Type\WeightType;
 
-class HeightDataXML extends DataXML
+class WeightDataXML extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\DataXML\Type\HeightType")
-     * @SerializedName("height")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\WeightType")
+     * @SerializedName("weight")
      */
-    protected $height;
+    protected $weight;
 
-    public function __construct(HeightType $height, Common $common = NULL)
+    public function __construct(WeightType $weight, Common $common = NULL)
     {
-        $this->height = $height;
+        $this->weight = $weight;
         parent::__construct($common);
     }
 }
