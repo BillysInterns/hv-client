@@ -3,7 +3,7 @@
  * Created by JetBrains PhpStorm.
  * User: bnissen
  * Date: 11/4/13
- * Time: 1:31 PM
+ * Time: 2:35 PM
  * To change this template use File | Settings | File Templates.
  */
 
@@ -17,14 +17,13 @@ use JMS\Serializer\Annotation\XmlList;
 
 use elevate\HVObjects\Thing\Thing;
 
-
 /** @XmlRoot("thing") */
-class SleepRelatedActivity extends Thing
+class SleepSession
 {
 
     /**
-     * @var array elevate\HVObjects\Thing\DataXML\SleepRelatedActivityDataXML
-     * @Type("elevate\HVObjects\Thing\DataXML\SleepRelatedActivity")
+     * @var array elevate\HVObjects\Thing\DataXML\SleepSessionDataXML
+     * @Type("elevate\HVObjects\Thing\DataXML\SleepSessionDataXml")
      * @serializedName("data-xml")
      */
     protected $dataXML;
@@ -44,7 +43,5 @@ class SleepRelatedActivity extends Thing
     {
         $this->dataXML = $dataXML;
     }
-
-
 
 }

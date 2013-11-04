@@ -24,7 +24,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
-/** @XmlRoot("common") */
+/** @XmlRoot("sleep-pm") */
 class SleepRelatedActivityType
 {
 
