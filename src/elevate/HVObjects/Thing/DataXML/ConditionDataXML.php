@@ -16,15 +16,24 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
+
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\Thing;
+use elevate\HVObjects\Generic\Common;
+use elevate\HVObjects\Thing\DataXML\Type\ConditionType;
 
-class Condition extends DataXML
+class ConditionDataXML extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\Type\Condition")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\ConditionType")
      * @SerializedName("condition")
      */
     protected $condition;
+
+    public function __construct(\elevate\HVObjects\Thing\DataXML\Type\ConditionType $condition, Common $common = NULL)
+    {
+        $this->condition = $condition;
+        parent::__construct($common);
+    }
 }
