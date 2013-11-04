@@ -20,6 +20,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
+use elevate\HVObjects\Generic\Date\StructuredApproxDate;
+
 /** @XmlRoot("approx-date-time") */
 class ApproxDateTime
 {
@@ -40,7 +42,7 @@ class ApproxDateTime
      * @param $structured
      * @param $descriptive
      */
-    public function __construct( $structured, $descriptive )
+    public function __construct(StructuredApproxDate $structured, $descriptive )
     {
         $this->structured = $structured;
         $this->descriptive = $descriptive;
