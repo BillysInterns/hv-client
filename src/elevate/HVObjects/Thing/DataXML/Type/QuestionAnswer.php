@@ -9,12 +9,6 @@ use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
-use JMS\Serializer\Annotation\Groups;
-use Doctrine\Common\Collections\ArrayCollection;
-use PhpCollection\Map;
-use PhpCollection\Sequence;
-use game\XMLObjects\DataXML;
-use game\XMLObjects\Thing;
 
 /** @XmlRoot("question-answer") */
 class QuestionAnswer {

@@ -12,7 +12,7 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use elevate\HVObjects\DataXML;
+use elevate\HVObjects\Generic\DataXML;
 
 /** @XmlRoot("thing") */
 class Thing {
@@ -49,13 +49,9 @@ class Thing {
 
     /**
      * @var array elevate\HVObjects\DataXML\DataXML
-     * @Type("game\XMLObjects\DataXML")
+     * @Type("elevate\HVObjects\Generic\DataXML")
      * @serializedName("data-xml")
      */
     protected $dataXML;
-
-
-
-
 
 }

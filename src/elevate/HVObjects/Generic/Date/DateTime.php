@@ -11,6 +11,7 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
+use elevate\HVObjects\Generic\Date\Date;
 
 class DateTime {
 
