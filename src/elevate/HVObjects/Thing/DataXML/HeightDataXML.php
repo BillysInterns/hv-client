@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author arkzero
+ * @author troussos
  */
 
 namespace elevate\HVObjects\Thing\DataXML;
@@ -20,20 +20,20 @@ use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Generic\Common;
-use elevate\HVObjects\Thing\DataXML\Type\ConditionType;
+use elevate\HVObjects\Thing\DataXML\Type\HeightType;
 
-class ConditionDataXML extends DataXML
+class HeightDataXML extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\DataXML\Type\ConditionType")
-     * @SerializedName("condition")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\HeightType")
+     * @SerializedName("height")
      */
-    protected $condition;
+    protected $height;
 
-    public function __construct(ConditionType $condition, Common $common = NULL)
+    public function __construct(\elevate\HVObjects\Thing\DataXML\Type\HeightType $height, Common $common = NULL)
     {
-        $this->condition = $condition;
+        $this->height = $height;
         parent::__construct($common);
     }
 }
