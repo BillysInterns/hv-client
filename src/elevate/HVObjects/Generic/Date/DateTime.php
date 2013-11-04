@@ -16,6 +16,7 @@ use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Generic\Date\Date;
+use elevate\HVObjects\Generic\Date\Time;
 
 class DateTime {
 
@@ -34,7 +35,7 @@ class DateTime {
      * @param $date
      * @param $time
      */
-    public function __construct($date, $time)
+    public function __construct(Date $date, Time $time)
     {
         $this->date = $date;
         $this->time = $time;
