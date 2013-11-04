@@ -17,7 +17,7 @@ use PhpCollection\Sequence;
 
 
 /** @XmlRoot("allergy") */
-class Allergy
+class AllergyType
 {
 
     /**

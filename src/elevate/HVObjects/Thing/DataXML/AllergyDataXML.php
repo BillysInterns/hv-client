@@ -6,7 +6,7 @@
 namespace elevate\HVObjects\Thing\DataXML;
 
 
-class Allergy extends DataXML{
+class AllergyDataXML extends DataXML{
 
     /**
      * @Type("elevate\HVObjects\Thing\Type\Allergy")
