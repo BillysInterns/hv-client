@@ -26,7 +26,7 @@ use elevate\HVObjects\Generic\Date\DateTime;
 class Activity
 {
     /**
-     * @Type("elevate\HVObjects\GenericTypes\DateTime")
+     * @Type("elevate\HVObjects\Generic\Date\DateTime")
      */
     protected $when;
 
@@ -36,7 +36,7 @@ class Activity
     protected $minutes;
 
     function __construct(
-        Time $when,
+        DateTime $when,
         $minutes
     )
     {
