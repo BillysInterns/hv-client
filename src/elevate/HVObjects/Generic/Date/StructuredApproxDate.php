@@ -6,7 +6,7 @@
  * Time: 10:02 AM
  */
 
-namespace elevate\HVObjects\Generic;
+namespace elevate\HVObjects\Generic\Date;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -23,7 +23,7 @@ use PhpCollection\Sequence;
 class StructuredApproxDate {
 
     /**
-     * @Type("elevate\HVObjects\Generic\ApproxDate")
+     * @Type("elevate\HVObjects\Generic\Date\ApproxDate")
      * @SerializedName("date")
      */
     protected $date;
@@ -39,4 +39,11 @@ class StructuredApproxDate {
      * @SerializedName("tz")
      */
     protected $tz;
+
+    public function __construct( $date, $time, $tz )
+    {
+        $this->date = $date;
+        $this->time = $time;
+        $this->tz = $tz;
+    }
 } 
