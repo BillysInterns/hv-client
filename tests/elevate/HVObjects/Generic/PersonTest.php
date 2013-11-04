@@ -25,7 +25,7 @@ class PersonTest extends BaseObjectTest
         $title = new CodableValue("Dr.", array($titleCoded));
 
         $suffixCode = new CodedValue('9', 'Suffix', array('Suffix'), array('Version 1'));
-        $suffix = new CodedValue('IX', array($suffixCode));
+        $suffix = new CodableValue('IX', array($suffixCode));
 
         $name = new Name(
             'Dr. Billy D Intern IX', $title, 'Billy', 'D', 'Intern', $suffix

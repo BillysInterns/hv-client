@@ -57,7 +57,7 @@ class Person
      */
     protected $type;
 
-    function __construct($name, $organization, $professionalTraining, $id, $contact, $type)
+    function __construct(Name $name, $organization, $professionalTraining, $id, Contact $contact, CodableValue $type)
     {
         $this->name = $name;
         $this->organization = $organization;

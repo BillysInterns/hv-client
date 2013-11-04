@@ -64,7 +64,7 @@ class Name
      * @param $suffix
      * @param $title
      */
-    function __construct($full, $title, $first, $middle, $last,  $suffix)
+    function __construct($full, CodableValue $title, $first, $middle, $last, CodableValue $suffix)
     {
         $this->full = $full;
         $this->title = $title;
