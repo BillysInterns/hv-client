@@ -31,6 +31,11 @@ abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(self::$testObject, $object);
     }
 
+
+    /**
+     * @covers self::__construct
+     * @throws HVUnitTestBaseParameterNotDefinedException
+     */
     public static function setUpBeforeClass()
     {
         if(is_null(self::$sampleXMLPath) || is_null(self::$testObject) || is_null(self::$objectNamespace))
