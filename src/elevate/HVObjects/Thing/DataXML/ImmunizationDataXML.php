@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: sumit
+ * Date: 11/4/13
+ * Time: 2:57 PM
+ */
 
 namespace elevate\HVObjects\Thing\DataXML;
 
@@ -17,13 +22,11 @@ use game\XMLObjects\DataXML;
 use game\XMLObjects\Thing;
 
 /** @XmlRoot("data-xml") */
-class MedicationDataXML extends DataXML
+class ImmunizationDataXML extends DataXML
 {
-
     /**
      * @Type("elevate\HVObjects\Thing\Type\MedicationType")
-     * @SerializedName("medication")
+     * @SerializedName("immunization")
      */
-    protected $medication;
-
-}
+    protected $immunization;
+} 
