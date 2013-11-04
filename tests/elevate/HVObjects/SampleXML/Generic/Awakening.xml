@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<awakening>
+    <when>
+        <date>
+            <y>1991</y>
+            <m>2</m>
+            <d>4</d>
+        </date>
+        <time>
+            <h>4</h>
+            <m>20</m>
+            <s>28</s>
+            <f>9</f>
+        </time>
+    </when>
+    <minutes><![CDATA[10]]></minutes>
+</awakening>
