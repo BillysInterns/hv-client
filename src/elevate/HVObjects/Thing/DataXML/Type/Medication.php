@@ -36,7 +36,7 @@ class Medication
      * @SerializedName("dose")
      */
 
-    private $dose
+    private $dose;
 
     /**
      * @Type("elevate\HVObjects\Generic\GeneralMeasurement")
@@ -63,43 +63,27 @@ class Medication
     private $indication;
 
     /**
-     * @Type("elevate\HVObjects\Generic\GeneralMeasurement")
-     * @SerializedName("dose")
+     * @Type("elevate\HVObjects\Generic\ApproxDateTime")
+     * @SerializedName("date-started")
      */
-    private $amountPrescribed;
+    private $dateStarted;
 
-    private $doseValue;
+    /**
+     * @Type("elevate\HVObjects\Generic\ApproxDateTime")
+     * @SerializedName("date-discontinued")
+     */
+    private $dateDiscontinued;
 
-    private $doseUnit;
+    /**
+     * @Type("elevate\HVObjects\Generic\CodableValue")
+     * @SerializedName("prescribed")
+     */
+    private $prescribed;
 
-    private $strengthValue;
-
-    private $strengthUnit;
-
-    private $frequency;
-
-    private $route;
-
-    private $duration;
-
-    private $durationUnit;
-
-    private $refils;
-
-    private $refilsLeft;
-
-    private $daysSupply;
-
-    private $prescriptionDuration;
-
-    private $instructions;
-
-    private $substitutionPermitted;
-
-    private $pharmacy;
-
-    private $prescriptionNumber;
-
-
+    /**
+     * @Type("elevate\HVObjects\Generic\Prescription")
+     * @SerializedName("prescription")
+     */
+    private $prescription;
 
 }
