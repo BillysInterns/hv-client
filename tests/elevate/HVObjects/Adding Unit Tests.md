@@ -18,6 +18,7 @@
 
    Here is a sample setUpBeforeClass Method. It is quite simple, since the testObject dose not have any other objects netsted in it.
 
+    ```
     public static function setUpBeforeClass()
        {
            self::$sampleXMLPath = __DIR__ . '/../SampleXML/Generic/CodableValue.xml';
@@ -26,4 +27,4 @@
            self::$testObject    = new CodableValue('Code', array($codedValue));
            parent::setUpBeforeClass();
        }
-
+    ```
