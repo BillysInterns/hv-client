@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: sumit
- * Date: 11/4/13
- * Time: 12:46 AM
+ * @author palsumit
  */
 
 namespace elevate\HVObjects\Generic;
@@ -19,6 +16,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
+use elevate\HVObjects\Generic\CodableValue;
+
 /** @XmlRoot("structured-measurement") */
 class StructuredMeasurement {
 
@@ -30,9 +29,20 @@ class StructuredMeasurement {
     protected $value;
 
     /**
-     * @Type("elevate\HVObjects\Generic\CodableValue"")
+     * @Type("elevate\HVObjects\Generic\CodableValue")
      * @SerializedName("units")
      */
     protected $units;
+
+    /**
+     * @param              $value
+     * @param CodableValue $units
+     */
+    public function __construct($value, CodableValue $units = NULL)
+    {
+        $this->units = $units;
+        $this->value = $value;
+    }
+
 
 } 

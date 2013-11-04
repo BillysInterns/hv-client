@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<structured-measurement>
+    <value>45</value>
+    <units>
+        <text><![CDATA[Units]]></text>
+        <code>
+            <value><![CDATA[Generic Unit]]></value>
+            <family><![CDATA[Unit Family]]></family>
+            <type><![CDATA[Unit Type]]></type>
+            <version><![CDATA[Version 1]]></version>
+        </code>
+    </units>
+</structured-measurement>
