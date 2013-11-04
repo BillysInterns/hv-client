@@ -1,21 +1,61 @@
 <?php
 
+/**
+ * @author troussos
+ */
 
 namespace elevate\test\HVObjects;
 
-require_once('autoload.php');
-
-class BaseObjectTest extends \PHPUnit_Framework_TestCase
+abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
 {
-    protected $serializer;
+    protected static $serializer;
+    protected static $sampleXMLPath = null;
+    protected static $xmlString;
+    protected static $testObject = null;
+    protected static $objectNamespace = null;
 
-    protected function setUp()
+    public function testSerialize()
     {
-        $this->serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $this->assertXmlStringEqualsXmlFile(
+            self::$sampleXMLPath,
+            self::$xmlString
+        );
     }
 
-    public function testSetup()
+    public function testDeserialize()
     {
-        $this->assertNotNull($this->serializer);
+        $object = self::$serializer->deserialize(
+            self::$xmlString, self::$objectNamespace, 'xml'
+        );
+
+        $this->assertEquals(self::$testObject, $object);
     }
+
+    public static function setUpBeforeClass()
+    {
+        if(is_null(self::$sampleXMLPath) || is_null(self::$testObject) || is_null(self::$objectNamespace))
+        {
+            throw new HVUnitTestBaseParameterNotDefinedException();
+        }
+
+        self::$serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        self::$xmlString  = self::$serializer->serialize(self::$testObject, 'xml');
+    }
+
+    public static function tearDownAfterClass()
+    {
+        self::$testObject = null;
+        self::$sampleXMLPath = null;
+        self::$objectNamespace = null;
+    }
+}
+
+class HVUnitTestException extends \Exception
+{
+
+}
+
+class HVUnitTestBaseParameterNotDefinedException extends HVUnitTestException
+{
+
 }

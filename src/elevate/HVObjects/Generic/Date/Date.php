@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author troussos
+ */
+
 namespace elevate\HVObjects\Generic\Date;
 
 use JMS\Serializer\Annotation\Type;
@@ -32,5 +36,21 @@ class Date {
      * @SerializedName("d")
      */
     protected $day;
+
+    /**
+     * @param $year
+     * @param $month
+     * @param $day
+     */
+    public function __construct(
+        $year,
+        $month,
+        $day
+    )
+    {
+        $this->year = $year;
+        $this->month = $month;
+        $this->day = $day;
+    }
 
 }

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @author ofields
+ */
 
 namespace elevate\HVObjects\Thing;
 
@@ -12,7 +15,8 @@ use JMS\Serializer\Annotation\XmlList;
 use elevate\HVObjects\Thing\Thing;
 
 /** @XmlRoot("thing") */
-class QuestionAnswer extends Thing {
+class QuestionAnswer extends Thing
+{
 
     /**
      * @var array elevate\HVObjects\Thing\DataXML\QuestionAnswer

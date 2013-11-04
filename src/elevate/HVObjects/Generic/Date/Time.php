@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author troussos
+ */
+
 namespace elevate\HVObjects\Generic\Date;
 
 use JMS\Serializer\Annotation\Type;
@@ -38,5 +42,19 @@ class Time {
      * @SerializedName("f")
      */
     protected $milliseconds;
+
+    /**
+     * @param int $hour
+     * @param int $minute
+     * @param int $second
+     * @param int $milliseconds
+     */
+    function __construct($hour, $minute, $second, $milliseconds = 0)
+    {
+        $this->hour         = $hour;
+        $this->milliseconds = $milliseconds;
+        $this->minute       = $minute;
+        $this->second       = $second;
+    }
 
 }

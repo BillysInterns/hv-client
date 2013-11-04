@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author troussos
+ */
+
 namespace elevate\HVObjects\Generic\Date;
 
 use JMS\Serializer\Annotation\Type;
@@ -26,5 +30,14 @@ class DateTime {
      */
     protected $time;
 
+    /**
+     * @param $date
+     * @param $time
+     */
+    public function __construct($date, $time)
+    {
+        $this->date = $date;
+        $this->time = $time;
+    }
 
 }

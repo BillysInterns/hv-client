@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @author ofields
+ */
 
 namespace elevate\HVObjects\Thing\DataXML;
 
@@ -13,7 +16,6 @@ use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Generic\DataXML;
-
 
 /** @XmlRoot("data-xml") */
 class QuestionAnswer extends DataXML
