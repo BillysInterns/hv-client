@@ -29,27 +29,27 @@ class SleepRelatedActivityType
 {
 
     /**
-     * @Type("elevate\HVObjects\GenericTypes\DateTime")
+     * @Type("elevate\HVObjects\Generic\Date\DateTime")
      */
     protected $when;
 
     /**
-     * @Type("elevate\HVObjects\GenericTypes\Time")
+     * @Type("elevate\HVObjects\Generic\Date\Time")
      */
     protected $caffeine;
 
     /**
-     * @Type("elevate\HVObjects\GenericTypes\Time")
+     * @Type("elevate\HVObjects\Generic\Date\Time")
      */
     protected $alcohol;
 
     /**
-     * @Type("elevate\HVObjects\GenericTypes\Activity")
+     * @Type("elevate\HVObjects\Generic\Activity")
      */
     protected $nap;
 
     /**
-     * @Type("elevate\HVObjects\GenericTypes\Activity")
+     * @Type("elevate\HVObjects\Generic\Activity")
      */
     protected $exercise;
 
