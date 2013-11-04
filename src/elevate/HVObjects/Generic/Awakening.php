@@ -3,7 +3,7 @@
  * Created by JetBrains PhpStorm.
  * User: bnissen
  * Date: 11/4/13
- * Time: 1:52 PM
+ * Time: 2:51 PM
  * To change this template use File | Settings | File Templates.
  */
 
@@ -22,8 +22,8 @@ use PhpCollection\Sequence;
 
 use elevate\HVObjects\Generic\Date\DateTime;
 
-/** @XmlRoot("activiy") */
-class Activity
+/** @XmlRoot("awakening") */
+class Awakening
 {
     /**
      * @Type("elevate\HVObjects\Generic\Date\DateTime")
@@ -43,4 +43,5 @@ class Activity
         $this->minutes = $minutes;
         $this->when = $when;
     }
+}
 }
