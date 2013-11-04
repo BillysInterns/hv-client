@@ -14,7 +14,7 @@ class SleepRelatedActivity extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\Type\Condition")
+     * @Type("elevate\HVObjects\Thing\Type\SleepRelatedActivityType")
      * @Serialized("sleep-pm")
      */
     protected $sleepRelatedActivity;
