@@ -44,4 +44,3 @@ class Awakening
         $this->when = $when;
     }
 }
-}
