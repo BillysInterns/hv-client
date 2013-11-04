@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <when>
+        <date>
+            <y>2013</y>
+            <m>8</m>
+            <d>27</d>
+        </date>
+        <time>
+            <h>12</h>
+            <m>23</m>
+            <s>45</s>
+            <f>0</f>
+        </time>
+    </when>
+    <value>
+        <kg>20</kg>
+        <display><![CDATA[50]]></display>
+    </value>
+</result>
