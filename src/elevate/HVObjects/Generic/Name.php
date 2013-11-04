@@ -56,4 +56,24 @@ class Name
      */
     protected $suffix;
 
+    /**
+     * @param $first
+     * @param $full
+     * @param $last
+     * @param $middle
+     * @param $suffix
+     * @param $title
+     */
+    function __construct($full, $title, $first, $middle, $last,  $suffix)
+    {
+        $this->full = $full;
+        $this->title = $title;
+        $this->first = $first;
+        $this->middle = $middle;
+        $this->last = $last;
+        $this->suffix = $suffix;
+
+    }
+
+
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phone>
+    <description><![CDATA[New Phone]]></description>
+    <is-primary>true</is-primary>
+    <number><![CDATA[555-555-5555]]></number>
+</phone>

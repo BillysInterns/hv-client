@@ -57,4 +57,15 @@ class Person
      */
     protected $type;
 
+    function __construct($name, $organization, $professionalTraining, $id, $contact, $type)
+    {
+        $this->name = $name;
+        $this->organization = $organization;
+        $this->professionalTraining = $professionalTraining;
+        $this->id = $id;
+        $this->contact = $contact;
+        $this->type = $type;
+    }
+
+
 }

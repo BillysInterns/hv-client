@@ -17,7 +17,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
-/** @XmlRoot("allergy") */
+/** @XmlRoot("contact") */
 class Contact
 {
 
@@ -38,5 +38,13 @@ class Contact
      * @SerializedName("email")
      */
     protected $email;
+
+    function __construct($address, $email, $phone)
+    {
+        $this->address = $address;
+        $this->email = $email;
+        $this->phone = $phone;
+    }
+
 
 }

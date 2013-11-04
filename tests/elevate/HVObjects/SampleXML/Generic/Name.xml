@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <full><![CDATA[Dr. Billy D Intern IX]]></full>
+    <title>
+        <text><![CDATA[Dr.]]></text>
+        <code>
+            <value><![CDATA[1337]]></value>
+            <family><![CDATA[Title]]></family>
+            <type><![CDATA[Title]]></type>
+            <version><![CDATA[Version 117]]></version>
+        </code>
+    </title>
+    <first><![CDATA[Billy]]></first>
+    <middle><![CDATA[D]]></middle>
+    <last><![CDATA[Intern]]></last>
+    <suffix>
+        <text><![CDATA[IX]]></text>
+        <code>
+            <value><![CDATA[9]]></value>
+            <family><![CDATA[Suffix]]></family>
+            <type><![CDATA[Suffix]]></type>
+            <version><![CDATA[Version 1]]></version>
+        </code>
+    </suffix>
+</result>

@@ -27,6 +27,7 @@ class Phone
 
     /**
      * @Type("boolean")
+     * @SerializedName("is-primary")
      */
     protected $isPrimary;
 
@@ -34,5 +35,17 @@ class Phone
      * @Type("string")
      */
     protected $number;
+
+    /**
+     * @param $description
+     * @param $isPrimary
+     * @param $number
+     */
+    function __construct($description, $isPrimary, $number)
+    {
+        $this->description = $description;
+        $this->isPrimary = $isPrimary;
+        $this->number = $number;
+    }
 
 }
