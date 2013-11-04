@@ -16,6 +16,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlList;
 
 use elevate\HVObjects\Thing\Thing;
+use elevate\TypeTranslator;
 
 
 /** @XmlRoot("thing") */
@@ -24,10 +25,16 @@ class SleepRelatedActivity extends Thing
 
     /**
      * @var array elevate\HVObjects\Thing\DataXML\SleepRelatedActivityDataXML
-     * @Type("elevate\HVObjects\Thing\DataXML\SleepRelatedActivity")
+     * @Type("elevate\HVObjects\Thing\DataXML\SleepRelatedActivityDataXML")
      * @serializedName("data-xml")
      */
     protected $dataXML;
+
+    function __construct($dataXML)
+    {
+        $typeID = TypeTranslator::lookupTypeID('Sleep Related Activity');
+        parent::__construct($dataXML,$typeID);
+    }
 
     /**
      * @return array

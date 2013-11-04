@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <common>
+        <note><![CDATA[Sleep Related Activity Note]]></note>
+        <source><![CDATA[Unit Test]]></source>
+        <tags><![CDATA[Some tags]]></tags>
+        <related-thing><![CDATA[Somethign Related]]></related-thing>
+    </common>
+    <sleep-pm>
+        <when>
+            <date>
+                <y>2013</y>
+                <m>6</m>
+                <d>20</d>
+            </date>
+            <time>
+                <h>5</h>
+                <m>16</m>
+                <s>50</s>
+                <f>23</f>
+            </time>
+        </when>
+        <caffeine>
+            <h>5</h>
+            <m>16</m>
+            <s>50</s>
+            <f>23</f>
+        </caffeine>
+        <alcohol>
+            <h>5</h>
+            <m>16</m>
+            <s>50</s>
+            <f>23</f>
+        </alcohol>
+        <nap>
+            <when>
+                <date>
+                    <y>2013</y>
+                    <m>6</m>
+                    <d>20</d>
+                </date>
+                <time>
+                    <h>5</h>
+                    <m>16</m>
+                    <s>50</s>
+                    <f>23</f>
+                </time>
+            </when>
+            <minutes><![CDATA[10]]></minutes>
+        </nap>
+        <exercise>
+            <when>
+                <date>
+                    <y>2013</y>
+                    <m>6</m>
+                    <d>20</d>
+                </date>
+                <time>
+                    <h>5</h>
+                    <m>16</m>
+                    <s>50</s>
+                    <f>23</f>
+                </time>
+            </when>
+            <minutes><![CDATA[10]]></minutes>
+        </exercise>
+        <sleepiness>3</sleepiness>
+    </sleep-pm>
+</result>

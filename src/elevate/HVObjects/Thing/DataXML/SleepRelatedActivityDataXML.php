@@ -9,13 +9,40 @@
 
 namespace elevate\HVObjects\Thing\DataXML;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\XmlMap;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\Groups;
+use Doctrine\Common\Collections\ArrayCollection;
+use PhpCollection\Map;
+use PhpCollection\Sequence;
 
-class SleepRelatedActivity extends DataXML
+use elevate\HVObjects\Thing\DataXML\DataXML;
+use elevate\HVObjects\Thing\Thing;
+
+use elevate\HVObjects\Thing\DataXML\Type\SleepRelatedActivityType;
+use elevate\HVObjects\Generic\Common;
+
+class SleepRelatedActivityDataXml extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\Type\SleepRelatedActivityType")
-     * @Serialized("sleep-pm")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\SleepRelatedActivityType")
+     * @SerializedName("sleep-pm")
      */
     protected $sleepRelatedActivity;
+
+    function __construct(
+        SleepRelatedActivityType $sleepRelatedActivity,
+        Common $common
+    )
+    {
+        $this->sleepRelatedActivity = $sleepRelatedActivity;
+        parent::__construct($common);
+    }
+
+
 }
