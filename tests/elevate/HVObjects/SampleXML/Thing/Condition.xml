@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <type-id><![CDATA[7ea7a1f9-880b-4bd4-b593-f5660f20eda8]]></type-id>
+    <data-xml>
+        <common>
+            <note><![CDATA[Condition Note]]></note>
+            <source><![CDATA[Condtion Test]]></source>
+            <tags><![CDATA[Some tags]]></tags>
+            <related-thing><![CDATA[Somethign Related]]></related-thing>
+        </common>
+        <condition>
+            <name>
+                <text><![CDATA[Skin Failure]]></text>
+                <code>
+                    <value><![CDATA[154]]></value>
+                    <family><![CDATA[Illness Issues]]></family>
+                    <type><![CDATA[Illness]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </name>
+            <onset-date>
+                <date>
+                    <y>2013</y>
+                    <m>11</m>
+                    <d>15</d>
+                </date>
+                <time>
+                    <h>12</h>
+                    <m>30</m>
+                    <s>44</s>
+                    <f>0</f>
+                </time>
+            </onset-date>
+            <status>
+                <text><![CDATA[Failed]]></text>
+                <code>
+                    <value><![CDATA[75]]></value>
+                    <family><![CDATA[illness status]]></family>
+                    <type><![CDATA[success/failure]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </status>
+            <stop-date>
+                <date>
+                    <y>2013</y>
+                    <m>11</m>
+                    <d>16</d>
+                </date>
+                <time>
+                    <h>10</h>
+                    <m>23</m>
+                    <s>11</s>
+                    <f>0</f>
+                </time>
+            </stop-date>
+            <stop-reason><![CDATA[Grew Back]]></stop-reason>
+        </condition>
+    </data-xml>
+</thing>
+
