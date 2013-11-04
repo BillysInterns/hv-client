@@ -20,7 +20,7 @@ use PhpCollection\Sequence;
 
 
 /** @XmlRoot("condition") */
-class Condition
+class ConditionType
 {
 
     /**

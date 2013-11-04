@@ -30,7 +30,7 @@ class Thing {
 
     /**
      * @var string
-     * @Type("PhpCollection\Map<string,string>")
+     * @Type("string")
      * @XmlMap(keyAttribute = "name")
      * @SerializedName("type-id")
      */
@@ -56,5 +56,14 @@ class Thing {
      * @serializedName("data-xml")
      */
     protected $dataXML;
+
+    function __construct($dataXML, $type_id, $thing_id = NULL, $flags = NULL)
+    {
+        $this->dataXML  = $dataXML;
+        $this->flags    = $flags;
+        $this->thing_id = $thing_id;
+        $this->type_id  = $type_id;
+    }
+
 
 }

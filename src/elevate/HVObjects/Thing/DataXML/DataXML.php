@@ -17,12 +17,20 @@ use PhpCollection\Sequence;
 use elevate\HVObjects\Generic\Common;
 
 /** @XmlRoot("data-xml") */
-class DataXML
+abstract class DataXML
 {
 
     /**
      * @Type("elevate\HVObjects\Generic\Common")
      * @SerializedName("common")
      */
-    protected $common;
+    protected $common = NULL;
+
+    /**
+     * @param Common $common
+     */
+    public function __construct(Common $common = NULL)
+    {
+        $this->common = $common;
+    }
 }
