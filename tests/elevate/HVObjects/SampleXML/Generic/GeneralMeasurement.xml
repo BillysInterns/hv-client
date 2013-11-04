@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<general-measurement>
+    <display><![CDATA[47 Pounds]]></display>
+    <structured>
+        <value>47</value>
+        <units>
+            <text><![CDATA[pounds]]></text>
+            <code>
+                <value><![CDATA[lbs.]]></value>
+                <family><![CDATA[weight units]]></family>
+                <type><![CDATA[weight type]]></type>
+                <version><![CDATA[Version 1]]></version>
+            </code>
+        </units>
+    </structured>
+</general-measurement>
