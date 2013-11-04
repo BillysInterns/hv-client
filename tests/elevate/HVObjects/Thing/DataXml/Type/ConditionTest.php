@@ -17,12 +17,10 @@ use elevate\HVObjects\Generic\CodedValue;
 
 class ConditionTest extends BaseObjectTest{
 
-    private $condition;
-
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        parent::setUp();
-        $this->sampleXMLPath = __DIR__ . "/../../../SampleXML/Thing/DataXml/Type/Condition.xml";
+        self::$sampleXMLPath = __DIR__ . "/../../../SampleXML/Thing/DataXml/Type/Condition.xml";
+        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXml\Type\Condition';
 
         $nameCode = new CodedValue('154', 'Illness', array('Illness Issues'), array('Version 1'));
         $name = new CodableValue("Skin Failure", array($nameCode));
@@ -40,13 +38,8 @@ class ConditionTest extends BaseObjectTest{
 
         $stopReason = "Grew Back";
 
-        $this->condition = new Condition($name, $onsetDateTime, $status, $stopDateTime, $stopReason);
+        self::$testObject = new Condition($name, $onsetDateTime, $status, $stopDateTime, $stopReason);
 
-        $this->xmlString = $this->serializer->serialize($this->condition, 'xml');
-    }
-
-    public function testDeserialize()
-    {
-        print_r($this->xmlString);
+        parent::setUpBeforeClass();
     }
 }

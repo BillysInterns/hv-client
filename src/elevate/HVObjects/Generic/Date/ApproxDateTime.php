@@ -6,7 +6,7 @@
  * Time: 1:17 AM
  */
 
-namespace elevate\HVObjects\Generic;
+namespace elevate\HVObjects\Generic\Date;
 
 
 use JMS\Serializer\Annotation\Type;
@@ -21,11 +21,12 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 
 /** @XmlRoot("approx-date-time") */
-class ApproxDateTime {
+class ApproxDateTime
+{
 
     /**
-     * @Type("elevate\HVObjects\Generic\StructuredApproxDate")
-     * @SerializedName("structuredApproxDate")
+     * @Type("elevate\HVObjects\Generic\Date\StructuredApproxDate")
+     * @SerializedName("structured")
      */
     protected $structured;
 
@@ -34,5 +35,15 @@ class ApproxDateTime {
      * @SerializedName("descriptive")
      */
     protected $descriptive;
+
+    /**
+     * @param $structured
+     * @param $descriptive
+     */
+    public function __construct( $structured, $descriptive )
+    {
+        $this->structured = $structured;
+        $this->descriptive = $descriptive;
+    }
 
 } 

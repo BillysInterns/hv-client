@@ -1,11 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: sumit
- * Date: 11/4/13
- * Time: 12:42 AM
+ * @author palsumit
  */
-
 namespace elevate\HVObjects\Generic;
 
 use JMS\Serializer\Annotation\Type;

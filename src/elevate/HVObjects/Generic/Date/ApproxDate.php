@@ -41,6 +41,16 @@ class ApproxDate {
      */
     protected $d;
 
-
+    /**
+     * @param $y
+     * @param $m
+     * @param $d
+     */
+    public function __construct( $y, $m, $d )
+    {
+        $this->y = $y;
+        $this->m = $m;
+        $this->d = $d;
+    }
 
 } 
