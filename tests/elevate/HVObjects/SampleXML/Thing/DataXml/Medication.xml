@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-xml>
+    <common>
+        <note><![CDATA[Medication Note]]></note>
+        <source><![CDATA[Medication Source]]></source>
+        <tags><![CDATA[medicationTag]]></tags>
+    </common>
+    <medication>
+        <name>
+            <text><![CDATA[Some Medication]]></text>
+            <code>
+                <value><![CDATA[154]]></value>
+                <family><![CDATA[Some Medication]]></family>
+                <type><![CDATA[SomeMed]]></type>
+                <version><![CDATA[Version 1]]></version>
+            </code>
+        </name>
+        <generic-name>
+            <text><![CDATA[Some Generic Medication]]></text>
+            <code>
+                <value><![CDATA[154]]></value>
+                <family><![CDATA[Some Generic Medication]]></family>
+                <type><![CDATA[SomeGenMed]]></type>
+                <version><![CDATA[Version 1]]></version>
+            </code>
+        </generic-name>
+        <dose>
+            <display><![CDATA[47 Pounds]]></display>
+            <structured>
+                <value>47</value>
+                <units>
+                    <text><![CDATA[pounds]]></text>
+                    <code>
+                        <value><![CDATA[lbs.]]></value>
+                        <family><![CDATA[weight units]]></family>
+                        <type><![CDATA[weight type]]></type>
+                        <version><![CDATA[Version 1]]></version>
+                    </code>
+                </units>
+            </structured>
+        </dose>
+        <strength>
+            <display><![CDATA[47 Pounds]]></display>
+            <structured>
+                <value>47</value>
+                <units>
+                    <text><![CDATA[pounds]]></text>
+                    <code>
+                        <value><![CDATA[lbs.]]></value>
+                        <family><![CDATA[weight units]]></family>
+                        <type><![CDATA[weight type]]></type>
+                        <version><![CDATA[Version 1]]></version>
+                    </code>
+                </units>
+            </structured>
+        </strength>
+        <frequency>
+            <display><![CDATA[47 Pounds]]></display>
+            <structured>
+                <value>47</value>
+                <units>
+                    <text><![CDATA[pounds]]></text>
+                    <code>
+                        <value><![CDATA[lbs.]]></value>
+                        <family><![CDATA[weight units]]></family>
+                        <type><![CDATA[weight type]]></type>
+                        <version><![CDATA[Version 1]]></version>
+                    </code>
+                </units>
+            </structured>
+        </frequency>
+        <route>
+            <text><![CDATA[Route]]></text>
+            <code>
+                <value><![CDATA[154]]></value>
+                <family><![CDATA[Route]]></family>
+                <type><![CDATA[Route]]></type>
+                <version><![CDATA[Version 1]]></version>
+            </code>
+        </route>
+        <indication>
+            <text><![CDATA[Indication]]></text>
+            <code>
+                <value><![CDATA[154]]></value>
+                <family><![CDATA[Indication]]></family>
+                <type><![CDATA[Indication]]></type>
+                <version><![CDATA[Version 1]]></version>
+            </code>
+        </indication>
+        <date-started>
+            <structured>
+                <date>
+                    <y>2013</y>
+                    <m>12</m>
+                    <d>10</d>
+                </date>
+                <time>
+                    <h>12</h>
+                    <m>20</m>
+                    <s>45</s>
+                    <f>0</f>
+                </time>
+                <tz>
+                    <text><![CDATA[Code]]></text>
+                    <code>
+                        <value><![CDATA[5]]></value>
+                        <family><![CDATA[Test Suite]]></family>
+                        <type><![CDATA[Value Test]]></type>
+                        <version><![CDATA[Version 4]]></version>
+                    </code>
+                </tz>
+            </structured>
+            <descriptive><![CDATA[description]]></descriptive>
+        </date-started>
+        <date-discontinued>
+            <structured>
+                <date>
+                    <y>2013</y>
+                    <m>12</m>
+                    <d>25</d>
+                </date>
+                <time>
+                    <h>12</h>
+                    <m>20</m>
+                    <s>45</s>
+                    <f>0</f>
+                </time>
+                <tz>
+                    <text><![CDATA[Code]]></text>
+                    <code>
+                        <value><![CDATA[5]]></value>
+                        <family><![CDATA[Test Suite]]></family>
+                        <type><![CDATA[Value Test]]></type>
+                        <version><![CDATA[Version 4]]></version>
+                    </code>
+                </tz>
+            </structured>
+            <descriptive><![CDATA[description]]></descriptive>
+        </date-discontinued>
+        <prescribed>
+            <text><![CDATA[Prescribed]]></text>
+            <code>
+                <value><![CDATA[154]]></value>
+                <family><![CDATA[Prescribed]]></family>
+                <type><![CDATA[Prescribed]]></type>
+                <version><![CDATA[Version 1]]></version>
+            </code>
+        </prescribed>
+        <prescription>
+            <prescribed-by>
+                <name>
+                    <full><![CDATA[Dr. Billy D Intern IX]]></full>
+                    <title>
+                        <text><![CDATA[Dr.]]></text>
+                        <code>
+                            <value><![CDATA[1337]]></value>
+                            <family><![CDATA[Title]]></family>
+                            <type><![CDATA[Title]]></type>
+                            <version><![CDATA[Version 117]]></version>
+                        </code>
+                    </title>
+                    <first><![CDATA[Billy]]></first>
+                    <middle><![CDATA[D]]></middle>
+                    <last><![CDATA[Intern]]></last>
+                    <suffix>
+                        <text><![CDATA[IX]]></text>
+                        <code>
+                            <value><![CDATA[9]]></value>
+                            <family><![CDATA[Suffix]]></family>
+                            <type><![CDATA[Suffix]]></type>
+                            <version><![CDATA[Version 1]]></version>
+                        </code>
+                    </suffix>
+                </name>
+                <organization><![CDATA[Microsoft]]></organization>
+                <professional-training><![CDATA[Internship]]></professional-training>
+                <id><![CDATA[N7]]></id>
+                <contact>
+                    <address>
+                        <description><![CDATA[Home Address]]></description>
+                        <is-primary>true</is-primary>
+                        <street><![CDATA[123 Fake Ave]]></street>
+                        <city><![CDATA[Faketon]]></city>
+                        <state><![CDATA[FA]]></state>
+                        <postcode><![CDATA[00700]]></postcode>
+                        <country><![CDATA[United States]]></country>
+                        <county><![CDATA[Fake]]></county>
+                    </address>
+                    <phone>
+                        <description><![CDATA[Home Phone]]></description>
+                        <is-primary>true</is-primary>
+                        <number><![CDATA[555-555-5555]]></number>
+                    </phone>
+                    <email>
+                        <description><![CDATA[Personal]]></description>
+                        <is_primary>true</is_primary>
+                        <address><![CDATA[billy@theintern.com]]></address>
+                    </email>
+                </contact>
+                <type>
+                    <text><![CDATA[Person]]></text>
+                    <code>
+                        <value><![CDATA[3]]></value>
+                        <family><![CDATA[Type]]></family>
+                        <type><![CDATA[Type]]></type>
+                        <version><![CDATA[Version 4]]></version>
+                    </code>
+                </type>
+            </prescribed-by>
+            <date-prescribed>
+                <structured>
+                    <date>
+                        <y>2013</y>
+                        <m>12</m>
+                        <d>25</d>
+                    </date>
+                    <time>
+                        <h>12</h>
+                        <m>20</m>
+                        <s>45</s>
+                        <f>0</f>
+                    </time>
+                    <tz>
+                        <text><![CDATA[Code]]></text>
+                        <code>
+                            <value><![CDATA[5]]></value>
+                            <family><![CDATA[Test Suite]]></family>
+                            <type><![CDATA[Value Test]]></type>
+                            <version><![CDATA[Version 4]]></version>
+                        </code>
+                    </tz>
+                </structured>
+                <descriptive><![CDATA[description]]></descriptive>
+            </date-prescribed>
+            <amount-prescribed>
+                <display><![CDATA[47 Pounds]]></display>
+                <structured>
+                    <value>47</value>
+                    <units>
+                        <text><![CDATA[pounds]]></text>
+                        <code>
+                            <value><![CDATA[lbs.]]></value>
+                            <family><![CDATA[weight units]]></family>
+                            <type><![CDATA[weight type]]></type>
+                            <version><![CDATA[Version 1]]></version>
+                        </code>
+                    </units>
+                </structured>
+            </amount-prescribed>
+            <substitution>
+                <text><![CDATA[Code]]></text>
+                <code>
+                    <value><![CDATA[5]]></value>
+                    <family><![CDATA[Test Suite]]></family>
+                    <type><![CDATA[Value Test]]></type>
+                    <version><![CDATA[Version 4]]></version>
+                </code>
+            </substitution>
+            <refills>5</refills>
+            <days-supply>5</days-supply>
+            <prescription-expiration>
+                <y>2013</y>
+                <m>12</m>
+                <d>25</d>
+            </prescription-expiration>
+            <instructions>
+                <text><![CDATA[Code]]></text>
+                <code>
+                    <value><![CDATA[5]]></value>
+                    <family><![CDATA[Test Suite]]></family>
+                    <type><![CDATA[Value Test]]></type>
+                    <version><![CDATA[Version 4]]></version>
+                </code>
+            </instructions>
+        </prescription>
+    </medication>
+</data-xml>

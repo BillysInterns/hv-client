@@ -13,17 +13,26 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use game\XMLObjects\DataXML;
-use game\XMLObjects\Thing;
+use elevate\HVObjects\Thing\DataXML\Type\MedicationType;
+use elevate\HVObjects\Thing\DataXML\DataXML;
+use elevate\HVObjects\Thing\Thing;
+use elevate\HVObjects\Generic\Common;
+
 
 /** @XmlRoot("data-xml") */
 class MedicationDataXML extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\Type\MedicationType")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\MedicationType")
      * @SerializedName("medication")
      */
     protected $medication;
+
+    public function __construct(MedicationType $medication, Common $common = NULL)
+    {
+        $this->medication = $medication;
+        parent::__construct($common);
+    }
 
 }
