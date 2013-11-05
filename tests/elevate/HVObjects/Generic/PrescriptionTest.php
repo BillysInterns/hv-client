@@ -61,7 +61,7 @@ class PrescriptionTest extends BaseObjectTest
             true
         );
         $phone = new Phone("Home Phone", true, "555-555-5555");
-        $email = new Email("billy@theintern.com", "Personal", true);
+        $email = new Email("Personal", "billy@theintern.com", true);
         $contact = new Contact($address, $email, $phone);
 
         // Type
