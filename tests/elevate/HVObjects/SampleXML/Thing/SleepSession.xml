@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <type-id><![CDATA[11c52484-7f1a-11db-aeac-87d355d89593]]></type-id>
+    <data-xml>
+        <common>
+            <note><![CDATA[Sleep Session Note]]></note>
+            <source><![CDATA[Unit Test]]></source>
+            <tags><![CDATA[Some tags]]></tags>
+            <related-thing><![CDATA[Somethign Related]]></related-thing>
+        </common>
+        <sleep-am>
+            <when>
+                <date>
+                    <y>2013</y>
+                    <m>11</m>
+                    <d>4</d>
+                </date>
+                <time>
+                    <h>1</h>
+                    <m>0</m>
+                    <s>0</s>
+                    <f>0</f>
+                </time>
+            </when>
+            <bed-time>
+                <h>1</h>
+                <m>0</m>
+                <s>0</s>
+                <f>0</f>
+            </bed-time>
+            <wake-time>
+                <h>8</h>
+                <m>0</m>
+                <s>0</s>
+                <f>0</f>
+            </wake-time>
+            <sleep-minutes>420</sleep-minutes>
+            <settling-minutes>14</settling-minutes>
+            <awakening>
+                <when>
+                    <date>
+                        <y>2013</y>
+                        <m>11</m>
+                        <d>4</d>
+                    </date>
+                    <time>
+                        <h>8</h>
+                        <m>0</m>
+                        <s>0</s>
+                        <f>0</f>
+                    </time>
+                </when>
+                <minutes>14</minutes>
+            </awakening>
+            <medications>
+                <text><![CDATA[Hypospary]]></text>
+                <code>
+                    <value><![CDATA[Hypospary]]></value>
+                    <family><![CDATA[Medicine]]></family>
+                    <type><![CDATA[Meds]]></type>
+                    <version><![CDATA[Version 5]]></version>
+                </code>
+            </medications>
+            <wake-state>2</wake-state>
+        </sleep-am>
+    </data-xml>
+</thing>

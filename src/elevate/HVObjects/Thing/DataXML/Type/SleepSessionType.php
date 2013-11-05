@@ -25,18 +25,18 @@ class SleepSessionType
 {
 
     /**
-     * @Type("elevate\HVObjects\Generic\DateTime")
+     * @Type("elevate\HVObjects\Generic\Date\DateTime")
      */
     protected $when;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Time")
+     * @Type("elevate\HVObjects\Generic\Date\Time")
      * @SerializedName("bed-time")
      */
     protected $bedTime;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Time")
+     * @Type("elevate\HVObjects\Generic\Date\Time")
      * @SerializedName("wake-time")
      */
     protected $wakeTime;
@@ -65,7 +65,7 @@ class SleepSessionType
 
     /**
      * @Type("integer")
-     * @Serialized("wake-state")
+     * @SerializedName("wake-state")
      */
     protected $wakeState;
 

@@ -15,10 +15,12 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlList;
 
+use elevate\TypeTranslator;
+
 use elevate\HVObjects\Thing\Thing;
 
 /** @XmlRoot("thing") */
-class SleepSession
+class SleepSession extends Thing
 {
 
     /**
@@ -27,6 +29,12 @@ class SleepSession
      * @serializedName("data-xml")
      */
     protected $dataXML;
+
+    function __construct($dataXML)
+    {
+        $typeID = TypeTranslator::lookupTypeID('Sleep Session');
+        parent::__construct($dataXML, $typeID);
+    }
 
     /**
      * @return array
@@ -43,5 +51,7 @@ class SleepSession
     {
         $this->dataXML = $dataXML;
     }
+
+
 
 }
