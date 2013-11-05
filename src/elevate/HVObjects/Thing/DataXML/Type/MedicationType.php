@@ -16,6 +16,12 @@ use PhpCollection\Sequence;
 use game\XMLObjects\DataXML;
 use game\XMLObjects\Thing;
 
+use elevate\HVObjects\Generic\CodedValue;
+use elevate\HVObjects\Generic\CodableValue;
+use elevate\HVObjects\Generic\Prescription;
+use elevate\HVObjects\Generic\GeneralMeasurement;
+use elevate\HVObjects\Generic\Date\ApproxDateTime;
+
 /** @XmlRoot("medication") */
 class MedicationType
 {
@@ -35,7 +41,6 @@ class MedicationType
      * @Type("elevate\HVObjects\Generic\GeneralMeasurement")
      * @SerializedName("dose")
      */
-
     private $dose;
 
     /**
@@ -63,13 +68,13 @@ class MedicationType
     private $indication;
 
     /**
-     * @Type("elevate\HVObjects\Generic\ApproxDateTime")
+     * @Type("elevate\HVObjects\Generic\Date\ApproxDateTime")
      * @SerializedName("date-started")
      */
     private $dateStarted;
 
     /**
-     * @Type("elevate\HVObjects\Generic\ApproxDateTime")
+     * @Type("elevate\HVObjects\Generic\Date\ApproxDateTime")
      * @SerializedName("date-discontinued")
      */
     private $dateDiscontinued;
@@ -85,5 +90,33 @@ class MedicationType
      * @SerializedName("prescription")
      */
     private $prescription;
+
+    function __construct(
+        $name,
+        $dateDiscontinued,
+        $dateStarted,
+        $dose,
+        $frequency,
+        $genericName,
+        $indication,
+        $prescribed,
+        $prescription,
+        $route,
+        $strength
+    )
+    {
+        $this->dateDiscontinued = $dateDiscontinued;
+        $this->dateStarted = $dateStarted;
+        $this->dose = $dose;
+        $this->frequency = $frequency;
+        $this->genericName = $genericName;
+        $this->indication = $indication;
+        $this->name = $name;
+        $this->prescribed = $prescribed;
+        $this->prescription = $prescription;
+        $this->route = $route;
+        $this->strength = $strength;
+    }
+
 
 }

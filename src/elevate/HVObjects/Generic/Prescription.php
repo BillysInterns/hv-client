@@ -29,7 +29,7 @@ class Prescription {
     protected $prescribedBy;
 
     /**
-     * @Type("elevate\HVObjects\Generic\ApproxDateTime")
+     * @Type("elevate\HVObjects\Generic\Date\ApproxDateTime")
      * @SerializedName("date-prescribed")
      */
     protected $datePrescribed;
@@ -47,14 +47,13 @@ class Prescription {
     protected $substitution;
 
 
-// Non Negative Integers ???
     /**
      * @Type("integer")
      * @SerializedName("refills")
      */
     protected $refills;
 
-// Positive Integers???
+
     /**
      * @Type("integer")
      * @SerializedName("days-supply")
@@ -72,4 +71,27 @@ class Prescription {
      * @SerializedName("instructions")
      */
     protected $instructions;
+
+    function __construct(
+        $amountPrescribed,
+        $datePrescribed,
+        $daysSupply,
+        $instructions,
+        $prescribedBy,
+        $prescriptionExpiration,
+        $refills,
+        $substitution
+    )
+    {
+        $this->amountPrescribed = $amountPrescribed;
+        $this->datePrescribed = $datePrescribed;
+        $this->daysSupply = $daysSupply;
+        $this->instructions = $instructions;
+        $this->prescribedBy = $prescribedBy;
+        $this->prescriptionExpiration = $prescriptionExpiration;
+        $this->refills = $refills;
+        $this->substitution = $substitution;
+    }
+
+
 } 
