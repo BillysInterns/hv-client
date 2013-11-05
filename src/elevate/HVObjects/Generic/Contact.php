@@ -17,6 +17,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
+use elevate\HVObjects\Generic\Address;
+use elevate\HVObjects\Generic\Phone;
+use elevate\HVObjects\Generic\Email;
+
 /** @XmlRoot("contact") */
 class Contact
 {
@@ -39,7 +43,7 @@ class Contact
      */
     protected $email;
 
-    function __construct($address, $email, $phone)
+    function __construct(Address $address, Email $email, Phone $phone)
     {
         $this->address = $address;
         $this->email = $email;

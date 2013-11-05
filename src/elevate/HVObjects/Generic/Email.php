@@ -39,10 +39,11 @@ class Email
      * @param $description
      * @param $isPrimary
      */
-    public function __construct($address, $description, $isPrimary)
+    public function __construct($description, $address, $isPrimary)
     {
-        $this->address     = $address;
         $this->description = $description;
+        $this->address     = $address;
+
         $this->isPrimary   = $isPrimary;
     }
 

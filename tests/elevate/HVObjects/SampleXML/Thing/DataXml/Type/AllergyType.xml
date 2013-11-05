@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allergy>
+    <name>
+        <text><![CDATA[Air Allergy]]></text>
+        <code>
+            <value><![CDATA[53]]></value>
+            <family><![CDATA[Allergy]]></family>
+            <type><![CDATA[Allergy]]></type>
+            <version><![CDATA[Version 123]]></version>
+        </code>
+    </name>
+    <reaction>
+        <text><![CDATA[Hives]]></text>
+        <code>
+            <value><![CDATA[234]]></value>
+            <family><![CDATA[Reaction]]></family>
+            <type><![CDATA[Reaction]]></type>
+            <version><![CDATA[Version 5]]></version>
+        </code>
+    </reaction>
+    <first-observed>
+        <date>
+            <y>2013</y>
+            <m>10</m>
+            <d>12</d>
+        </date>
+        <time>
+            <h>4</h>
+            <m>0</m>
+            <s>0</s>
+            <f>0</f>
+        </time>
+    </first-observed>
+    <allergen-type>
+        <text><![CDATA[Oxygen]]></text>
+        <code>
+            <value><![CDATA[1235]]></value>
+            <family><![CDATA[Allergen]]></family>
+            <type><![CDATA[Allergen]]></type>
+            <version><![CDATA[Version 3]]></version>
+        </code>
+    </allergen-type>
+    <allergen-code>
+        <text><![CDATA[Oxygen]]></text>
+        <code>
+            <value><![CDATA[1235]]></value>
+            <family><![CDATA[Allergen]]></family>
+            <type><![CDATA[Allergen]]></type>
+            <version><![CDATA[Version 3]]></version>
+        </code>
+    </allergen-code>
+    <treatment-provider>
+        <name>
+            <full><![CDATA[Dr. Billy D Intern IX]]></full>
+            <title>
+                <text><![CDATA[Dr.]]></text>
+                <code>
+                    <value><![CDATA[134]]></value>
+                    <family><![CDATA[Title]]></family>
+                    <type><![CDATA[Title]]></type>
+                    <version><![CDATA[Verison 5]]></version>
+                </code>
+            </title>
+            <first><![CDATA[Billy]]></first>
+            <middle><![CDATA[D]]></middle>
+            <last><![CDATA[Intern]]></last>
+            <suffix>
+                <text><![CDATA[IX]]></text>
+                <code>
+                    <value><![CDATA[9]]></value>
+                    <family><![CDATA[Suffix]]></family>
+                    <type><![CDATA[Suffix]]></type>
+                    <version><![CDATA[Version 9]]></version>
+                </code>
+            </suffix>
+        </name>
+        <organization><![CDATA[Microsoft]]></organization>
+        <professional-training><![CDATA[Internship]]></professional-training>
+        <id><![CDATA[117]]></id>
+        <contact>
+            <address>
+                <description><![CDATA[Home]]></description>
+                <is-primary>true</is-primary>
+                <street><![CDATA[123 Fake Street]]></street>
+                <city><![CDATA[Fakeville]]></city>
+                <state><![CDATA[FA]]></state>
+                <postcode><![CDATA[00700]]></postcode>
+                <country><![CDATA[United States]]></country>
+                <county><![CDATA[Fake County]]></county>
+            </address>
+            <phone>
+                <description><![CDATA[Home]]></description>
+                <is-primary>true</is-primary>
+                <number><![CDATA[(555)-555-5555]]></number>
+            </phone>
+            <email>
+                <description><![CDATA[Personal]]></description>
+                <is_primary>true</is_primary>
+                <address><![CDATA[Billy@TheIntern.edu]]></address>
+            </email>
+        </contact>
+        <type>
+            <text><![CDATA[Airborne]]></text>
+            <code>
+                <value><![CDATA[123]]></value>
+                <family><![CDATA[Type]]></family>
+                <type><![CDATA[Type]]></type>
+                <version><![CDATA[Version 34]]></version>
+            </code>
+        </type>
+    </treatment-provider>
+    <treatment>
+        <text><![CDATA[Gas Mask]]></text>
+        <code>
+            <value><![CDATA[123]]></value>
+            <family><![CDATA[Treatment]]></family>
+            <type><![CDATA[Treatment]]></type>
+            <version><![CDATA[Version 34]]></version>
+        </code>
+    </treatment>
+    <is-negated>false</is-negated>
+</allergy>

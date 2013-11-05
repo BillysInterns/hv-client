@@ -13,7 +13,7 @@ class EmailTest extends BaseObjectTest
     {
         self::$sampleXMLPath = __DIR__ . '/../SampleXML/Generic/Email.xml';
         self::$objectNamespace = 'elevate\HVObjects\Generic\Email';
-        self::$testObject = new Email('billy@theintern.com', 'Personal Email', FALSE);
+        self::$testObject = new Email('Personal Email','billy@theintern.com', FALSE);
         parent::setUpBeforeClass();
     }
 
