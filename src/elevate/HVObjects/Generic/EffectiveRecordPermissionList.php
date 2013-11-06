@@ -9,7 +9,30 @@
 
 namespace elevate\HVObjects\Generic;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\XmlMap;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\Groups;
 
-class EffectiveRecordPermissionList {
+use elevate\HVObjects\Generic\EffectiveRecordPermission;
+
+/** @XmlRoot("effective-record-permission-list") */
+class EffectiveRecordPermissionList
+{
+    /**
+     * @var array elevate\HVObject\Generic\EffectiveRecordPermission
+     * @XmlList(inline=true, entry="record-permission")
+     * @Type("array<elevate\HVObjects\Generic\EffectiveRecordPermission>")
+     */
+    protected $effectiveRecordPermission;
+
+    function __construct(array $effectiveRecordPermission)
+    {
+        $this->effectiveRecordPermission = $effectiveRecordPermission;
+    }
+
 
 }

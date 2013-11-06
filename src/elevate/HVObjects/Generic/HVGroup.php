@@ -2,8 +2,8 @@
 /**
  * Created by JetBrains PhpStorm.
  * User: bnissen
- * Date: 11/5/13
- * Time: 4:35 PM
+ * Date: 11/6/13
+ * Time: 8:40 AM
  * To change this template use File | Settings | File Templates.
  */
 
@@ -17,20 +17,22 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 
-/** @XmlRoot("groups") */
-class HVGroups
+/** @XmlRoot("group") */
+class HVGroup
 {
     /**
-     * @var array elevate\HVObjects\Generic\HVGroup
-     * @XmlList(inline=true, entry="code")
-     * @Type("array<elevate\HVObjects\Generic\HVGroup")
+     * @Type("string")
      */
-    protected $group;
+    protected $name;
 
-    function __construct(array $group)
-    {
-        $this->group = $group;
-    }
+    /**
+     * @Type("string")
+     */
+    protected $id;
 
-
+    /**
+     * @Type("elevate\HVObjects\Generic\Email")
+     * @SerializedName("contact-email")
+     */
+    protected $contactEmail;
 }

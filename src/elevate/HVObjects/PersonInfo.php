@@ -38,7 +38,7 @@ class PersonInfo extends AbstractXMLEntity
     protected $name;
 
     /**
-     * @Type("elevate\HVObjects\Generic\AppSettings")
+     * @Type("string")
      * @SerializedName("app-settings")
      */
     protected $appSettings;
