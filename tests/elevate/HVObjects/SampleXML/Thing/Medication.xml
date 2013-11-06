@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <medication>
     <type-id><![CDATA[5c5f1223-f63c-4464-870c-3e36ba471def]]></type-id>
     <data-xml>
@@ -193,9 +194,9 @@
                             <number><![CDATA[555-555-5555]]></number>
                         </phone>
                         <email>
-                            <description><![CDATA[billy@theintern.com]]></description>
+                            <description><![CDATA[Personal]]></description>
                             <is_primary>true</is_primary>
-                            <address><![CDATA[Personal]]></address>
+                            <address><![CDATA[billy@theintern.com]]></address>
                         </email>
                     </contact>
                     <type>

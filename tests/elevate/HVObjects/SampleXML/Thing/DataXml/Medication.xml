@@ -192,9 +192,9 @@
                         <number><![CDATA[555-555-5555]]></number>
                     </phone>
                     <email>
-                        <description><![CDATA[billy@theintern.com]]></description>
+                        <description><![CDATA[Personal]]></description>
                         <is_primary>true</is_primary>
-                        <address><![CDATA[Personal]]></address>
+                        <address><![CDATA[billy@theintern.com]]></address>
                     </email>
                 </contact>
                 <type>

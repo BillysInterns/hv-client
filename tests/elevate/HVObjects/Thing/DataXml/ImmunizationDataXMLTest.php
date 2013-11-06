@@ -29,7 +29,7 @@ class ImmunizationDataXmlTest extends BaseObjectTest
 {
 	public static function setUpBeforeClass()
     {
-		self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/Type/Immunization.xml';
+		self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/Immunization.xml';
         self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\ImmunizationDataXML';
 
         $nameCode = new CodedValue('154', 'SomeImu', array('Some Immunization'), array('Version 1'));
