@@ -20,6 +20,7 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\Thing;
+use elevate\HVObjects\Generic\Common;
 
 /** @XmlRoot("data-xml") */
 class ImmunizationDataXML extends DataXML
@@ -32,7 +33,7 @@ class ImmunizationDataXML extends DataXML
 
     public function __construct(ImmunizationType $immunization, Common $common = NULL)
     {
-        $this->medication = $immunization;
+        $this->immunization = $immunization;
         parent::__construct($common);
     }
 } 
