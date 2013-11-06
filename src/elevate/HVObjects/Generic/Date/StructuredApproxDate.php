@@ -19,6 +19,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
+use elevate\HVObjects\Generic\Date\ApproxDate;
+use elevate\HVObjects\Generic\Date\Time;
+use elevate\HVObjects\Generic\CodableValue;
+
 /** @XmlRoot("structured-approx-date") */
 class StructuredApproxDate {
 
@@ -40,7 +44,7 @@ class StructuredApproxDate {
      */
     protected $tz;
 
-    public function __construct( $date, $time, $tz )
+    public function __construct(ApproxDate $date, Time $time, CodableValue $tz )
     {
         $this->date = $date;
         $this->time = $time;
