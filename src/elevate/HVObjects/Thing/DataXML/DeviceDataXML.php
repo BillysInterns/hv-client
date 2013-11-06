@@ -15,20 +15,24 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
-use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use game\XMLObjects\DataXML;
-use game\XMLObjects\Thing;
+use elevate\HVObjects\Thing\DataXML\Type\DeviceType;
+use elevate\HVObjects\Generic\Common;
 
 /** @XmlRoot("data-xml") */
 class DeviceDataXML extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\Type\DeviceType")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\DeviceType")
      * @SerializedName("device")
      */
     protected $device;
 
+    public function __construct(DeviceType $device, Common $common = NULL)
+    {
+        $this->device = $device;
+        parent::__construct($common);
+    }
 }

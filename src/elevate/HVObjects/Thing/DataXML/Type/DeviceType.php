@@ -67,4 +67,16 @@ class DeviceType
      */
     protected $description;
 
+    function __construct($anatomicSite, $description, $deviceName, $model, $serialNumber, $vendor, $when)
+    {
+        $this->anatomicSite = $anatomicSite;
+        $this->description = $description;
+        $this->deviceName = $deviceName;
+        $this->model = $model;
+        $this->serialNumber = $serialNumber;
+        $this->vendor = $vendor;
+        $this->when = $when;
+    }
+
+
 } 
