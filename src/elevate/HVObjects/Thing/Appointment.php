@@ -20,11 +20,11 @@ use elevate\HVObjects\Thing\DataXML\AppointmentDataXML;
 class Appointment extends Thing
 {
 
-	/*
+	/**
 	* @Type("elevate\HVObjects\Thing\DataXML\AppointmentDataXML")
 	* @SerializedName("data-xml")
 	*/
-	protected $dataXML
+	protected $dataXML;
 
 	function __construct($dataXML)
     {
