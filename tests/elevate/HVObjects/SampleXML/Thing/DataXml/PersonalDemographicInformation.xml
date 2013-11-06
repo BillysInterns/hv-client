@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-xml>
+    <common>
+        <note><![CDATA[Notes]]></note>
+        <source><![CDATA[Source]]></source>
+        <tags><![CDATA[tag, tag2, tag3]]></tags>
+    </common>
+    <personal>
+        <name>
+            <full><![CDATA[Sir Billy The Intern III]]></full>
+            <title>
+                <text><![CDATA[Sir]]></text>
+                <code>
+                    <value><![CDATA[Sir]]></value>
+                    <family><![CDATA[family-codes]]></family>
+                    <type><![CDATA[Royalty]]></type>
+                    <version><![CDATA[Version 4]]></version>
+                </code>
+            </title>
+            <first><![CDATA[Billy]]></first>
+            <middle><![CDATA[The]]></middle>
+            <last><![CDATA[Intern]]></last>
+            <suffix>
+                <text><![CDATA[The Third]]></text>
+                <code>
+                    <value><![CDATA[III]]></value>
+                    <family><![CDATA[suffix-family]]></family>
+                    <type><![CDATA[suffix]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </suffix>
+        </name>
+        <birthdate>
+            <date>
+                <y>2013</y>
+                <m>2</m>
+                <d>11</d>
+            </date>
+            <time>
+                <h>2</h>
+                <m>30</m>
+                <s>10</s>
+                <f>0</f>
+            </time>
+        </birthdate>
+        <blood-type>
+            <text><![CDATA[A Positive]]></text>
+            <code>
+                <value><![CDATA[A+]]></value>
+                <family><![CDATA[blood-family]]></family>
+                <type><![CDATA[Blood Types]]></type>
+                <version><![CDATA[Version 5]]></version>
+            </code>
+        </blood-type>
+        <ethnicity>
+            <text><![CDATA[Caucasin]]></text>
+            <code>
+                <value><![CDATA[Caucasin]]></value>
+                <family><![CDATA[eth-family]]></family>
+                <type><![CDATA[Ethnicity Types]]></type>
+                <version><![CDATA[Version 8]]></version>
+            </code>
+        </ethnicity>
+        <ssn><![CDATA[123-45-6789]]></ssn>
+        <marital-status>
+            <text><![CDATA[Married]]></text>
+            <code>
+                <value><![CDATA[Married]]></value>
+                <family><![CDATA[martial-status-family]]></family>
+                <type><![CDATA[married]]></type>
+                <version><![CDATA[Version 18]]></version>
+            </code>
+        </marital-status>
+        <is-deceased>true</is-deceased>
+        <date-of-death>
+            <date>
+                <y>2012</y>
+                <m>11</m>
+                <d>5</d>
+            </date>
+            <time>
+                <h>12</h>
+                <m>45</m>
+                <s>56</s>
+                <f>0</f>
+            </time>
+        </date-of-death>
+        <religon>
+            <text><![CDATA[Christian]]></text>
+            <code>
+                <value><![CDATA[Christian]]></value>
+                <family><![CDATA[religon-family]]></family>
+                <type><![CDATA[religon]]></type>
+                <version><![CDATA[Version 4]]></version>
+            </code>
+        </religon>
+        <is-veteran>false</is-veteran>
+        <highest-education-level>
+            <text><![CDATA[GED]]></text>
+            <code>
+                <value><![CDATA[GED]]></value>
+                <family><![CDATA[education-family]]></family>
+                <type><![CDATA[Education Type]]></type>
+                <version><![CDATA[Version 65]]></version>
+            </code>
+        </highest-education-level>
+        <is-disabled>false</is-disabled>
+        <organ-donor><![CDATA[Not the eyes]]></organ-donor>
+    </personal>
+</data-xml>

@@ -12,7 +12,7 @@ use elevate\HVObjects\Generic\Date\DateTime;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\Time;
 
-class PersonalDemographicInformatioTest extends BaseObjectTest
+class PersonalDemographicInformationTypeTest extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
