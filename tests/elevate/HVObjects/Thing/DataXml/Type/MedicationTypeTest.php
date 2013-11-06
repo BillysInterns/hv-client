@@ -142,6 +142,7 @@ class MedicationTypeTest extends BaseObjectTest
 
         self::$testObject = new MedicationType($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
 
+
         parent::setUpBeforeClass();
     }
 

@@ -152,6 +152,7 @@ class MedicationTest  extends BaseObjectTest
         $medicationDataXml = new MedicationDataXML($medicationType, $common);
 
         self::$testObject = new Medication($medicationDataXml);
+
         parent::setUpBeforeClass();
 
     }

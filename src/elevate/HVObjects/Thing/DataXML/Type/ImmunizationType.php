@@ -15,11 +15,15 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
-use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use game\XMLObjects\DataXML;
-use game\XMLObjects\Thing;
+use elevate\HVObjects\Generic\CodedValue;
+use elevate\HVObjects\Generic\CodableValue;
+use elevate\HVObjects\Generic\Prescription;
+use elevate\HVObjects\Generic\GeneralMeasurement;
+use elevate\HVObjects\Generic\Date\ApproxDateTime;
+use elevate\HVObjects\Generic\Date\ApproxDate;
+use elevate\HVObjects\Generic\Person;
 
 /** @XmlRoot("immunization") */
 class ImmunizationType 
@@ -89,4 +93,40 @@ class ImmunizationType
      * @SerializedName("consent")
      */
     protected $consent;
+
+    /*
+    * @param ApproxDateTime $administrationDate
+    * @param Person $administrator
+    * @param CodableValue $anatomicSurface
+    * @param ApproxDate $expirationDate
+    * @param CodableValue $manufacturer
+    * @param CodableValue $name
+    * @param CodableValue $route
+    */
+    function __construct(
+                         ApproxDateTime $administrationDate,
+                         Person $administrator,
+                         $adverseEvent,
+                         CodableValue $anatomicSurface,
+                         $consent,
+                         ApproxDate $expirationDate,
+                         $lot,
+                         CodableValue $manufacturer,
+                         CodableValue $name,
+                         CodableValue $route, 
+                         $sequence
+    )
+    {
+        $this->administrationDate = $administrationDate;
+        $this->administrator = $administrator;
+        $this->adverseEvent = $adverseEvent;
+        $this->anatomicSurface = $anatomicSurface;
+        $this->consent = $consent;
+        $this->expirationDate = $expirationDate;
+        $this->lot = $lot;
+        $this->manufacturer = $manufacturer;
+        $this->name = $name;
+        $this->route = $route;
+        $this->sequence = $sequence;
+    }
 } 

@@ -10,6 +10,14 @@ namespace elevate\HVObjects\Thing;
 
 use JMS\Serializer\Annotation\XmlRoot;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\XmlList;
+
+use elevate\TypeTranslator;
+use elevate\HVObjects\Thing\Thing;
+use elevate\HVObjects\Thing\DataXML\ImmunizationDataXML;
+
 
 /** @XmlRoot("immunization") */
 class Immunization extends Thing
@@ -20,4 +28,11 @@ class Immunization extends Thing
      * @serializedName("data-xml")
      */
     protected $dataXML;
+
+    function __construct(ImmunizationDataXML $dataXML)
+    {
+        $typeID = TypeTranslator::lookupTypeID('Immunization');
+        parent::__construct($dataXML,$typeID);    }
+
+
 }

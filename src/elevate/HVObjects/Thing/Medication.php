@@ -46,6 +46,4 @@ class Medication extends Thing
         $this->dataXML = $dataXML;
     }
 
-
-
 }
