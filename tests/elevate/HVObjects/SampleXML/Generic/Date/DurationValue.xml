@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<duration-value>
+  <start-date>
+    <structured>
+      <date>
+        <y>2013</y>
+        <m>12</m>
+        <d>25</d>
+      </date>
+      <time>
+        <h>12</h>
+        <m>20</m>
+        <s>45</s>
+        <f>0</f>
+      </time>
+      <tz>
+        <text><![CDATA[Code]]></text>
+        <code>
+          <value><![CDATA[5]]></value>
+          <family><![CDATA[Test Suite]]></family>
+          <type><![CDATA[Value Test]]></type>
+          <version><![CDATA[Version 4]]></version>
+        </code>
+      </tz>
+    </structured>
+    <descriptive><![CDATA[description]]></descriptive>
+  </start-date>
+  <end-date>
+    <structured>
+      <date>
+        <y>2013</y>
+        <m>12</m>
+        <d>30</d>
+      </date>
+      <time>
+        <h>12</h>
+        <m>30</m>
+        <s>45</s>
+        <f>0</f>
+      </time>
+      <tz>
+        <text><![CDATA[Code]]></text>
+        <code>
+          <value><![CDATA[5]]></value>
+          <family><![CDATA[Test Suite]]></family>
+          <type><![CDATA[Value Test]]></type>
+          <version><![CDATA[Version 4]]></version>
+        </code>
+      </tz>
+    </structured>
+    <descriptive><![CDATA[description]]></descriptive>
+  </end-date>
+</duration-value>

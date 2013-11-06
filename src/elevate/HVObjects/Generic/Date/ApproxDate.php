@@ -21,7 +21,8 @@ use PhpCollection\Sequence;
 
 
 /** @XmlRoot("approx-date") */
-class ApproxDate {
+class ApproxDate 
+{
 
     /**
      * @Type("integer")
