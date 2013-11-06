@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <type-id><![CDATA[18adc276-5144-4e7e-bf6c-e56d8250adf8]]></type-id>
+    <data-xml>
+        <common>
+            <note><![CDATA[BC Note]]></note>
+            <source><![CDATA[BC Source]]></source>
+            <tags><![CDATA[bc, hv]]></tags>
+        </common>
+        <body-composition>
+            <when>
+                <structured>
+                    <date>
+                        <y>2013</y>
+                        <m>5</m>
+                        <d>12</d>
+                    </date>
+                    <time>
+                        <h>12</h>
+                        <m>35</m>
+                        <s>12</s>
+                        <f>0</f>
+                    </time>
+                    <tz>
+                        <text><![CDATA[America\New York]]></text>
+                        <code>
+                            <value><![CDATA[New York]]></value>
+                            <family><![CDATA[timezones]]></family>
+                            <type><![CDATA[America Time Zone]]></type>
+                            <version><![CDATA[Version 1]]></version>
+                        </code>
+                    </tz>
+                </structured>
+                <descriptive><![CDATA[Date Descritption]]></descriptive>
+            </when>
+            <measurement-name>
+                <text><![CDATA[Body Fat]]></text>
+                <code>
+                    <value><![CDATA[BF]]></value>
+                    <family><![CDATA[BF-Types]]></family>
+                    <type><![CDATA[BF Types]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </measurement-name>
+            <value>
+                <mass-value>
+                    <kg>45</kg>
+                    <display><![CDATA[190]]></display>
+                </mass-value>
+                <percent-value>0.75</percent-value>
+            </value>
+        </body-composition>
+    </data-xml>
+</thing>
