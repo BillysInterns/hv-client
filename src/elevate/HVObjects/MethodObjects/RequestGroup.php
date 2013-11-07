@@ -21,24 +21,33 @@ use JMS\Serializer\Annotation\Groups;
 class RequestGroup
 {
 
-    /**  @XmlAttribute */
+    /**
+     * @XmlAttribute
+     * @Type("string")
+     */
     private $name = NULL;
 
-    /**  @XmlAttribute */
+    /**
+     * @XmlAttribute
+     * @Type("integer")
+     */
     private $max = NULL;
 
-    /**  @XmlAttribute */
+    /**
+     * @XmlAttribute
+     * @Type("integer")
+     */
     private $maxFull = NULL;
 
     /**
-     * @var elevate\HVObjects\Generic\MethodObjects\ThingFilterSpec
-     * @Type("elevate\HVObjects\Generic\MethodObjects\ThingFilterSpec")
+     * @var elevate\HVObjects\MethodObjects\ThingFilterSpec
+     * @Type("elevate\HVObjects\MethodObjects\ThingFilterSpec")
      */
     protected $filter;
 
     /**
-     * @var elevate\HVObjects\Generic\MethodObjects\ThingFormatSpec
-     * @Type("elevate\HVObjects\Generic\MethodObjects\ThingFormatSpec")
+     * @var elevate\HVObjects\MethodObjects\ThingFormatSpec
+     * @Type("elevate\HVObjects\MethodObjects\ThingFormatSpec")
      */
     protected $format;
 
@@ -47,7 +56,7 @@ class RequestGroup
      * @Type("boolean")
      * @SerializedName("current-version-only")
      */
-    protected $currentVersionOnly = TRUE;
+    protected $currentVersionOnly = NULL;
 
     function __construct(
         ThingFilterSpec $filter,
@@ -55,7 +64,7 @@ class RequestGroup
         $max = NULL,
         $maxFull = NULL,
         $name = NULL,
-        $currentVersionOnly = TRUE
+        $currentVersionOnly = NULL
     )
     {
         $this->currentVersionOnly = $currentVersionOnly;

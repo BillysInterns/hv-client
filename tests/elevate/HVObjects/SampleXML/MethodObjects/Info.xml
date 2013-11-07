@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+    <group max="100">
+        <filter>
+            <type-id>92ba621e-66b3-4a01-bd73-74844aed4f5b</type-id>
+        </filter>
+        <format>
+            <section>core</section>
+            <xml />
+        </format>
+    </group>
+    <group max="100">
+        <filter>
+            <type-id>162dd12d-9859-4a66-b75f-96760d67072b</type-id>
+        </filter>
+        <format>
+            <section>core</section>
+            <xml />
+        </format>
+    </group>
+</info>

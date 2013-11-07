@@ -17,19 +17,20 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 
+/** @XmlRoot("info") */
 class Info
 {
 
-    /** @var array elevate\HVObjects\Generic\MethodObjects\RequestGroup
-     * @XmlList(inline=false, entry="group")
-     * @Type("array<elevate\HVObjects\Generic\MethodObjects\RequestGroup>")
-     * @SerializedName("group")
+    /**
+     * @var array elevate\HVObjects\MethodObjects\RequestGroup
+     * @XmlList(inline = true, entry = "group")
+     * @Type("array<elevate\HVObjects\MethodObjects\RequestGroup>")
      */
-    protected $groups;
+    protected $group;
 
     function __construct(array $groups)
     {
-        $this->groups = $groups;
+        $this->group = $groups;
     }
 
 

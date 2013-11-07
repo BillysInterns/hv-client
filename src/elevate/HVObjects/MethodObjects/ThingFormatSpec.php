@@ -29,7 +29,7 @@ class ThingFormatSpec
     /**
      * @Type("string")
      */
-    protected $xml = NULL;
+    protected $xml = '';
 
     /**
      * @Type("string")
@@ -38,7 +38,7 @@ class ThingFormatSpec
 
     function __construct(
         $section,
-        $xml = NULL,
+        $xml = '',
         $typeVersionFormat = NULL
     )
     {

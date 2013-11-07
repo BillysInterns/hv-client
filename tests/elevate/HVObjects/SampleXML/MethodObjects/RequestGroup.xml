@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group max="100">
+    <filter>
+        <type-id><![CDATA[92ba621e-66b3-4a01-bd73-74844aed4f5b]]></type-id>
+    </filter>
+    <format>
+        <section><![CDATA[core]]></section>
+        <xml><![CDATA[]]></xml>
+    </format>
+</group>
