@@ -10,6 +10,16 @@
 namespace elevate\test\HVObjects\MethodObjects\PersonInfo;
 
 
-class LocationTest {
+use elevate\HVObjects\MethodObjects\PersonInfo\Location;
+use elevate\test\HVObjects\BaseObjectTest;
 
+class LocationTest extends BaseObjectTest
+{
+    public static function setUpBeforeClass()
+    {
+        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/MethodObjects/PersonInfo/Location.xml';
+        self::$objectNamespace = 'elevate\HVObjects\MethodObjects\PersonInfo\Location';
+        self::$testObject = new Location('US', 'NJ');
+        parent::setUpBeforeClass();
+    }
 }

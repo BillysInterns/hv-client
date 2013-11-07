@@ -10,6 +10,6 @@
 namespace elevate\test\HVObjects\MethodObjects\PersonInfo;
 
 
-class HVGroups {
+class HVGroupsTest {
 
 }

@@ -9,8 +9,17 @@
 
 namespace elevate\HVObjects\MethodObjects\PersonInfo;
 
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\XmlMap;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\Type;
 
-class Location extends AbstractXMLEntity
+
+/** @XmlRoot("location") */
+class Location
 {
 
     /**
@@ -24,7 +33,7 @@ class Location extends AbstractXMLEntity
      */
     protected $stateProvince;
 
-    function __construct($country, $stateProvince)
+    function __construct($country, $stateProvince = NULL)
     {
         $this->country = $country;
         $this->stateProvince = $stateProvince;

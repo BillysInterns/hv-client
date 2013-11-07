@@ -10,6 +10,16 @@
 namespace elevate\test\HVObjects\MethodObjects\PersonInfo;
 
 
-class CultureTest {
+use elevate\HVObjects\MethodObjects\PersonInfo\Culture;
+use elevate\test\HVObjects\BaseObjectTest;
 
+class CultureTest extends BaseObjectTest
+{
+    public static function setUpBeforeClass()
+    {
+        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/MethodObjects/PersonInfo/Culture.xml';
+        self::$objectNamespace = 'elevate\HVObjects\MethodObjects\PersonInfo\Culture';
+        self::$testObject = new Culture("English", "'merica");
+        parent::setUpBeforeClass();
+    }
 }

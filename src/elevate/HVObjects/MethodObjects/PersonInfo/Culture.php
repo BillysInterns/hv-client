@@ -20,7 +20,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
-class Culture extends AbstractXMLEntity
+/** @XmlRoot("culture") */
+class Culture
 {
     /**
      * @Type("string")
@@ -32,7 +33,7 @@ class Culture extends AbstractXMLEntity
      */
     protected $country;
 
-    function __construct($language, $country)
+    function __construct($language, $country = NULL)
     {
         $this->country = $country;
         $this->language = $language;

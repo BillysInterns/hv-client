@@ -6,24 +6,26 @@
 
 namespace elevate\HVObjects\MethodObjects\PersonInfo;
 
-use elevate\HVObjects\Generic\AppSettings;
-use elevate\HVObjects\Generic\EffectiveRecordPermissionList;
-use elevate\HVObjects\Generic\Location;
-use elevate\HVObjects\Generic\Record;
-use elevate\HVObjects\Generic\HVGroups;
-use elevate\HVObjects\Generic\Culture;
+use elevate\HVObjects\MethodObjects\PersonInfo\AppSettings;
+use elevate\HVObjects\MethodObjects\PersonInfo\Record;
+use elevate\HVObjects\MethodObjects\PersonInfo\HVGroups;
+use elevate\HVObjects\MethodObjects\PersonInfo\Culture;
+use elevate\HVObjects\MethodObjects\PersonInfo\Location;
+use elevate\HVObjects\MethodObjects\PersonInfo\EffectiveRecordPermissionList;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\Type;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
 
-class PersonInfo extends AbstractXMLEntity
+/** @XmlRoot("person-info") */
+class PersonInfo
 {
 
     /**
@@ -56,34 +58,35 @@ class PersonInfo extends AbstractXMLEntity
     protected $moreRecords;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Record")
+     * @XmlList(inline=true, entry="record")
+     * @Type("array<elevate\HVObjects\MethodObjects\PersonInfo\Record>")
      */
     protected $record;
 
     /**
-     * @Type("elevate\HVObjects\Generic\HVGroups")
+     * @Type("elevate\HVObjects\MethodObjects\PersonInfo\HVGroups")
      */
     protected $groups;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Culture")
+     * @Type("elevate\HVObjects\MethodObjects\PersonInfo\Culture")
      * @SerializedName("preferred-culture")
      */
     protected $preferredCulture;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Culture")
+     * @Type("elevate\HVObjects\MethodObjects\PersonInfo\Culture")
      * @SerializedName("preferred-uiculture")
      */
     protected $preferredUiculture;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Location")
+     * @Type("elevate\HVObjects\MethodObjects\PersonInfo\Location")
      */
     protected $location;
 
     /**
-     * @Type("elevate\HVObjects\Generic\EffectiveRecordPermissionList")
+     * @Type("elevate\HVObjects\MethodObjects\PersonInfo\EffectiveRecordPermissionList")
      * @SerializedName("effective-record-permission-list")
      */
     protected $effectiveRecordPermissionList;
@@ -91,15 +94,15 @@ class PersonInfo extends AbstractXMLEntity
     function __construct(
         $personId,
         $name,
-        AppSettings $appSettings,
         $selectedRecondId,
         $moreRecords,
-        Record $record,
-        HVGroups $groups,
+        array $record,
         Culture $preferredCulture,
         Culture $preferredUiculture,
         Location $location,
-        EffectiveRecordPermissionList $effectiveRecordPermissionList
+        $appSettings = NULL,
+        HVGroups $groups = NULL,
+        EffectiveRecordPermissionList $effectiveRecordPermissionList = NULL
     )
     {
         $this->appSettings = $appSettings;
