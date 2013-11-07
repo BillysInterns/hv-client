@@ -167,7 +167,9 @@ class HVClientTest extends BaseTest
     public function testGetPersonInfo()
     {
         $this->hv->connect();
-        $this->hv->getPersonInfo();
+        $person = $this->hv->getPersonInfo();
+
+        print_r($person);
     }
 }
  

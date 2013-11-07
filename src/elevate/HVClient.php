@@ -164,7 +164,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
             $rawResponse = $this->connector->getRawResponse();
 
-            print_r($rawResponse);
+            return $rawResponse;
 
             //MAKE PERSON INFO OBJECT HERE
             /*

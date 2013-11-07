@@ -17,17 +17,54 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 
-/** @XmlRoot("request") */
+/** @XmlRoot("group") */
 class RequestGroup
 {
 
     /**  @XmlAttribute */
-    private $name;
+    private $name = NULL;
 
     /**  @XmlAttribute */
-    private $max;
+    private $max = NULL;
 
     /**  @XmlAttribute */
-    private $maxFull;
+    private $maxFull = NULL;
+
+    /**
+     * @var elevate\HVObjects\Generic\MethodObjects\ThingFilterSpec
+     * @Type("elevate\HVObjects\Generic\MethodObjects\ThingFilterSpec")
+     */
+    protected $filter;
+
+    /**
+     * @var elevate\HVObjects\Generic\MethodObjects\ThingFormatSpec
+     * @Type("elevate\HVObjects\Generic\MethodObjects\ThingFormatSpec")
+     */
+    protected $format;
+
+    /**
+     * @var bool
+     * @Type("boolean")
+     * @SerializedName("current-version-only")
+     */
+    protected $currentVersionOnly = TRUE;
+
+    function __construct(
+        ThingFilterSpec $filter,
+        ThingFormatSpec $format,
+        $max = NULL,
+        $maxFull = NULL,
+        $name = NULL,
+        $currentVersionOnly = TRUE
+    )
+    {
+        $this->currentVersionOnly = $currentVersionOnly;
+        $this->filter = $filter;
+        $this->format = $format;
+        $this->max = $max;
+        $this->maxFull = $maxFull;
+        $this->name = $name;
+    }
+
 
 }

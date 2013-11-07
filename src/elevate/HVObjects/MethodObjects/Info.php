@@ -9,7 +9,28 @@
 
 namespace elevate\HVObjects\MethodObjects;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\XmlMap;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\Groups;
 
-class Info {
+class Info
+{
+
+    /** @var array elevate\HVObjects\Generic\MethodObjects\RequestGroup
+     * @XmlList(inline=false, entry="group")
+     * @Type("array<elevate\HVObjects\Generic\MethodObjects\RequestGroup>")
+     * @SerializedName("group")
+     */
+    protected $groups;
+
+    function __construct(array $groups)
+    {
+        $this->groups = $groups;
+    }
+
 
 }

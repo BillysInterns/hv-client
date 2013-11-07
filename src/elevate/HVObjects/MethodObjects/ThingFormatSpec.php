@@ -9,7 +9,43 @@
 
 namespace elevate\HVObjects\MethodObjects;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\XmlMap;
+use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\Groups;
 
-class ThingFormatSpec {
+/** @XmlRoot("format") */
+class ThingFormatSpec
+{
+
+    /**
+     * @Type("string")
+     */
+    protected $section;
+
+    /**
+     * @Type("string")
+     */
+    protected $xml = NULL;
+
+    /**
+     * @Type("string")
+     */
+    protected $typeVersionFormat = NULL;
+
+    function __construct(
+        $section,
+        $xml = NULL,
+        $typeVersionFormat = NULL
+    )
+    {
+        $this->section = $section;
+        $this->typeVersionFormat = $typeVersionFormat;
+        $this->xml = $xml;
+    }
+
 
 }
