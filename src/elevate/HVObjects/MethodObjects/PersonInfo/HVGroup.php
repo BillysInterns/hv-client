@@ -31,8 +31,17 @@ class HVGroup
     protected $id;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Email")
+     * @Type("string")
      * @SerializedName("contact-email")
      */
     protected $contactEmail;
+
+    function __construct($name, $id, $contactEmail)
+    {
+        $this->contactEmail = $contactEmail;
+        $this->id = $id;
+        $this->name = $name;
+    }
+
+
 }

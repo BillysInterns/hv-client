@@ -1,0 +1,17 @@
+<groups>
+    <group>
+        <name>Billy's Interns</name>
+        <id>1337</id>
+        <contact-email>billy@theintern.com</contact-email>
+    </group>
+    <group>
+        <name>Fireflies</name>
+        <id>NDI</id>
+        <contact-email>omg@everything.net</contact-email>
+    </group>
+    <group>
+        <name>Faceless Men</name>
+        <id>ASOIAF</id>
+        <contact-email>noone@bravos.org</contact-email>
+    </group>
+</groups>

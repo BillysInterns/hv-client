@@ -17,6 +17,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 
+/** @XmlRoot("permissions") */
 class Permissions
 {
 

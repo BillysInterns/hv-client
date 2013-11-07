@@ -17,13 +17,15 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 
+use elevate\HVObjects\MethodObjects\PersonInfo\HVGroup;
+
 /** @XmlRoot("groups") */
 class HVGroups
 {
     /**
      * @var array elevate\HVObjects\Generic\HVGroup
-     * @XmlList(inline=true, entry="code")
-     * @Type("array<elevate\HVObjects\Generic\HVGroup")
+     * @XmlList(inline=true, entry="group")
+     * @Type("array<elevate\HVObjects\MethodObjects\PersonInfo\HVGroup>")
      */
     protected $group;
 
