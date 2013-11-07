@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-namespace elevate\HVObjects\Generic;
+namespace elevate\HVObjects\MethodObjects\PersonInfo;
 
 
 class Location extends AbstractXMLEntity

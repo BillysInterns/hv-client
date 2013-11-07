@@ -4,7 +4,7 @@
  * @author troussos
  */
 
-namespace elevate\HVObjects;
+namespace elevate\HVObjects\MethodObjects\PersonInfo;
 
 use elevate\HVObjects\Generic\AppSettings;
 use elevate\HVObjects\Generic\EffectiveRecordPermissionList;
@@ -33,7 +33,7 @@ class PersonInfo extends AbstractXMLEntity
     protected $personId;
 
     /**
-     * @Type("name")
+     * @Type("string")
      */
     protected $name;
 
@@ -61,7 +61,7 @@ class PersonInfo extends AbstractXMLEntity
     protected $record;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Groups")
+     * @Type("elevate\HVObjects\Generic\HVGroups")
      */
     protected $groups;
 

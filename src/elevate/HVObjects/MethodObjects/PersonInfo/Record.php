@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-namespace elevate\HVObjects\Generic;
+namespace elevate\HVObjects\MethodObjects\PersonInfo;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -67,7 +67,7 @@ class Record extends AbstractXMLEntity
     protected $displayName = NULL;
 
     /**
-     * @Type("elevate\HVObjects\Generic\RecordState")
+     * @Type("string")
      */
     protected $state = NULL;
 
