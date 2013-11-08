@@ -17,7 +17,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 
-use elevate\HVObjects\Generic\Permissions;
+use elevate\HVObjects\MethodObjects\PersonInfo\Permissions;
 
 /** @XmlRoot("thing-type-permission") */
 class ThingTypePermission
@@ -31,15 +31,15 @@ class ThingTypePermission
     protected $thingTypeId;
 
     /**
-     * @var elevate\HVObjects\Generic\Permissions
-     * @Type("elevate\HVObjects\Generic\Permissions")
+     * @var elevate\HVObjects\MethodObjects\PersonInfo\Permissions
+     * @Type("elevate\HVObjects\MethodObjects\PersonInfo\Permissions")
      * @SerializedName("online-access-permissions")
      */
     protected $onlineAccessPermissions = NULL;
 
     /**
-     * @var elevate\HVObjects\Generic\Permissions
-     * @Type("elevate\HVObjects\Generic\Permissions")
+     * @var elevate\HVObjects\MethodObjects\PersonInfo\Permissions
+     * @Type("elevate\HVObjects\MethodObjects\PersonInfo\Permissions")
      * @SerializedName("offline-access-permissions")
      */
     protected $offlineAccessPermissions = NULL;

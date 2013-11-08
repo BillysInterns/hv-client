@@ -10,6 +10,17 @@
 namespace elevate\test\HVObjects\MethodObjects\PersonInfo;
 
 
-class HVGroupTest {
+use elevate\HVObjects\MethodObjects\PersonInfo\HVGroup;
+use elevate\test\HVObjects\BaseObjectTest;
 
+class HVGroupTest extends BaseObjectTest
+{
+    public static function setUpBeforeClass ()
+    {
+        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/MethodObjects/PersonInfo/HVGroup.xml';
+        self::$objectNamespace = 'elevate\HVObjects\MethodObjects\PersonInfo\HVGroup';
+
+        self::$testObject = new HVGroup("Billy's Interns", "1337", "billy@theintern.com");
+        parent::setUpBeforeClass();
+    }
 }

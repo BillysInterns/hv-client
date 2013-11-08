@@ -10,6 +10,16 @@
 namespace elevate\test\HVObjects\MethodObjects\PersonInfo;
 
 
-class PermissionTest {
+use elevate\test\HVObjects\BaseObjectTest;
+use elevate\HVObjects\MethodObjects\PersonInfo\Permissions;
 
+class PermissionTest extends BaseObjectTest
+{
+    public static function setUpBeforeClass()
+    {
+        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/MethodObjects/PersonInfo/Permission.xml';
+        self::$objectNamespace = 'elevate\HVObjects\MethodObjects\PersonInfo\Permissions';
+        self::$testObject = new Permissions(array("All"));
+        parent::setUpBeforeClass();
+    }
 }

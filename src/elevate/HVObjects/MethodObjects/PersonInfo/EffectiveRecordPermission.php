@@ -16,7 +16,6 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
-use elevate\HVObjects\Generic\ThingTypePermission;
 
 /** @XmlRoot("effective-record-permission") */
 class EffectiveRecordPermission
@@ -30,9 +29,9 @@ class EffectiveRecordPermission
     protected $recordId;
 
     /**
-     * @var array elevate\HVObjects\Generic\ThingTypePermission
+     * @var array elevate\HVObjects\MethodObjects\PersonInfo\ThingTypePermission
      * @XmlList(inline=true, entry="thing-type-permission")
-     * @Type("array<elevate\HVObjects\Generic\ThingTypePermission")
+     * @Type("array<elevate\HVObjects\MethodObjects\PersonInfo\ThingTypePermission>")
      * @SerializedName("thing-type-permission")
      */
     protected $thingTypePermission;

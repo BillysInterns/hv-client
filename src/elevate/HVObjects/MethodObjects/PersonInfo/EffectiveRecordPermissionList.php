@@ -17,15 +17,13 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 
-use elevate\HVObjects\Generic\EffectiveRecordPermission;
-
 /** @XmlRoot("effective-record-permission-list") */
 class EffectiveRecordPermissionList
 {
     /**
-     * @var array elevate\HVObject\Generic\EffectiveRecordPermission
-     * @XmlList(inline=true, entry="record-permission")
-     * @Type("array<elevate\HVObjects\Generic\EffectiveRecordPermission>")
+     * @var array elevate\HVObjects\MethodObjects\PersonInfo\EffectiveRecordPermission
+     * @XmlList(inline=true, entry="effective-record-permission")
+     * @Type("array<elevate\HVObjects\MethodObjects\PersonInfo\EffectiveRecordPermission>")
      */
     protected $effectiveRecordPermission;
 
