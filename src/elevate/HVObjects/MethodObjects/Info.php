@@ -26,12 +26,27 @@ class Info
      * @XmlList(inline = true, entry = "group")
      * @Type("array<elevate\HVObjects\MethodObjects\RequestGroup>")
      */
-    protected $group;
+    protected $groups;
 
     function __construct(array $groups)
     {
-        $this->group = $groups;
+        $this->groups = $groups;
     }
 
+    /**
+     * @param array $groups
+     */
+    public function setGroups($groups)
+    {
+        $this->groups = $groups;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
 
 }
