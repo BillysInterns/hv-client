@@ -36,6 +36,7 @@ class RequestGroup
     /**
      * @XmlAttribute
      * @Type("integer")
+     * @SerializedName("max-full")
      */
     private $maxFull = NULL;
 

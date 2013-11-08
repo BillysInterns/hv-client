@@ -407,6 +407,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $this->thumbPrint = $thumbPrint;
         return $this;
     }
+
+    public function getThings($thingNameOrTypeId, $recordId, $options = array()) {}
 }
 
 class HVClientException extends \Exception
