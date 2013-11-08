@@ -13,7 +13,8 @@ use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use elevate\HVObjects\MethodsObjects\Info;
+use elevate\util\InfoHelper;
+
 
 /**
  * Class HVClient
@@ -85,13 +86,13 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $appId,
         $personId,
         $recordId
+
     )
     {
         $this->thumbPrint = $thumbPrint;
         $this->privateKey = $privateKey;
         $this->appId      = $appId;
         $this->personId   = $personId;
-        $this->config     = $config;
         $this->recordId   = $recordId;
 
         $builder          = new SerializerBuilder();
@@ -195,7 +196,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     public function getThingsById( $typeId , $max = 20)
     {
-        $info = InfoHelper::createInfoForTypeId($typeId, $max);
+        $info = InfoHelper::getHVInfoForTypeId($typeId, $max);
         return $this->callHealthVault($info);
     }
 
@@ -209,7 +210,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     }
 
-    public function callHealthVault(Info $info)
+    public function callHealthVault($info)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
 
@@ -222,10 +223,10 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         if($this->connector)
         {
             //make the request;
-            $this->connector->makeRequest(
+            $result = $this->connector->makeRequest(
                 'GetThings',
-                $version,
-                $info,
+                1,
+                '',
                 array('record-id' => $this->recordId),
                 $this->personId
             );
