@@ -12,6 +12,7 @@ use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use elevate\HVObjects\MethodsObjects\Info;
 
 /**
  * Class HVClient
@@ -62,6 +63,11 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     private $serializer = NULL;
 
     /**
+    * @var null|string Authentication Token from Health Vault
+    */
+    private $authToken =NULL;
+
+    /**
      * Set the member variables to the passed HV credentials. Setup a Logger and create the serializer.
      *
      * @param string $thumbPrint HV Certificate Thumb Print
@@ -76,8 +82,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $thumbPrint,
         $privateKey,
         $appId,
-        $personId = NULL,
-        $config = array()
+        $personId,
+        $recordId
     )
     {
         $this->thumbPrint = $thumbPrint;
@@ -85,6 +91,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $this->appId      = $appId;
         $this->personId   = $personId;
         $this->config     = $config;
+        $this->recordId   = $recordId;
 
         $builder          = new SerializerBuilder();
         $this->serializer = $builder->build();
@@ -114,8 +121,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
         //Configure connector
         $this->connector->setHealthVaultPlatform($this->healthVaultPlatform);
-        $authToken = $this->connector->connect();
-        return $authToken;
+        $this->authToken = $this->connector->connect();
+        return $this->authToken;
     }
 
     /**
@@ -179,12 +186,18 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         }
     }
 
-    public function getThings($thingNameOrTypeId, $recordId, $options = array())
+    public function getThingsByName( $thingName )
     {
+
 
     }
 
-    public function getThingId($recordId, $typeId, $base64 = FALSE)
+    public function getThingsById( $typeId )
+    {
+        
+    }
+
+    public function getThingId( $typeId )
     {
 
     }
@@ -194,6 +207,19 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     }
 
+    public function healthVaultCall()
+    {
+        if($this->connector)
+        {
+
+            //this->connector->makeRequest();
+        }
+        else
+        {
+            throw new HVClientNotConnectedException();
+            
+        }
+    }
     /**
      * @return string
      */
