@@ -34,5 +34,21 @@ class HVGroups
         $this->group = $group;
     }
 
+    /**
+     * @param array $group
+     */
+    public function setGroup($group)
+    {
+        $this->group = $group;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
 
 }

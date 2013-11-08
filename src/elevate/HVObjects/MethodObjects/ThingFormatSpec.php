@@ -47,5 +47,52 @@ class ThingFormatSpec
         $this->xml = $xml;
     }
 
+    /**
+     * @param mixed $section
+     */
+    public function setSection($section)
+    {
+        $this->section = $section;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSection()
+    {
+        return $this->section;
+    }
+
+    /**
+     * @param mixed $typeVersionFormat
+     */
+    public function setTypeVersionFormat($typeVersionFormat)
+    {
+        $this->typeVersionFormat = $typeVersionFormat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeVersionFormat()
+    {
+        return $this->typeVersionFormat;
+    }
+
+    /**
+     * @param mixed $xml
+     */
+    public function setXml($xml)
+    {
+        $this->xml = $xml;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getXml()
+    {
+        return $this->xml;
+    }
 
 }

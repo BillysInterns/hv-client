@@ -83,4 +83,133 @@ class Address
         $this->street      = $street;
     }
 
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param mixed $county
+     */
+    public function setCounty($county)
+    {
+        $this->county = $county;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCounty()
+    {
+        return $this->county;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $isPrimary
+     */
+    public function setIsPrimary($isPrimary)
+    {
+        $this->isPrimary = $isPrimary;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsPrimary()
+    {
+        return $this->isPrimary;
+    }
+
+    /**
+     * @param mixed $postCode
+     */
+    public function setPostCode($postCode)
+    {
+        $this->postCode = $postCode;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostCode()
+    {
+        return $this->postCode;
+    }
+
+    /**
+     * @param mixed $state
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param mixed $street
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+
 }

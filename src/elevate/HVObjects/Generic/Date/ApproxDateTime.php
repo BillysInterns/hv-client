@@ -48,4 +48,38 @@ class ApproxDateTime
         $this->descriptive = $descriptive;
     }
 
+    /**
+     * @param mixed $descriptive
+     */
+    public function setDescriptive($descriptive)
+    {
+        $this->descriptive = $descriptive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescriptive()
+    {
+        return $this->descriptive;
+    }
+
+    /**
+     * @param mixed $structured
+     */
+    public function setStructured($structured)
+    {
+        $this->structured = $structured;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStructured()
+    {
+        return $this->structured;
+    }
+
+
+
 } 

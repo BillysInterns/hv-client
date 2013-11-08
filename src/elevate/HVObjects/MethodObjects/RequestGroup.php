@@ -75,5 +75,104 @@ class RequestGroup
         $this->name = $name;
     }
 
+    /**
+     * @param boolean $currentVersionOnly
+     */
+    public function setCurrentVersionOnly($currentVersionOnly)
+    {
+        $this->currentVersionOnly = $currentVersionOnly;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getCurrentVersionOnly()
+    {
+        return $this->currentVersionOnly;
+    }
+
+    /**
+     * @param \elevate\HVObjects\MethodObjects\elevate\HVObjects\MethodObjects\ThingFilterSpec $filter
+     */
+    public function setFilter($filter)
+    {
+        $this->filter = $filter;
+    }
+
+    /**
+     * @return \elevate\HVObjects\MethodObjects\elevate\HVObjects\MethodObjects\ThingFilterSpec
+     */
+    public function getFilter()
+    {
+        return $this->filter;
+    }
+
+    /**
+     * @param \elevate\HVObjects\MethodObjects\elevate\HVObjects\MethodObjects\ThingFormatSpec $format
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
+    }
+
+    /**
+     * @return \elevate\HVObjects\MethodObjects\elevate\HVObjects\MethodObjects\ThingFormatSpec
+     */
+    public function getFormat()
+    {
+        return $this->format;
+    }
+
+    /**
+     * @param mixed $max
+     */
+    public function setMax($max)
+    {
+        $this->max = $max;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMax()
+    {
+        return $this->max;
+    }
+
+    /**
+     * @param mixed $maxFull
+     */
+    public function setMaxFull($maxFull)
+    {
+        $this->maxFull = $maxFull;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxFull()
+    {
+        return $this->maxFull;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+
+
 
 }

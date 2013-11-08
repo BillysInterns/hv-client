@@ -33,5 +33,39 @@ class BodyCompositionValue
         $this->massValue = $massValue;
         $this->percentValue = $percentValue;
     }
+
+    /**
+     * @param mixed $massValue
+     */
+    public function setMassValue($massValue)
+    {
+        $this->massValue = $massValue;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMassValue()
+    {
+        return $this->massValue;
+    }
+
+    /**
+     * @param mixed $percentValue
+     */
+    public function setPercentValue($percentValue)
+    {
+        $this->percentValue = $percentValue;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPercentValue()
+    {
+        return $this->percentValue;
+    }
+
+
 }
 

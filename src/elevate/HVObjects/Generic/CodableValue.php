@@ -33,4 +33,37 @@ class CodableValue
         $this->codes = $codes;
     }
 
+    /**
+     * @param array $codes
+     */
+    public function setCodes($codes)
+    {
+        $this->codes = $codes;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCodes()
+    {
+        return $this->codes;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+
 }

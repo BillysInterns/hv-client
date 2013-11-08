@@ -40,4 +40,37 @@ class GeneralMeasurement {
         $this->structure = $structure;
     }
 
+    /**
+     * @param mixed $display
+     */
+    public function setDisplay($display)
+    {
+        $this->display = $display;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
+     * @param mixed $structure
+     */
+    public function setStructure($structure)
+    {
+        $this->structure = $structure;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStructure()
+    {
+        return $this->structure;
+    }
+
+
 } 

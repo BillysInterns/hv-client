@@ -191,5 +191,294 @@ class Record
         $this->relName = $relName;
     }
 
+    /**
+     * @param mixed $appRecordAuthAction
+     */
+    public function setAppRecordAuthAction($appRecordAuthAction)
+    {
+        $this->appRecordAuthAction = $appRecordAuthAction;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAppRecordAuthAction()
+    {
+        return $this->appRecordAuthAction;
+    }
+
+    /**
+     * @param mixed $appSpecificRecordId
+     */
+    public function setAppSpecificRecordId($appSpecificRecordId)
+    {
+        $this->appSpecificRecordId = $appSpecificRecordId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAppSpecificRecordId()
+    {
+        return $this->appSpecificRecordId;
+    }
+
+    /**
+     * @param mixed $authExpired
+     */
+    public function setAuthExpired($authExpired)
+    {
+        $this->authExpired = $authExpired;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthExpired()
+    {
+        return $this->authExpired;
+    }
+
+    /**
+     * @param mixed $authExpires
+     */
+    public function setAuthExpires($authExpires)
+    {
+        $this->authExpires = $authExpires;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthExpires()
+    {
+        return $this->authExpires;
+    }
+
+    /**
+     * @param mixed $autoReconcileDocuments
+     */
+    public function setAutoReconcileDocuments($autoReconcileDocuments)
+    {
+        $this->autoReconcileDocuments = $autoReconcileDocuments;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAutoReconcileDocuments()
+    {
+        return $this->autoReconcileDocuments;
+    }
+
+    /**
+     * @param mixed $dateCreated
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
+    /**
+     * @param mixed $dateUpdated
+     */
+    public function setDateUpdated($dateUpdated)
+    {
+        $this->dateUpdated = $dateUpdated;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateUpdated()
+    {
+        return $this->dateUpdated;
+    }
+
+    /**
+     * @param mixed $displayName
+     */
+    public function setDisplayName($displayName)
+    {
+        $this->displayName = $displayName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisplayName()
+    {
+        return $this->displayName;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $locationCountry
+     */
+    public function setLocationCountry($locationCountry)
+    {
+        $this->locationCountry = $locationCountry;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocationCountry()
+    {
+        return $this->locationCountry;
+    }
+
+    /**
+     * @param mixed $locationStateProvince
+     */
+    public function setLocationStateProvince($locationStateProvince)
+    {
+        $this->locationStateProvince = $locationStateProvince;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocationStateProvince()
+    {
+        return $this->locationStateProvince;
+    }
+
+    /**
+     * @param mixed $maxSizeBytes
+     */
+    public function setMaxSizeBytes($maxSizeBytes)
+    {
+        $this->maxSizeBytes = $maxSizeBytes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxSizeBytes()
+    {
+        return $this->maxSizeBytes;
+    }
+
+    /**
+     * @param mixed $recordCustodian
+     */
+    public function setRecordCustodian($recordCustodian)
+    {
+        $this->recordCustodian = $recordCustodian;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRecordCustodian()
+    {
+        return $this->recordCustodian;
+    }
+
+    /**
+     * @param mixed $relName
+     */
+    public function setRelName($relName)
+    {
+        $this->relName = $relName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRelName()
+    {
+        return $this->relName;
+    }
+
+    /**
+     * @param mixed $relType
+     */
+    public function setRelType($relType)
+    {
+        $this->relType = $relType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRelType()
+    {
+        return $this->relType;
+    }
+
+    /**
+     * @param mixed $sizeBytes
+     */
+    public function setSizeBytes($sizeBytes)
+    {
+        $this->sizeBytes = $sizeBytes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSizeBytes()
+    {
+        return $this->sizeBytes;
+    }
+
+    /**
+     * @param mixed $state
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+
 
 }

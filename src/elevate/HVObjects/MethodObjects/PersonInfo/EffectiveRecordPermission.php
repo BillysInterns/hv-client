@@ -42,5 +42,37 @@ class EffectiveRecordPermission
         $this->thingTypePermission = $thingTypePermission;
     }
 
+    /**
+     * @param string $recordId
+     */
+    public function setRecordId($recordId)
+    {
+        $this->recordId = $recordId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecordId()
+    {
+        return $this->recordId;
+    }
+
+    /**
+     * @param array $thingTypePermission
+     */
+    public function setThingTypePermission($thingTypePermission)
+    {
+        $this->thingTypePermission = $thingTypePermission;
+    }
+
+    /**
+     * @return array
+     */
+    public function getThingTypePermission()
+    {
+        return $this->thingTypePermission;
+    }
+
 
 }

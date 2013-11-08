@@ -53,4 +53,54 @@ class Date {
         $this->day = $day;
     }
 
+    /**
+     * @param mixed $day
+     */
+    public function setDay($day)
+    {
+        $this->day = $day;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDay()
+    {
+        return $this->day;
+    }
+
+    /**
+     * @param mixed $month
+     */
+    public function setMonth($month)
+    {
+        $this->month = $month;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMonth()
+    {
+        return $this->month;
+    }
+
+    /**
+     * @param mixed $year
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+
+
 }

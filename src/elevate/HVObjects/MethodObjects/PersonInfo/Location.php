@@ -39,5 +39,37 @@ class Location
         $this->stateProvince = $stateProvince;
     }
 
+    /**
+     * @param mixed $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param mixed $stateProvince
+     */
+    public function setStateProvince($stateProvince)
+    {
+        $this->stateProvince = $stateProvince;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStateProvince()
+    {
+        return $this->stateProvince;
+    }
+
 
 }

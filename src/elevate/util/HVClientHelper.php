@@ -8,6 +8,7 @@
 namespace elevate\util;
 
 use elevate\HVObjects\MethodObjects\Info;
+use JMS\Serializer\SerializerBuilder;
 
 /**
  * Class HVClientHelper
@@ -23,10 +24,10 @@ class HVClientHelper {
      */
     static function HVInfoAsXML(Info $info)
     {
-
-        return "";
+        $serializer = SerializerBuilde::create()->build();
+        $xml = $serializer->serialize($info, 'xml');
+        return $xml;
     }
-
 
     static function HVGroupsFromXML(string $xml)
     {

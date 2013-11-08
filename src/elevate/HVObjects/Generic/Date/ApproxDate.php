@@ -54,4 +54,54 @@ class ApproxDate
         $this->d = $d;
     }
 
+    /**
+     * @param mixed $d
+     */
+    public function setD($d)
+    {
+        $this->d = $d;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getD()
+    {
+        return $this->d;
+    }
+
+    /**
+     * @param mixed $m
+     */
+    public function setM($m)
+    {
+        $this->m = $m;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getM()
+    {
+        return $this->m;
+    }
+
+    /**
+     * @param mixed $y
+     */
+    public function setY($y)
+    {
+        $this->y = $y;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getY()
+    {
+        return $this->y;
+    }
+
+
+
 } 

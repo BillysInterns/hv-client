@@ -48,4 +48,54 @@ class Phone
         $this->number = $number;
     }
 
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $isPrimary
+     */
+    public function setIsPrimary($isPrimary)
+    {
+        $this->isPrimary = $isPrimary;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsPrimary()
+    {
+        return $this->isPrimary;
+    }
+
+    /**
+     * @param mixed $number
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+
+
 }

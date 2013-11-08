@@ -33,5 +33,21 @@ class Permissions
         $this->permission = $permission;
     }
 
+    /**
+     * @param array $permission
+     */
+    public function setPermission($permission)
+    {
+        $this->permission = $permission;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPermission()
+    {
+        return $this->permission;
+    }
+
 
 }

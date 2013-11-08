@@ -47,4 +47,54 @@ class Email
         $this->isPrimary   = $isPrimary;
     }
 
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $isPrimary
+     */
+    public function setIsPrimary($isPrimary)
+    {
+        $this->isPrimary = $isPrimary;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsPrimary()
+    {
+        return $this->isPrimary;
+    }
+
+
+
 }

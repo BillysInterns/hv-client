@@ -47,4 +47,69 @@ class CodedValue
         $this->versions = $versions;
     }
 
+    /**
+     * @param array $families
+     */
+    public function setFamilies($families)
+    {
+        $this->families = $families;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFamilies()
+    {
+        return $this->families;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param array $versions
+     */
+    public function setVersions($versions)
+    {
+        $this->versions = $versions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getVersions()
+    {
+        return $this->versions;
+    }
+
+
 }

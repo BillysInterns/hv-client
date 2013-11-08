@@ -32,5 +32,21 @@ class ThingFilterSpec
         $this->typeId = $typeId;
     }
 
+    /**
+     * @param mixed $typeId
+     */
+    public function setTypeId($typeId)
+    {
+        $this->typeId = $typeId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeId()
+    {
+        return $this->typeId;
+    }
+
 
 }

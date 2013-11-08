@@ -38,4 +38,38 @@ class LengthValue
         $this->value = $value;
         $this->display = $display;
     }
+
+    /**
+     * @param mixed $display
+     */
+    public function setDisplay($display)
+    {
+        $this->display = $display;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+
 } 

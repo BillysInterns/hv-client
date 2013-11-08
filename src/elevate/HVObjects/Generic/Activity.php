@@ -43,4 +43,38 @@ class Activity
         $this->minutes = $minutes;
         $this->when = $when;
     }
+
+    /**
+     * @param mixed $minutes
+     */
+    public function setMinutes($minutes)
+    {
+        $this->minutes = $minutes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMinutes()
+    {
+        return $this->minutes;
+    }
+
+    /**
+     * @param mixed $when
+     */
+    public function setWhen($when)
+    {
+        $this->when = $when;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhen()
+    {
+        return $this->when;
+    }
+
+
 }

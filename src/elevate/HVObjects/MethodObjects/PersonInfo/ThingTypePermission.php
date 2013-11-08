@@ -55,5 +55,53 @@ class ThingTypePermission
         $this->thingTypeId = $thingTypeId;
     }
 
+    /**
+     * @param \elevate\HVObjects\MethodObjects\PersonInfo\elevate\HVObjects\MethodObjects\PersonInfo\Permissions $offlineAccessPermissions
+     */
+    public function setOfflineAccessPermissions($offlineAccessPermissions)
+    {
+        $this->offlineAccessPermissions = $offlineAccessPermissions;
+    }
+
+    /**
+     * @return \elevate\HVObjects\MethodObjects\PersonInfo\elevate\HVObjects\MethodObjects\PersonInfo\Permissions
+     */
+    public function getOfflineAccessPermissions()
+    {
+        return $this->offlineAccessPermissions;
+    }
+
+    /**
+     * @param \elevate\HVObjects\MethodObjects\PersonInfo\elevate\HVObjects\MethodObjects\PersonInfo\Permissions $onlineAccessPermissions
+     */
+    public function setOnlineAccessPermissions($onlineAccessPermissions)
+    {
+        $this->onlineAccessPermissions = $onlineAccessPermissions;
+    }
+
+    /**
+     * @return \elevate\HVObjects\MethodObjects\PersonInfo\elevate\HVObjects\MethodObjects\PersonInfo\Permissions
+     */
+    public function getOnlineAccessPermissions()
+    {
+        return $this->onlineAccessPermissions;
+    }
+
+    /**
+     * @param string $thingTypeId
+     */
+    public function setThingTypeId($thingTypeId)
+    {
+        $this->thingTypeId = $thingTypeId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getThingTypeId()
+    {
+        return $this->thingTypeId;
+    }
+
 
 }

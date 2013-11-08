@@ -93,5 +93,134 @@ class Prescription {
         $this->substitution = $substitution;
     }
 
+    /**
+     * @param mixed $amountPrescribed
+     */
+    public function setAmountPrescribed($amountPrescribed)
+    {
+        $this->amountPrescribed = $amountPrescribed;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAmountPrescribed()
+    {
+        return $this->amountPrescribed;
+    }
+
+    /**
+     * @param mixed $datePrescribed
+     */
+    public function setDatePrescribed($datePrescribed)
+    {
+        $this->datePrescribed = $datePrescribed;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDatePrescribed()
+    {
+        return $this->datePrescribed;
+    }
+
+    /**
+     * @param mixed $daysSupply
+     */
+    public function setDaysSupply($daysSupply)
+    {
+        $this->daysSupply = $daysSupply;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDaysSupply()
+    {
+        return $this->daysSupply;
+    }
+
+    /**
+     * @param mixed $instructions
+     */
+    public function setInstructions($instructions)
+    {
+        $this->instructions = $instructions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstructions()
+    {
+        return $this->instructions;
+    }
+
+    /**
+     * @param mixed $prescribedBy
+     */
+    public function setPrescribedBy($prescribedBy)
+    {
+        $this->prescribedBy = $prescribedBy;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrescribedBy()
+    {
+        return $this->prescribedBy;
+    }
+
+    /**
+     * @param mixed $prescriptionExpiration
+     */
+    public function setPrescriptionExpiration($prescriptionExpiration)
+    {
+        $this->prescriptionExpiration = $prescriptionExpiration;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrescriptionExpiration()
+    {
+        return $this->prescriptionExpiration;
+    }
+
+    /**
+     * @param mixed $refills
+     */
+    public function setRefills($refills)
+    {
+        $this->refills = $refills;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRefills()
+    {
+        return $this->refills;
+    }
+
+    /**
+     * @param mixed $substitution
+     */
+    public function setSubstitution($substitution)
+    {
+        $this->substitution = $substitution;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubstitution()
+    {
+        return $this->substitution;
+    }
+
+
 
 } 

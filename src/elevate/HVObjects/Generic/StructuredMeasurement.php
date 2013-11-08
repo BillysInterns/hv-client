@@ -44,5 +44,38 @@ class StructuredMeasurement {
         $this->value = $value;
     }
 
+    /**
+     * @param mixed $units
+     */
+    public function setUnits($units)
+    {
+        $this->units = $units;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+
 
 } 

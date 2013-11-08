@@ -69,4 +69,102 @@ class Common
         $this->extension     = $extension;
     }
 
+    /**
+     * @param mixed $clientThingId
+     */
+    public function setClientThingId($clientThingId)
+    {
+        $this->clientThingId = $clientThingId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClientThingId()
+    {
+        return $this->clientThingId;
+    }
+
+    /**
+     * @param mixed $extension
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+
+    /**
+     * @param mixed $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param mixed $relatedThing
+     */
+    public function setRelatedThing($relatedThing)
+    {
+        $this->relatedThing = $relatedThing;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRelatedThing()
+    {
+        return $this->relatedThing;
+    }
+
+    /**
+     * @param mixed $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param mixed $tags
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+
+
 }

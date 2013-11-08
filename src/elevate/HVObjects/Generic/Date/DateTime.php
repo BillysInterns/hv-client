@@ -41,4 +41,37 @@ class DateTime {
         $this->time = $time;
     }
 
+    /**
+     * @param \elevate\HVObjects\Generic\Date\elevate\HVObjects\Generic\Date\Date $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return \elevate\HVObjects\Generic\Date\elevate\HVObjects\Generic\Date\Date
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $time
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+
 }

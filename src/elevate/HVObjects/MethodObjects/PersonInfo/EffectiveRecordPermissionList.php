@@ -32,5 +32,22 @@ class EffectiveRecordPermissionList
         $this->effectiveRecordPermission = $effectiveRecordPermission;
     }
 
+    /**
+     * @param array $effectiveRecordPermission
+     */
+    public function setEffectiveRecordPermission($effectiveRecordPermission)
+    {
+        $this->effectiveRecordPermission = $effectiveRecordPermission;
+    }
+
+    /**
+     * @return array
+     */
+    public function getEffectiveRecordPermission()
+    {
+        return $this->effectiveRecordPermission;
+    }
+
+
 
 }
