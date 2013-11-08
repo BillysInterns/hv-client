@@ -171,5 +171,13 @@ class HVClientTest extends BaseTest
 
         print_r($person);
     }
+
+    public function testGetThingsById()
+    {
+        $this->hv->connect();
+        $typeId = '162dd12d-9859-4a66-b75f-96760d67072b';
+        $thing = $this->getThingById($typeId);
+
+    }
 }
  

@@ -221,8 +221,15 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
         if($this->connector)
         {
+            //make the request;
+            $this->connector->makeRequest(
+                'GetThings',
+                $version,
+                $info,
+                array('record-id' => $this->recordId),
+                $this->personId
+            );
 
-            //this->connector->makeRequest();
         }
         else
         {
