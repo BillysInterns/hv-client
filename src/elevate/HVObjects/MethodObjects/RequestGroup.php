@@ -59,8 +59,8 @@ class RequestGroup
     protected $currentVersionOnly = NULL;
 
     function __construct(
-        ThingFilterSpec $filter,
-        ThingFormatSpec $format,
+        ThingFilterSpec $filter = NULL,
+        ThingFormatSpec $format = NULL,
         $max = NULL,
         $maxFull = NULL,
         $name = NULL,
