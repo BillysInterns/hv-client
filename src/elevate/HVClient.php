@@ -8,6 +8,7 @@ namespace elevate;
 
 use biologis\HV\HVRawConnector;
 
+use elevate\util\HVClientHelper;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -192,9 +193,10 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     }
 
-    public function getThingsById( $typeId )
+    public function getThingsById( $typeId , $max = 20)
     {
-        
+        $info = InfoHelper::createInfoForTypeId($typeId, $max);
+        return $this->callHealthVault($info);
     }
 
     public function getThingId( $typeId )
@@ -207,8 +209,16 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     }
 
-    public function healthVaultCall()
+    public function callHealthVault(Info $info)
     {
+        $xml = HVClientHelper::HVInfoAsXML($info);
+
+        return $this->callHealthVaultWithXML($xml);
+    }
+
+    public function callHealthVaultWithXML( $xml )
+    {
+
         if($this->connector)
         {
 
@@ -217,9 +227,16 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         else
         {
             throw new HVClientNotConnectedException();
-            
+
         }
     }
+
+
+    // Default getters and setters below here....
+
+
+
+
     /**
      * @return string
      */
