@@ -177,10 +177,9 @@ class HVClientTest extends BaseTest
     public function testGetThingsById()
     {
         $typeId = '162dd12d-9859-4a66-b75f-96760d67072b';
-        $hvClient = new HVClient( $this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId);
-        $hvClient->connect();
-        $hvClient->getThingsById($typeId);
-
+//        $hvClient = new HVClient( $this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId);
+        $this->hv->connect();
+        $this->hv->getThingsById($typeId);
     }
 }
  

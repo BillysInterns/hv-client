@@ -63,7 +63,6 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
      * @var \JMS\Serializer\Serializer|null Serializer for working with the xml from HV
      */
     private $serializer = NULL;
-
     /**
     * @var null|string Authentication Token from Health Vault
     */
@@ -197,7 +196,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     public function getThingsById( $typeId , $max = 20)
     {
         $info = InfoHelper::getHVInfoForTypeId($typeId, $max);
-        return $this->callHealthVault($info);
+        $method = 'GetThings';
+        return $this->callHealthVault( $info, $method );
     }
 
     public function getThingId( $typeId )
@@ -205,37 +205,31 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     }
 
-    public function putThings($things, $recordId)
+    public function putThings( $typeId, $max = 20 )
     {
-
+        // ToDo $info = Thing XML
+        $method = 'PutThings';
+        return $this->callHealthVault( $info, $method );
     }
 
-    public function callHealthVault($info)
+    public function callHealthVault($info, $method)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
-
-        return $this->callHealthVaultWithXML($xml);
+        $xml= preg_replace('/^.+\n/', '', $xml);
+        return $this->callHealthVaultWithXML($xml, $method);
     }
 
-    public function callHealthVaultWithXML( $xml )
+    public function callHealthVaultWithXML( $xml, $method )
     {
 
         if($this->connector)
         {
-            //make the request;
-            $result = $this->connector->makeRequest(
-                'GetThings',
-                1,
-                '',
-                array('record-id' => $this->recordId),
-                $this->personId
-            );
-
+            //make the request
+            $this->connector->makeRequest( $method, $version = 1, $xml, array('record-id' => $this->recordId), $this->personId );
         }
         else
         {
             throw new HVClientNotConnectedException();
-
         }
     }
 
