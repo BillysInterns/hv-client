@@ -14,7 +14,7 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use elevate\util\InfoHelper;
-
+use SimpleXMLElement;
 
 /**
  * Class HVClient
@@ -215,8 +215,12 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     public function callHealthVault($info, $method)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
-        $xml = preg_replace('/^.+\n/', '', $xml);
-        $xml = str_replace('\n', '', $xml);
+
+        // Remove XML line and pull out group from inside info tag
+        $xml = new SimpleXMLElement($xml);
+        $xml = $xml->group->asXML();
+
+        $xml = preg_replace( '/>\s+</', '><', $xml );
         return $this->callHealthVaultWithXML($xml, $method);
     }
 
