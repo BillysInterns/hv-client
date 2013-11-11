@@ -215,7 +215,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     public function callHealthVault($info, $method)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
-        $xml= preg_replace('/^.+\n/', '', $xml);
+        $xml = preg_replace('/^.+\n/', '', $xml);
+        $xml = str_replace('\n', '', $xml);
         return $this->callHealthVaultWithXML($xml, $method);
     }
 
