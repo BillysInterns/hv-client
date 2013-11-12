@@ -168,7 +168,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     {
         $method = 'GetPersonInfo';
         $version = 1;
-        return HVClientHelper::HVGroupsFromXML($this->callHealthVault( NULL, $method ));
+        return HVClientHelper::HVGroupsFromXML($this->callHealthVault( NULL, $method, $version));
     }
 
     public function getThingsByName( $thingName )
@@ -181,7 +181,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     {
         $info = InfoHelper::getHVInfoForTypeId($typeId, $max);
         $method = 'GetThings';
-        return HVClientHelper::HVGroupsFromXML($this->callHealthVault( $info, $method ));
+        $version = 3;
+        return HVClientHelper::HVGroupsFromXML($this->callHealthVault( $info, $method, $version));
 
     }
 
@@ -200,10 +201,11 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     public function putThings( $thingXml, $max = 20 )
     {
         $method = 'PutThings';
-        return $this->callHealthVault( $thingXml, $method );
+        $version = 3;
+        return $this->callHealthVault( $thingXml, $method, $version);
     }
 
-    public function callHealthVault($info, $method)
+    public function callHealthVault($info, $method, $version)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
 
@@ -211,7 +213,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $xml = new SimpleXMLElement($xml);
         $xml = $xml->group->asXML();
 
-        return $this->callHealthVaultWithXML($xml, $method, 3);
+        return $this->callHealthVaultWithXML($xml, $method, $version);
     }
 
     public function callHealthVaultWithXML( $xml, $method, $version )
