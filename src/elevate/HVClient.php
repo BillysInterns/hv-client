@@ -230,7 +230,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         if($this->connector)
         {
             //make the request
-            $this->connector->makeRequest( $method, $version = 1, $xml, array('record-id' => $this->recordId), $this->personId );
+            $this->connector->makeRequest( $method, 3, $xml, array('record-id' => $this->recordId), $this->personId );
         }
         else
         {
