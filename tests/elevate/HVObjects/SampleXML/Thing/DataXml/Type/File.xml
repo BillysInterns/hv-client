@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file>
+    <name><![CDATA[abcdefg]]></name>
+    <size>20</size>
+    <content-type>
+        <text><![CDATA[Some File]]></text>
+        <code>
+            <value><![CDATA[154]]></value>
+            <family><![CDATA[Some File]]></family>
+            <type><![CDATA[SomeFile]]></type>
+            <version><![CDATA[Version 1]]></version>
+        </code>
+    </content-type>
+</file>
