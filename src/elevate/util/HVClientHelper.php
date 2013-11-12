@@ -29,12 +29,14 @@ class HVClientHelper {
         return $xml;
     }
 
-    static function HVGroupsFromXML(string $xml)
+    static function HVGroupsFromXML( $rawResponse )
     {
-        $groups = aray();
+        $groups = array();
+        $xml = simplexml_load_string( $rawResponse );
+        $result = $xml->xpath('//group');
 
+//turn it to groups
         return $groups;
     }
-
 
 }

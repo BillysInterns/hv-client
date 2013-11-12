@@ -166,53 +166,46 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     public function getPersonInfo()
     {
-        if ($this->connector)
-        {
-            $this->connector->makeRequest('GetPersonInfo', 1, '', NULL, $this->personId);
-
-            $rawResponse = $this->connector->getRawResponse();
-
-            return $rawResponse;
-
-            //MAKE PERSON INFO OBJECT HERE
-            /*
-            if ($rawResponse)
-            {
-                return new PersonInfo(qp('<?xml version="1.0"?>' . $qpPersonInfo->xml(), NULL, array('use_parser' => 'xml')));
-            }*/
-        }
-        else
-        {
-            throw new HVClientNotConnectedException();
-        }
+        $method = 'GetPersonInfo';
+        $version = 1;
+        return HVClientHelper::HVGroupsFromXML($this->callHealthVault( NULL, $method, $version));
     }
 
     public function getThingsByName( $thingName )
     {
-
-
+        $typeId = getThingId( $thingName );
+        return $this->getThingsByTypeId( $typeId );
     }
 
-    public function getThingsById( $typeId , $max = 20)
+    public function getThingsByTypeId( $typeId , $max = 20)
     {
         $info = InfoHelper::getHVInfoForTypeId($typeId, $max);
         $method = 'GetThings';
-        return $this->callHealthVault( $info, $method );
-    }
-
-    public function getThingId( $typeId )
-    {
+        $version = 3;
+        return HVClientHelper::HVGroupsFromXML($this->callHealthVault( $info, $method, $version));
 
     }
 
-    public function putThings( $typeId, $max = 20 )
+    public function getThingId( $thingName )
     {
-        // ToDo $info = Thing XML
+        foreach( HVRawConnector::$things as $item => $value )
+        {
+            if( $item == $thingName )
+            {
+                $typeId = $value;
+            }
+        }
+        return $typeId;
+    }
+
+    public function putThings( $thingXml, $max = 20 )
+    {
         $method = 'PutThings';
-        return $this->callHealthVault( $info, $method );
+        $version = 3;
+        return $this->callHealthVault( $thingXml, $method, $version);
     }
 
-    public function callHealthVault($info, $method)
+    public function callHealthVault($info, $method, $version)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
 
@@ -220,23 +213,25 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $xml = new SimpleXMLElement($xml);
         $xml = $xml->group->asXML();
 
-        $xml = preg_replace( '/>\s+</', '><', $xml );
-        return $this->callHealthVaultWithXML($xml, $method);
+        return $this->callHealthVaultWithXML($xml, $method, $version);
     }
 
-    public function callHealthVaultWithXML( $xml, $method )
+    public function callHealthVaultWithXML( $xml, $method, $version )
     {
 
         if($this->connector)
         {
             //make the request
-            $this->connector->makeRequest( $method, 3, $xml, array('record-id' => $this->recordId), $this->personId );
+            $this->connector->makeRequest( $method, $version, $xml, array('record-id' => $this->recordId), $this->personId );
+            return $this->connector->getRawResponse();
         }
         else
         {
             throw new HVClientNotConnectedException();
         }
     }
+
+
 
 
     // Default getters and setters below here....
