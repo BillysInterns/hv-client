@@ -25,13 +25,6 @@ class File extends Thing
      */
     protected $dataXML;
 
-    /**
-     * @var \elevate\HVObjects\Generic\DataOther
-     * @Type("elevate\HVObjects\Generic\DataOther")
-     * @SerializedName("data-other")
-     */
-    protected $dataOther;
-
 
     function __construct($dataXML)
     {

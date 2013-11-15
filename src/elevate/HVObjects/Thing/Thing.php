@@ -57,6 +57,13 @@ class Thing {
      */
     protected $dataXML;
 
+    /**
+     * @var \elevate\HVObjects\Generic\DataOther
+     * @Type("elevate\HVObjects\Generic\DataOther")
+     * @SerializedName("data-other")
+     */
+    protected $dataOther;
+
     function __construct($dataXML, $type_id, $thing_id = NULL, $flags = NULL)
     {
         $this->dataXML  = $dataXML;
