@@ -16,6 +16,7 @@ use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
+use \elevate\HVObjects\Generic\DataOther;
 
 /** @XmlRoot("thing") */
 class Thing {
