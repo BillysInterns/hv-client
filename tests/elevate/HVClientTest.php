@@ -7,7 +7,7 @@
 namespace elevate\test;
 
 use elevate\HVClient;
-use elevate\HVObjects\MethodObjects\Info;
+use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\util\InfoHelper;
 use elevate\util\HVClientHelper;
 
@@ -229,6 +229,12 @@ class HVClientTest extends BaseTest
             $this->assertNotNull($response);
         }
 
+    public function testPutThings()
+    {
+        //Make Thing XML Here for Put Things
+        //$thingXml
+        //$response = $this->hv->putThings();
+    }
 
 }
  

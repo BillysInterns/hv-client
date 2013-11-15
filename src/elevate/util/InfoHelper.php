@@ -10,9 +10,9 @@
 namespace elevate\util;
 
 
-use elevate\HVObjects\MethodObjects\Info;
+use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\HVObjects\MethodObjects\PersonInfo\HVGroup;
-use elevate\HVObjects\MethodObjects\RequestGroup;
+use elevate\HVObjects\MethodObjects\Get\RequestGroup;
 use elevate\HVObjects\MethodObjects\ThingFilterSpec;
 use elevate\HVObjects\MethodObjects\ThingFormatSpec;
 use elevate\TypeTranslator;

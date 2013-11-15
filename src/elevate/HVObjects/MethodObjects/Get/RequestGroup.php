@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-namespace elevate\HVObjects\MethodObjects;
+namespace elevate\HVObjects\MethodObjects\Get;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -16,6 +16,8 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use  elevate\HVObjects\MethodObjects\ThingFilterSpec;
+use  elevate\HVObjects\MethodObjects\ThingFormatSpec;
 
 /** @XmlRoot("group") */
 class RequestGroup

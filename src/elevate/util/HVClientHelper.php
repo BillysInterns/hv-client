@@ -7,7 +7,7 @@
 
 namespace elevate\util;
 
-use elevate\HVObjects\MethodObjects\Info;
+use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\Serializer\XmlObjectDeserializationVisitor;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;

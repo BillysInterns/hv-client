@@ -8,7 +8,7 @@ namespace elevate;
 
 use biologis\HV\HVRawConnector;
 
-use elevate\HVObjects\MethodObjects\Info;
+use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\util\HVClientHelper;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerAwareInterface;
@@ -190,6 +190,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         return HVClientHelper::HVGroupsFromXML($this->callHealthVault( $info, $method, $version));
 
     }
+
+    //Put things for request group
 
     public function putThings( $thingXml, $max = 20 )
     {

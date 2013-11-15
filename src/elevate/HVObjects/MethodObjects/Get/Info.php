@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-namespace elevate\HVObjects\MethodObjects;
+namespace elevate\HVObjects\MethodObjects\Get;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -24,7 +24,7 @@ class Info
     /**
      * @var array elevate\HVObjects\MethodObjects\RequestGroup
      * @XmlList(inline = true, entry = "group")
-     * @Type("array<elevate\HVObjects\MethodObjects\RequestGroup>")
+     * @Type("array<elevate\HVObjects\MethodObjects\Get\RequestGroup>")
      */
     protected $groups;
 
