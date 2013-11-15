@@ -58,7 +58,7 @@ class HVClientHelper {
 //        $responseGroups = $serializerBuilder->deserialize($groupXMLObjects, 'array<elevate\\HVObjects\\MethodObjects\\ResponseGroup>', 'xmlobject');
         foreach ($groupXMLObjects as $group)
         {
-            $responseGroups[] = $serializerBuilder->deserialize($group, 'array<elevate\\HVObjects\\MethodObjects\\ResponseGroup>', 'xmlobject');
+            $responseGroups[] = $serializerBuilder->deserialize($group, 'elevate\HVObjects\MethodObjects\ResponseGroup', 'xmlobject');
         }
 
         return $responseGroups;

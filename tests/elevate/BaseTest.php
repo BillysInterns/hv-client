@@ -65,7 +65,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
         $this->session    = array();
 
         $this->personId   = 'fe7e6e83-e8a1-433c-b72d-c52837eb1abd';
-        $this->recordId   = 'd7c36109-4b33-499f-a6a0-3924c2be9f87';
+        $this->recordId   = '3630afcd-169b-4e79-8b85-c4d0cfee9cd9';
         if (!is_null($this->privateKey) && !is_null($this->appId) && !is_null($this->privateKey))
         {
             $this->hv = new HVClient($this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId);
