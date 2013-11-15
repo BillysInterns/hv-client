@@ -15,13 +15,14 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
+use elevate\HVObjects\Thing\DataXML\DataXML;
 
 /** @XmlRoot("data-xml") */
-class QuestionAnswer extends elevate\HVObjects\Generic\DataXML
+class QuestionAnswer extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\Type\QuestionAnswer")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\QuestionAnswer")
      * @SerializedName("question-answer")
      */
     protected $question;
