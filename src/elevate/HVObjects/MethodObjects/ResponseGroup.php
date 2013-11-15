@@ -27,6 +27,12 @@ class ResponseGroup
      */
     private $things = NULL;
 
+    function __construct($name, $things)
+    {
+        $this->name = $name;
+        $this->things = $things;
+    }
+
     /**
      * @param mixed $name
      */
