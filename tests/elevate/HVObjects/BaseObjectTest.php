@@ -6,6 +6,9 @@
 
 namespace elevate\test\HVObjects;
 
+use JMS\Serializer\EventDispatcher\EventDispatcher;
+use elevate\util\EventSubscriber;
+
 abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
 {
     protected static $serializer;
@@ -13,6 +16,7 @@ abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
     protected static $xmlString;
     protected static $testObject = null;
     protected static $objectNamespace = null;
+    protected static $serializerBuilder;
 
     public function testSerialize()
     {
@@ -24,7 +28,8 @@ abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
 
     public function testDeserialize()
     {
-        $object = self::$serializer->deserialize(
+
+        $object = self::$serializerBuilder->deserialize(
             self::$xmlString, self::$objectNamespace, 'xml'
         );
 
@@ -43,8 +48,16 @@ abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
             throw new HVUnitTestBaseParameterNotDefinedException();
         }
 
-        self::$serializer = \JMS\Serializer\SerializerBuilder::create()->build();
-        self::$xmlString  = self::$serializer->serialize(self::$testObject, 'xml');
+        self::$serializer = \JMS\Serializer\SerializerBuilder::create();
+        self::$serializer->configureListeners(
+            function(EventDispatcher $dispatcher)
+            {
+                $dispatcher->addSubscriber(new EventSubscriber());
+            }
+        );
+        self::$serializerBuilder = self::$serializer->build();
+        self::$xmlString  = self::$serializerBuilder->serialize(self::$testObject, 'xml');
+
     }
 
     public static function tearDownAfterClass()
