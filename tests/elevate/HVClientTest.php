@@ -177,35 +177,59 @@ class HVClientTest extends BaseTest
     //     print_r($person);
     // }
 
-    public function testGetGroups()
+
+
+
+    public function testGetFile()
     {
-        $group1 = InfoHelper::getHVRequestGroupForThingName("Medication", 2, "first");
-        $group2 = InfoHelper::getHVRequestGroupForThingName("Question Answer", 2, "second");
-        $info = new Info(array($group1,$group2));
+        $reqGroup = InfoHelper::getHVRequestGroupForBase64ThingName('File', 2);
+        $info = new Info(array($reqGroup));
         $this->hv->connect();
-        $response = $this->hv->callHealthVault($info, 'GetThings', 3);
+        $response = $this->hv->callHealthVault($info, 'GetThings', 2);
         $this->assertNotNull($response);
+
         $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);
         $this->assertNotNull($hvResponseGroups);
     }
 
-    public function testGetThingsByTypeId()
-    {
-        $typeId = '52bf9104-2c5e-4f1f-a66d-552ebcc53df7';
-        $this->hv->connect();
-        $response = $this->hv->getThingsByTypeId($typeId, 2, "sumit");
-        $this->assertNotNull($response);
-    }
+    /*
+        public function testGetThingsByName()
+        {
+            // $hvThingNames = array("Medication", "Question Answer", "Body Composition", "Personal Demographic Information", "Allergy");
+            // $hvThingNames = array("Device", "Appointment", "Height Measurement", "Weight Measurement", "Sleep Session", "Sleep Related Activity", "Immunization");
+            $hvThingNames = array("File");
+
+            $this->hv->connect();
+            foreach($hvThingNames as $thingName)
+            {
+                $response = $this->hv->getThingsByName($thingName, 1, $thingName);
+                $this->assertNotNull($response);
+            }
+        }
 
 
-    public function testGetThingsByName()
-    {
-        $name = 'Medication';
-        $this->hv->connect();
-        $response = $this->hv->getThingsByName($name, 1, 'hey sumit!');
-        $this->assertNotNull($response);
-    }
 
+        public function testGetGroups()
+        {
+            $group1 = InfoHelper::getHVRequestGroupForThingName("Medication", 2, "first");
+            $group2 = InfoHelper::getHVRequestGroupForThingName("Question Answer", 2, "second");
+            $info = new Info(array($group1,$group2));
+            $this->hv->connect();
+            $response = $this->hv->callHealthVault($info, 'GetThings', 3);
+            $this->assertNotNull($response);
+            $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);
+            $this->assertNotNull($hvResponseGroups);
+        }
+
+        public function testGetThingsByTypeId()
+        {
+            $typeId = '52bf9104-2c5e-4f1f-a66d-552ebcc53df7';
+            $this->hv->connect();
+            $response = $this->hv->getThingsByTypeId($typeId, 2, "sumit");
+            $this->assertNotNull($response);
+        }
+
+    */
 
 
 }

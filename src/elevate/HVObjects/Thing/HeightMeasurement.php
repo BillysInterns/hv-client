@@ -14,12 +14,12 @@ use elevate\HVObjects\Thing\Thing;
 
 /** @XmlRoot("thing") */
 
-class Weight extends Thing
+class HeightMeasurement extends Thing
 {
 
     /**
-     * @var array elevate\HVObjects\Thing\DataXML\WeightDataXML
-     * @Type("elevate\HVObjects\Thing\DataXML\WeightDataXML")
+     * @var array elevate\HVObjects\Thing\DataXML\HeightDataXML
+     * @Type("elevate\HVObjects\Thing\DataXML\HeightDataXML")
      * @SerializedName("data-xml")
      */
     protected $dataXML;
@@ -29,7 +29,7 @@ class Weight extends Thing
      */
     public function __construct($dataXML)
     {
-        $typeID = TypeTranslator::lookupTypeID('Weight Measurement');
+        $typeID = TypeTranslator::lookupTypeID('Height Measurement');
         parent::__construct($dataXML,$typeID);
     }
 } 

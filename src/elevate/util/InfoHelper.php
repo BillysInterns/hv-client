@@ -50,4 +50,19 @@ class InfoHelper {
         return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName);
     }
 
+    static function getHVRequestGroupForBase64ThingName($thingName, $maxItems = 1, $groupName = null)
+    {
+        $typeId = TypeTranslator::lookupTypeId($thingName);
+        return self::getHVRequestGroupForBase64TypeId($typeId, $maxItems, $groupName);
+    }
+
+    static function getHVRequestGroupForBase64TypeId($typeId, $maxItems = 1, $groupName = null)
+    {
+        $filter = new ThingFilterSpec($typeId);
+        $format = new ThingFormatSpec('otherdata');
+
+        $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
+        return $group;
+    }
+
 }

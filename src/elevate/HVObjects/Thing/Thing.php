@@ -15,7 +15,7 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use elevate\HVObjects\Generic\DataXML;
+use elevate\HVObjects\Thing\DataXML\DataXML;
 
 /** @XmlRoot("thing") */
 class Thing {
@@ -51,8 +51,8 @@ class Thing {
 
 
     /**
-     * @var array elevate\HVObjects\DataXML\DataXML
-     * @Type("elevate\HVObjects\Generic\DataXML")
+     * @var array elevate\HVObjects\Thing\DataXML\DataXML
+     * @Type("array<elevate\HVObjects\Thing\DataXML\DataXML>")
      * @SerializedName("data-xml")
      */
     protected $dataXML;
@@ -64,6 +64,71 @@ class Thing {
         $this->thing_id = $thing_id;
         $this->type_id  = $type_id;
     }
+
+    /**
+     * @param array $dataXML
+     */
+    public function setDataXML($dataXML)
+    {
+        $this->dataXML = $dataXML;
+    }
+
+    /**
+     * @return array
+     */
+    public function getDataXML()
+    {
+        return $this->dataXML;
+    }
+
+    /**
+     * @param string $flags
+     */
+    public function setFlags($flags)
+    {
+        $this->flags = $flags;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFlags()
+    {
+        return $this->flags;
+    }
+
+    /**
+     * @param string $thing_id
+     */
+    public function setThingId($thing_id)
+    {
+        $this->thing_id = $thing_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getThingId()
+    {
+        return $this->thing_id;
+    }
+
+    /**
+     * @param string $type_id
+     */
+    public function setTypeId($type_id)
+    {
+        $this->type_id = $type_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTypeId()
+    {
+        return $this->type_id;
+    }
+
 
 
 }

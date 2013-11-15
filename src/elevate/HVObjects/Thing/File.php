@@ -12,6 +12,7 @@ use JMS\Serializer\Annotation\XmlList;
 use elevate\TypeTranslator;
 use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Thing\DataXML\FileDataXML;
+use elevate\HVObjects\Generic\DataOther;
 
 
 /** @XmlRoot("file") */
@@ -24,26 +25,20 @@ class File extends Thing
      */
     protected $dataXML;
 
+    /**
+     * @var \elevate\HVObjects\Generic\DataOther
+     * @Type("elevate\HVObjects\Generic\DataOther")
+     * @SerializedName("data-other")
+     */
+    protected $dataOther;
+
+
     function __construct($dataXML)
     {
         $typeID = TypeTranslator::lookupTypeID('File');
         parent::__construct($dataXML,$typeID);
     }
 
-    /**
-     * @return array
-     */
-    public function getDataXML()
-    {
-        return $this->dataXML;
-    }
 
-    /**
-     * @param array $dataXML
-     */
-    public function setDataXML($dataXML)
-    {
-        $this->dataXML = $dataXML;
-    }
 
 }
