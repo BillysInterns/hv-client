@@ -18,7 +18,7 @@ class HeightTest extends BaseObjectTest
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Height.xml';
+        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/HeightMeasurement.xml';
         self::$objectNamespace = 'elevate\HVObjects\Thing\HeightMeasurement';
 
         $time = new Time('10', '43', '12');
