@@ -192,7 +192,7 @@ class HVClientTest extends BaseTest
         $this->assertNotNull($hvResponseGroups);
     }
 
-    /*
+
         public function testGetThingsByName()
         {
             // $hvThingNames = array("Medication", "Question Answer", "Body Composition", "Personal Demographic Information", "Allergy");
@@ -228,8 +228,6 @@ class HVClientTest extends BaseTest
             $response = $this->hv->getThingsByTypeId($typeId, 2, "sumit");
             $this->assertNotNull($response);
         }
-
-    */
 
 
 }
