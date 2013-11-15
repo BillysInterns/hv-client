@@ -203,11 +203,10 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $xml = HVClientHelper::HVInfoAsXML($info);
 
         // Remove XML line and pull out group from inside info tag
-        $xmlObj = new SimpleXMLElement($xml);
+        $groupObjs = new SimpleXMLElement($xml);
         $newXML = "";
         // Get groups
-        $groupObjs = $xmlObj->xpath("//group");
-        // $groupObjs = $xmlObj->children();
+        $groupObjs->xpath("//group");
         foreach ($groupObjs as $groupObj)
         {
             $newXML .= $groupObj->asXML();

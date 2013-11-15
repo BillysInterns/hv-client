@@ -46,13 +46,30 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $baseConfigPath   = realpath("");
-        $this->appId      = file_get_contents($baseConfigPath . '/sample_keys/app.id');
-        $this->thumbPrint = file_get_contents($baseConfigPath . '/sample_keys/app.fp');
-        $this->privateKey = file_get_contents($baseConfigPath . '/sample_keys/app.pem');
+        $baseConfigPath = realpath("");
+        if (file_exists($baseConfigPath . '/sample_keys/app.id'))
+        {
+            $this->appId = file_get_contents($baseConfigPath . '/sample_keys/app.id');
+        }
+
+        if (file_exists($baseConfigPath . '/sample_keys/app.fp'))
+        {
+            $this->thumbPrint = file_get_contents($baseConfigPath . '/sample_keys/app.fp');
+        }
+
+        if (file_exists($baseConfigPath . '/sample_keys/app.pem'))
+        {
+            $this->privateKey = file_get_contents($baseConfigPath . '/sample_keys/app.pem');
+        }
+
         $this->session    = array();
+
         $this->personId   = 'fe7e6e83-e8a1-433c-b72d-c52837eb1abd';
-        $this->recordId   = '3630afcd-169b-4e79-8b85-c4d0cfee9cd9';
-        $this->hv         = new HVClient($this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId );
+        $this->recordId   = 'd7c36109-4b33-499f-a6a0-3924c2be9f87';
+        if (!is_null($this->privateKey) && !is_null($this->appId) && !is_null($this->privateKey))
+        {
+            $this->hv = new HVClient($this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId);
+        }
     }
 }
+ 

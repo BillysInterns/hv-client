@@ -1,11 +1,12 @@
 <?php
 /** @author troussos * */
 
-namespace elevate\test\HVObjects\Thing\DataXML;
+namespace elevate\test\HVObjects\Thing;
 
 use elevate\HVObjects\Generic\Name;
 use elevate\HVObjects\Thing\DataXML\Type\PersonalDemographicInformationType;
 use elevate\HVObjects\Thing\DataXML\PersonalDemographicInformationDataXML;
+use elevate\HVObjects\Thing\PersonalDemographicInformation;
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Generic\CodableValue;
 use elevate\HVObjects\Generic\CodedValue;
@@ -14,12 +15,12 @@ use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\Time;
 use elevate\HVObjects\Generic\Common;
 
-class PersonalDemographicInformationDataXMLTest extends BaseObjectTest
+class PersonalDemographicInformationTest extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/PersonalDemographicInformation.xml';
+        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/PersonalDemographicInformation.xml';
         self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\PersonalDemographicInformationDataXML';
 
         $titleCode = new CodedValue('Sir', 'Royalty', array('family-codes'), array('Version 4'));
@@ -82,7 +83,9 @@ class PersonalDemographicInformationDataXMLTest extends BaseObjectTest
 
         $common = new Common('Notes', 'Source', 'tag, tag2, tag3');
 
-        self::$testObject = new PersonalDemographicInformationDataXML($dataXML, $common);
+        $pdiXML = new PersonalDemographicInformationDataXML($dataXML, $common);
+        self::$testObject = new PersonalDemographicInformation($pdiXML);
+
         parent::setUpBeforeClass();
     }
 }

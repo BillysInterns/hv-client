@@ -3,4 +3,4 @@ vendor/*
 .idea/*
 composer.lock
 
-sample_keys/app.id
+sample_keys/*

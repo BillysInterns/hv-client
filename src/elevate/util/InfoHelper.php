@@ -23,7 +23,9 @@ class InfoHelper {
     static function getHVInfoForThingName($thingName, $maxItems = 1, $groupName = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
-        return self::getHVInfoForTypeId($typeId, $maxItems, $groupName);
+        $group = self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName);
+        $info = new Info(array($group));
+        return $info;
     }
 
     static function getHVInfoForTypeId($typeId, $maxItems = 1, $groupName = null)

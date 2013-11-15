@@ -113,17 +113,17 @@ class HVClientTest extends BaseTest
     //     $this->assertEquals('New App ID', $this->hv->getAppId());
     // }
 
-     /**
-      * Verify that the app returns the proper authcode
-      *
-      * @covers elevate\HVClient::getOnlineMode
-      */
-     public function testOnlineMode()
-     {
-         $this->assertFalse($this->hv->getOnlineMode());
-         $this->hv->setConfig(array('wctoken' => 'Random Token'));
-         $this->assertTrue($this->hv->getOnlineMode());
-     }
+    // /**
+    //  * Verify that the app returns the proper authcode
+    //  *
+    //  * @covers elevate\HVClient::getOnlineMode
+    //  */
+    // public function testOnlineMode()
+    // {
+    //     $this->assertFalse($this->hv->getOnlineMode());
+    //     $this->hv->setConfig(array('wctoken' => 'Random Token'));
+    //     $this->assertTrue($this->hv->getOnlineMode());
+    // }
 
     // /**
     //  * Verify that the auth URL is properly generated
