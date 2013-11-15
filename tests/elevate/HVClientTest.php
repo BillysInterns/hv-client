@@ -178,7 +178,17 @@ class HVClientTest extends BaseTest
     // }
 
 
+    public function testGetPersonalImage()
+    {
+        $reqGroup = InfoHelper::getHVRequestGroupForBase64ThingName('Personal Image', 1);
+        $info = new Info(array($reqGroup));
+        $this->hv->connect();
+        $response = $this->hv->callHealthVault($info, 'GetThings', 2);
+        $this->assertNotNull($response);
 
+        $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);
+        $this->assertNotNull($hvResponseGroups);
+    }
 
     public function testGetFile()
     {

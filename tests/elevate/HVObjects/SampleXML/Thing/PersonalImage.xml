@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <data-xml>
+        <common>
+            <note><![CDATA[Personal Image Note]]></note>
+            <source><![CDATA[Personal image Source]]></source>
+            <tags><![CDATA[PersonalImageTag]]></tags>
+        </common>
+        <personal-image><![CDATA[]]></personal-image>
+    </data-xml>
+</thing>

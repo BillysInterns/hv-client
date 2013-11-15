@@ -17,6 +17,7 @@ use JMS\Serializer\EventDispatcher\PreSerializeEvent;
 use elevate\TypeTranslator;
 use JMS\Serializer\SerializerBuilder;
 use elevate\HVObjects\MethodObjects\ResponseGroup;
+use JMS\Serializer\SerializationContext;
 
 /**
  * Class HVClientHelper
