@@ -21,7 +21,7 @@ class PersonalDemographicInformationTest extends BaseObjectTest
     public static function setUpBeforeClass()
     {
         self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/PersonalDemographicInformation.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\PersonalDemographicInformationDataXML';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\PersonalDemographicInformation';
 
         $titleCode = new CodedValue('Sir', 'Royalty', array('family-codes'), array('Version 4'));
         $title = new CodableValue('Sir', array($titleCode));
