@@ -12,12 +12,12 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
+use elevate\TypeTranslator;
 
 /** @XmlRoot("thing") */
 class PersonalImage extends Thing
 {
     /**
-     * @var array elevate\HVObjects\Thing\DataXML\PersonalImageDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\PersonalImageDataXML")
      * @serializedName("data-xml")
      */
@@ -25,7 +25,9 @@ class PersonalImage extends Thing
 
     function __construct($dataXML)
     {
+        $typeID = TypeTranslator::lookupTypeID('Allergy');
         $this->dataXML = $dataXML;
+        parent::__construct($dataXML, $typeID);
     }
 
 

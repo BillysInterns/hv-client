@@ -13,7 +13,6 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use elevate\HVObjects\Thing\DataXML\Type\PersonalImageType;
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Generic\Common;
@@ -30,7 +29,7 @@ class PersonalImageDataXML extends DataXML
 
     public function __construct( $personalImage, Common $common = NULL)
     {
-        $this->personalImage = $personalImage;
+        $this->personalImage = '';
         parent::__construct($common);
     }
 } 
