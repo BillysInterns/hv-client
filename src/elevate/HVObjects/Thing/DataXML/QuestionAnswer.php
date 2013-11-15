@@ -15,10 +15,9 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use elevate\HVObjects\Generic\DataXML;
 
 /** @XmlRoot("data-xml") */
-class QuestionAnswer extends DataXML
+class QuestionAnswer extends elevate\HVObjects\Generic\DataXML
 {
 
     /**

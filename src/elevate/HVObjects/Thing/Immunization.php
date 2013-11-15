@@ -25,7 +25,7 @@ class Immunization extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\ImmunizationDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\ImmunizationDataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

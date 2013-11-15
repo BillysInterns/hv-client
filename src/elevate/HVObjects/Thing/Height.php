@@ -20,7 +20,7 @@ class Height extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\HeightDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\HeightDataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

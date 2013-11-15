@@ -8,6 +8,7 @@ namespace elevate;
 
 use biologis\HV\HVRawConnector;
 
+use elevate\HVObjects\MethodObjects\Info;
 use elevate\util\HVClientHelper;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerAwareInterface;
@@ -15,6 +16,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use elevate\util\InfoHelper;
 use SimpleXMLElement;
+use elevate\TypeTranslator;
 
 /**
  * Class HVClient
@@ -168,34 +170,25 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     {
         $method = 'GetPersonInfo';
         $version = 1;
-        return HVClientHelper::HVGroupsFromXML($this->callHealthVault( NULL, $method, $version));
+        return HVClientHelper::HVPersonFromXML($this->callHealthVault( NULL, $method, $version));
     }
 
-    public function getThingsByName( $thingName )
+    public function getThingsByName( $thingName, $max, $groupName )
     {
-        $typeId = getThingId( $thingName );
-        return $this->getThingsByTypeId( $typeId );
+        $typeId = TypeTranslator::lookupTypeId($thingName);
+        if(is_null($typeId))
+            throw HVClientThingNameNotFoundException();
+        else
+            return $this->getThingsByTypeId( $typeId, $max, $groupName );
     }
 
-    public function getThingsByTypeId( $typeId , $max = 20)
+    public function getThingsByTypeId( $typeId , $max = 20, $groupName = null)
     {
-        $info = InfoHelper::getHVInfoForTypeId($typeId, $max);
+        $info = InfoHelper::getHVInfoForTypeId($typeId, $max, $groupName);
         $method = 'GetThings';
         $version = 3;
         return HVClientHelper::HVGroupsFromXML($this->callHealthVault( $info, $method, $version));
 
-    }
-
-    public function getThingId( $thingName )
-    {
-        foreach( HVRawConnector::$things as $item => $value )
-        {
-            if( $item == $thingName )
-            {
-                $typeId = $value;
-            }
-        }
-        return $typeId;
     }
 
     public function putThings( $thingXml, $max = 20 )
@@ -205,15 +198,21 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         return $this->callHealthVault( $thingXml, $method, $version);
     }
 
-    public function callHealthVault($info, $method, $version)
+    public function callHealthVault(Info $info, $method, $version)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
 
         // Remove XML line and pull out group from inside info tag
-        $xml = new SimpleXMLElement($xml);
-        $xml = $xml->group->asXML();
-
-        return $this->callHealthVaultWithXML($xml, $method, $version);
+        $xmlObj = new SimpleXMLElement($xml);
+        $newXML = "";
+        // Get groups
+        $groupObjs = $xmlObj->xpath("//group");
+        // $groupObjs = $xmlObj->children();
+        foreach ($groupObjs as $groupObj)
+        {
+            $newXML .= $groupObj->asXML();
+        }
+       return $this->callHealthVaultWithXML($newXML, $method, $version);
     }
 
     public function callHealthVaultWithXML( $xml, $method, $version )
@@ -418,5 +417,9 @@ class HVClientException extends \Exception
 }
 
 class HVClientNotConnectedException extends \Exception
+{
+}
+
+class HVClientThingNameNotFoundException extends \Exception
 {
 }

@@ -53,7 +53,7 @@ class Thing {
     /**
      * @var array elevate\HVObjects\DataXML\DataXML
      * @Type("elevate\HVObjects\Generic\DataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

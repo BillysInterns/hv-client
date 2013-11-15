@@ -22,7 +22,7 @@ class Condition extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\Condition
      * @Type("elevate\HVObjects\Thing\DataXML\ConditionDataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

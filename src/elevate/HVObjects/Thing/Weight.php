@@ -20,7 +20,7 @@ class Weight extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\WeightDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\WeightDataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

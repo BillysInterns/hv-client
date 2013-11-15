@@ -24,7 +24,7 @@ class BodyComposition extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\BodyCompositionDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\BodyCompositionDataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

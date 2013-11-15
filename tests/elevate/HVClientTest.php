@@ -7,6 +7,9 @@
 namespace elevate\test;
 
 use elevate\HVClient;
+use elevate\HVObjects\MethodObjects\Info;
+use elevate\util\InfoHelper;
+use elevate\util\HVClientHelper;
 
 class HVClientTest extends BaseTest
 {
@@ -110,17 +113,17 @@ class HVClientTest extends BaseTest
     //     $this->assertEquals('New App ID', $this->hv->getAppId());
     // }
 
-    // /**
-    //  * Verify that the app returns the proper authcode
-    //  *
-    //  * @covers elevate\HVClient::getOnlineMode
-    //  */
-    // public function testOnlineMode()
-    // {
-    //     $this->assertFalse($this->hv->getOnlineMode());
-    //     $this->hv->setConfig(array('wctoken' => 'Random Token'));
-    //     $this->assertTrue($this->hv->getOnlineMode());
-    // }
+     /**
+      * Verify that the app returns the proper authcode
+      *
+      * @covers elevate\HVClient::getOnlineMode
+      */
+     public function testOnlineMode()
+     {
+         $this->assertFalse($this->hv->getOnlineMode());
+         $this->hv->setConfig(array('wctoken' => 'Random Token'));
+         $this->assertTrue($this->hv->getOnlineMode());
+     }
 
     // /**
     //  * Verify that the auth URL is properly generated
@@ -174,12 +177,36 @@ class HVClientTest extends BaseTest
     //     print_r($person);
     // }
 
-    public function testGetThingsById()
+    public function testGetGroups()
     {
-        $typeId = '92ba621e-66b3-4a01-bd73-74844aed4f5b';
-//        $hvClient = new HVClient( $this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId);
+        $group1 = InfoHelper::getHVRequestGroupForThingName("Medication", 2, "first");
+        $group2 = InfoHelper::getHVRequestGroupForThingName("Question Answer", 2, "second");
+        $info = new Info(array($group1,$group2));
         $this->hv->connect();
-        $this->hv->getThingsByTypeId($typeId);
+        $response = $this->hv->callHealthVault($info, 'GetThings', 3);
+        $this->assertNotNull($response);
+        $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);
+        $this->assertNotNull($hvResponseGroups);
     }
+
+    public function testGetThingsByTypeId()
+    {
+        $typeId = '52bf9104-2c5e-4f1f-a66d-552ebcc53df7';
+        $this->hv->connect();
+        $response = $this->hv->getThingsByTypeId($typeId, 2, "sumit");
+        $this->assertNotNull($response);
+    }
+
+
+    public function testGetThingsByName()
+    {
+        $name = 'Medication';
+        $this->hv->connect();
+        $response = $this->hv->getThingsByName($name, 1, 'hey sumit!');
+        $this->assertNotNull($response);
+    }
+
+
+
 }
  

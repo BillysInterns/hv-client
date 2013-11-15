@@ -20,7 +20,7 @@ class Medication extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\MedicationDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\MedicationDataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

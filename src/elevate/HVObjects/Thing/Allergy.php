@@ -24,7 +24,7 @@ class Allergy extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\AllergyDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\AllergyDataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

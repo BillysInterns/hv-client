@@ -20,7 +20,7 @@ class File extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\FileDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\FileDataXML")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 

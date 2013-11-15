@@ -26,7 +26,7 @@ class SleepSession extends Thing
     /**
      * @var array elevate\HVObjects\Thing\DataXML\SleepSessionDataXML
      * @Type("elevate\HVObjects\Thing\DataXML\SleepSessionDataXml")
-     * @serializedName("data-xml")
+     * @SerializedName("data-xml")
      */
     protected $dataXML;
 
