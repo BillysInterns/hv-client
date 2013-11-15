@@ -182,7 +182,7 @@ class HVClientTest extends BaseTest
 
     public function testGetFile()
     {
-        $reqGroup = InfoHelper::getHVRequestGroupForBase64ThingName('File', 2);
+        $reqGroup = InfoHelper::getHVRequestGroupForBase64ThingName('File', 1);
         $info = new Info(array($reqGroup));
         $this->hv->connect();
         $response = $this->hv->callHealthVault($info, 'GetThings', 2);
@@ -195,9 +195,9 @@ class HVClientTest extends BaseTest
 
         public function testGetThingsByName()
         {
-            // $hvThingNames = array("Medication", "Question Answer", "Body Composition", "Personal Demographic Information", "Allergy");
-            // $hvThingNames = array("Device", "Appointment", "Height Measurement", "Weight Measurement", "Sleep Session", "Sleep Related Activity", "Immunization");
-            $hvThingNames = array("File");
+            $hvThingNames = array("Medication", "Question Answer", "Body Composition", "Personal Demographic Information", "Allergy", "Device", "Appointment", "Height Measurement", "Weight Measurement", "Sleep Session", "Sleep Related Activity", "Immunization", "File");
+            //$hvThingNames = array("Device", "Appointment", "Height Measurement", "Weight Measurement", "Sleep Session", "Sleep Related Activity", "Immunization");
+            //$hvThingNames = array("File");
 
             $this->hv->connect();
             foreach($hvThingNames as $thingName)
