@@ -18,7 +18,7 @@ class WeightTest extends BaseObjectTest
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Weight.xml';
+        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/WeightMeasurement.xml';
         self::$objectNamespace = 'elevate\HVObjects\Thing\WeightMeasurement';
 
         $time = new Time('10', '43', '12');
