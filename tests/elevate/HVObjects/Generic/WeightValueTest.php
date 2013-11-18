@@ -5,6 +5,7 @@ namespace elevate\test\HVObjects\Generic;
 
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Generic\WeightValue;
+use elevate\HVObjects\Generic\Display;
 
 class WeightValueTest extends BaseObjectTest
 {
@@ -14,7 +15,9 @@ class WeightValueTest extends BaseObjectTest
         self::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/WeightValue.xml';
         self::$objectNamespace = 'elevate\HVObjects\Generic\WeightValue';
 
-        self::$testObject = new WeightValue('85', '120');
+        $display = new Display('lbs.', '120');
+
+        self::$testObject = new WeightValue('85', $display);
 
         parent::setUpBeforeClass();
     }

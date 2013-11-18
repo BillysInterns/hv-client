@@ -16,6 +16,7 @@ use elevate\HVObjects\Generic\Date\ApproxDate;
 use elevate\HVObjects\Generic\Date\Time;
 use elevate\HVObjects\Generic\Date\StructuredApproxDate;
 use elevate\HVObjects\Generic\Date\ApproxDateTime;
+use elevate\HVObjects\Generic\Display;
 
 class BodyCompositionTest extends BaseObjectTest
 {
@@ -25,7 +26,8 @@ class BodyCompositionTest extends BaseObjectTest
         self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/BodyComposition.xml';
         self::$objectNamespace = 'elevate\HVObjects\Thing\BodyComposition';
 
-        $massValue = new WeightValue('45', '190');
+        $display = new Display('pounds', '190');
+        $massValue = new WeightValue('45', $display);
         $value = new BodyCompositionValue($massValue, '0.75');
 
         $measurementCode = new CodedValue('BF', 'BF Types', array('BF-Types'), array('Version 1'));

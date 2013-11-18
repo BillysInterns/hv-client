@@ -22,7 +22,7 @@ class ResponseGroup
     private $name = NULL;
 
     /**
-     * @Type("array<elevate\HVObjects\Thing>")
+     * @Type("array<elevate\HVObjects\Thing\Thing>")
      * @XmlList(inline=true, entry="thing")
      */
     private $things = NULL;

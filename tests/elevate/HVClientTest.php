@@ -7,9 +7,18 @@
 namespace elevate\test;
 
 use elevate\HVClient;
+use elevate\HVObjects\Generic\Display;
 use elevate\HVObjects\MethodObjects\Get\Info;
+use elevate\HVObjects\MethodObjects\PutThings\Info as PutInfo;
 use elevate\util\InfoHelper;
 use elevate\util\HVClientHelper;
+use elevate\HVObjects\Thing\HeightMeasurement;
+use elevate\HVObjects\Thing\DataXML\HeightDataXML;
+use elevate\HVObjects\Thing\DataXML\Type\HeightType;
+use elevate\HVObjects\Generic\Date\DateTime;
+use elevate\HVObjects\Generic\LengthValue;
+use elevate\HVObjects\Generic\Date\Date;
+use elevate\HVObjects\Generic\Date\Time;
 
 class HVClientTest extends BaseTest
 {
@@ -241,9 +250,25 @@ class HVClientTest extends BaseTest
 
     public function testPutThings()
     {
-        //Make Thing XML Here for Put Things
-        //$thingXml
-        //$response = $this->hv->putThings();
+
+        $display = new Display('feet', '75');
+        $value = new LengthValue('50', $display);
+
+        $date = new Date('2043', '12', '10');
+        $time = new Time('10', '45', '20');
+
+        $when = new DateTime($date,$time);
+        $heightType = new HeightType($when, $value);
+        $heightDataXML = new HeightDataXML($heightType);
+        $thing = new HeightMeasurement($heightDataXML);
+
+        $info = new PutInfo(array($thing));
+
+        $this->hv->connect();
+        $response = $this->hv->putThings($info);
+
+        $sampleXMLPath = __DIR__ . '/HVObjects/SampleXML/MethodObjects/PutThings/PutThingsResponse.xml';
+        $this->assertStringStartsWith(file_get_contents($sampleXMLPath), $response);
     }
 
 }

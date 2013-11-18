@@ -9,6 +9,7 @@ use elevate\HVObjects\Generic\Date\DateTime;
 use elevate\HVObjects\Thing\DataXML\Type\HeightType;
 use elevate\HVObjects\Generic\LengthValue;
 use elevate\test\HVObjects\BaseObjectTest;
+use elevate\HVObjects\Generic\Display;
 
 class HeightTypeTest extends BaseObjectTest
 {
@@ -22,7 +23,8 @@ class HeightTypeTest extends BaseObjectTest
         $time = new Time('12', '23', '45');
         $dateTime = new DateTime($date, $time);
 
-        $length = new LengthValue('20', '50');
+        $display = new Display('m', '23');
+        $length = new LengthValue('20', $display);
 
         self::$testObject = new HeightType($dateTime, $length);
 

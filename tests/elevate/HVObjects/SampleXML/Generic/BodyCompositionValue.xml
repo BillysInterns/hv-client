@@ -2,7 +2,7 @@
 <result>
     <mass-value>
         <kg>34</kg>
-        <display><![CDATA[65]]></display>
+        <display units="lbs."><![CDATA[194]]></display>
     </mass-value>
     <percent-value>34</percent-value>
 </result>

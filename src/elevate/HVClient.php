@@ -196,11 +196,11 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     public function putThings( $thingXml, $max = 20 )
     {
         $method = 'PutThings';
-        $version = 3;
+        $version = 2;
         return $this->callHealthVault( $thingXml, $method, $version);
     }
 
-    public function callHealthVault(Info $info, $method, $version)
+    public function callHealthVault($info, $method, $version)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
 

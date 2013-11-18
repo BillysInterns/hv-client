@@ -21,7 +21,7 @@
         </when>
         <value>
             <m>34</m>
-            <display><![CDATA[56]]></display>
+            <display units="m"><![CDATA[50]]></display>
         </value>
     </height>
 </result>

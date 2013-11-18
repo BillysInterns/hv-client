@@ -3,6 +3,7 @@
 
 namespace elevate\test\HVObjects;
 
+use elevate\HVObjects\Generic\Display;
 use elevate\HVObjects\Thing\HeightMeasurement;
 use elevate\HVObjects\Thing\DataXML\HeightDataXML;
 use elevate\HVObjects\Thing\DataXML\Type\HeightType;
@@ -25,7 +26,8 @@ class HeightTest extends BaseObjectTest
         $date = new Date('7', '12', '2013');
         $dateTime = new Datetime($date, $time);
 
-        $value = new LengthValue('45', '90');
+        $display = new Display('m', '50');
+        $value = new LengthValue('45', $display);
 
         $heightType = new HeightType($dateTime, $value);
 

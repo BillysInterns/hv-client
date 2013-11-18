@@ -15,6 +15,6 @@
     </when>
     <value>
         <kg>20</kg>
-        <display><![CDATA[50]]></display>
+        <display units="lbs."><![CDATA[45]]></display>
     </value>
 </result>

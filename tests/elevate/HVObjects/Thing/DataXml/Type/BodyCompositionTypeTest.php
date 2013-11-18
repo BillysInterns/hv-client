@@ -13,6 +13,7 @@ use elevate\HVObjects\Generic\Date\ApproxDateTime;
 use elevate\HVObjects\Generic\Date\StructuredApproxDate;
 use elevate\HVObjects\Generic\Date\ApproxDate;
 use elevate\HVObjects\Generic\Date\Time;
+use elevate\HVObjects\Generic\Display;
 
 class BodyCompositionTypeTest extends BaseObjectTest
 {
@@ -32,7 +33,8 @@ class BodyCompositionTypeTest extends BaseObjectTest
         $measurementNameCode = new CodedValue('12', 'measurementName', array('145'), array('Version 1'));
         $measurementName = new CodableValue('Fat Assessment', array($measurementNameCode));
 
-        $weightValue = new WeightValue('56', '124');
+        $display = new Display('lbs.', '124');
+        $weightValue = new WeightValue('56', $display);
         $value = new BodyCompositionValue($weightValue, '0.75');
 
         $mesaurementMethodCode = new CodedValue('12', 'Measurement Method', array('BC-MM'), array('Version 1'));

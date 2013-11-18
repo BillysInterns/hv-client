@@ -20,8 +20,8 @@
             </time>
         </when>
         <value>
-            <kg>34</kg>
-            <display><![CDATA[56]]></display>
+            <kg>20</kg>
+            <display units="lbs."><![CDATA[45]]></display>
         </value>
     </weight>
 </result>

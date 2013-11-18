@@ -22,8 +22,8 @@
                 </time>
             </when>
             <value>
-                <kg>45</kg>
-                <display><![CDATA[90]]></display>
+                <kg>20</kg>
+                <display units="lbs."><![CDATA[45]]></display>
             </value>
         </weight>
     </data-xml>

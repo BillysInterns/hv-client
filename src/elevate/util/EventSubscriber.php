@@ -15,10 +15,10 @@ class EventSubscriber implements \JMS\Serializer\EventDispatcher\EventSubscriber
     public function onPreDeserialize(\JMS\Serializer\EventDispatcher\PreDeserializeEvent $event)
     {
         $type = $event->getType();
-        if($type['name'] === 'elevate\HVObjects\Thing')
+        if($type['name'] === 'elevate\HVObjects\Thing\Thing')
         {
             $data = $event->getData();
-            $typeId = (string) $data->{'type-id'};
+            $typeId = ((string) $data->{'type-id'});
             $templateName = TypeTranslator::lookupTypeName($typeId);
             $event->setType('elevate\\HVObjects\\Thing\\' . $templateName );
         }

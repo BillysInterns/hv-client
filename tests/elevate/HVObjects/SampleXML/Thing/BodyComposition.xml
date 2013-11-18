@@ -45,7 +45,7 @@
             <value>
                 <mass-value>
                     <kg>45</kg>
-                    <display><![CDATA[190]]></display>
+                    <display units="pounds"><![CDATA[190]]></display>
                 </mass-value>
                 <percent-value>0.75</percent-value>
             </value>

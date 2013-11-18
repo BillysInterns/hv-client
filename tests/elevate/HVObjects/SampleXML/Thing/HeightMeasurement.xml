@@ -23,7 +23,7 @@
             </when>
             <value>
                 <m>45</m>
-                <display><![CDATA[90]]></display>
+                <display units="m"><![CDATA[50]]></display>
             </value>
         </height>
     </data-xml>

@@ -26,16 +26,4 @@ class Info
         $this->things = $things;
         return $this;
     }
-
-    public function setGroups($things)
-    {
-        $this->things = $things;
-        return $this;
-    }
-
-    public function getGroups()
-    {
-        return $this->things;
-    }
-
 }

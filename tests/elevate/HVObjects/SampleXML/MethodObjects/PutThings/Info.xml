@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+    <thing>
+        <type-id><![CDATA[40750a6a-89b2-455c-bd8d-b420a4cb500b]]></type-id>
+        <data-xml>
+            <common>
+                <note><![CDATA[Height Note 2]]></note>
+                <source><![CDATA[Height Source 45]]></source>
+                <tags><![CDATA[tageone, height, another tag]]></tags>
+            </common>
+            <height>
+                <when>
+                    <date>
+                        <y>7</y>
+                        <m>12</m>
+                        <d>2013</d>
+                    </date>
+                    <time>
+                        <h>10</h>
+                        <m>43</m>
+                        <s>12</s>
+                        <f>0</f>
+                    </time>
+                </when>
+                <value>
+                    <m>45</m>
+                    <display units="m"><![CDATA[50]]></display>
+                </value>
+            </height>
+        </data-xml>
+    </thing>
+</info>

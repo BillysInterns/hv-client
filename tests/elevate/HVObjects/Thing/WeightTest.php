@@ -12,6 +12,7 @@ use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\DateTime;
 use elevate\HVObjects\Generic\WeightValue;
 use elevate\test\HVObjects\BaseObjectTest;
+use elevate\HVObjects\Generic\Display;
 
 class WeightTest extends BaseObjectTest
 {
@@ -25,7 +26,8 @@ class WeightTest extends BaseObjectTest
         $date = new Date('7', '12', '2013');
         $dateTime = new Datetime($date, $time);
 
-        $value = new WeightValue('45', '90');
+        $display = new Display('lbs.', '45');
+        $value = new WeightValue('20', $display);
 
         $weightType = new WeightType($dateTime, $value);
 

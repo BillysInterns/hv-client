@@ -11,6 +11,7 @@ use elevate\HVObjects\Generic\Date\DateTime;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\Time;
 use elevate\HVObjects\Generic\LengthValue;
+use elevate\HVObjects\Generic\Display;
 
 class HeightDataXMTest extends BaseObjectTest
 {
@@ -24,7 +25,8 @@ class HeightDataXMTest extends BaseObjectTest
         $date = new Date('10', '12', '2013');
         $dateTime = new DateTime($date, $time);
 
-        $value = new LengthValue('34', '56');
+        $display = new Display('m', '50');
+        $value = new LengthValue('34', $display);
 
         $heightType = new HeightType($dateTime, $value);
 

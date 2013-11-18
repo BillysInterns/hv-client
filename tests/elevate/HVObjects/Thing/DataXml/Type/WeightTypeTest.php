@@ -6,6 +6,7 @@ namespace elevate\test\HVObjects\Thing\DataXML\Type;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\Time;
 use elevate\HVObjects\Generic\Date\DateTime;
+use elevate\HVObjects\Generic\Display;
 use elevate\HVObjects\Thing\DataXML\Type\WeightType;
 use elevate\HVObjects\Generic\WeightValue;
 use elevate\test\HVObjects\BaseObjectTest;
@@ -22,9 +23,10 @@ class WeightTypeTest extends BaseObjectTest
         $time = new Time('12', '23', '45');
         $dateTime = new DateTime($date, $time);
 
-        $length = new WeightValue('20', '50');
+        $display = new Display('lbs.', '45');
+        $value = new WeightValue('20', $display);
 
-        self::$testObject = new WeightType($dateTime, $length);
+        self::$testObject = new WeightType($dateTime, $value);
 
         parent::setUpBeforeClass();
     }

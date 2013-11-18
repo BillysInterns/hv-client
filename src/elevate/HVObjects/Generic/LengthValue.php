@@ -14,6 +14,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
+use elevate\HVObjects\Generic\Display;
+
 /** @XmlRoot("length-value") */
 class LengthValue 
 {
@@ -24,7 +26,7 @@ class LengthValue
     protected $value;
 
     /**
-     * @Type("string")
+     * @Type("elevate\HVObjects\Generic\Display")
      * @SerializedName("display")
      */
     protected $display;
@@ -33,18 +35,21 @@ class LengthValue
      * @param $value
      * @param $display
      */
-    public function __construct($value, $display)
+    public function __construct($value, Display $display)
     {
         $this->value = $value;
         $this->display = $display;
     }
 
     /**
-     * @param mixed $display
+     * @param Display $display
+     *
+     * @return $this
      */
-    public function setDisplay($display)
+    public function setDisplay(Display $display)
     {
         $this->display = $display;
+        return $this;
     }
 
     /**
@@ -56,11 +61,14 @@ class LengthValue
     }
 
     /**
-     * @param mixed $value
+     * @param $value
+     *
+     * @return $this
      */
     public function setValue($value)
     {
         $this->value = $value;
+        return $this;
     }
 
     /**

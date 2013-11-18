@@ -15,6 +15,6 @@
     </when>
     <value>
         <m>20</m>
-        <display><![CDATA[50]]></display>
+        <display units="m"><![CDATA[23]]></display>
     </value>
 </result>

@@ -31,7 +31,7 @@ class HVClientHelper {
      * @param Info $info
      * @return string
      */
-    static function HVInfoAsXML(Info $info)
+    static function HVInfoAsXML($info)
     {
         $serializer = SerializerBuilder::create()->build();
         $xml = $serializer->serialize($info, 'xml');
