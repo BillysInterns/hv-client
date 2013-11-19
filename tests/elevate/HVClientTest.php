@@ -190,7 +190,9 @@ class HVClientTest extends BaseTest
     {
         $group1 = InfoHelper::getHVRequestGroupForThingName("Medication", 2, "medication");
         $group2 = InfoHelper::getHVRequestGroupForThingName("Question Answer", 2, "second");
-        $info = new Info(array($group1, $group2));
+        $group3 = InfoHelper::getHVRequestGroupForThingName("Allergy", 2, "Allergy");
+
+        $info = new Info(array($group1, $group2, $group3));
         $this->hv->connect();
         $response = $this->hv->callHealthVault($info, 'GetThings', 2);
         $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);

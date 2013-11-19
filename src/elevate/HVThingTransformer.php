@@ -31,7 +31,7 @@ class HVThingTransformer
                 $response[$name][] = $this->prepareType($type, $thing);
             }
         }
-        $abc = json_encode($response);
+        return json_encode($response);
     }
 
     public function prepareType($type, $thing)
@@ -49,6 +49,12 @@ class HVThingTransformer
 
             case 'QuestionAnswer':
                 return $this->prepareQA($thing);
+
+            case 'Allergy':
+                return $this->prepareAllergy($thing);
+
+            case 'Condition';
+                return $this->prepareCondition($thing);
 
         }
     }
@@ -78,5 +84,31 @@ class HVThingTransformer
         //ToDo add rest of variables needed
 
         return $qa;
+    }
+
+    public function prepareAllergy($thing)
+    {
+        $thingType =$thing->getDataXML()->getType();
+
+        $allergy['name'] = $thingType->getName()->getText();
+
+        //ToDo add rest of variables needed
+
+        return $allergy;
+
+    }
+
+    public function prepareCondition($thing)
+    {
+        $thingType =$thing->getDataXML()->getType();
+
+        $condition['name'] = $thingType->getName()->getText();
+        $condition['status'] = $thingType->getStatus()->getText();
+
+        //ToDo add rest of variables needed
+
+        return $condition;
+
+
     }
 }

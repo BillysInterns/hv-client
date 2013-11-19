@@ -71,4 +71,84 @@ class ConditionType
         $this->stopReason = $stopReason;
     }
 
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $onsetDate
+     */
+    public function setOnsetDate($onsetDate)
+    {
+        $this->onsetDate = $onsetDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOnsetDate()
+    {
+        return $this->onsetDate;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $stopDate
+     */
+    public function setStopDate($stopDate)
+    {
+        $this->stopDate = $stopDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStopDate()
+    {
+        return $this->stopDate;
+    }
+
+    /**
+     * @param mixed $stopReason
+     */
+    public function setStopReason($stopReason)
+    {
+        $this->stopReason = $stopReason;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStopReason()
+    {
+        return $this->stopReason;
+    }
+
 }
