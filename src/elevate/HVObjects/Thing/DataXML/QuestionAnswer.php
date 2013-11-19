@@ -27,4 +27,8 @@ class QuestionAnswer extends DataXML
      */
     protected $question;
 
+    public function getType()
+    {
+        return $this->question;
+    }
 }

@@ -32,4 +32,9 @@ class PersonalImageDataXML extends DataXML
         $this->personalImage = '';
         parent::__construct($common);
     }
+
+    public function getType()
+    {
+        return $this->personalImage;
+    }
 } 

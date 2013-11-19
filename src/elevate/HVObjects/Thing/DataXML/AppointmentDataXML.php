@@ -34,4 +34,8 @@ class AppointmentDataXML extends DataXML
         parent::__construct($common);
     }
 
+    public function getType()
+    {
+        return $this->appointment;
+    }
 }

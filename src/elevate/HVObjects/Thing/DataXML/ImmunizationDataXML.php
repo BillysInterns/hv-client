@@ -36,4 +36,9 @@ class ImmunizationDataXML extends DataXML
         $this->immunization = $immunization;
         parent::__construct($common);
     }
+
+    public function getType()
+    {
+        return $this->immunization;
+    }
 } 

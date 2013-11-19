@@ -35,4 +35,9 @@ class DeviceDataXML extends DataXML
         $this->device = $device;
         parent::__construct($common);
     }
+
+    public function getType()
+    {
+        return $this->device;
+    }
 }

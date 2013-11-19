@@ -36,4 +36,9 @@ class HeightDataXML extends DataXML
         $this->height = $height;
         parent::__construct($common);
     }
+
+    public function getType()
+    {
+        return $this->height;
+    }
 }

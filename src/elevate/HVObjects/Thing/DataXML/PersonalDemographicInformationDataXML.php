@@ -26,4 +26,9 @@ class PersonalDemographicInformationDataXML extends DataXML
         $this->pdi = $pdi;
         parent::__construct($common);
     }
+
+    public function getType()
+    {
+        return $this->pdi;
+    }
 } 

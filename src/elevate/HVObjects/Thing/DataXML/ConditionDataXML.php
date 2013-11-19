@@ -36,4 +36,9 @@ class ConditionDataXML extends DataXML
         $this->condition = $condition;
         parent::__construct($common);
     }
+
+    public function getType()
+    {
+        return $this->condition;
+    }
 }

@@ -36,4 +36,9 @@ class WeightDataXML extends DataXML
         $this->weight = $weight;
         parent::__construct($common);
     }
+
+    public function getType()
+    {
+        return $this->weight;
+    }
 }

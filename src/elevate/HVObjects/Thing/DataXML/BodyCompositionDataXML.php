@@ -24,4 +24,9 @@ class BodyCompositionDataXML extends DataXML
         $this->bodyComposition = $bodyComposition;
         parent::__construct($common);
     }
+
+    public function getType()
+    {
+        return $this->bodyComposition;
+    }
 } 

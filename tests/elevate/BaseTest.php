@@ -70,6 +70,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
         {
             $this->hv = new HVClient($this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId);
         }
+        $this->hv->connect();
     }
 }
  

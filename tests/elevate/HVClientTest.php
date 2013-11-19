@@ -186,6 +186,17 @@ class HVClientTest extends BaseTest
     //     print_r($person);
     // }
 
+    public function testFormatResults()
+    {
+        $group1 = InfoHelper::getHVRequestGroupForThingName("Medication", 2, "medication");
+        $group2 = InfoHelper::getHVRequestGroupForThingName("Question Answer", 2, "second");
+        $info = new Info(array($group1, $group2));
+        $this->hv->connect();
+        $response = $this->hv->callHealthVault($info, 'GetThings', 2);
+        $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);
+        $response = $this->hv->formatResults($hvResponseGroups);
+        $this->assertNotNull($response);
+    }
 
     public function testGetPersonalImage()
     {
@@ -198,6 +209,7 @@ class HVClientTest extends BaseTest
         $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);
         $this->assertNotNull($hvResponseGroups);
     }
+
 
     public function testGetFile()
     {
