@@ -45,4 +45,68 @@ class QuestionAnswer
      */
     protected $answers;
 
+    /**
+     * @param array $answerChoices
+     */
+    public function setAnswerChoices($answerChoices)
+    {
+        $this->answerChoices = $answerChoices;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAnswerChoices()
+    {
+        return $this->answerChoices;
+    }
+
+    /**
+     * @param array $answers
+     */
+    public function setAnswers($answers)
+    {
+        $this->answers = $answers;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
+
+    /**
+     * @param mixed $question
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * @param mixed $when
+     */
+    public function setWhen($when)
+    {
+        $this->when = $when;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhen()
+    {
+        return $this->when;
+    }
+
 }

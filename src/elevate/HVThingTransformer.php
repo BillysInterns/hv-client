@@ -23,14 +23,60 @@ class HVThingTransformer
         {
             $name = $group->getName();
             $things = $group->getThings();
+            $translator = new TypeTranslator();
+            $type = $translator->lookupTypeName($things[0]->getTypeId());
+
             foreach( $things as $thing )
             {
-                $response[$name][] = $thing->getDataXML()->getType();
+                $response[$name][] = $this->prepareType($type, $thing);
             }
         }
-        $serializer = SerializerBuilder::create()->build();
-        $jsonContent = $serializer->serialize($response, 'json');
+        $abc = json_encode($response);
     }
 
+    public function prepareType($type, $thing)
+    {
+        return $this->sectionDivision($type, $thing);
+    }
 
+    public function sectionDivision($type, $thing)
+    {
+        switch($type)
+        {
+            case 'Medication':
+            case 'Medication #(v2)':
+                return $this->prepareMedication($thing);
+
+            case 'QuestionAnswer':
+                return $this->prepareQA($thing);
+
+        }
+    }
+
+    public function prepareMedication($thing)
+    {
+        $thingType =$thing->getDataXML()->getType();
+
+        $medication['name'] = $thingType->getName()->getText();
+
+        //ToDo add rest of variables needed
+
+        return $medication;
+
+    }
+
+    public function prepareQA($thing)
+    {
+        $thingType =$thing->getDataXML()->getType();
+
+        $qa['question'] = $thingType->getQuestion()->getText();
+
+        foreach( $thingType->getAnswers() as $answer)
+        {
+            $qa['answer'][] = $answer->getText();
+        }
+        //ToDo add rest of variables needed
+
+        return $qa;
+    }
 }
