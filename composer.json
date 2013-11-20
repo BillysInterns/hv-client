@@ -1,5 +1,5 @@
 {
-    "name": "BillysInterns/hv-client-lib",
+    "name": "billys-interns/hv-client-lib",
     "type": "library",
     "description": "Easy to use lightweight PHP library to connect to Microsoft HealthVault.",
     "keywords": ["healthvault", "xml"],
