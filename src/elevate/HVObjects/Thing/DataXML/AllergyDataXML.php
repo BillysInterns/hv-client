@@ -40,4 +40,20 @@ class AllergyDataXML extends DataXML{
         return $this->allergy;
     }
 
+    /**
+     * @param mixed $allergy
+     */
+    public function setAllergy($allergy)
+    {
+        $this->allergy = $allergy;
+    }
+
+    /**
+     * @param mixed $common
+     */
+    public function setCommon($common)
+    {
+        $this->common = $common;
+    }
+
 }
