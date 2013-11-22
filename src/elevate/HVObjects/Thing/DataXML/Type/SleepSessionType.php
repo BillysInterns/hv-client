@@ -70,14 +70,14 @@ class SleepSessionType
     protected $wakeState;
 
     function __construct(
-        $when,
-        $bedTime,
-        $wakeTime,
-        $sleepMinutes,
-        $settlingMinutes,
+        $when = NULL,
+        $bedTime = NULL,
+        $wakeTime = NULL,
+        $sleepMinutes = NULL,
+        $settlingMinutes = NULL,
         $awakening = NULL,
         $medications = NULL,
-        $wakeState
+        $wakeState = NULL
     )
     {
         $this->when = $when;

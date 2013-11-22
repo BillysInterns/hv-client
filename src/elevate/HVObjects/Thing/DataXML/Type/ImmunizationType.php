@@ -104,16 +104,16 @@ class ImmunizationType
     * @param CodableValue $route
     */
     function __construct(
-                         ApproxDateTime $administrationDate,
-                         Person $administrator,
-                         $adverseEvent,
-                         CodableValue $anatomicSurface,
-                         $consent,
-                         ApproxDate $expirationDate,
-                         $lot,
-                         CodableValue $manufacturer,
-                         CodableValue $name,
-                         CodableValue $route, 
+                         ApproxDateTime $administrationDate = NULL,
+                         Person $administrator = NULL,
+                         $adverseEvent = NULL,
+                         CodableValue $anatomicSurface = NULL,
+                         $consent = NULL,
+                         ApproxDate $expirationDate = NULL,
+                         $lot = NULL,
+                         CodableValue $manufacturer = NULL,
+                         CodableValue $name = NULL,
+                         CodableValue $route = NULL,
                          $sequence
     )
     {

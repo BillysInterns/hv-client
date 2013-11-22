@@ -90,17 +90,17 @@ class MedicationType
     private $prescription;
 
     function __construct(
-        $name,
-        $dateDiscontinued,
-        $dateStarted,
-        $dose,
-        $frequency,
-        $genericName,
-        $indication,
-        $prescribed,
-        $prescription,
-        $route,
-        $strength
+        $name = NULL,
+        $dateDiscontinued = NULL,
+        $dateStarted = NULL,
+        $dose = NULL,
+        $frequency = NULL,
+        $genericName = NULL,
+        $indication = NULL,
+        $prescribed = NULL,
+        $prescription = NULL,
+        $route = NULL,
+        $strength = NULL
     )
     {
         $this->dateDiscontinued = $dateDiscontinued;

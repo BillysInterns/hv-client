@@ -30,7 +30,7 @@ class HeightType
      */
     protected $value;
 
-    public function __construct(DateTime $when, LengthValue $value)
+    public function __construct(DateTime $when = NULL, LengthValue $value = NULL)
     {
         $this->when = $when;
         $this->value = $value;

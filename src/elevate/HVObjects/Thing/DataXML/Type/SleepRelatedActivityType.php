@@ -59,12 +59,12 @@ class SleepRelatedActivityType
     protected $sleepiness;
 
     function __construct(
-        DateTime $when,
+        DateTime $when = NULL,
         Time $caffeine = NULL,
         Time $alcohol = NULL,
         Activity $nap = NULL,
         Activity $exercise = NULL,
-        $sleepiness
+        $sleepiness = NULL
     )
     {
         $this->when         = $when;

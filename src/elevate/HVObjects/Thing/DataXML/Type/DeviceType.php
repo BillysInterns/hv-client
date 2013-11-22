@@ -67,7 +67,7 @@ class DeviceType
      */
     protected $description;
 
-    function __construct($anatomicSite, $description, $deviceName, $model, $serialNumber, $vendor, $when)
+    function __construct($anatomicSite = NULL, $description = NULL, $deviceName = NULL, $model = NULL, $serialNumber = NULL, $vendor = NULL, $when = NULL)
     {
         $this->anatomicSite = $anatomicSite;
         $this->description = $description;

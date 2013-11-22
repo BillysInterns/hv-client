@@ -41,9 +41,9 @@ class BodyCompositionType
     protected $site = NULL;
 
     function __construct(
-        ApproxDateTime $when,
-        CodableValue $measurementName,
-        BodyCompositionValue $value,
+        ApproxDateTime $when = NULL,
+        CodableValue $measurementName = NULL,
+        BodyCompositionValue $value = NULL,
         CodableValue $meaurementMethod = NULL,
         CodableValue $site = NULL
     )

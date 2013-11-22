@@ -37,7 +37,7 @@ class FileType
      */
     protected $contentType;
 
-    function __construct($contentType, $name, $size)
+    function __construct($contentType = NULL, $name = NULL, $size = NULL)
     {
         $this->contentType = $contentType;
         $this->name = $name;

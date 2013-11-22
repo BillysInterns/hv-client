@@ -26,7 +26,7 @@ class WeightType
      */
     protected $value;
 
-    public function __construct(DateTime $when, WeightValue $value)
+    public function __construct(DateTime $when = NULL, WeightValue $value = NULL)
     {
         $this->when = $when;
         $this->value = $value;

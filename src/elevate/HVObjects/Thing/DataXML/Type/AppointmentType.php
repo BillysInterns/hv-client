@@ -65,7 +65,7 @@ class AppointmentType
 	*/
 	protected $careClass;
 
-    public function __construct($careClass, $clinic, $duration, $service, $specialty, $status, DateTime $when)
+    public function __construct($careClass = NULL, $clinic = NULL, $duration = NULL, $service = NULL, $specialty = NULL, $status = NULL, DateTime $when = NULL)
     {
         $this->careClass = $careClass;
         $this->clinic = $clinic;
