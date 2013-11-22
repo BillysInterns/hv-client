@@ -40,4 +40,14 @@ class MedicationDataXML extends DataXML
         return $this->medication;
     }
 
+    /**
+     * @param mixed $medication
+     */
+    public function setType($medication)
+    {
+        $this->medication = $medication;
+        return $this;
+    }
+
+
 }

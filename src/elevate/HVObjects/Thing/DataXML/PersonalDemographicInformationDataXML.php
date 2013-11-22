@@ -31,4 +31,16 @@ class PersonalDemographicInformationDataXML extends DataXML
     {
         return $this->pdi;
     }
-} 
+
+    /**
+     * @param mixed $pdi
+     */
+    public function setType($pdi)
+    {
+        $this->pdi = $pdi;
+        return $this;
+    }
+
+
+}
+

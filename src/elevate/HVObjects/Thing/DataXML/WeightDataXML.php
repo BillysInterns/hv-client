@@ -41,4 +41,15 @@ class WeightDataXML extends DataXML
     {
         return $this->weight;
     }
+
+    /**
+     * @param mixed $weight
+     */
+    public function setType($weight)
+    {
+        $this->weight = $weight;
+        return $this;
+    }
+
+
 }

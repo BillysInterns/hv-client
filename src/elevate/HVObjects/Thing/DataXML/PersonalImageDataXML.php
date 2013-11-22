@@ -37,4 +37,16 @@ class PersonalImageDataXML extends DataXML
     {
         return $this->personalImage;
     }
-} 
+
+    /**
+     * @param mixed $personalImage
+     */
+    public function setType($personalImage)
+    {
+        $this->personalImage = $personalImage;
+        return $this;
+    }
+
+
+}
+

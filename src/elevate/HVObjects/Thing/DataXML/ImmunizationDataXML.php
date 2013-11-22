@@ -41,4 +41,15 @@ class ImmunizationDataXML extends DataXML
     {
         return $this->immunization;
     }
+
+    /**
+     * @param mixed $immunization
+     */
+    public function setType($immunization)
+    {
+        $this->immunization = $immunization;
+        return $this;
+    }
+
+
 } 

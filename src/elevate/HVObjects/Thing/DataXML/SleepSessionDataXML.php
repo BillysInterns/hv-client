@@ -48,4 +48,15 @@ class SleepSessionDataXML extends DataXML
     {
         return $this->sleepRelatedActivity;
     }
+
+    /**
+     * @param mixed $sleepRelatedActivity
+     */
+    public function setType($sleepRelatedActivity)
+    {
+        $this->sleepRelatedActivity = $sleepRelatedActivity;
+        return $this;
+    }
+
+
 }

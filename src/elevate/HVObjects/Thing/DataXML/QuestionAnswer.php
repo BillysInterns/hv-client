@@ -31,4 +31,15 @@ class QuestionAnswer extends DataXML
     {
         return $this->question;
     }
+
+    /**
+     * @param mixed $question
+     */
+    public function setType($question)
+    {
+        $this->question = $question;
+        return $this;
+    }
+
+
 }

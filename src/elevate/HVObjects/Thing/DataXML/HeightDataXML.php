@@ -41,4 +41,15 @@ class HeightDataXML extends DataXML
     {
         return $this->height;
     }
+
+    /**
+     * @param mixed $height
+     */
+    public function setType($height)
+    {
+        $this->height = $height;
+        return $this;
+    }
+
+
 }

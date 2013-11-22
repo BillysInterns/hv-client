@@ -29,4 +29,15 @@ class BodyCompositionDataXML extends DataXML
     {
         return $this->bodyComposition;
     }
+
+    /**
+     * @param mixed $bodyComposition
+     */
+    public function setType($bodyComposition)
+    {
+        $this->bodyComposition = $bodyComposition;
+        return $this;
+}
+
+
 } 

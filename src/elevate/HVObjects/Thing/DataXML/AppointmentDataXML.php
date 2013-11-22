@@ -38,4 +38,15 @@ class AppointmentDataXML extends DataXML
     {
         return $this->appointment;
     }
+
+    /**
+     * @param mixed $appointment
+     */
+    public function setType($appointment)
+    {
+        $this->appointment = $appointment;
+        return $this;
+}
+
+
 }

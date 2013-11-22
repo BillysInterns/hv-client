@@ -39,4 +39,15 @@ class FileDataXML extends DataXML
         return $this->file;
     }
 
+    /**
+     * @param mixed $file
+     */
+    public function setType($file)
+    {
+        $this->file = $file;
+        return $this;
+    }
+
+
+
 }

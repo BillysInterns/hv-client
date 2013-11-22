@@ -40,4 +40,13 @@ class DeviceDataXML extends DataXML
     {
         return $this->device;
     }
+
+    /**
+     * @param mixed $device
+     */
+    public function setType($device)
+    {
+        $this->device = $device;
+        return $this;
+    }
 }

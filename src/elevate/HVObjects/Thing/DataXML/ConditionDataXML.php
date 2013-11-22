@@ -41,4 +41,13 @@ class ConditionDataXML extends DataXML
     {
         return $this->condition;
     }
+
+    /**
+     * @param mixed $condition
+     */
+    public function setType($condition)
+    {
+        $this->condition = $condition;
+        return $this;
+    }
 }

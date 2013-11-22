@@ -33,4 +33,22 @@ abstract class DataXML
     {
         $this->common = $common;
     }
+
+    /**
+     * @param mixed $common
+     */
+    public function setCommon($common)
+    {
+        $this->common = $common;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommon()
+    {
+        return $this->common;
+    }
+
+
 }
