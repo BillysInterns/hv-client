@@ -49,7 +49,7 @@ class Time {
      * @param int $second
      * @param int $milliseconds
      */
-    function __construct($hour, $minute, $second, $milliseconds = 0)
+    function __construct($hour = NULL, $minute = NULL, $second = NULL, $milliseconds = 0)
     {
         $this->hour         = $hour;
         $this->milliseconds = $milliseconds;

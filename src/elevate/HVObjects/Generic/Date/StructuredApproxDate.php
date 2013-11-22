@@ -44,7 +44,7 @@ class StructuredApproxDate {
      */
     protected $tz;
 
-    public function __construct(ApproxDate $date, Time $time, CodableValue $tz )
+    public function __construct(ApproxDate $date = NULL, Time $time = NULL, CodableValue $tz = NULL )
     {
         $this->date = $date;
         $this->time = $time;

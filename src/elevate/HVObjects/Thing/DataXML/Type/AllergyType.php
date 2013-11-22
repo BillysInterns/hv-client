@@ -72,14 +72,14 @@ class AllergyType
     protected $isNegated;
 
     function __construct(
-        CodableValue $name,
-        CodableValue $reaction,
-        DateTime $firstObserved,
-        CodableValue $allergenType,
-        CodableValue $allergenCode,
-        Person $treatmentProvider,
-        CodableValue $treatment,
-        $isNegated
+        CodableValue $name = NULL,
+        CodableValue $reaction = NULL,
+        DateTime $firstObserved = NULL,
+        CodableValue $allergenType = NULL,
+        CodableValue $allergenCode = NULL,
+        Person $treatmentProvider = NULL,
+        CodableValue $treatment = NULL,
+        $isNegated = NULL
     )
     {
         $this->name = $name;

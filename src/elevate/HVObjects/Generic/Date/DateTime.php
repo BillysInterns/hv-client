@@ -35,7 +35,7 @@ class DateTime {
      * @param $date
      * @param $time
      */
-    public function __construct(Date $date, Time $time)
+    public function __construct(Date $date = NULL, Time $time = NULL)
     {
         $this->date = $date;
         $this->time = $time;

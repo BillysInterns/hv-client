@@ -31,8 +31,7 @@ class Thing {
 
     /**
      * @var string
-     * @Type("string")
-     * @XmlMap(keyAttribute = "name")
+     * @Type("elevate\HVObjects\Generic\TypeId")
      * @SerializedName("type-id")
      */
     protected $type_id;
@@ -48,7 +47,7 @@ class Thing {
      * @Type("DateTime<'DATE_ISO8601'>")
      * @SerializedName("eff-date")
      */
-    // protected $effDate;
+     //protected $effDate;
 
 
     /**
@@ -126,7 +125,7 @@ class Thing {
     }
 
     /**
-     * @param string $type_id
+     * @param TypeId $type_id
      */
     public function setTypeId($type_id)
     {

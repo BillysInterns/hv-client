@@ -42,7 +42,7 @@ class ApproxDateTime
      * @param $structured
      * @param $descriptive
      */
-    public function __construct(StructuredApproxDate $structured, $descriptive )
+    public function __construct(StructuredApproxDate $structured = NULL, $descriptive = NULL )
     {
         $this->structured = $structured;
         $this->descriptive = $descriptive;

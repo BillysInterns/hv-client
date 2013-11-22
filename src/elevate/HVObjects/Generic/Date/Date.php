@@ -43,9 +43,9 @@ class Date {
      * @param $day
      */
     public function __construct(
-        $year,
-        $month,
-        $day
+        $year = NULL,
+        $month = NULL,
+        $day = NULL
     )
     {
         $this->year = $year;
