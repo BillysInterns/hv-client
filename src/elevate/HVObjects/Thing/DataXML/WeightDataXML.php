@@ -51,5 +51,4 @@ class WeightDataXML extends DataXML
         return $this;
     }
 
-
 }

@@ -28,7 +28,7 @@ class Allergy extends Thing
      */
     protected $dataXML;
 
-    function __construct($dataXML)
+    function __construct($dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('Allergy');
         $this->dataXML = $dataXML;
