@@ -42,6 +42,7 @@ class StructuredMeasurement {
     {
         $this->units = $units;
         $this->value = $value;
+        return $this;
     }
 
     /**
@@ -50,6 +51,7 @@ class StructuredMeasurement {
     public function setUnits($units)
     {
         $this->units = $units;
+        return $this;
     }
 
     /**
@@ -66,6 +68,7 @@ class StructuredMeasurement {
     public function setValue($value)
     {
         $this->value = $value;
+        return $this;
     }
 
     /**

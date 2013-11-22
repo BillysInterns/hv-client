@@ -65,6 +65,7 @@ class Person
         $this->id = $id;
         $this->contact = $contact;
         $this->type = $type;
+        return $this;
     }
 
     /**
@@ -73,6 +74,7 @@ class Person
     public function setContact($contact)
     {
         $this->contact = $contact;
+        return $this;
     }
 
     /**
@@ -89,6 +91,7 @@ class Person
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -105,6 +108,7 @@ class Person
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -121,6 +125,7 @@ class Person
     public function setOrganization($organization)
     {
         $this->organization = $organization;
+        return $this;
     }
 
     /**
@@ -137,6 +142,7 @@ class Person
     public function setProfessionalTraining($professionalTraining)
     {
         $this->professionalTraining = $professionalTraining;
+        return $this;
     }
 
     /**
@@ -153,6 +159,7 @@ class Person
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
     }
 
     /**

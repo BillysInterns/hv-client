@@ -71,6 +71,7 @@ class Thing {
         $this->flags    = $flags;
         $this->thing_id = $thing_id;
         $this->type_id  = $type_id;
+        return $this;
     }
 
     /**
@@ -79,6 +80,7 @@ class Thing {
     public function setDataXML($dataXML)
     {
         $this->dataXML = $dataXML;
+        return $this;
     }
 
     /**
@@ -95,6 +97,7 @@ class Thing {
     public function setFlags($flags)
     {
         $this->flags = $flags;
+        return $this;
     }
 
     /**
@@ -111,6 +114,7 @@ class Thing {
     public function setThingId($thing_id)
     {
         $this->thing_id = $thing_id;
+        return $this;
     }
 
     /**
@@ -127,6 +131,7 @@ class Thing {
     public function setTypeId($type_id)
     {
         $this->type_id = $type_id;
+        return $this;
     }
 
     /**

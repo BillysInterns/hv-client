@@ -50,6 +50,7 @@ class DataOther
     public function setContentEncoding($contentEncoding)
     {
         $this->contentEncoding = $contentEncoding;
+        return $this;
     }
 
     /**
@@ -66,6 +67,7 @@ class DataOther
     public function setContentType($contentType)
     {
         $this->contentType = $contentType;
+        return $this;
     }
 
     /**
@@ -82,6 +84,7 @@ class DataOther
     public function setData($data)
     {
         $this->data = $data;
+        return $this;
     }
 
     /**

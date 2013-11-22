@@ -3,6 +3,8 @@
 
 namespace elevate\HVObjects\Thing;
 
+use elevate\HVObjects\Thing\DataXML\HeightDataXML;
+use elevate\HVObjects\Thing\DataXML\Type\HeightType;
 use JMS\Serializer\Annotation\XmlRoot;
 
 use JMS\Serializer\Annotation\Type;

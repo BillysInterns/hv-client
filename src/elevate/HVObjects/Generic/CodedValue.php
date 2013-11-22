@@ -53,6 +53,7 @@ class CodedValue
     public function setFamilies($families)
     {
         $this->families = $families;
+        return $this;
     }
 
     /**
@@ -69,6 +70,7 @@ class CodedValue
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
     }
 
     /**
@@ -85,6 +87,7 @@ class CodedValue
     public function setValue($value)
     {
         $this->value = $value;
+        return $this;
     }
 
     /**
@@ -101,6 +104,7 @@ class CodedValue
     public function setVersions($versions)
     {
         $this->versions = $versions;
+        return $this;
     }
 
     /**

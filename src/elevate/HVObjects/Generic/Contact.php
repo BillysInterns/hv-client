@@ -48,6 +48,7 @@ class Contact
         $this->address = $address;
         $this->email = $email;
         $this->phone = $phone;
+        return $this;
     }
 
     /**
@@ -56,6 +57,7 @@ class Contact
     public function setAddress($address)
     {
         $this->address = $address;
+        return $this;
     }
 
     /**
@@ -72,6 +74,7 @@ class Contact
     public function setEmail($email)
     {
         $this->email = $email;
+        return $this;
     }
 
     /**
@@ -88,6 +91,7 @@ class Contact
     public function setPhone($phone)
     {
         $this->phone = $phone;
+        return $this;
     }
 
     /**

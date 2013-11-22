@@ -39,6 +39,7 @@ class LengthValue
     {
         $this->value = $value;
         $this->display = $display;
+        return $this;
     }
 
     /**

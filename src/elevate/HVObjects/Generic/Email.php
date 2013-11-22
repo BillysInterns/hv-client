@@ -45,6 +45,7 @@ class Email
         $this->address     = $address;
 
         $this->isPrimary   = $isPrimary;
+        return $this;
     }
 
     /**
@@ -53,6 +54,7 @@ class Email
     public function setAddress($address)
     {
         $this->address = $address;
+        return $this;
     }
 
     /**
@@ -69,6 +71,7 @@ class Email
     public function setDescription($description)
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
@@ -85,6 +88,7 @@ class Email
     public function setIsPrimary($isPrimary)
     {
         $this->isPrimary = $isPrimary;
+        return $this;
     }
 
     /**

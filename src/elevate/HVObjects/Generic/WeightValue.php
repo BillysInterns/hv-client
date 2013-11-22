@@ -39,6 +39,7 @@ class WeightValue
     {
         $this->value = $value;
         $this->display = $display;
+        return $this;
     }
 
     /**

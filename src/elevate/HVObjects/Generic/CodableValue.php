@@ -39,6 +39,7 @@ class CodableValue
     public function setCodes($codes)
     {
         $this->codes = $codes;
+        return $this;
     }
 
     /**
@@ -55,6 +56,7 @@ class CodableValue
     public function setText($text)
     {
         $this->text = $text;
+        return $this;
     }
 
     /**

@@ -32,6 +32,7 @@ class BodyCompositionValue
     {
         $this->massValue = $massValue;
         $this->percentValue = $percentValue;
+        return $this;
     }
 
     /**
@@ -40,6 +41,7 @@ class BodyCompositionValue
     public function setMassValue($massValue)
     {
         $this->massValue = $massValue;
+        return $this;
     }
 
     /**
@@ -56,6 +58,7 @@ class BodyCompositionValue
     public function setPercentValue($percentValue)
     {
         $this->percentValue = $percentValue;
+        return $this;
     }
 
     /**

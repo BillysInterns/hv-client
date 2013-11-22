@@ -91,6 +91,7 @@ class Prescription {
         $this->prescriptionExpiration = $prescriptionExpiration;
         $this->refills = $refills;
         $this->substitution = $substitution;
+        return $this;
     }
 
     /**
@@ -99,6 +100,7 @@ class Prescription {
     public function setAmountPrescribed($amountPrescribed)
     {
         $this->amountPrescribed = $amountPrescribed;
+        return $this;
     }
 
     /**
@@ -115,6 +117,7 @@ class Prescription {
     public function setDatePrescribed($datePrescribed)
     {
         $this->datePrescribed = $datePrescribed;
+        return $this;
     }
 
     /**
@@ -131,6 +134,7 @@ class Prescription {
     public function setDaysSupply($daysSupply)
     {
         $this->daysSupply = $daysSupply;
+        return $this;
     }
 
     /**
@@ -147,6 +151,7 @@ class Prescription {
     public function setInstructions($instructions)
     {
         $this->instructions = $instructions;
+        return $this;
     }
 
     /**
@@ -163,6 +168,7 @@ class Prescription {
     public function setPrescribedBy($prescribedBy)
     {
         $this->prescribedBy = $prescribedBy;
+        return $this;
     }
 
     /**
@@ -179,6 +185,7 @@ class Prescription {
     public function setPrescriptionExpiration($prescriptionExpiration)
     {
         $this->prescriptionExpiration = $prescriptionExpiration;
+        return $this;
     }
 
     /**
@@ -195,6 +202,7 @@ class Prescription {
     public function setRefills($refills)
     {
         $this->refills = $refills;
+        return $this;
     }
 
     /**
@@ -211,6 +219,7 @@ class Prescription {
     public function setSubstitution($substitution)
     {
         $this->substitution = $substitution;
+        return $this;
     }
 
     /**

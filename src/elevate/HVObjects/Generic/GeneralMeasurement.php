@@ -38,6 +38,7 @@ class GeneralMeasurement {
     {
         $this->display   = $display;
         $this->structure = $structure;
+        return $this;
     }
 
     /**
@@ -46,6 +47,7 @@ class GeneralMeasurement {
     public function setDisplay($display)
     {
         $this->display = $display;
+        return $this;
     }
 
     /**
@@ -62,6 +64,7 @@ class GeneralMeasurement {
     public function setStructure($structure)
     {
         $this->structure = $structure;
+        return $this;
     }
 
     /**

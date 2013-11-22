@@ -46,6 +46,7 @@ class Phone
         $this->description = $description;
         $this->isPrimary = $isPrimary;
         $this->number = $number;
+        return $this;
     }
 
     /**
@@ -54,6 +55,7 @@ class Phone
     public function setDescription($description)
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
@@ -70,6 +72,7 @@ class Phone
     public function setIsPrimary($isPrimary)
     {
         $this->isPrimary = $isPrimary;
+        return $this;
     }
 
     /**
@@ -86,6 +89,7 @@ class Phone
     public function setNumber($number)
     {
         $this->number = $number;
+        return $this;
     }
 
     /**

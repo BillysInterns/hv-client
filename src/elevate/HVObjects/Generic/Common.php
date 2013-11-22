@@ -75,6 +75,7 @@ class Common
     public function setClientThingId($clientThingId)
     {
         $this->clientThingId = $clientThingId;
+        return $this;
     }
 
     /**
@@ -91,6 +92,7 @@ class Common
     public function setExtension($extension)
     {
         $this->extension = $extension;
+        return $this;
     }
 
     /**
@@ -107,6 +109,7 @@ class Common
     public function setNote($note)
     {
         $this->note = $note;
+        return $this;
     }
 
     /**
@@ -123,6 +126,7 @@ class Common
     public function setRelatedThing($relatedThing)
     {
         $this->relatedThing = $relatedThing;
+        return $this;
     }
 
     /**
@@ -139,6 +143,7 @@ class Common
     public function setSource($source)
     {
         $this->source = $source;
+        return $this;
     }
 
     /**
@@ -155,6 +160,7 @@ class Common
     public function setTags($tags)
     {
         $this->tags = $tags;
+        return $this;
     }
 
     /**

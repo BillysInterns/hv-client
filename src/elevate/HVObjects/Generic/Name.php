@@ -72,6 +72,7 @@ class Name
         $this->middle = $middle;
         $this->last = $last;
         $this->suffix = $suffix;
+        return $this;
 
     }
 
@@ -81,6 +82,7 @@ class Name
     public function setFirst($first)
     {
         $this->first = $first;
+        return $this;
     }
 
     /**
@@ -97,6 +99,7 @@ class Name
     public function setFull($full)
     {
         $this->full = $full;
+        return $this;
     }
 
     /**
@@ -113,6 +116,7 @@ class Name
     public function setLast($last)
     {
         $this->last = $last;
+        return $this;
     }
 
     /**
@@ -129,6 +133,7 @@ class Name
     public function setMiddle($middle)
     {
         $this->middle = $middle;
+        return $this;
     }
 
     /**
@@ -145,6 +150,7 @@ class Name
     public function setSuffix($suffix)
     {
         $this->suffix = $suffix;
+        return $this;
     }
 
     /**
@@ -161,6 +167,7 @@ class Name
     public function setTitle($title)
     {
         $this->title = $title;
+        return $this;
     }
 
     /**
