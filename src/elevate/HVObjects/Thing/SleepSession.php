@@ -30,7 +30,7 @@ class SleepSession extends Thing
      */
     protected $dataXML;
 
-    function __construct($dataXML)
+    function __construct($dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('Sleep Session');
         parent::__construct($dataXML, $typeID);

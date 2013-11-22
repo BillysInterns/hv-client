@@ -31,7 +31,7 @@ class ConditionDataXML extends DataXML
      */
     protected $condition;
 
-    public function __construct(ConditionType $condition, Common $common = NULL)
+    public function __construct(ConditionType $condition = NULL, Common $common = NULL)
     {
         $this->condition = $condition;
         parent::__construct($common);

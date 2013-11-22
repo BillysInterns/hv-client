@@ -30,7 +30,7 @@ class DeviceDataXML extends DataXML
      */
     protected $device;
 
-    public function __construct(DeviceType $device, Common $common = NULL)
+    public function __construct(DeviceType $device = NULL, Common $common = NULL)
     {
         $this->device = $device;
         parent::__construct($common);

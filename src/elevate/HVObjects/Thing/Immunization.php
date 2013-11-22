@@ -29,7 +29,7 @@ class Immunization extends Thing
      */
     protected $dataXML;
 
-    function __construct(ImmunizationDataXML $dataXML)
+    function __construct(ImmunizationDataXML $dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('Immunization');
         parent::__construct($dataXML,$typeID);    }

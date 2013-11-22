@@ -29,7 +29,7 @@ class MedicationDataXML extends DataXML
      */
     protected $medication;
 
-    public function __construct(MedicationType $medication, Common $common = NULL)
+    public function __construct(MedicationType $medication = NULL, Common $common = NULL)
     {
         $this->medication = $medication;
         parent::__construct($common);

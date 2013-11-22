@@ -36,8 +36,8 @@ class SleepRelatedActivityDataXml extends DataXML
     protected $sleepRelatedActivity;
 
     function __construct(
-        SleepRelatedActivityType $sleepRelatedActivity,
-        Common $common
+        SleepRelatedActivityType $sleepRelatedActivity = NULL,
+        Common $common = NULL
     )
     {
         $this->sleepRelatedActivity = $sleepRelatedActivity;

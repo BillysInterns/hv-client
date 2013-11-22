@@ -31,7 +31,7 @@ class BodyComposition extends Thing
     /**
      * @param $dataXML
      */
-    public function __construct(BodyCompositionDataXML $dataXML)
+    public function __construct(BodyCompositionDataXML $dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('Body Composition');
         parent::__construct($dataXML,$typeID);

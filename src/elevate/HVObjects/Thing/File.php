@@ -26,7 +26,7 @@ class File extends Thing
     protected $dataXML;
 
 
-    function __construct($dataXML)
+    function __construct($dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('File');
         parent::__construct($dataXML,$typeID);

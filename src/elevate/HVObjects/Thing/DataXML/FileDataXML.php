@@ -28,7 +28,7 @@ class FileDataXML extends DataXML
      */
     protected $file;
 
-    public function __construct(FileType $file, Common $common = NULL)
+    public function __construct(FileType $file = NULL, Common $common = NULL)
     {
         $this->file = $file;
         parent::__construct($common);

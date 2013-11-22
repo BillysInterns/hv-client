@@ -29,7 +29,7 @@ class HeightMeasurement extends Thing
     /**
      * @param $dataXML
      */
-    public function __construct($dataXML)
+    public function __construct($dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('Height Measurement');
         parent::__construct($dataXML,$typeID);

@@ -19,7 +19,7 @@ class BodyCompositionDataXML extends DataXML
      */
     protected $bodyComposition;
 
-    public function __construct(BodyCompositionType $bodyComposition, Common $common = NULL)
+    public function __construct(BodyCompositionType $bodyComposition = NULL, Common $common = NULL)
     {
         $this->bodyComposition = $bodyComposition;
         parent::__construct($common);

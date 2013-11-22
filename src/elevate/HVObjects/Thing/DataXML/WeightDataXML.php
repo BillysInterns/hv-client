@@ -31,7 +31,7 @@ class WeightDataXML extends DataXML
      */
     protected $weight;
 
-    public function __construct(WeightType $weight, Common $common = NULL)
+    public function __construct(WeightType $weight = NULL, Common $common = NULL)
     {
         $this->weight = $weight;
         parent::__construct($common);

@@ -31,7 +31,7 @@ class HeightDataXML extends DataXML
      */
     protected $height;
 
-    public function __construct(HeightType $height, Common $common = NULL)
+    public function __construct(HeightType $height = NULL, Common $common = NULL)
     {
         $this->height = $height;
         parent::__construct($common);

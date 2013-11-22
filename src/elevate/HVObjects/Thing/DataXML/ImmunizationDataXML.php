@@ -31,7 +31,7 @@ class ImmunizationDataXML extends DataXML
      */
     protected $immunization;
 
-    public function __construct(ImmunizationType $immunization, Common $common = NULL)
+    public function __construct(ImmunizationType $immunization = NULL, Common $common = NULL)
     {
         $this->immunization = $immunization;
         parent::__construct($common);

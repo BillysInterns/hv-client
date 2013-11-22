@@ -28,7 +28,7 @@ class AppointmentDataXML extends DataXML
      */
     protected $appointment;
 
-    public function __construct(AppointmentType $appointment, Common $common = NULL)
+    public function __construct(AppointmentType $appointment = NULL, Common $common = NULL)
     {
         $this->appointment = $appointment;
         parent::__construct($common);

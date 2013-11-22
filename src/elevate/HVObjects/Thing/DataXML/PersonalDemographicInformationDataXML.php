@@ -21,7 +21,7 @@ class PersonalDemographicInformationDataXML extends DataXML
      */
     protected $pdi;
 
-    public function __construct(PersonalDemographicInformationType $pdi, Common $common = NULL)
+    public function __construct(PersonalDemographicInformationType $pdi = NULL, Common $common = NULL)
     {
         $this->pdi = $pdi;
         parent::__construct($common);

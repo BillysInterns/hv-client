@@ -27,7 +27,7 @@ class PersonalImageDataXML extends DataXML
      */
     protected $personalImage;
 
-    public function __construct( $personalImage, Common $common = NULL)
+    public function __construct( $personalImage = NULL, Common $common = NULL)
     {
         $this->personalImage = '';
         parent::__construct($common);

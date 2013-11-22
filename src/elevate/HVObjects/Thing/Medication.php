@@ -24,7 +24,7 @@ class Medication extends Thing
      */
     protected $dataXML;
 
-    function __construct($dataXML)
+    function __construct($dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('Medication');
         parent::__construct($dataXML,$typeID);

@@ -29,7 +29,7 @@ class Condition extends Thing
     /**
      * @param $dataXML
      */
-    public function __construct($dataXML)
+    public function __construct($dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('Condition');
         parent::__construct($dataXML,$typeID);

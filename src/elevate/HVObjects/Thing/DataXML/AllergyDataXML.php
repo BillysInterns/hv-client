@@ -30,7 +30,7 @@ class AllergyDataXML extends DataXML{
      */
     protected $allergy;
 
-    function __construct(AllergyType $allergy, Common $common)
+    function __construct(AllergyType $allergy = NULL, Common $common = NULL)
     {
         $this->allergy = $allergy;
         parent::__construct($common);
