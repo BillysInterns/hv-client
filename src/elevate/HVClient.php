@@ -17,7 +17,6 @@ use Psr\Log\NullLogger;
 use elevate\util\InfoHelper;
 use SimpleXMLElement;
 use elevate\TypeTranslator;
-use elevate\HVThingTransformer;
 
 /**
  * Class HVClient
@@ -230,12 +229,6 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         {
             throw new HVClientNotConnectedException();
         }
-    }
-
-    public function formatResults( $responseGroup )
-    {
-        $transformer = new HVThingTransformer();
-        return $transformer->encodeThing($responseGroup);
     }
 
 

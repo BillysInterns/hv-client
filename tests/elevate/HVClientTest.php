@@ -196,8 +196,7 @@ class HVClientTest extends BaseTest
         $this->hv->connect();
         $response = $this->hv->callHealthVault($info, 'GetThings', 2);
         $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);
-        $response = $this->hv->formatResults($hvResponseGroups);
-        $this->assertNotNull($response);
+        $this->assertNotNull($hvResponseGroups);
     }
 
     public function testGetPersonalImage()
