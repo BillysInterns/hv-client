@@ -14,10 +14,13 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation\AccessorOrder;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
-/** @XmlRoot("common") */
+/** @XmlRoot("common")
+ * @AccessorOrder("custom", custom = {"source", "note", "tags", "extension", "related-thing", "client-thing-id" })
+ */
 class Common
 {
 

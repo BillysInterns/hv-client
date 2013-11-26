@@ -18,6 +18,7 @@ use elevate\util\InfoHelper;
 use SimpleXMLElement;
 use elevate\TypeTranslator;
 
+
 /**
  * Class HVClient
  * @package elevate
@@ -120,11 +121,16 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
                 $this->config
             );
             $this->connector->setLogger($this->logger);
+
         }
 
-        //Configure connector
-        $this->connector->setHealthVaultPlatform($this->healthVaultPlatform);
-        $this->authToken = $this->connector->connect();
+        if (!$this->authToken)
+        {
+            //Configure connector
+            $this->connector->setHealthVaultPlatform($this->healthVaultPlatform);
+            $this->authToken = $this->connector->connect();
+        }
+
         return $this->authToken;
     }
 
@@ -136,6 +142,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $this->config['healthVault'] = NULL;
         $this->connector             = NULL;
         $this->connection            = NULL;
+        $this->authToken             = NULL;
         return $this;
     }
 
@@ -193,11 +200,13 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     //Put things for request group
 
-    public function putThings( $thingXml, $max = 20 )
+    public function putThings( $info )
     {
         $method = 'PutThings';
         $version = 2;
-        return $this->callHealthVault( $thingXml, $method, $version);
+        return $this->callHealthVault( $info, $method, $version);
+
+        // TODO: Get the response object back.
     }
 
     public function callHealthVault($info, $method, $version)
@@ -219,7 +228,12 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     public function callHealthVaultWithXML( $xml, $method, $version )
     {
 
-        if($this->connector)
+        // Connect if we aren't already connected.
+        if ( !$this->isConnected()) {
+            $this->connect();
+        }
+
+        if( $this->isConnected() )
         {
             //make the request
             $this->connector->makeRequest( $method, $version, $xml, array('record-id' => $this->recordId), $this->personId );
@@ -371,6 +385,24 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     }
 
     /**
+     * @param mixed $recordId
+     */
+    public function setRecordId($recordId)
+    {
+        $this->recordId = $recordId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRecordId()
+    {
+        return $this->recordId;
+    }
+
+
+
+    /**
      * @return null
      */
     public function getPrivateKey()
@@ -409,6 +441,12 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     }
 
     public function getThings($thingNameOrTypeId, $recordId, $options = array()) {}
+
+
+
+
+
+
 }
 
 class HVClientException extends \Exception

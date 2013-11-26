@@ -61,7 +61,7 @@ class RequestGroup
      */
     protected $currentVersionOnly = NULL;
 
-    function __construct(
+    public function __construct(
         ThingFilterSpec $filter = NULL,
         ThingFormatSpec $format = NULL,
         $max = NULL,

@@ -6,6 +6,7 @@
 
 namespace elevate\HVObjects\Thing;
 
+use elevate\HVObjects\Generic\TypeId;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -17,6 +18,7 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use \elevate\HVObjects\Generic\DataOther;
+
 
 /** @XmlRoot("thing") */
 class Thing {
@@ -69,7 +71,7 @@ class Thing {
         $this->dataXML  = $dataXML;
         $this->flags    = $flags;
         $this->thing_id = $thing_id;
-        $this->type_id  = $type_id;
+        $this->type_id  = new TypeId(null, $type_id);
         return $this;
     }
 

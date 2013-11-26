@@ -5,10 +5,11 @@
  */
 
 namespace elevate;
+use elevate\HVObjects\MethodObjects\PutThings\Info;
 
 /**
  * Interface HVClientInterface
- * @package biologis\HV
+ * @package elevate
  */
 interface HVClientInterface
 {
@@ -23,7 +24,7 @@ interface HVClientInterface
 
     public function getThings($thingNameOrTypeId, $recordId, $options = array());
 
-    public function putThings($things, $recordId);
+    public function putThings($things);
 
     public function setHealthVaultAuthInstance($healthVaultAuthInstance);
 

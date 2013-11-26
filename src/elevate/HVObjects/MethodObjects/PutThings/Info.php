@@ -21,7 +21,7 @@ class Info
      */
     protected $things;
 
-    function __construct(array $things)
+    public function __construct(array $things)
     {
         $this->things = $things;
         return $this;
