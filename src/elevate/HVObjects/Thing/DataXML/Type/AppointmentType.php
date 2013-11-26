@@ -65,7 +65,15 @@ class AppointmentType
 	*/
 	protected $careClass;
 
-    public function __construct($careClass = NULL, $clinic = NULL, $duration = NULL, $service = NULL, $specialty = NULL, $status = NULL, DateTime $when = NULL)
+    public function __construct(
+                        $careClass = NULL,
+                        $clinic = NULL,
+                        $duration = NULL,
+                        $service = NULL,
+                        $specialty = NULL,
+                        $status = NULL,
+                        DateTime $when = NULL
+                )
     {
         $this->careClass = $careClass;
         $this->clinic = $clinic;
@@ -74,6 +82,118 @@ class AppointmentType
         $this->specialty = $specialty;
         $this->status = $status;
         $this->when = $when;
+    }
+
+    /**
+     * @param mixed $careClass
+     */
+    public function setCareClass($careClass)
+    {
+        $this->careClass = $careClass;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCareClass()
+    {
+        return $this->careClass;
+    }
+
+    /**
+     * @param mixed $clinic
+     */
+    public function setClinic($clinic)
+    {
+        $this->clinic = $clinic;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClinic()
+    {
+        return $this->clinic;
+    }
+
+    /**
+     * @param mixed $duration
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param mixed $service
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param mixed $specialty
+     */
+    public function setSpecialty($specialty)
+    {
+        $this->specialty = $specialty;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpecialty()
+    {
+        return $this->specialty;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $when
+     */
+    public function setWhen($when)
+    {
+        $this->when = $when;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhen()
+    {
+        return $this->when;
     }
 
 }

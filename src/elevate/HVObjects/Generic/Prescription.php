@@ -73,14 +73,14 @@ class Prescription {
     protected $instructions;
 
     function __construct(
-        $amountPrescribed,
-        $datePrescribed,
-        $daysSupply,
-        $instructions,
+        $amountPrescribed= NULL,
+        $datePrescribed= NULL,
+        $daysSupply= NULL,
+        $instructions= NULL,
         $prescribedBy,
-        $prescriptionExpiration,
-        $refills,
-        $substitution
+        $prescriptionExpiration= NULL,
+        $refills= NULL,
+        $substitution= NULL
     )
     {
         $this->amountPrescribed = $amountPrescribed;
