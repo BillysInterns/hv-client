@@ -34,7 +34,7 @@ class GeneralMeasurement {
      * @param                       $display
      * @param StructuredMeasurement $structure
      */
-    function __construct($display, StructuredMeasurement $structure)
+    function __construct($display, StructuredMeasurement $structure = NULL)
     {
         $this->display   = $display;
         $this->structure = $structure;
