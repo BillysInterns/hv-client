@@ -67,9 +67,9 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
      */
     private $serializer = NULL;
     /**
-    * @var null|string Authentication Token from Health Vault
-    */
-    private $authToken =NULL;
+     * @var null|string Authentication Token from Health Vault
+     */
+    private $authToken = NULL;
 
     /**
      * Set the member variables to the passed HV credentials. Setup a Logger and create the serializer.
@@ -88,7 +88,6 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $appId,
         $personId,
         $recordId
-
     )
     {
         $this->thumbPrint = $thumbPrint;
@@ -102,6 +101,93 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
         $this->logger = new NullLogger();
         return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function disconnect()
+    {
+        $this->config['healthVault'] = NULL;
+        $this->connector             = NULL;
+        $this->connection            = NULL;
+        $this->authToken             = NULL;
+        return $this;
+    }
+
+    /**
+     * @param      $redirectUrl
+     * @param null $target
+     * @param null $additionalTargetQSParams
+     *
+     * @return string
+     */
+    public function getAuthenticationURL(
+        $redirectUrl,
+        $target = NULL,
+        $additionalTargetQSParams = NULL
+    )
+    {
+        return HVRawConnector::getAuthenticationURL(
+            $this->appId,
+            $redirectUrl,
+            $this->config,
+            $this->healthVaultAuthInstance,
+            $target,
+            $additionalTargetQSParams
+        );
+    }
+
+    public function getPersonInfo()
+    {
+        $method  = 'GetPersonInfo';
+        $version = 1;
+        return HVClientHelper::HVPersonFromXML($this->callHealthVault(NULL, $method, $version));
+    }
+
+    public function callHealthVault($info, $method, $version)
+    {
+        $xml = HVClientHelper::HVInfoAsXML($info);
+
+        // Remove XML line and pull out group from inside info tag
+        $groupObjs = new SimpleXMLElement($xml);
+        $newXML    = "";
+        // Get groups
+        $groupObjs->xpath("//group");
+        foreach ($groupObjs as $groupObj)
+        {
+            $newXML .= $groupObj->asXML();
+        }
+        return $this->callHealthVaultWithXML($newXML, $method, $version);
+    }
+
+    public function callHealthVaultWithXML($xml, $method, $version)
+    {
+
+        // Connect if we aren't already connected.
+        if (!$this->isConnected())
+        {
+            $this->connect();
+        }
+
+        if ($this->isConnected())
+        {
+            //make the request
+            $this->connector->makeRequest($method, $version, $xml, array('record-id' => $this->recordId), $this->personId);
+            return $this->connector->getRawResponse();
+        }
+        else
+        {
+            throw new HVClientNotConnectedException();
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    public function isConnected()
+    {
+        return !empty($this->connector);
     }
 
     /**
@@ -134,122 +220,41 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         return $this->authToken;
     }
 
-    /**
-     * @return $this
-     */
-    public function disconnect()
-    {
-        $this->config['healthVault'] = NULL;
-        $this->connector             = NULL;
-        $this->connection            = NULL;
-        $this->authToken             = NULL;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isConnected()
-    {
-        return !empty($this->connector);
-    }
-
-    /**
-     * @param      $redirectUrl
-     * @param null $target
-     * @param null $additionalTargetQSParams
-     *
-     * @return string
-     */
-    public function getAuthenticationURL($redirectUrl, $target = NULL, $additionalTargetQSParams = NULL)
-    {
-        return HVRawConnector::getAuthenticationURL(
-            $this->appId,
-            $redirectUrl,
-            $this->config,
-            $this->healthVaultAuthInstance,
-            $target,
-            $additionalTargetQSParams
-        );
-    }
-
-    public function getPersonInfo()
-    {
-        $method = 'GetPersonInfo';
-        $version = 1;
-        return HVClientHelper::HVPersonFromXML($this->callHealthVault( NULL, $method, $version));
-    }
-
-    public function getThingsByName( $thingName, $max, $groupName )
-    {
-        $typeId = TypeTranslator::lookupTypeId($thingName);
-        if(is_null($typeId))
-            throw HVClientThingNameNotFoundException();
-        else
-            return $this->getThingsByTypeId( $typeId, $max, $groupName );
-    }
-
-    public function getThingsByTypeId( $typeId , $max = 20, $groupName = null)
-    {
-        $info = InfoHelper::getHVInfoForTypeId($typeId, $max, $groupName);
-        $method = 'GetThings';
-        $version = 3;
-        return HVClientHelper::HVGroupsFromXML($this->callHealthVault( $info, $method, $version));
-
-    }
-
     //Put things for request group
 
-    public function putThings( $info )
+    public function getThingsByName($thingName, $max = 20, $groupName = NULL)
     {
-        $method = 'PutThings';
+        $typeId = TypeTranslator::lookupTypeId($thingName);
+        if (is_null($typeId))
+        {
+            throw HVClientThingNameNotFoundException();
+        }
+        else
+        {
+            return $this->getThingsByTypeId($typeId, $max, $groupName);
+        }
+    }
+
+    public function getThingsByTypeId($typeId, $max = 20, $groupName = NULL)
+    {
+        $info    = InfoHelper::getHVInfoForTypeId($typeId, $max, $groupName);
+        $method  = 'GetThings';
+        $version = 3;
+        return HVClientHelper::HVGroupsFromXML($this->callHealthVault($info, $method, $version));
+
+    }
+
+    public function putThings($info)
+    {
+        $method  = 'PutThings';
         $version = 2;
-        return $this->callHealthVault( $info, $method, $version);
+        return $this->callHealthVault($info, $method, $version);
 
         // TODO: Get the response object back.
     }
 
-    public function callHealthVault($info, $method, $version)
-    {
-        $xml = HVClientHelper::HVInfoAsXML($info);
-
-        // Remove XML line and pull out group from inside info tag
-        $groupObjs = new SimpleXMLElement($xml);
-        $newXML = "";
-        // Get groups
-        $groupObjs->xpath("//group");
-        foreach ($groupObjs as $groupObj)
-        {
-            $newXML .= $groupObj->asXML();
-        }
-       return $this->callHealthVaultWithXML($newXML, $method, $version);
-    }
-
-    public function callHealthVaultWithXML( $xml, $method, $version )
-    {
-
-        // Connect if we aren't already connected.
-        if ( !$this->isConnected()) {
-            $this->connect();
-        }
-
-        if( $this->isConnected() )
-        {
-            //make the request
-            $this->connector->makeRequest( $method, $version, $xml, array('record-id' => $this->recordId), $this->personId );
-            return $this->connector->getRawResponse();
-        }
-        else
-        {
-            throw new HVClientNotConnectedException();
-        }
-    }
-
 
     // Default getters and setters below here....
-
-
-
 
     /**
      * @return string
@@ -400,8 +405,6 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         return $this->recordId;
     }
 
-
-
     /**
      * @return null
      */
@@ -440,11 +443,9 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         return $this;
     }
 
-    public function getThings($thingNameOrTypeId, $recordId, $options = array()) {}
-
-
-
-
+    public function getThings($thingNameOrTypeId, $recordId, $options = array())
+    {
+    }
 
 
 }

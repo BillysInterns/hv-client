@@ -4,7 +4,7 @@
 namespace elevate\HVObjects\Thing\DataXML\Type;
 
 use elevate\HVObjects\Generic\CodableValue;
-use elevate\HVObjects\Generic\Date\DateTime;
+use elevate\HVObjects\Generic\Date\ApproxDateTime;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -17,7 +17,7 @@ class HealthEventType
 {
 
     /**
-     * @Type("elevate\HVObjects\Generic\Date\DateTime")
+     * @Type("elevate\HVObjects\Generic\Date\ApproxDateTime")
      * @SerializedName("when")
      */
     protected $when;
@@ -34,7 +34,7 @@ class HealthEventType
      */
     protected $category;
 
-    public function __construct(DateTime $when = null, CodableValue $event = null, CodableValue $category = null)
+    public function __construct(ApproxDateTime $when = null, CodableValue $event = null, CodableValue $category = null)
     {
         $this->category = $category;
         $this->event    = $event;
