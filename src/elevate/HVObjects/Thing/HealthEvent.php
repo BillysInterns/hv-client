@@ -3,8 +3,8 @@
 
 namespace elevate\HVObjects\Thing;
 
-use elevate\HVObjects\Thing\DataXML\HeightDataXML;
-use elevate\HVObjects\Thing\DataXML\Type\HeightType;
+use elevate\HVObjects\Thing\DataXML\HealthEventDataXML;
+use elevate\HVObjects\Thing\DataXML\Type\HealthEventType;
 use JMS\Serializer\Annotation\XmlRoot;
 
 use JMS\Serializer\Annotation\Type;
@@ -30,8 +30,24 @@ class HealthEvent extends Thing
      */
     public function __construct($dataXML = NULL)
     {
-        $typeID = TypeTranslator::lookupTypeID('Height Measurement');
-        parent::__construct($dataXML,$typeID);
-        return $this;
+        $typeID = TypeTranslator::lookupTypeID('Health Event');
+        $this->dataXML = $dataXML;
+        parent::__construct($dataXML, $typeID);
+    }
+
+    /**
+     * @return array
+     */
+    public function getDataXML()
+    {
+        return $this->dataXML;
+    }
+
+    /**
+     * @param array $dataXML
+     */
+    public function setDataXML($dataXML)
+    {
+        $this->dataXML = $dataXML;
     }
 } 

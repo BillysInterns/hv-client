@@ -34,11 +34,70 @@ class HealthEventType
      */
     protected $category;
 
-    function __construct(DateTime $when, CodableValue $event, CodableValue $category = null)
+    public function __construct(DateTime $when = null, CodableValue $event = null, CodableValue $category = null)
     {
         $this->category = $category;
         $this->event    = $event;
         $this->when     = $when;
         return $this;
     }
+
+    /**
+     * @param $category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param $event
+     *
+     * @return $this
+     */
+    public function setEvent($event)
+    {
+        $this->event = $event;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+
+    /**
+     * @param $when
+     *
+     * @return $this
+     */
+    public function setWhen($when)
+    {
+        $this->when = $when;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhen()
+    {
+        return $this->when;
+    }
+
+
 } 

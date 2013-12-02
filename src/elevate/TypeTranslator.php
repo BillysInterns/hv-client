@@ -129,7 +129,22 @@ class TypeTranslator
      */
     public static function lookupTypeID($typeName)
     {
-        return (isset(self::$things[$typeName])) ? self::$things[$typeName] : FALSE;
+        if(isset(self::$things[$typeName]))
+        {
+            return (self::$things[$typeName]);
+        }
+        else
+        {
+            $flippedThingArray = array_flip(self::$things);
+            $flippedThingArray = str_replace(' ', '', $flippedThingArray);
+            $flippedThingArray = array_flip($flippedThingArray);
+
+            if(isset($flippedThingArray[$typeName]))
+            {
+                return ($flippedThingArray[$typeName]);
+            }
+        }
+        return false;
     }
 
     /**
