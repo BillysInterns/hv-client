@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <type-id><![CDATA[40750a6a-89b2-455c-bd8d-b420a4cb500b]]></type-id>
+    <data-xml>
+        <common>
+            <source><![CDATA[Height Source 45]]></source>
+            <note><![CDATA[Height Note 2]]></note>
+            <tags><![CDATA[tageone, height, another tag]]></tags>
+        </common>
+        <health-event>
+            <when>
+                <date>
+                    <y>7</y>
+                    <m>12</m>
+                    <d>2013</d>
+                </date>
+                <time>
+                    <h>10</h>
+                    <m>43</m>
+                    <s>12</s>
+                    <f>0</f>
+                </time>
+            </when>
+            <event>
+                <text><![CDATA[Started to Walk]]></text>
+                <code>
+                    <value><![CDATA[started to walk]]></value>
+                    <family><![CDATA[Code Family]]></family>
+                    <type><![CDATA[34]]></type>
+                    <version><![CDATA[Version 4]]></version>
+                </code>
+            </event>
+            <category>
+                <text><![CDATA[Developmental Codes]]></text>
+                <code>
+                    <value><![CDATA[dev-codes]]></value>
+                    <family><![CDATA[dev family]]></family>
+                    <type><![CDATA[45]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </category>
+        </health-event>
+    </data-xml>
+</thing>
+
