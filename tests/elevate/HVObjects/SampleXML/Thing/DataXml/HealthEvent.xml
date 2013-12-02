@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <common>
+        <source><![CDATA[Health Source]]></source>
+        <note><![CDATA[Health Note]]></note>
+        <tags><![CDATA[health, hv]]></tags>
+    </common>
+    <health-event>
+        <when>
+            <date>
+                <y>10</y>
+                <m>12</m>
+                <d>2013</d>
+            </date>
+            <time>
+                <h>10</h>
+                <m>39</m>
+                <s>12</s>
+                <f>0</f>
+            </time>
+        </when>
+        <event>
+            <text><![CDATA[Started to Walk]]></text>
+            <code>
+                <value><![CDATA[started to walk]]></value>
+                <family><![CDATA[Code Family]]></family>
+                <type><![CDATA[34]]></type>
+                <version><![CDATA[Version 4]]></version>
+            </code>
+        </event>
+        <category>
+            <text><![CDATA[Developmental Codes]]></text>
+            <code>
+                <value><![CDATA[dev-codes]]></value>
+                <family><![CDATA[dev family]]></family>
+                <type><![CDATA[45]]></type>
+                <version><![CDATA[Version 1]]></version>
+            </code>
+        </category>
+    </health-event>
+</result>
