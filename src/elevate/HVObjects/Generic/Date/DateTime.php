@@ -17,6 +17,7 @@ use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\Time;
+use elevate\HVObjects\Generic\CodableValue;
 
 class DateTime {
 
@@ -32,13 +33,36 @@ class DateTime {
     protected $time;
 
     /**
+     * @Type("elevate\HVObjects\Generic\CodableValue")
+     */
+    protected $tz;
+
+    /**
+     * @param mixed $tz
+     */
+    public function setTz($tz)
+    {
+        $this->tz = $tz;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTz()
+    {
+        return $this->tz;
+    }
+
+    /**
      * @param $date
      * @param $time
+     * @param $tz
      */
-    public function __construct(Date $date = NULL, Time $time = NULL)
+    public function __construct(Date $date = NULL, Time $time = NULL, CodableValue $tz = NULL)
     {
         $this->date = $date;
         $this->time = $time;
+        $this->tz   = $tz;
     }
 
     /**
