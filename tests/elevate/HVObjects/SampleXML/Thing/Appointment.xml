@@ -3,9 +3,9 @@
   <type-id><![CDATA[4b18aeb6-5f01-444c-8c70-dbf13a2f510b]]></type-id>
   <data-xml>
     <common>
-      <note><![CDATA[Appointment Note]]></note>
-      <source><![CDATA[Appointment Source]]></source>
-      <tags><![CDATA[appointmentTag]]></tags>
+        <source><![CDATA[Appointment Source]]></source>
+        <note><![CDATA[Appointment Note]]></note>
+        <tags><![CDATA[appointmentTag]]></tags>
     </common>
     <appointment>
       <when>

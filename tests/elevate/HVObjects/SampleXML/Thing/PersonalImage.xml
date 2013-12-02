@@ -3,8 +3,8 @@
     <type-id><![CDATA[52bf9104-2c5e-4f1f-a66d-552ebcc53df7]]></type-id>
     <data-xml>
         <common>
-            <note><![CDATA[Personal Image Note]]></note>
             <source><![CDATA[Personal image Source]]></source>
+            <note><![CDATA[Personal Image Note]]></note>
             <tags><![CDATA[PersonalImageTag]]></tags>
         </common>
         <personal-image><![CDATA[]]></personal-image>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
     <common>
-        <note><![CDATA[BC Note]]></note>
         <source><![CDATA[BC Source]]></source>
+        <note><![CDATA[BC Note]]></note>
         <tags><![CDATA[bc, hv]]></tags>
     </common>
     <body-composition>

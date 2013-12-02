@@ -3,8 +3,8 @@
     <type-id><![CDATA[5c5f1223-f63c-4464-870c-3e36ba471def]]></type-id>
     <data-xml>
         <common>
-            <note><![CDATA[Medication Note]]></note>
             <source><![CDATA[Medication Source]]></source>
+            <note><![CDATA[Medication Note]]></note>
             <tags><![CDATA[medicationTag]]></tags>
         </common>
         <medication>

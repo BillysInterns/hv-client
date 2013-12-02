@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-xml>
     <common>
-        <note><![CDATA[Medication Note]]></note>
         <source><![CDATA[Medication Source]]></source>
+        <note><![CDATA[Medication Note]]></note>
         <tags><![CDATA[medicationTag]]></tags>
     </common>
     <medication>

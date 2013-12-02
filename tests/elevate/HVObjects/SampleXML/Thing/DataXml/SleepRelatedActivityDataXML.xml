@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
     <common>
-        <note><![CDATA[Sleep Related Activity Note]]></note>
         <source><![CDATA[Unit Test]]></source>
+        <note><![CDATA[Sleep Related Activity Note]]></note>
         <tags><![CDATA[Some tags]]></tags>
         <related-thing><![CDATA[Somethign Related]]></related-thing>
     </common>

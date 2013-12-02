@@ -3,8 +3,8 @@
     <type-id><![CDATA[3d34d87e-7fc1-4153-800f-f56592cb0d17]]></type-id>
     <data-xml>
         <common>
-            <note><![CDATA[Weight Note 2]]></note>
             <source><![CDATA[Weight Source 45]]></source>
+            <note><![CDATA[Weight Note 2]]></note>
             <tags><![CDATA[tageone, weight, another tag]]></tags>
         </common>
         <weight>

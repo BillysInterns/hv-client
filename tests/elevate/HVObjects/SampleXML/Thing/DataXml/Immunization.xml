@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-xml>
     <common>
-        <note><![CDATA[Immunization Note]]></note>
         <source><![CDATA[Immunization Source]]></source>
+        <note><![CDATA[Immunization Note]]></note>
         <tags><![CDATA[immunizationTag]]></tags>
     </common>
     <immunization>

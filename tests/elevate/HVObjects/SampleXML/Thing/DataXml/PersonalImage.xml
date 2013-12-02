@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-xml>
     <common>
-        <note><![CDATA[Personal Image Note]]></note>
         <source><![CDATA[Personal image Source]]></source>
+        <note><![CDATA[Personal Image Note]]></note>
         <tags><![CDATA[PersonalImageTag]]></tags>
     </common>
     <personal-image><![CDATA[]]></personal-image>

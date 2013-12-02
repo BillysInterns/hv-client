@@ -2,12 +2,6 @@
 <thing>
     <type-id><![CDATA[52bf9104-2c5e-4f1f-a66d-552ebcc53df7]]></type-id>
     <data-xml>
-        <common>
-            <note><![CDATA[Sleep Session Note]]></note>
-            <source><![CDATA[Unit Test]]></source>
-            <tags><![CDATA[Some tags]]></tags>
-            <related-thing><![CDATA[Somethign Related]]></related-thing>
-        </common>
         <allergy>
             <name>
                 <text><![CDATA[Air Allergy]]></text>
@@ -129,5 +123,11 @@
             </treatment>
             <is-negated>false</is-negated>
         </allergy>
+        <common>
+            <source><![CDATA[Unit Test]]></source>
+            <note><![CDATA[Sleep Session Note]]></note>
+            <tags><![CDATA[Some tags]]></tags>
+            <related-thing><![CDATA[Somethign Related]]></related-thing>
+        </common>
     </data-xml>
 </thing>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
     <common>
-        <note><![CDATA[Condition Note]]></note>
         <source><![CDATA[Condtion Test]]></source>
+        <note><![CDATA[Condition Note]]></note>
         <tags><![CDATA[Some tags]]></tags>
         <related-thing><![CDATA[Somethign Related]]></related-thing>
     </common>

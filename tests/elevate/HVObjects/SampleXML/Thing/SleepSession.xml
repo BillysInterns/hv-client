@@ -3,8 +3,8 @@
     <type-id><![CDATA[11c52484-7f1a-11db-aeac-87d355d89593]]></type-id>
     <data-xml>
         <common>
-            <note><![CDATA[Sleep Session Note]]></note>
             <source><![CDATA[Unit Test]]></source>
+            <note><![CDATA[Sleep Session Note]]></note>
             <tags><![CDATA[Some tags]]></tags>
             <related-thing><![CDATA[Somethign Related]]></related-thing>
         </common>

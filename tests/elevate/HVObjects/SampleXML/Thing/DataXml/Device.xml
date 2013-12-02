@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-xml>
     <common>
-        <note><![CDATA[Device Note]]></note>
         <source><![CDATA[Device Source]]></source>
+        <note><![CDATA[Device Note]]></note>
         <tags><![CDATA[deviceTag]]></tags>
     </common>
     <device>

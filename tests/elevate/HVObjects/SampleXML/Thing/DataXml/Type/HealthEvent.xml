@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <when>
+        <date>
+            <y>2013</y>
+            <m>8</m>
+            <d>27</d>
+        </date>
+        <time>
+            <h>12</h>
+            <m>23</m>
+            <s>45</s>
+            <f>0</f>
+        </time>
+    </when>
+    <event>
+        <text><![CDATA[Started to Walk]]></text>
+        <code>
+            <value><![CDATA[started to walk]]></value>
+            <family><![CDATA[Code Family]]></family>
+            <type><![CDATA[34]]></type>
+            <version><![CDATA[Version 4]]></version>
+        </code>
+    </event>
+    <category>
+        <text><![CDATA[Developmental Codes]]></text>
+        <code>
+            <value><![CDATA[dev-codes]]></value>
+            <family><![CDATA[dev family]]></family>
+            <type><![CDATA[45]]></type>
+            <version><![CDATA[Version 1]]></version>
+        </code>
+    </category>
+
+</result>

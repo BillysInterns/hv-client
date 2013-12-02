@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-xml>
     <common>
-        <note><![CDATA[Notes]]></note>
         <source><![CDATA[Source]]></source>
+        <note><![CDATA[Notes]]></note>
         <tags><![CDATA[tag, tag2, tag3]]></tags>
     </common>
     <personal>

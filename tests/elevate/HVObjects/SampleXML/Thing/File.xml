@@ -3,8 +3,8 @@
     <type-id><![CDATA[bd0403c5-4ae2-4b0e-a8db-1888678e4528]]></type-id>
       <data-xml>
         <common>
-            <note><![CDATA[File Note]]></note>
             <source><![CDATA[File Source]]></source>
+            <note><![CDATA[File Note]]></note>
             <tags><![CDATA[fileTag]]></tags>
         </common>
         <file>

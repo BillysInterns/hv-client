@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
     <common>
-        <note><![CDATA[Height Note]]></note>
         <source><![CDATA[Height Source]]></source>
+        <note><![CDATA[Height Note]]></note>
         <tags><![CDATA[height, hv]]></tags>
     </common>
     <height>
