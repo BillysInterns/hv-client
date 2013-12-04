@@ -39,5 +39,38 @@ class TypeId
         return $this;
     }
 
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
 
-} 
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $typeId
+     */
+    public function setTypeId($typeId)
+    {
+        $this->typeId = $typeId;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeId()
+    {
+        return $this->typeId;
+    }
+
+}

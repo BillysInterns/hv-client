@@ -28,19 +28,19 @@ class ApproxDate
      * @Type("integer")
      * @SerializedName("y")
      */
-    protected $y;
+    protected $year;
 
     /**
      * @Type("integer")
      * @SerializedName("m")
      */
-    protected $m;
+    protected $month;
 
     /**
      * @Type("integer")
      * @SerializedName("d")
      */
-    protected $d;
+    protected $day;
 
     /**
      * @param $y
@@ -49,57 +49,57 @@ class ApproxDate
      */
     public function __construct( $y = NULL, $m = NULL, $d =NULL )
     {
-        $this->y = $y;
-        $this->m = $m;
-        $this->d = $d;
+        $this->year = $y;
+        $this->month = $m;
+        $this->day = $d;
     }
 
     /**
      * @param mixed $d
      */
-    public function setD($d)
+    public function setDay($d)
     {
-        $this->d = $d;
+        $this->day = $d;
     }
 
     /**
      * @return mixed
      */
-    public function getD()
+    public function getDay()
     {
-        return $this->d;
+        return $this->day;
     }
 
     /**
      * @param mixed $m
      */
-    public function setM($m)
+    public function setMonth($m)
     {
-        $this->m = $m;
+        $this->month = $m;
     }
 
     /**
      * @return mixed
      */
-    public function getM()
+    public function getMonth()
     {
-        return $this->m;
+        return $this->month;
     }
 
     /**
      * @param mixed $y
      */
-    public function setY($y)
+    public function setYear($y)
     {
-        $this->y = $y;
+        $this->year = $y;
     }
 
     /**
      * @return mixed
      */
-    public function getY()
+    public function getYear()
     {
-        return $this->y;
+        return $this->year;
     }
 
 
