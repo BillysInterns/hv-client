@@ -25,7 +25,7 @@ class InfoTest extends BaseObjectTest
 
         $thingFilter1 = new ThingFilterSpec('92ba621e-66b3-4a01-bd73-74844aed4f5b');
         $thingFilter2 = new ThingFilterSpec('162dd12d-9859-4a66-b75f-96760d67072b');
-        $thingFormat = new ThingFormatSpec('core');
+        $thingFormat = new ThingFormatSpec(array('core'));
         $group1 = new RequestGroup($thingFilter1, $thingFormat, '100');
         $group2 = new RequestGroup($thingFilter2, $thingFormat, '100');
         $groups = array($group1, $group2);
