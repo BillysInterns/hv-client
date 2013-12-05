@@ -21,7 +21,7 @@ use elevate\HVObjects\Generic\GeneralMeasurement;
 use elevate\HVObjects\Generic\Date\ApproxDateTime;
 
 /** @XmlRoot("medication") */
-class MedicationType
+class Medication2Type
 {
     /**
      * @Type("elevate\HVObjects\Generic\CodableValue")

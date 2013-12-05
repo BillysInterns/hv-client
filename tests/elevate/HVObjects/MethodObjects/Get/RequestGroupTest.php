@@ -22,7 +22,7 @@ class RequestGroupTest extends BaseObjectTest
         self::$sampleXMLPath = __DIR__ . '/../../SampleXML/MethodObjects/Get/RequestGroup.xml';
         self::$objectNamespace = 'elevate\HVObjects\MethodObjects\Get\RequestGroup';
         $thingFilter = new ThingFilterSpec('92ba621e-66b3-4a01-bd73-74844aed4f5b');
-        $thingFormat = new ThingFormatSpec('core');
+        $thingFormat = new ThingFormatSpec(array('core'));
         self::$testObject = new RequestGroup($thingFilter, $thingFormat, '100');
         parent::setUpBeforeClass();
     }

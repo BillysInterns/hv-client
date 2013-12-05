@@ -9,7 +9,7 @@
 namespace elevate\test\HVObjects;
 
 use elevate\HVObjects\Thing\Condition;
-use elevate\HVObjects\Thing\Medication;
+use elevate\HVObjects\Thing\Medication2;
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Thing\DataXML\Type\ConditionType;
 use elevate\HVObjects\Thing\DataXML\ConditionDataXML;
@@ -31,16 +31,16 @@ use elevate\HVObjects\Generic\Email;
 use elevate\HVObjects\Generic\Contact;
 use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Prescription;
-use elevate\HVObjects\Thing\DataXML\Type\MedicationType;
-use elevate\HVObjects\Thing\DataXML\MedicationDataXML;
+use elevate\HVObjects\Thing\DataXML\Type\Medication2Type;
+use elevate\HVObjects\Thing\DataXML\Medication2DataXML;
 
-class MedicationTest  extends BaseObjectTest
+class Medication2Test  extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Medication.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\Medication';
+        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Medication2.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\Medication2';
 
         $nameCode = new CodedValue('154', 'SomeMed', array('Some Medication'), array('Version 1'));
         $nameOfMed = new CodableValue("Some Medication", array($nameCode));
@@ -145,13 +145,13 @@ class MedicationTest  extends BaseObjectTest
         $measurement = new StructuredMeasurement('47', $units);
         $strength = new GeneralMeasurement('47 Pounds', $measurement);
 
-        $medicationType = new MedicationType($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
+        $medicationType = new Medication2Type($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
 
         $common = new Common('Medication Note', 'Medication Source', 'medicationTag');
 
-        $medicationDataXml = new MedicationDataXML($medicationType, $common);
+        $medicationDataXml = new Medication2DataXML($medicationType, $common);
 
-        self::$testObject = new Medication($medicationDataXml);
+        self::$testObject = new Medication2($medicationDataXml);
 
         parent::setUpBeforeClass();
 

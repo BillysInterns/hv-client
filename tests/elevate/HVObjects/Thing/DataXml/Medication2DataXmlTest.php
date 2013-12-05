@@ -2,14 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: sumit
- * Date: 11/4/13
- * Time: 3:27 PM
+ * Date: 11/5/13
+ * Time: 11:21 AM
  */
 
-namespace elevate\test\HVObjects\Thing\DataXML\Type;
+namespace elevate\test\HVObjects\Thing\DataXml;
 
+use elevate\HVObjects\Thing\DataXML\Medication2DataXML;
 use elevate\test\HVObjects\BaseObjectTest;
-use elevate\HVObjects\Thing\DataXML\Type\MedicationType;
+use elevate\HVObjects\Thing\DataXML\Type\Medication2Type;
 use elevate\HVObjects\Generic\CodedValue;
 use elevate\HVObjects\Generic\CodableValue;
 use elevate\HVObjects\Generic\Date\Time;
@@ -26,16 +27,16 @@ use elevate\HVObjects\Generic\Email;
 use elevate\HVObjects\Generic\Contact;
 use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Date\Date;
+use elevate\HVObjects\Generic\Common;
 
 
-
-class MedicationTypeTest extends BaseObjectTest
+class Medication2DataXmlTest extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../../../SampleXML/Thing/DataXml/Type/Medication.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\Type\MedicationType';
+        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/Medication2.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\Medication2DataXML';
 
         $nameCode = new CodedValue('154', 'SomeMed', array('Some Medication'), array('Version 1'));
         $nameOfMed = new CodableValue("Some Medication", array($nameCode));
@@ -99,7 +100,7 @@ class MedicationTypeTest extends BaseObjectTest
             true
         );
         $phone = new Phone("Home Phone", true, "555-555-5555");
-        $email = new Email("Personal", "billy@theintern.com", true);
+        $email = new Email( "Personal", "billy@theintern.com", true);
         $contact = new Contact($address, $email, $phone);
 
         // Type
@@ -140,10 +141,12 @@ class MedicationTypeTest extends BaseObjectTest
         $measurement = new StructuredMeasurement('47', $units);
         $strength = new GeneralMeasurement('47 Pounds', $measurement);
 
-        self::$testObject = new MedicationType($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
+        $medicationType = new Medication2Type($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
 
+        $common = new Common('Medication Note', 'Medication Source', 'medicationTag');
+
+        self::$testObject = new Medication2DataXML($medicationType, $common);
 
         parent::setUpBeforeClass();
     }
-
 } 

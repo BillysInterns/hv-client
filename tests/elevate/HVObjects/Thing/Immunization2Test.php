@@ -20,16 +20,17 @@ use elevate\HVObjects\Generic\Phone;
 use elevate\HVObjects\Generic\Email;
 use elevate\HVObjects\Generic\Contact;
 use elevate\HVObjects\Generic\Person;
-use elevate\HVObjects\Thing\DataXML\Type\ImmunizationType;
-use elevate\HVObjects\Thing\DataXML\ImmunizationDataXML;
+use elevate\HVObjects\Thing\DataXML\Type\Immunization2Type;
+use elevate\HVObjects\Thing\DataXML\Immunization2DataXML;
+use elevate\HVObjects\Thing\Immunization2;
 use elevate\HVObjects\Generic\Common;
 
-class Immunization 
+class Immunization2Test extends BaseObjectTest
 {
 	public static function setUpBeforeClass()
     {
-		self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/DataXml/Immunization.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\Immunization';
+		self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Immunization2.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\Immunization2';
 
         $nameCode = new CodedValue('154', 'SomeImu', array('Some Immunization'), array('Version 1'));
         $nameOfImu = new CodableValue("Some Immunization", array($nameCode));
@@ -86,14 +87,15 @@ class Immunization
 
         $consent = 'Consent';
 
-        $immunizationType = new ImmunizationType($administrationDate, $administrator, $adverseEvent, $anatomicSurface, $consent, $expirationDate, $lot, $manufacturer, $nameOfImu, $route, $sequence);
+        $immunization2Type = new Immunization2Type($administrationDate, $administrator, $adverseEvent, $anatomicSurface, $consent, $expirationDate, $lot, $manufacturer, $nameOfImu, $route, $sequence);
 
         $common = new Common('Immunization Note', 'Immunization Source', 'immunizationTag');
 
-        $immunizationDataXML = new ImmunizationDataXML($immunizationType, $common);
+        $immunization2DataXML = new Immunization2DataXML($immunization2Type, $common);
 
-        self::$testObject = new Immunization();
-        parent::setUpBeforeClass( $immunizationDataXML );
+        self::$testObject = new Immunization2($immunization2DataXML);
+
+        parent::setUpBeforeClass();
 
 	}
 
