@@ -32,7 +32,7 @@ class ThingId
      */
     protected $thingId;
 
-    function __construct($thingId, $version)
+    function __construct($thingId = NULL, $version = NULL)
     {
         $this->thingId = $thingId;
         $this->version = $version;

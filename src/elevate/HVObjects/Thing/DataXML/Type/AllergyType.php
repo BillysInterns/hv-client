@@ -7,6 +7,7 @@ namespace elevate\HVObjects\Thing\DataXML\Type;
 use elevate\HVObjects\Generic\CodableValue;
 use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Date\DateTime;
+use elevate\HVObjects\Generic\Date\ApproxDateTime;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -36,7 +37,7 @@ class AllergyType
     protected $reaction;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Date\DateTime")
+     * @Type("elevate\HVObjects\Generic\Date\ApproxDateTime")
      * @SerializedName("first-observed")
      */
     protected $firstObserved;
