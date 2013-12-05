@@ -32,7 +32,7 @@ use elevate\HVObjects\Generic\Contact;
 use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Prescription;
 use elevate\HVObjects\Thing\DataXML\Type\Medication2Type;
-use elevate\HVObjects\Thing\DataXML\MedicationData2XML;
+use elevate\HVObjects\Thing\DataXML\Medication2DataXML;
 
 class Medication2Test  extends BaseObjectTest
 {

@@ -59,7 +59,7 @@ class InfoHelper {
     static function getHVRequestGroupForBase64TypeId($typeId, $maxItems = 1, $groupName = null)
     {
         $filter = new ThingFilterSpec($typeId);
-        $format = new ThingFormatSpec('otherdata');
+        $format = new ThingFormatSpec(array('otherdata'));
 
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
         return $group;

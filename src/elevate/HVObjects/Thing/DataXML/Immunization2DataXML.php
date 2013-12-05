@@ -8,7 +8,7 @@
 
 namespace elevate\HVObjects\Thing\DataXML;
 
-use elevate\HVObjects\Thing\DataXML\Type\ImmunizationType;
+use elevate\HVObjects\Thing\DataXML\Type\Immunization2Type;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -23,15 +23,15 @@ use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Generic\Common;
 
 /** @XmlRoot("data-xml") */
-class ImmunizationDataXML extends DataXML
+class Immunization2DataXML extends DataXML
 {
     /**
-     * @Type("elevate\HVObjects\Thing\DataXML\Type\ImmunizationType")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\Immunization2Type")
      * @SerializedName("immunization")
      */
     protected $immunization;
 
-    public function __construct(ImmunizationType $immunization = NULL, Common $common = NULL)
+    public function __construct(Immunization2Type $immunization = NULL, Common $common = NULL)
     {
         $this->immunization = $immunization;
         parent::__construct($common);

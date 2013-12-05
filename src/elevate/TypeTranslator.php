@@ -129,7 +129,7 @@ class TypeTranslator
      */
     public static function lookupTypeID($typeName)
     {
-        if(isset(self::$things[$typeName]))
+        if (isset(self::$things[$typeName]))
         {
             return (self::$things[$typeName]);
         }
@@ -139,12 +139,12 @@ class TypeTranslator
             $flippedThingArray = str_replace(' ', '', $flippedThingArray);
             $flippedThingArray = array_flip($flippedThingArray);
 
-            if(isset($flippedThingArray[$typeName]))
+            if (isset($flippedThingArray[$typeName]))
             {
                 return ($flippedThingArray[$typeName]);
             }
         }
-        return false;
+        return FALSE;
     }
 
     /**
@@ -170,12 +170,16 @@ class TypeTranslator
         if ($stripCharacters)
         {
             return str_replace(
-                ' ',
+                '#(v',
                 '',
-                preg_replace(
-                    "/#\([^)]+\)/",
-                    "",
-                    $flippedThingArray[$typeID]
+                str_replace(
+                    ')',
+                    '',
+                    str_replace(
+                        ' ',
+                        '',
+                        $flippedThingArray[$typeID]
+                    )
                 )
             );
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="First Test">
     <thing>
-        <type-id><![CDATA[5c5f1223-f63c-4464-870c-3e36ba471def]]></type-id>
+        <type-id><![CDATA[30cafccc-047d-4288-94ef-643571f7919d]]></type-id>
         <data-xml>
             <common>
                 <source><![CDATA[Medication Source]]></source>

@@ -49,11 +49,11 @@ class TypeTranslatorTest extends BaseTest
         );
 
         $this->assertEquals(
-            'FamilyHistory', TypeTranslator::lookupTypeName('4a04fcc8-19c1-4d59-a8c7-2031a03f21de')
+            'FamilyHistory3', TypeTranslator::lookupTypeName('4a04fcc8-19c1-4d59-a8c7-2031a03f21de')
         );
 
         $this->assertEquals(
-            'Medication', TypeTranslator::lookupTypeName('30cafccc-047d-4288-94ef-643571f7919d')
+            'Medication2', TypeTranslator::lookupTypeName('30cafccc-047d-4288-94ef-643571f7919d')
         );
 
         //Verify that a valid id with a second parameter of true will return a stripped version
@@ -62,11 +62,11 @@ class TypeTranslatorTest extends BaseTest
         );
 
         $this->assertEquals(
-            'FamilyHistory', TypeTranslator::lookupTypeName('4a04fcc8-19c1-4d59-a8c7-2031a03f21de', TRUE)
+            'FamilyHistory3', TypeTranslator::lookupTypeName('4a04fcc8-19c1-4d59-a8c7-2031a03f21de', TRUE)
         );
 
         $this->assertEquals(
-            'Medication', TypeTranslator::lookupTypeName('30cafccc-047d-4288-94ef-643571f7919d', TRUE)
+            'Medication2', TypeTranslator::lookupTypeName('30cafccc-047d-4288-94ef-643571f7919d', TRUE)
         );
 
         //Verify that a nonstripped version of the thing name can be gotten

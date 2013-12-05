@@ -19,7 +19,7 @@ class ThingFormatSpecTest extends BaseObjectTest
     {
         self::$sampleXMLPath = __DIR__ . '/../SampleXML/MethodObjects/ThingFormatSpec.xml';
         self::$objectNamespace = 'elevate\HVObjects\MethodObjects\ThingFormatSpec';
-        self::$testObject = new ThingFormatSpec('core');
+        self::$testObject = new ThingFormatSpec(array('core'));
         parent::setUpBeforeClass();
     }
 }

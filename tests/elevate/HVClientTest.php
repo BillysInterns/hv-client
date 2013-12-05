@@ -188,7 +188,7 @@ class HVClientTest extends BaseTest
 
     public function testFormatResults()
     {
-        $group1 = InfoHelper::getHVRequestGroupForThingName("Medication", 2, "medication");
+        $group1 = InfoHelper::getHVRequestGroupForThingName("Condition", 2, "medication");
         $group2 = InfoHelper::getHVRequestGroupForThingName("Question Answer", 2, "second");
         $group3 = InfoHelper::getHVRequestGroupForThingName("Allergy", 2, "Allergy");
 
@@ -227,7 +227,7 @@ class HVClientTest extends BaseTest
 
         public function testGetThingsByName()
         {
-            $hvThingNames = array("Medication", "Question Answer", "Body Composition", "Personal Demographic Information", "Allergy", "Device", "Appointment", "Height Measurement", "Weight Measurement", "Sleep Session", "Sleep Related Activity", "Immunization", "File");
+            $hvThingNames = array("Question Answer", "Body Composition", "Personal Demographic Information", "Allergy", "Device", "Appointment", "Height Measurement", "Weight Measurement", "Sleep Session", "Sleep Related Activity", "Immunization", "File");
             //$hvThingNames = array("Device", "Appointment", "Height Measurement", "Weight Measurement", "Sleep Session", "Sleep Related Activity", "Immunization");
             //$hvThingNames = array("File");
 
@@ -243,7 +243,7 @@ class HVClientTest extends BaseTest
 
         public function testGetGroups()
         {
-            $group1 = InfoHelper::getHVRequestGroupForThingName("Medication", 2, "first");
+            $group1 = InfoHelper::getHVRequestGroupForThingName("Condition", 2, "first");
             $group2 = InfoHelper::getHVRequestGroupForThingName("Question Answer", 2, "second");
             $info = new Info(array($group1,$group2));
             $this->hv->connect();

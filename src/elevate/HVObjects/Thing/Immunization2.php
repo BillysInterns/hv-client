@@ -16,22 +16,22 @@ use JMS\Serializer\Annotation\XmlList;
 
 use elevate\TypeTranslator;
 use elevate\HVObjects\Thing\Thing;
-use elevate\HVObjects\Thing\DataXML\ImmunizationDataXML;
+use elevate\HVObjects\Thing\DataXML\Immunization2DataXML;
 
 
 /** @XmlRoot("immunization") */
-class Immunization extends Thing
+class Immunization2 extends Thing
 {
     /**
-     * @var array elevate\HVObjects\Thing\DataXML\ImmunizationDataXML
-     * @Type("elevate\HVObjects\Thing\DataXML\ImmunizationDataXML")
+     * @var array elevate\HVObjects\Thing\DataXML\Immunization2DataXML
+     * @Type("elevate\HVObjects\Thing\DataXML\Immunization2DataXML")
      * @SerializedName("data-xml")
      */
     protected $dataXML;
 
-    function __construct(ImmunizationDataXML $dataXML = NULL)
+    function __construct(Immunization2DataXML $dataXML = NULL)
     {
-        $typeID = TypeTranslator::lookupTypeID('Immunization');
+        $typeID = TypeTranslator::lookupTypeID('Immunization #(v2)');
         parent::__construct($dataXML,$typeID);    }
 
 

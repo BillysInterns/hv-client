@@ -26,7 +26,7 @@ use elevate\HVObjects\Generic\Date\ApproxDate;
 use elevate\HVObjects\Generic\Person;
 
 /** @XmlRoot("immunization") */
-class ImmunizationType 
+class Immunization2Type
 {
     /**
      * @Type("elevate\HVObjects\Generic\CodableValue")

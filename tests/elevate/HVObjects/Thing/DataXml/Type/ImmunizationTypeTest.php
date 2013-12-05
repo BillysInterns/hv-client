@@ -10,7 +10,7 @@ namespace elevate\test\HVObjects\Thing\DataXML\Type;
 
 use elevate\test\HVObjects\BaseObjectTest;
 
-use elevate\HVObjects\Thing\DataXML\Type\ImmunizationType;
+use elevate\HVObjects\Thing\DataXML\Type\Immunization2Type;
 use elevate\HVObjects\Generic\CodedValue;
 use elevate\HVObjects\Generic\CodableValue;
 use elevate\HVObjects\Generic\Date\ApproxDate;
@@ -26,13 +26,13 @@ use elevate\HVObjects\Generic\Person;
 
 
 
-class ImmunizationTypeTest extends BaseObjectTest
+class Immunization2TypeTest extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../../../SampleXML/Thing/DataXml/Type/Immunization.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\Type\ImmunizationType';
+        self::$sampleXMLPath = __DIR__ . '/../../../SampleXML/Thing/DataXml/Type/Immunization2.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\Type\Immunization2Type';
 
         $nameCode = new CodedValue('154', 'SomeImu', array('Some Immunization'), array('Version 1'));
         $nameOfImu = new CodableValue("Some Immunization", array($nameCode));
@@ -89,7 +89,7 @@ class ImmunizationTypeTest extends BaseObjectTest
 
         $consent = 'Consent';
 
-        self::$testObject = new ImmunizationType($administrationDate, $administrator, $adverseEvent, $anatomicSurface, $consent, $expirationDate, $lot, $manufacturer, $nameOfImu, $route, $sequence);
+        self::$testObject = new Immunization2Type($administrationDate, $administrator, $adverseEvent, $anatomicSurface, $consent, $expirationDate, $lot, $manufacturer, $nameOfImu, $route, $sequence);
 
         parent::setUpBeforeClass();
     }

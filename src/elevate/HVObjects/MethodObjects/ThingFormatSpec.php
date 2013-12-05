@@ -23,6 +23,7 @@ class ThingFormatSpec
 
     /**
      * @XmlList(inline = true, entry = "section")
+     * @Type("array<string>")
      */
     protected $section;
 
