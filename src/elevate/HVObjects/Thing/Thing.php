@@ -7,6 +7,7 @@
 namespace elevate\HVObjects\Thing;
 
 use elevate\HVObjects\Generic\TypeId;
+use elevate\HVObjects\Generic\ThingId;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -25,7 +26,7 @@ class Thing {
 
     /**
      * @var string
-     * @Type("string")
+     * @Type("elevate\HVObjects\Generic\ThingId")
      * @SerializedName("thing-id")
      */
     protected $thing_id;

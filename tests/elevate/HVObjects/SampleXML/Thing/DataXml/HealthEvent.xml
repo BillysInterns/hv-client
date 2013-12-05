@@ -7,17 +7,19 @@
     </common>
     <health-event>
         <when>
-            <date>
-                <y>10</y>
-                <m>12</m>
-                <d>2013</d>
-            </date>
-            <time>
-                <h>10</h>
-                <m>39</m>
-                <s>12</s>
-                <f>0</f>
-            </time>
+            <structured>
+                <date>
+                    <y>2013</y>
+                    <m>8</m>
+                    <d>27</d>
+                </date>
+                <time>
+                    <h>12</h>
+                    <m>23</m>
+                    <s>45</s>
+                    <f>0</f>
+                </time>
+            </structured>
         </when>
         <event>
             <text><![CDATA[Started to Walk]]></text>

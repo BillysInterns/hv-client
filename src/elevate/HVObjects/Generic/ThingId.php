@@ -16,7 +16,7 @@ use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
-
+/** @XmlRoot("thing-id") */
 class ThingId
 {
     /**
