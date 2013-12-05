@@ -47,6 +47,18 @@ class Thing {
     protected $flags;
 
     /**
+     * @Type("elevate\HVObjects\Generic\Created")
+     * @SerializedName("created")
+     */
+    protected $created;
+
+    /**
+     * @Type("elevate\HVObjects\Generic\Updated")
+     * @SerializedName("updated")
+     */
+    protected $updated;
+
+    /**
      * @Type("DateTime<'DATE_ISO8601'>")
      * @SerializedName("eff-date")
      */
@@ -142,6 +154,57 @@ class Thing {
     public function getTypeId()
     {
         return $this->type_id;
+    }
+
+    /**
+     * @param mixed $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param \elevate\HVObjects\Generic\DataOther $dataOther
+     */
+    public function setDataOther($dataOther)
+    {
+        $this->dataOther = $dataOther;
+        return $this;
+    }
+
+    /**
+     * @return \elevate\HVObjects\Generic\DataOther
+     */
+    public function getDataOther()
+    {
+        return $this->dataOther;
+    }
+
+    /**
+     * @param mixed $updated
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 
 

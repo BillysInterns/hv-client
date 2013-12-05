@@ -1,7 +1,5 @@
 <?php
-/**
-* @author - Sumit
-*/
+/** @author troussos **/
 
 namespace elevate\HVObjects\Generic;
 
@@ -10,19 +8,16 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\XmlValue;
+use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
-use Doctrine\Common\Collections\ArrayCollection;
-use PhpCollection\Map;
-use PhpCollection\Sequence;
 
-/** @XmlRoot("type-id") */
-class TypeId 
+/** @XmlRoot("person-id") */
+class PersonId
 {
     /**
-     * @XmlAttribute
      * @Type("string")
+     * @XmlAttribute
      */
     protected $name;
 
@@ -30,17 +25,42 @@ class TypeId
      * @XmlValue
      * @Type("string")
      */
-    protected $typeId;
+    protected $id;
 
-    public function __construct($name, $typeId)
+    /**
+     * @param $id
+     * @param $name
+     */
+    function __construct($id, $name)
     {
+        $this->id   = $id;
         $this->name = $name;
-        $this->typeId = $typeId;
         return $this;
     }
 
     /**
-     * @param mixed $name
+     * @param $id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return $this
      */
     public function setName($name)
     {
@@ -55,22 +75,4 @@ class TypeId
     {
         return $this->name;
     }
-
-    /**
-     * @param mixed $typeId
-     */
-    public function setTypeId($typeId)
-    {
-        $this->typeId = $typeId;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
-
 }
