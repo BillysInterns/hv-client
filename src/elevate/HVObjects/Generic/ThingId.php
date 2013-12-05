@@ -22,6 +22,7 @@ class ThingId
     /**
      * @XmlAttribute
      * @Type("string")
+     * @SerializedName("version-stamp")
      */
     protected $version;
 

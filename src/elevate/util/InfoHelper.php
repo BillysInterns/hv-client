@@ -38,7 +38,7 @@ class InfoHelper {
     static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null)
     {
         $filter = new ThingFilterSpec($typeId);
-        $format = new ThingFormatSpec('core');
+        $format = new ThingFormatSpec(array('core', 'audits'));
 
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
         return $group;

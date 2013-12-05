@@ -22,7 +22,7 @@ class ThingFormatSpec
 {
 
     /**
-     * @Type("string")
+     * @XmlList(inline = true, entry = "section")
      */
     protected $section;
 
@@ -37,7 +37,7 @@ class ThingFormatSpec
     protected $typeVersionFormat = NULL;
 
     function __construct(
-        $section,
+        array $section,
         $xml = '',
         $typeVersionFormat = NULL
     )

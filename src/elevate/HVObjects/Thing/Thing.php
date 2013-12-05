@@ -8,6 +8,8 @@ namespace elevate\HVObjects\Thing;
 
 use elevate\HVObjects\Generic\TypeId;
 use elevate\HVObjects\Generic\ThingId;
+use elevate\HVObjects\Generic\Created;
+use elevate\HVObjects\Generic\Updated;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -22,7 +24,8 @@ use \elevate\HVObjects\Generic\DataOther;
 
 
 /** @XmlRoot("thing") */
-class Thing {
+class Thing
+{
 
     /**
      * @var string
@@ -30,28 +33,22 @@ class Thing {
      * @SerializedName("thing-id")
      */
     protected $thing_id;
-
-
     /**
      * @var string
      * @Type("elevate\HVObjects\Generic\TypeId")
      * @SerializedName("type-id")
      */
     protected $type_id;
-
-
     /**
      * @var string
      * @Type("string")
      */
     protected $flags;
-
     /**
      * @Type("elevate\HVObjects\Generic\Created")
      * @SerializedName("created")
      */
     protected $created;
-
     /**
      * @Type("elevate\HVObjects\Generic\Updated")
      * @SerializedName("updated")
@@ -62,8 +59,7 @@ class Thing {
      * @Type("DateTime<'DATE_ISO8601'>")
      * @SerializedName("eff-date")
      */
-     //protected $effDate;
-
+    //protected $effDate;
 
     /**
      * @var array elevate\HVObjects\Thing\DataXML\DataXML
@@ -71,7 +67,6 @@ class Thing {
      * @SerializedName("data-xml")
      */
     protected $dataXML;
-
     /**
      * @var \elevate\HVObjects\Generic\DataOther
      * @Type("elevate\HVObjects\Generic\DataOther")
@@ -79,13 +74,30 @@ class Thing {
      */
     protected $dataOther;
 
-    function __construct($dataXML, $type_id, $thing_id = NULL, $flags = NULL)
+    function __construct(
+        $dataXML,
+        $type_id,
+        $thing_id = NULL,
+        $flags = NULL,
+        $created = NULL,
+        $updated = NULL
+    )
     {
-        $this->dataXML  = $dataXML;
-        $this->flags    = $flags;
+        $this->dataXML = $dataXML;
+        $this->flags = $flags;
         $this->thing_id = $thing_id;
-        $this->type_id  = new TypeId(null, $type_id);
+        $this->type_id = new TypeId(NULL, $type_id);
+        $this->created = $created;
+        $this->updated = $updated;
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getDataXML()
+    {
+        return $this->dataXML;
     }
 
     /**
@@ -98,11 +110,11 @@ class Thing {
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getDataXML()
+    public function getFlags()
     {
-        return $this->dataXML;
+        return $this->flags;
     }
 
     /**
@@ -117,9 +129,9 @@ class Thing {
     /**
      * @return string
      */
-    public function getFlags()
+    public function getThingId()
     {
-        return $this->flags;
+        return $this->thing_id;
     }
 
     /**
@@ -134,9 +146,9 @@ class Thing {
     /**
      * @return string
      */
-    public function getThingId()
+    public function getTypeId()
     {
-        return $this->thing_id;
+        return $this->type_id;
     }
 
     /**
@@ -149,23 +161,6 @@ class Thing {
     }
 
     /**
-     * @return string
-     */
-    public function getTypeId()
-    {
-        return $this->type_id;
-    }
-
-    /**
-     * @param mixed $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getCreated()
@@ -174,11 +169,13 @@ class Thing {
     }
 
     /**
-     * @param \elevate\HVObjects\Generic\DataOther $dataOther
+     * @param $created
+     *
+     * @return $this
      */
-    public function setDataOther($dataOther)
+    public function setCreated($created)
     {
-        $this->dataOther = $dataOther;
+        $this->created = $created;
         return $this;
     }
 
@@ -191,22 +188,34 @@ class Thing {
     }
 
     /**
-     * @param mixed $updated
+     * @param $dataOther
+     *
+     * @return $this
      */
-    public function setUpdated($updated)
+    public function setDataOther($dataOther)
     {
-        $this->updated = $updated;
+        $this->dataOther = $dataOther;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getUpdated()
     {
         return $this->updated;
     }
 
+    /**
+     * @param $updated
+     *
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+        return $this;
+    }
 
 
 }
