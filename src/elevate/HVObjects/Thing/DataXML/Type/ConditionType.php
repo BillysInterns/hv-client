@@ -29,7 +29,7 @@ class ConditionType
      */
     protected $name;
     /**
-     * @Type("elevate\HVObjects\Generic\Date\DateTime")
+     * @Type("elevate\HVObjects\Generic\Date\ApproxDateTime")
      * @SerializedName("onset-date")
      */
     protected $onsetDate;
@@ -39,7 +39,7 @@ class ConditionType
      */
     protected $status;
     /**
-     * @Type("elevate\HVObjects\Generic\Date\DateTime")
+     * @Type("elevate\HVObjects\Generic\Date\ApproxDateTime")
      * @SerializedName("stop-date")
      */
     protected $stopDate;
