@@ -7,22 +7,19 @@ use elevate\HVObjects\Generic\Address;
 use elevate\HVObjects\Generic\Name;
 use elevate\HVObjects\Generic\Phone;
 use elevate\HVObjects\Generic\Email;
-use elevate\HVObjects\Thing\DataXML\EmergencyOrProviderContactDataXML;
-use elevate\HVObjects\Thing\DataXML\Type\EmergencyOrProviderContactType;
-use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Contact;
 use elevate\HVObjects\Generic\CodedValue;
 use elevate\HVObjects\Generic\CodableValue;
-use elevate\HVObjects\Generic\Common;
+use elevate\HVObjects\Thing\DataXML\Type\EmergencyOrProviderContactType;
 use elevate\test\HVObjects\BaseObjectTest;
 
-class EmergencyOrProviderContactDataXMLTest extends BaseObjectTest
+class EmergencyOrProviderContactTypeTest extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/EmergencyOrProviderContact.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXml\EmergencyOrProviderContactDataXML';
+        self::$sampleXMLPath = __DIR__ . '/../../../SampleXML/Thing/DataXml/Type/EmergencyOrProviderContact.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXml\Type\EmergencyOrProviderContactType';
 
         $title = new CodableValue('Sr.');
 
@@ -39,11 +36,8 @@ class EmergencyOrProviderContactDataXMLTest extends BaseObjectTest
         $typeCode = new CodedValue('wc-dc', 'providerTypes');
         $type = new CodableValue('Doctor', array($typeCode));
 
-        $person = new EmergencyOrProviderContactType($name, 'Billy\'s Practice', 'Summer Internship', '5784-5436-54367-54367', $contact, $type);
+        self::$testObject = new EmergencyOrProviderContactType($name, 'Billy\'s Practice', 'Summer Internship', '5784-5436-54367-54367', $contact, $type);
 
-        $common = new Common('Emergency Provider Note', 'Provider Test', 'Some tags', 'Somethign Related');
-
-        self::$testObject = new EmergencyOrProviderContactDataXML($person, $common);
         parent::setUpBeforeClass();
     }
 }

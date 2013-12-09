@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <name>
+        <full><![CDATA[Billy D. Intern]]></full>
+        <title>
+            <text><![CDATA[Sr.]]></text>
+        </title>
+        <first><![CDATA[Billy]]></first>
+        <middle><![CDATA[D]]></middle>
+        <last><![CDATA[Intern]]></last>
+    </name>
+    <organization><![CDATA[Billy's Practice]]></organization>
+    <professional-training><![CDATA[Summer Internship]]></professional-training>
+    <id><![CDATA[5784-5436-54367-54367]]></id>
+    <contact>
+        <address>
+            <description><![CDATA[Work]]></description>
+            <is-primary>true</is-primary>
+            <street><![CDATA[123 Fake Street]]></street>
+            <city><![CDATA[Raratin]]></city>
+            <state><![CDATA[NJ]]></state>
+            <postcode><![CDATA[12421]]></postcode>
+            <country><![CDATA[Somewhere]]></country>
+            <county><![CDATA[USA]]></county>
+        </address>
+        <phone>
+            <description><![CDATA[Mobile]]></description>
+            <is-primary>false</is-primary>
+            <number><![CDATA[654.213.4321]]></number>
+        </phone>
+        <email>
+            <description><![CDATA[Work]]></description>
+            <is_primary>true</is_primary>
+            <address><![CDATA[bill@theinterns.com]]></address>
+        </email>
+    </contact>
+    <type>
+        <text><![CDATA[Doctor]]></text>
+        <code>
+            <value><![CDATA[wc-dc]]></value>
+            <type><![CDATA[providerTypes]]></type>
+        </code>
+    </type>
+</result>

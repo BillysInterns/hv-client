@@ -8,6 +8,7 @@ use elevate\HVObjects\Generic\Name;
 use elevate\HVObjects\Generic\Phone;
 use elevate\HVObjects\Generic\Email;
 use elevate\HVObjects\Thing\DataXML\EmergencyOrProviderContactDataXML;
+use elevate\HVObjects\Thing\DataXML\Type\EmergencyOrProviderContactType;
 use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Contact;
 use elevate\HVObjects\Generic\CodedValue;
@@ -39,7 +40,7 @@ class EmergencyOrProviderContactTest extends BaseObjectTest
         $typeCode = new CodedValue('wc-dc', 'providerTypes');
         $type = new CodableValue('Doctor', array($typeCode));
 
-        $person = new Person($name, 'Billy\'s Practice', 'Summer Internship', '5784-5436-54367-54367', $contact, $type);
+        $person = new EmergencyOrProviderContactType($name, 'Billy\'s Practice', 'Summer Internship', '5784-5436-54367-54367', $contact, $type);
 
         $common = new Common('Emergency Provider Note', 'Provider Test', 'Some tags', 'Somethign Related');
 
