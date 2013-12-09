@@ -17,17 +17,20 @@
             </code>
         </name>
         <onset-date>
-            <date>
-                <y>2013</y>
-                <m>11</m>
-                <d>15</d>
-            </date>
-            <time>
-                <h>12</h>
-                <m>30</m>
-                <s>44</s>
-                <f>0</f>
-            </time>
+            <structured>
+                <date>
+                    <y>2013</y>
+                    <m>11</m>
+                    <d>15</d>
+                </date>
+                <time>
+                    <h>12</h>
+                    <m>30</m>
+                    <s>44</s>
+                    <f>0</f>
+                </time>
+            </structured>
+            <descriptive><![CDATA[Onset Time Descriptiomn]]></descriptive>
         </onset-date>
         <status>
             <text><![CDATA[Failed]]></text>
@@ -39,17 +42,20 @@
             </code>
         </status>
         <stop-date>
-            <date>
-                <y>2013</y>
-                <m>11</m>
-                <d>16</d>
-            </date>
-            <time>
-                <h>10</h>
-                <m>23</m>
-                <s>11</s>
-                <f>0</f>
-            </time>
+                <structured>
+                  <date>
+                    <y>2013</y>
+                    <m>11</m>
+                    <d>16</d>
+                  </date>
+                  <time>
+                    <h>10</h>
+                    <m>23</m>
+                    <s>11</s>
+                    <f>0</f>
+                  </time>
+                </structured>
+                <descriptive><![CDATA[Stop Time Description]]></descriptive>
         </stop-date>
         <stop-reason><![CDATA[Grew Back]]></stop-reason>
     </condition>

@@ -6,7 +6,7 @@
 namespace elevate\HVObjects\Thing\DataXML\Type;
 
 use elevate\HVObjects\Generic\CodableValue;
-use elevate\HVObjects\Generic\Date\DateTime;
+use elevate\HVObjects\Generic\Date\ApproxDateTime;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -58,9 +58,9 @@ class ConditionType
      */
     public function __construct(
         CodableValue $name = NULL,
-        DateTime $onsetDate = NULL,
+        ApproxDateTime $onsetDate = NULL,
         CodableValue $status = NULL,
-        DateTime $stopDate = NULL,
+        ApproxDateTime $stopDate = NULL,
         $stopReason = NULL
     )
     {
