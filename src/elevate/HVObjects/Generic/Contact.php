@@ -43,7 +43,7 @@ class Contact
      */
     protected $email;
 
-    function __construct(Address $address, Email $email, Phone $phone)
+    function __construct(Address $address = NULL, Email $email = NULL, Phone $phone = NULL)
     {
         $this->address = $address;
         $this->email = $email;

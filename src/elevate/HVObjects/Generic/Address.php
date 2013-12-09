@@ -49,7 +49,7 @@ class Address
      * @Type("string")
      * @SerializedName("postcode")
      */
-    protected $postCode;
+    protected $postcode;
     /**
      * @Type("string")
      * @SerializedName("country")
@@ -71,14 +71,14 @@ class Address
      * @param $country
      * @param $isPrimary
      */
-    public function __construct($description, $street, $city, $state, $postCode, $county, $country, $isPrimary)
+    public function __construct($description = NULL, $street = NULL, $city = NULL, $state = NULL, $postCode = NULL, $county = NULL, $country = NULL, $isPrimary = NULL)
     {
         $this->city        = $city;
         $this->country     = $country;
         $this->county      = $county;
         $this->description = $description;
         $this->isPrimary   = $isPrimary;
-        $this->postCode    = $postCode;
+        $this->postcode    = $postCode;
         $this->state       = $state;
         $this->street      = $street;
     }
@@ -168,7 +168,7 @@ class Address
      */
     public function setPostCode($postCode)
     {
-        $this->postCode = $postCode;
+        $this->postcode = $postCode;
     }
 
     /**
@@ -176,7 +176,7 @@ class Address
      */
     public function getPostCode()
     {
-        return $this->postCode;
+        return $this->postcode;
     }
 
     /**
