@@ -32,7 +32,7 @@ class EmergencyOrProviderContactDataXML extends DataXML
      *
      * @return $this
      */
-    public function setEmergencyOrProviderContactType($emergencyOrProviderContactType)
+    public function setType($emergencyOrProviderContactType)
     {
         $this->emergencyOrProviderContactType = $emergencyOrProviderContactType;
         return $this;
@@ -41,7 +41,7 @@ class EmergencyOrProviderContactDataXML extends DataXML
     /**
      * @return mixed
      */
-    public function getEmergencyOrProviderContactType()
+    public function getType()
     {
         return $this->emergencyOrProviderContactType;
     }
