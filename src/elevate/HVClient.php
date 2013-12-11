@@ -244,10 +244,9 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
     }
 
-    public function putThings($info)
+    public function putThings($info, $version = 2)
     {
         $method  = 'PutThings';
-        $version = 2;
         return $this->callHealthVault($info, $method, $version);
 
         // TODO: Get the response object back.

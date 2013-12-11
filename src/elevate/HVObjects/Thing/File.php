@@ -25,13 +25,26 @@ class File extends Thing
      */
     protected $dataXML;
 
-
     function __construct($dataXML = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('File');
         parent::__construct($dataXML,$typeID);
     }
 
+    /**
+     * @param array $dataXML
+     */
+    public function setDataXML($dataXML)
+    {
+        $this->dataXML = $dataXML;
+        return $this;
+    }
 
-
+    /**
+     * @return array
+     */
+    public function getDataXML()
+    {
+        return $this->dataXML;
+    }
 }

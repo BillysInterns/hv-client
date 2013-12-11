@@ -44,6 +44,13 @@ class DataOther
      */
     private $contentEncoding;
 
+    function __construct($data, $contentType = NULL, $contentEncoding = NULL)
+    {
+        $this->contentEncoding = $contentEncoding;
+        $this->contentType     = $contentType;
+        $this->data            = $data;
+    }
+
     /**
      * @param string $contentEncoding
      */
