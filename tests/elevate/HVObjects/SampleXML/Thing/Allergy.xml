@@ -22,17 +22,23 @@
                 </code>
             </reaction>
             <first-observed>
-                <date>
-                    <y>2013</y>
-                    <m>10</m>
-                    <d>12</d>
-                </date>
-                <time>
-                    <h>4</h>
-                    <m>0</m>
-                    <s>0</s>
-                    <f>0</f>
-                </time>
+                <structured>
+                    <date>
+                        <y>2013</y>
+                        <m>10</m>
+                        <d>12</d>
+                    </date>
+                    <time>
+                        <h>4</h>
+                        <m>0</m>
+                        <s>0</s>
+                        <f>0</f>
+                    </time>
+                    <tz>
+                        <text><![CDATA[New York]]></text>
+                    </tz>
+                </structured>
+                <descriptive><![CDATA[First Observed Date]]></descriptive>
             </first-observed>
             <allergen-type>
                 <text><![CDATA[Oxygen]]></text>

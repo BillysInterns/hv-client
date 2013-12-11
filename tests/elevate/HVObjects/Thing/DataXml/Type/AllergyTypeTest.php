@@ -14,8 +14,9 @@ use elevate\HVObjects\Generic\Address;
 use elevate\HVObjects\Generic\CodableValue;
 use elevate\HVObjects\Generic\CodedValue;
 use elevate\HVObjects\Generic\Contact;
-use elevate\HVObjects\Generic\Date\Date;
-use elevate\HVObjects\Generic\Date\DateTime;
+use elevate\HVObjects\Generic\Date\ApproxDate;
+use elevate\HVObjects\Generic\Date\ApproxDateTime;
+use elevate\HVObjects\Generic\Date\StructuredApproxDate;
 use elevate\HVObjects\Generic\Date\Time;
 use elevate\HVObjects\Generic\Email;
 use elevate\HVObjects\Generic\Name;
@@ -41,8 +42,10 @@ class AllergyTypeTest extends BaseObjectTest
 
         // First Observed
         $firstObservedTime = new Time(4, 0, 0, 0);
-        $firstObservedDate = new Date(2013, 10, 12);
-        $firstObserved = new DateTime($firstObservedDate, $firstObservedTime);
+        $firstObservedDate = new ApproxDate(2013, 10, 12);
+        $firstObservedTZ = new CodableValue('New York', array());
+        $firstObservedStructured = new StructuredApproxDate($firstObservedDate, $firstObservedTime, $firstObservedTZ);
+        $firstObserved = new ApproxDateTime($firstObservedStructured, 'First Observed Date');
 
         // AllergenType
         $allergenCoded = new CodedValue("1235", "Allergen", array("Allergen"), array("Version 3"));

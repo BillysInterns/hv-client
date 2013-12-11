@@ -75,7 +75,7 @@ class AllergyType
     function __construct(
         CodableValue $name = NULL,
         CodableValue $reaction = NULL,
-        DateTime $firstObserved = NULL,
+        ApproxDateTime $firstObserved = NULL,
         CodableValue $allergenType = NULL,
         CodableValue $allergenCode = NULL,
         Person $treatmentProvider = NULL,
