@@ -57,7 +57,7 @@ class TypeTranslator
         'Education - MyData File (Preview)'                 => '0aa6a4c7-cef5-46ea-970e-206c8402dccb',
         'Education - SIF Student Academic Record (Preview)' => 'c3353437-7a5e-46be-8e1a-f93dac872a68',
         'Education Document (Preview)'                      => '9df1163d-eae1-405e-8a66-8aaf19bd5fc7',
-        'Emergency or Provider Contact'                     => '25c94a9f-9d3d-4576-96dc-6791178a8143',
+        'Emergency Or Provider Contact'                     => '25c94a9f-9d3d-4576-96dc-6791178a8143',
         'Emotional State'                                   => '4b7971d6-e427-427d-bf2c-2fbcf76606b3',
         'Encounter #(v2)'                                   => '464083cc-13de-4f3e-a189-da8e47d5651b',
         'Encounter'                                         => '3d4bdf01-1b3e-4afc-b41c-bd3e641a6da7',
