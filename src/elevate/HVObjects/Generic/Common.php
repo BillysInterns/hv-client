@@ -16,6 +16,7 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
 
+
 use elevate\HVObjects\Generic\RelatedThing;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
@@ -43,7 +44,7 @@ class Common
     protected $tags;
     /**
      * @Type("array<elevate\HVObjects\Generic\RelatedThing>")
-     * @SerializedName("related-thing")
+     * @XmlList(inline=true, entry="related-thing")
      */
     protected $relatedThing;
     /**

@@ -1,57 +1,65 @@
 <?php
-/** @author troussos **/
+/** @author troussos * */
 
 namespace elevate\HVObjects\Generic;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 
-class RelatedThing 
+class RelatedThing
 {
 
 
     /**
-     * @Type("elevate\HVObjects\Generic\ThingId")
+     * @Type("string")
      * @SerializedName("thing-id")
      */
     protected $thingId;
-
     /**
      * @Type("string")
-     * @SerializedName("client-thing-id")
+     * @SerializedName("version-stamp")
      */
-    protected $clientThingId;
-
+    protected $versionStamp;
     /**
      * @Type("string")
      * @SerializedName("relationship-type")
      */
     protected $relationshipType;
 
-    public function __construct($thingId = NULL, $relationshipType = NULL, $clientThingId = NULL)
+    public function __construct(
+        $thingId = NULL,
+        $versionStamp = NULL,
+        $relationshipType = NULL
+    )
     {
-        $this->clientThingId    = $clientThingId;
         $this->relationshipType = $relationshipType;
         $this->thingId          = $thingId;
+        $this->versionStamp     = $versionStamp;
     }
 
     /**
-     * @param $clientThingId
-     *
-     * @return $this
+     * @param mixed $versionStamp
      */
-    public function setClientThingId($clientThingId)
+    public function setVersionStamp($versionStamp)
     {
-        $this->clientThingId = $clientThingId;
+        $this->versionStamp = $versionStamp;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getClientThingId()
+    public function getVersionStamp()
     {
-        return $this->clientThingId;
+        return $this->versionStamp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRelationshipType()
+    {
+        return $this->relationshipType;
     }
 
     /**
@@ -68,9 +76,9 @@ class RelatedThing
     /**
      * @return mixed
      */
-    public function getRelationshipType()
+    public function getThingId()
     {
-        return $this->relationshipType;
+        return $this->thingId;
     }
 
     /**
@@ -82,13 +90,5 @@ class RelatedThing
     {
         $this->thingId = $thingId;
         return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getThingId()
-    {
-        return $this->thingId;
     }
 }
