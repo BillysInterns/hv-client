@@ -65,6 +65,28 @@ class HVClientHelper {
         return $responseGroups;
     }
 
+    static function parsePutThingsResponse($xmlResponse)
+    {
+        $xml = simplexml_load_string( $xmlResponse );
+        $xml->registerXPathNamespace('wc', 'urn:com.microsoft.wc.methods.response.PutThings2');
+        $thingIds = $xml->xpath('//thing-id');
 
+        $serializer = \JMS\Serializer\SerializerBuilder::create();
+        $serializer->configureListeners(
+            function(EventDispatcher $dispatcher)
+            {
+                $dispatcher->addSubscriber(new EventSubscriber());
+            }
+        );
+        $serializer->setDeserializationVisitor("xmlobject", new XmlObjectDeserializationVisitor(new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy())) );
+        $serializerBuilder = $serializer->build();
+
+        foreach ($thingIds as $thing)
+        {
+            $response[] = $serializerBuilder->deserialize($thing, 'elevate\HVObjects\Generic\ThingId', 'xmlobject');
+        }
+
+        return $response;
+    }
 
 }
