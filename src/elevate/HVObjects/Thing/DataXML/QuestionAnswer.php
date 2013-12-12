@@ -21,7 +21,7 @@ use elevate\HVObjects\Thing\DataXML\DataXML;
 /**
  * Class QuestionAnswer
  * @package elevate\HVObjects\Thing\DataXML
- * @AccessorOrder("custom", custom = {"question-answer", "common"})
+ * @AccessorOrder("custom", custom = {"question", "common"})
  */
 class QuestionAnswer extends DataXML
 {

@@ -2,12 +2,6 @@
 <thing>
     <type-id><![CDATA[7ea7a1f9-880b-4bd4-b593-f5660f20eda8]]></type-id>
     <data-xml>
-        <common>
-            <source><![CDATA[Condtion Test]]></source>
-            <note><![CDATA[Condition Note]]></note>
-            <tags><![CDATA[Some tags]]></tags>
-            <related-thing><![CDATA[Somethign Related]]></related-thing>
-        </common>
         <condition>
             <name>
                 <text><![CDATA[Skin Failure]]></text>
@@ -61,6 +55,11 @@
             </stop-date>
             <stop-reason><![CDATA[Grew Back]]></stop-reason>
         </condition>
+        <common>
+            <source><![CDATA[Condtion Test]]></source>
+            <note><![CDATA[Condition Note]]></note>
+            <tags><![CDATA[Some tags]]></tags>
+        </common>
     </data-xml>
 </thing>
 

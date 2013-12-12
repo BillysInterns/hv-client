@@ -15,7 +15,7 @@ use JMS\Serializer\Annotation\AccessorOrder;
  * Class EmergencyOrProviderContactDataXML
  * @package elevate\HVObjects\Thing\DataXML
  *
- * @AccessorOrder("custom", custom = {"person", "common"})
+ * @AccessorOrder("custom", custom = {"emergencyOrProviderContactType", "common"})
  */
 class EmergencyOrProviderContactDataXML extends DataXML
 {

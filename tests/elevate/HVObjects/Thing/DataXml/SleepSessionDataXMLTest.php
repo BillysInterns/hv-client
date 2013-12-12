@@ -57,7 +57,7 @@ class SleepSessionDataXMLTest extends BaseObjectTest
             $when, $bedTime, $wakeTime, $sleepMinutes, $settlingMinutes, $awakening, $medication, $wakeState
         );
 
-        $common = new Common('Sleep Session Note', 'Unit Test', 'Some tags', 'Somethign Related');
+        $common = new Common('Sleep Session Note', 'Unit Test', 'Some tags');
 
         self::$testObject = new SleepSessionDataXML($sleepSessionType, $common);
 

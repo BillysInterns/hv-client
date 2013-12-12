@@ -134,7 +134,7 @@ class AllergyDataXmlTest extends BaseObjectTest
             $isNegated
         );
 
-        $common = new Common('Sleep Session Note', 'Unit Test', 'Some tags', 'Somethign Related');
+        $common = new Common('Sleep Session Note', 'Unit Test', 'Some tags');
 
         self::$testObject = new AllergyDataXML($allergyType, $common);
         parent::setUpBeforeClass();

@@ -28,7 +28,7 @@ use elevate\HVObjects\Thing\DataXML\Type\HealthEventType;
  * Class HealthEventDataXML
  * @package elevate\HVObjects\Thing\DataXML
  *
- * @AccessorOrder("custom", custom = {"health-event", "common"})
+ * @AccessorOrder("custom", custom = {"heatlhEvent", "common"})
  */
 class HealthEventDataXML extends DataXML
 {
