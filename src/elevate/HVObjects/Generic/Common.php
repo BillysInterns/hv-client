@@ -15,6 +15,8 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
+
+use elevate\HVObjects\Generic\RelatedThing;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 
@@ -40,8 +42,8 @@ class Common
      */
     protected $tags;
     /**
-     * @Type("string")
-     * @SerializedName("related-thing") //TODO NEED TO CREATE RELATED THING TYPE
+     * @Type("array<elevate\HVObjects\Generic\RelatedThing>")
+     * @SerializedName("related-thing")
      */
     protected $relatedThing;
     /**
@@ -59,7 +61,7 @@ class Common
         $note = NULL,
         $source = NULL,
         $tags = NULL,
-        $relatedThing = NULL,
+        array $relatedThing = NULL,
         $clientThingId = NULL,
         $extension = NULL
     )
@@ -124,9 +126,11 @@ class Common
     }
 
     /**
-     * @param mixed $relatedThing
+     * @param array $relatedThing
+     *
+     * @return $this
      */
-    public function setRelatedThing($relatedThing)
+    public function setRelatedThing(array $relatedThing)
     {
         $this->relatedThing = $relatedThing;
         return $this;

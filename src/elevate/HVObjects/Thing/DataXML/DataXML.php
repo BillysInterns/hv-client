@@ -12,11 +12,14 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\AccessorOrder;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Generic\Common;
 
-/** @XmlRoot("data-xml") */
+/**
+ * @XmlRoot("data-xml")
+ */
 abstract class DataXML
 {
 

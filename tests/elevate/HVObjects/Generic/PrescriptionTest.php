@@ -29,7 +29,6 @@ use elevate\HVObjects\Generic\StructuredMeasurement;
 use elevate\HVObjects\Generic\GeneralMeasurement;
 
 
-/** @XmlRoot("prescription") */
 class PrescriptionTest extends BaseObjectTest
 {
     public static function setUpBeforeClass()

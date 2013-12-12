@@ -11,6 +11,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation\AccessorOrder;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\Type\AppointmentType;
@@ -18,7 +19,11 @@ use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Generic\Common;
 
-/** @XmlRoot("data-xml") */
+/**
+ * Class AppointmentDataXML
+ * @package elevate\HVObjects\Thing\DataXML
+ * @AccessorOrder("custom", custom = {"appointment", "common"})
+ */
 class AppointmentDataXML extends DataXML
 {
 

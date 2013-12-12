@@ -13,11 +13,16 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\AccessorOrder;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
 
-/** @XmlRoot("data-xml") */
+/**
+ * Class QuestionAnswer
+ * @package elevate\HVObjects\Thing\DataXML
+ * @AccessorOrder("custom", custom = {"question-answer", "common"})
+ */
 class QuestionAnswer extends DataXML
 {
 

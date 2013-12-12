@@ -15,12 +15,19 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\AccessorOrder;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\Type\DeviceType;
 use elevate\HVObjects\Generic\Common;
 
-/** @XmlRoot("data-xml") */
+
+/**
+ * Class DeviceDataXML
+ * @package elevate\HVObjects\Thing\DataXML
+ *
+ * @AccessorOrder("custom", custom = {"device", "common"})
+ */
 class DeviceDataXML extends DataXML
 {
 
