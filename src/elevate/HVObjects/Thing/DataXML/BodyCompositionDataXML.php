@@ -16,7 +16,7 @@ use elevate\HVObjects\Generic\Common;
  * Class BodyCompositionDataXML
  * @package elevate\HVObjects\Thing\DataXML
  *
- * @AccessorOrder("custom", custom = {"body-composition", "common"})
+ * @AccessorOrder("custom", custom = {"bodyComposition", "common"})
  */
 class BodyCompositionDataXML extends DataXML
 {

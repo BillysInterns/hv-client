@@ -2,11 +2,6 @@
 <medication>
     <type-id><![CDATA[30cafccc-047d-4288-94ef-643571f7919d]]></type-id>
     <data-xml>
-        <common>
-            <source><![CDATA[Medication Source]]></source>
-            <note><![CDATA[Medication Note]]></note>
-            <tags><![CDATA[medicationTag]]></tags>
-        </common>
         <medication>
             <name>
                 <text><![CDATA[Some Medication]]></text>
@@ -276,5 +271,10 @@
                 </instructions>
             </prescription>
         </medication>
+        <common>
+            <source><![CDATA[Medication Source]]></source>
+            <note><![CDATA[Medication Note]]></note>
+            <tags><![CDATA[medicationTag]]></tags>
+        </common>
     </data-xml>
 </medication>

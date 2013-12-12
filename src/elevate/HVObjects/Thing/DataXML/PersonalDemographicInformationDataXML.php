@@ -17,7 +17,7 @@ use elevate\HVObjects\Generic\Common;
 /**
  * Class PersonalDemographicInformationDataXML
  * @package elevate\HVObjects\Thing\DataXML
- * @AccessorOrder("custom", custom = {"personal", "common"})
+ * @AccessorOrder("custom", custom = {"pdi", "common"})
  */
 class PersonalDemographicInformationDataXML extends DataXML
 {

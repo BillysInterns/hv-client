@@ -21,7 +21,7 @@ use elevate\HVObjects\Generic\Common;
 /**
  * Class PersonalImageDataXML
  * @package elevate\HVObjects\Thing\DataXML
- * @AccessorOrder("custom", custom = {"personal-image", "common"})
+ * @AccessorOrder("custom", custom = {"personalImage", "common"})
  */
 class PersonalImageDataXML extends DataXML
 {

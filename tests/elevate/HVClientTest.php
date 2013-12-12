@@ -280,8 +280,7 @@ class HVClientTest extends BaseTest
         $this->hv->connect();
         $response = $this->hv->putThings($info);
 
-        $sampleXMLPath = __DIR__ . '/HVObjects/SampleXML/MethodObjects/PutThings/PutThingsResponse.xml';
-        $this->assertStringStartsWith(file_get_contents($sampleXMLPath), $response);
+        $this->assertInternalType('array', $response);
     }
 
 }

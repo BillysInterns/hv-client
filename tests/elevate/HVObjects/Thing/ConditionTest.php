@@ -46,7 +46,7 @@ class ConditionTest extends BaseObjectTest
 
         $conditionType = new ConditionType($name, $onsetDateTime, $status, $stopDateTime, $stopReason);
 
-        $common = new Common('Condition Note', 'Condtion Test', 'Some tags', 'Somethign Related');
+        $common = new Common('Condition Note', 'Condtion Test', 'Some tags');
 
         $conditionDataXML = new ConditionDataXML($conditionType, $common);
 

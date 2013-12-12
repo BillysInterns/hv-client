@@ -52,7 +52,7 @@ class SleepRelatedActivityTest extends BaseObjectTest
             $when, $caffeine, $alcohol, $nap, $exercise, 3
         );
 
-        $common = new Common('Sleep Related Activity Note', 'Unit Test', 'Some tags', 'Somethign Related');
+        $common = new Common('Sleep Related Activity Note', 'Unit Test', 'Some tags');
 
         $dataXml = new SleepRelatedActivityDataXML($sleepRelatedActivityType, $common);
 

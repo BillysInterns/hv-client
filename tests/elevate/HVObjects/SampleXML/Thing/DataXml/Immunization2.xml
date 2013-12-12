@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data-xml>
-    <common>
-        <source><![CDATA[Immunization Source]]></source>
-        <note><![CDATA[Immunization Note]]></note>
-        <tags><![CDATA[immunizationTag]]></tags>
-    </common>
+<result>
     <immunization>
         <name>
             <text><![CDATA[Some Immunization]]></text>
@@ -137,4 +132,9 @@
         <adverse-event><![CDATA[AdverseEvent]]></adverse-event>
         <consent><![CDATA[Consent]]></consent>
     </immunization>
-</data-xml>
+    <common>
+        <source><![CDATA[Immunization Source]]></source>
+        <note><![CDATA[Immunization Note]]></note>
+        <tags><![CDATA[immunizationTag]]></tags>
+    </common>
+</result>

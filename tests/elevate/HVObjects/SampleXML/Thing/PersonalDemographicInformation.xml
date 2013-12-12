@@ -2,11 +2,6 @@
 <thing>
     <type-id><![CDATA[92ba621e-66b3-4a01-bd73-74844aed4f5b]]></type-id>
     <data-xml>
-        <common>
-            <source><![CDATA[Source]]></source>
-            <note><![CDATA[Notes]]></note>
-            <tags><![CDATA[tag, tag2, tag3]]></tags>
-        </common>
         <personal>
             <name>
                 <full><![CDATA[Sir Billy The Intern III]]></full>
@@ -109,5 +104,10 @@
             <is-disabled>false</is-disabled>
             <organ-donor><![CDATA[Not the eyes]]></organ-donor>
         </personal>
+        <common>
+            <source><![CDATA[Source]]></source>
+            <note><![CDATA[Notes]]></note>
+            <tags><![CDATA[tag, tag2, tag3]]></tags>
+        </common>
     </data-xml>
 </thing>
