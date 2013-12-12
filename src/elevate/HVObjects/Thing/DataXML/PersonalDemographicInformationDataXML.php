@@ -7,12 +7,18 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\AccessorOrder;
 
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\DataXML\Type\PersonalDemographicInformationType;
 use elevate\HVObjects\Generic\Common;
 
-/** @XmlRoot("data-xml") */
+
+/**
+ * Class PersonalDemographicInformationDataXML
+ * @package elevate\HVObjects\Thing\DataXML
+ * @AccessorOrder("custom", custom = {"personal", "common"})
+ */
 class PersonalDemographicInformationDataXML extends DataXML
 {
     /**
