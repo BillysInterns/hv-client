@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
-    <thing-id version-stamp="SIUDFH-DFJDOF-DSFJOF-HFKDJO">
-        <![CDATA[47838-547395-358593-579395]]></thing-id>
-    <client-thing-id><![CDATA[5789DHFK-9HF9DN9-3UFO03-D9UF]]></client-thing-id>
-    <relationship-type><![CDATA[Associated Meds]]></relationship-type>
+    <thing-id><![CDATA[47838-547395-358593-579395]]></thing-id>
+    <version-stamp><![CDATA[SIUDFH-DFJDOF-DSFJOF-HFKDJO]]></version-stamp>
+    <relationship-type><![CDATA[5789DHFK-9HF9DN9-3UFO03-D9UF]]></relationship-type>
 </result>

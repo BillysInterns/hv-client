@@ -62,7 +62,7 @@ class Common
         $note = NULL,
         $source = NULL,
         $tags = NULL,
-        array $relatedThing = NULL,
+        array $relatedThing = array(),
         $clientThingId = NULL,
         $extension = NULL
     )

@@ -20,8 +20,7 @@ class CommonTest extends BaseObjectTest
         self::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Common.xml';
         self::$objectNamespace = 'elevate\HVObjects\Generic\Common';
 
-        $thingId      = new ThingId('1234567890', 'abcdefgh');
-        $relatedThing = new RelatedThing($thingId, 'rel-type', 'client-thing');
+        $relatedThing = new RelatedThing('123456789', 'version', 'rel-type');
 
         self::$testObject = new Common(
             'Note',

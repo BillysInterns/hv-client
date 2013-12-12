@@ -6,11 +6,9 @@
     <extension>
         <![CDATA[<extra><tag1>Something</tag1><tag2>Another Tag</tag2></extra>]]></extension>
     <related-thing>
-        <entry>
-            <thing-id version-stamp="abcdefgh"><![CDATA[1234567890]]></thing-id>
-            <client-thing-id><![CDATA[client-thing]]></client-thing-id>
-            <relationship-type><![CDATA[rel-type]]></relationship-type>
-        </entry>
+        <thing-id><![CDATA[123456789]]></thing-id>
+        <version-stamp><![CDATA[version]]></version-stamp>
+        <relationship-type><![CDATA[rel-type]]></relationship-type>
     </related-thing>
     <client-thing-id><![CDATA[3323-43242-4324234-43242]]></client-thing-id>
 </common>
