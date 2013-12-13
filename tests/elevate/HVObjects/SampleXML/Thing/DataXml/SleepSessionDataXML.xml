@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
-    <common>
-        <source><![CDATA[Unit Test]]></source>
-        <note><![CDATA[Sleep Session Note]]></note>
-        <tags><![CDATA[Some tags]]></tags>
-        <related-thing><![CDATA[Somethign Related]]></related-thing>
-    </common>
     <sleep-am>
         <when>
             <date>
@@ -61,4 +55,9 @@
         </medications>
         <wake-state>2</wake-state>
     </sleep-am>
+    <common>
+        <source><![CDATA[Unit Test]]></source>
+        <note><![CDATA[Sleep Session Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
 </result>

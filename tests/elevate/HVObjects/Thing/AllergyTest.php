@@ -134,7 +134,7 @@ class AllergyTest extends BaseObjectTest
             $isNegated
         );
 
-        $common = new Common('Sleep Session Note', 'Unit Test', 'Some tags', 'Somethign Related');
+        $common = new Common('Sleep Session Note', 'Unit Test', 'Some tags');
 
         $dataXML = new AllergyDataXML($allergyType, $common);
 

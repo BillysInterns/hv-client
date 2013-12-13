@@ -9,6 +9,8 @@ namespace elevate\test\HVObjects\Generic;
 
 use elevate\HVObjects\Generic\Common;
 use elevate\test\HVObjects\BaseObjectTest;
+use elevate\HVObjects\Generic\RelatedThing;
+use elevate\HVObjects\Generic\ThingId;
 
 class CommonTest extends BaseObjectTest
 {
@@ -17,11 +19,14 @@ class CommonTest extends BaseObjectTest
     {
         self::$sampleXMLPath   = __DIR__ . '/../SampleXML/Generic/Common.xml';
         self::$objectNamespace = 'elevate\HVObjects\Generic\Common';
-        self::$testObject      = new Common(
+
+        $relatedThing = new RelatedThing('123456789', 'version', 'rel-type');
+
+        self::$testObject = new Common(
             'Note',
             'A Source',
             'health, vault, microsoft',
-            '43252-432752-2342378421-473842',
+            array($relatedThing),
             '3323-43242-4324234-43242',
             '<extra><tag1>Something</tag1><tag2>Another Tag</tag2></extra>'
         );

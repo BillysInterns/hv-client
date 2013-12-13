@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
-    <common>
-        <source><![CDATA[BC Source]]></source>
-        <note><![CDATA[BC Note]]></note>
-        <tags><![CDATA[bc, hv]]></tags>
-    </common>
     <body-composition>
         <when>
             <structured>
@@ -48,4 +43,9 @@
             <percent-value>0.75</percent-value>
         </value>
     </body-composition>
+    <common>
+        <source><![CDATA[BC Source]]></source>
+        <note><![CDATA[BC Note]]></note>
+        <tags><![CDATA[bc, hv]]></tags>
+    </common>
 </result>

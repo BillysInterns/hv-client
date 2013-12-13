@@ -6,11 +6,18 @@ namespace elevate\HVObjects\Thing\DataXML;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
+use JMS\Serializer\Annotation\AccessorOrder;
 
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\DataXML\Type\BodyCompositionType;
 use elevate\HVObjects\Generic\Common;
 
+/**
+ * Class BodyCompositionDataXML
+ * @package elevate\HVObjects\Thing\DataXML
+ *
+ * @AccessorOrder("custom", custom = {"bodyComposition", "common"})
+ */
 class BodyCompositionDataXML extends DataXML
 {
     /**

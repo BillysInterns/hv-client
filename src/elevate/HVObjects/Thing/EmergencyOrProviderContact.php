@@ -29,7 +29,7 @@ class EmergencyOrProviderContact extends Thing
      */
     public function __construct($dataXML = NULL)
     {
-        $typeID = TypeTranslator::lookupTypeID('Emergency or Provider Contact');
+        $typeID = TypeTranslator::lookupTypeID('Emergency Or Provider Contact');
         parent::__construct($dataXML, $typeID);
     }
 

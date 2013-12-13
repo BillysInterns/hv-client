@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
-    <common>
-        <source><![CDATA[Health Source]]></source>
-        <note><![CDATA[Health Note]]></note>
-        <tags><![CDATA[health, hv]]></tags>
-    </common>
     <health-event>
         <when>
             <structured>
@@ -40,4 +35,9 @@
             </code>
         </category>
     </health-event>
+    <common>
+        <source><![CDATA[Health Source]]></source>
+        <note><![CDATA[Health Note]]></note>
+        <tags><![CDATA[health, hv]]></tags>
+    </common>
 </result>

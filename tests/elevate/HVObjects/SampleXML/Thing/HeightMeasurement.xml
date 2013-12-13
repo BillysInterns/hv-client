@@ -2,11 +2,6 @@
 <thing>
     <type-id><![CDATA[40750a6a-89b2-455c-bd8d-b420a4cb500b]]></type-id>
     <data-xml>
-        <common>
-            <source><![CDATA[Height Source 45]]></source>
-            <note><![CDATA[Height Note 2]]></note>
-            <tags><![CDATA[tageone, height, another tag]]></tags>
-        </common>
         <height>
             <when>
                 <date>
@@ -26,5 +21,10 @@
                 <display units="m"><![CDATA[50]]></display>
             </value>
         </height>
+        <common>
+            <source><![CDATA[Height Source 45]]></source>
+            <note><![CDATA[Height Note 2]]></note>
+            <tags><![CDATA[tageone, height, another tag]]></tags>
+        </common>
     </data-xml>
 </thing>

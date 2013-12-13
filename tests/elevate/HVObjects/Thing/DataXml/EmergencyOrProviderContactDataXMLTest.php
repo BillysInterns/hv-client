@@ -41,7 +41,7 @@ class EmergencyOrProviderContactDataXMLTest extends BaseObjectTest
 
         $person = new EmergencyOrProviderContactType($name, 'Billy\'s Practice', 'Summer Internship', '5784-5436-54367-54367', $contact, $type);
 
-        $common = new Common('Emergency Provider Note', 'Provider Test', 'Some tags', 'Somethign Related');
+        $common = new Common('Emergency Provider Note', 'Provider Test', 'Some tags');
 
         self::$testObject = new EmergencyOrProviderContactDataXML($person, $common);
         parent::setUpBeforeClass();

@@ -2,11 +2,6 @@
 <appointment>
   <type-id><![CDATA[4b18aeb6-5f01-444c-8c70-dbf13a2f510b]]></type-id>
   <data-xml>
-    <common>
-        <source><![CDATA[Appointment Source]]></source>
-        <note><![CDATA[Appointment Note]]></note>
-        <tags><![CDATA[appointmentTag]]></tags>
-    </common>
     <appointment>
       <when>
         <date>
@@ -170,5 +165,10 @@
         </code>
       </care-class>
     </appointment>
+      <common>
+          <source><![CDATA[Appointment Source]]></source>
+          <note><![CDATA[Appointment Note]]></note>
+          <tags><![CDATA[appointmentTag]]></tags>
+      </common>
   </data-xml>
 </appointment>

@@ -158,6 +158,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         {
             $newXML .= $groupObj->asXML();
         }
+
         return $this->callHealthVaultWithXML($newXML, $method, $version);
     }
 
@@ -247,9 +248,10 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     public function putThings($info, $version = 2)
     {
         $method  = 'PutThings';
-        return $this->callHealthVault($info, $method, $version);
-
-        // TODO: Get the response object back.
+        $putThingsResponse = HVClientHelper::parsePutThingsResponse(
+            $this->callHealthVault($info, $method, $version)
+        );
+        return $putThingsResponse;
     }
 
 

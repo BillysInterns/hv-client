@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data-xml>
-    <common>
-        <source><![CDATA[Source]]></source>
-        <note><![CDATA[Notes]]></note>
-        <tags><![CDATA[tag, tag2, tag3]]></tags>
-    </common>
+<result>
     <personal>
         <name>
             <full><![CDATA[Sir Billy The Intern III]]></full>
@@ -107,4 +102,9 @@
         <is-disabled>false</is-disabled>
         <organ-donor><![CDATA[Not the eyes]]></organ-donor>
     </personal>
-</data-xml>
+    <common>
+        <source><![CDATA[Source]]></source>
+        <note><![CDATA[Notes]]></note>
+        <tags><![CDATA[tag, tag2, tag3]]></tags>
+    </common>
+</result>

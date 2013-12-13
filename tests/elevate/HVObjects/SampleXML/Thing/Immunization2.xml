@@ -2,11 +2,6 @@
 <immunization>
   <type-id><![CDATA[cd3587b5-b6e1-4565-ab3b-1c3ad45eb04f]]></type-id>
   <data-xml>
-    <common>
-        <source><![CDATA[Immunization Source]]></source>
-        <note><![CDATA[Immunization Note]]></note>
-        <tags><![CDATA[immunizationTag]]></tags>
-    </common>
     <immunization>
       <name>
         <text><![CDATA[Some Immunization]]></text>
@@ -139,5 +134,10 @@
       <adverse-event><![CDATA[AdverseEvent]]></adverse-event>
       <consent><![CDATA[Consent]]></consent>
     </immunization>
+      <common>
+          <source><![CDATA[Immunization Source]]></source>
+          <note><![CDATA[Immunization Note]]></note>
+          <tags><![CDATA[immunizationTag]]></tags>
+      </common>
   </data-xml>
 </immunization>

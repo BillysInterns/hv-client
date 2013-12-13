@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
-    <common>
-        <source><![CDATA[Height Source]]></source>
-        <note><![CDATA[Height Note]]></note>
-        <tags><![CDATA[height, hv]]></tags>
-    </common>
     <height>
         <when>
             <date>
@@ -24,4 +19,9 @@
             <display units="m"><![CDATA[50]]></display>
         </value>
     </height>
+    <common>
+        <source><![CDATA[Height Source]]></source>
+        <note><![CDATA[Height Note]]></note>
+        <tags><![CDATA[height, hv]]></tags>
+    </common>
 </result>

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
-    <common>
-        <source><![CDATA[Provider Test]]></source>
-        <note><![CDATA[Emergency Provider Note]]></note>
-        <tags><![CDATA[Some tags]]></tags>
-        <related-thing><![CDATA[Somethign Related]]></related-thing>
-    </common>
     <person>
         <name>
             <full><![CDATA[Billy D. Intern]]></full>
@@ -50,4 +44,9 @@
             </code>
         </type>
     </person>
+    <common>
+        <source><![CDATA[Provider Test]]></source>
+        <note><![CDATA[Emergency Provider Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
 </result>

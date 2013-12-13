@@ -2,12 +2,6 @@
 <thing>
     <type-id><![CDATA[25c94a9f-9d3d-4576-96dc-6791178a8143]]></type-id>
     <data-xml>
-        <common>
-            <source><![CDATA[Provider Test]]></source>
-            <note><![CDATA[Emergency Provider Note]]></note>
-            <tags><![CDATA[Some tags]]></tags>
-            <related-thing><![CDATA[Somethign Related]]></related-thing>
-        </common>
         <person>
             <name>
                 <full><![CDATA[Billy D. Intern]]></full>
@@ -52,5 +46,10 @@
                 </code>
             </type>
         </person>
+        <common>
+            <source><![CDATA[Provider Test]]></source>
+            <note><![CDATA[Emergency Provider Note]]></note>
+            <tags><![CDATA[Some tags]]></tags>
+        </common>
     </data-xml>
 </thing>

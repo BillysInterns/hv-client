@@ -9,7 +9,14 @@ use elevate\HVObjects\Thing\DataXML\Type\EmergencyOrProviderContactType;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\AccessorOrder;
 
+/**
+ * Class EmergencyOrProviderContactDataXML
+ * @package elevate\HVObjects\Thing\DataXML
+ *
+ * @AccessorOrder("custom", custom = {"emergencyOrProviderContactType", "common"})
+ */
 class EmergencyOrProviderContactDataXML extends DataXML
 {
     /**
