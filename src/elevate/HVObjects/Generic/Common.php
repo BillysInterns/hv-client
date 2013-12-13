@@ -17,6 +17,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
+use elevate\HVObjects\Generic\CustomExtension;
 
 /** @XmlRoot("common")
  * @AccessorOrder("custom", custom = {"source", "note", "tags", "extension", "related-thing", "client-thing-id" })
@@ -50,7 +51,7 @@ class Common
      */
     protected $clientThingId;
     /**
-     * @Type("string")
+     * @Type("elevate\HVObjects\Generic\CustomExtension")
      * @SerializedName("extension")
      */
     protected $extension;

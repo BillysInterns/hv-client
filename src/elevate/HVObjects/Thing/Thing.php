@@ -127,7 +127,7 @@ class Thing
     }
 
     /**
-     * @return string
+     * @return ThingId
      */
     public function getThingId()
     {
@@ -135,7 +135,7 @@ class Thing
     }
 
     /**
-     * @param string $thing_id
+     * @param ThingId $thing_id
      */
     public function setThingId($thing_id)
     {
