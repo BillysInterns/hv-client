@@ -15,6 +15,7 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
+use elevate\HVObjects\Generic\Extension;
 
 
 use elevate\HVObjects\Generic\RelatedThing;
@@ -54,7 +55,7 @@ class Common
      */
     protected $clientThingId;
     /**
-     * @Type("elevate\HVObjects\Generic\CustomExtension")
+     * @Type("elevate\HVObjects\Generic\Extension")
      * @SerializedName("extension")
      */
     protected $extension;

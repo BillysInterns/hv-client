@@ -39,7 +39,7 @@ class HVClientHelper {
     }
 
     static function HVGroupsFromXML( $rawResponse )
-    {
+        {
         $groups = array();
         $xml = simplexml_load_string( $rawResponse );
         $xml->registerXPathNamespace('wc', 'urn:com.microsoft.wc.methods.response.GetThings3');
