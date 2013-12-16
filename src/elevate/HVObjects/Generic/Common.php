@@ -11,6 +11,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlKeyValuePairs;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -55,7 +56,8 @@ class Common
      */
     protected $clientThingId;
     /**
-     * @Type("elevate\HVObjects\Generic\Extension")
+     * @Type("array<elevate\HVObjects\Generic\Extension>")
+     * @XmlMap()
      * @SerializedName("extension")
      */
     protected $extension;

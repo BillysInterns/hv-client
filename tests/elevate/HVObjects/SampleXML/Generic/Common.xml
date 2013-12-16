@@ -4,7 +4,27 @@
     <note><![CDATA[Note]]></note>
     <tags><![CDATA[health, vault, microsoft]]></tags>
     <extension>
-        <![CDATA[<extra><tag1>Something</tag1><tag2>Another Tag</tag2></extra>]]></extension>
+        <entry _key="recurrent">
+            <repeat><![CDATA[Always]]></repeat>
+            <end-date>
+                <structured>
+                    <date>
+                        <y>2013</y>
+                        <m>12</m>
+                        <d>10</d>
+                    </date>
+                    <time>
+                        <h>10</h>
+                        <m>07</m>
+                        <s>45</s>
+                        <f>0</f>
+                    </time>
+                </structured>
+                <descriptive><![CDATA[TIME]]></descriptive>
+            </end-date>
+            <type><![CDATA[Some Type]]></type>
+        </entry>
+    </extension>
     <related-thing>
         <thing-id><![CDATA[123456789]]></thing-id>
         <version-stamp><![CDATA[version]]></version-stamp>

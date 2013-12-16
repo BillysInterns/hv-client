@@ -14,12 +14,13 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use elevate\HVObjects\Generic\Extension;
 
 
 /**
  * @XmlRoot("recurrent")
  */
-class Recurrent extends CustomExtension
+class Recurrent extends Extension
 {
     /**
      * @Type("string")
