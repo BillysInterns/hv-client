@@ -22,5 +22,9 @@ class EventSubscriber implements \JMS\Serializer\EventDispatcher\EventSubscriber
             $templateName = TypeTranslator::lookupTypeName($typeId);
             $event->setType('elevate\\HVObjects\\Thing\\' . $templateName );
         }
+        if($type['name'] == 'elevate\HVObjects\Generic\CustomExtension')
+        {
+            $event->setType('elevate\\HVObjects\\Generic\\Recurrent');
+        }
     }
 }
