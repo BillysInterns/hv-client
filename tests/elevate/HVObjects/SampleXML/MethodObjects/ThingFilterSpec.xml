@@ -1,3 +1,4 @@
 <filter>
-    <type-id>92ba621e-66b3-4a01-bd73-74844aed4f5b</type-id>
+    <type-id><![CDATA[92ba621e-66b3-4a01-bd73-74844aed4f5b]]></type-id>
+    <xpath><![CDATA[/thing/data-xml/question-answer/question/code[value='AX1']]]></xpath>
 </filter>

@@ -45,7 +45,7 @@ class ThingFilterSpec
 
     /**
      * @param mixed $typeId
-     * @returns $this
+     * @return $this
      */
     public function setTypeId($typeId)
     {
@@ -63,7 +63,7 @@ class ThingFilterSpec
 
     /**
      * @param mixed $xpath
-     * @returns $this
+     * @return $this
      */
     public function setXpath($xpath)
     {
