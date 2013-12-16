@@ -20,34 +20,34 @@ use elevate\TypeTranslator;
 class InfoHelper {
 
 
-    static function getHVInfoForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVInfoForThingName($thingName, $maxItems = 1, $groupName = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
-        $group = self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath);
+        $group = self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName);
         $info = new Info(array($group));
         return $info;
     }
 
-    static function getHVInfoForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVInfoForTypeId($typeId, $maxItems = 1, $groupName = null)
     {
-        $group = self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath);
+        $group = self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName);
         $info = new Info(array($group));
         return $info;
     }
 
-    static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null)
     {
         $filter = new ThingFilterSpec($typeId);
-        $format = new ThingFormatSpec(array('core', 'audits'), $xpath);
+        $format = new ThingFormatSpec(array('core', 'audits'));
 
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
         return $group;
     }
 
-    static function getHVRequestGroupForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForThingName($thingName, $maxItems = 1, $groupName = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
-        return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath);
+        return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName);
     }
 
     static function getHVRequestGroupForBase64ThingName($thingName, $maxItems = 1, $groupName = null)
