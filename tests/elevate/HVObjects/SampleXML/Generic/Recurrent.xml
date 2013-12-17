@@ -1,30 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<recurrent>
-    <repeat><![CDATA[abc]]></repeat>
-    <end-date>
-        <structured>
-            <date>
-                <y>2013</y>
-                <m>12</m>
-                <d>25</d>
-            </date>
-            <time>
-                <h>12</h>
-                <m>20</m>
-                <s>45</s>
-                <f>0</f>
-            </time>
-            <tz>
-                <text><![CDATA[Code]]></text>
-                <code>
-                    <value><![CDATA[5]]></value>
-                    <family><![CDATA[Test Suite]]></family>
-                    <type><![CDATA[Value Test]]></type>
-                    <version><![CDATA[Version 4]]></version>
-                </code>
-            </tz>
-        </structured>
-        <descriptive><![CDATA[description]]></descriptive>
-    </end-date>
-    <type><![CDATA[some]]></type>
-</recurrent>
+<repeat>
+    <interval><![CDATA[mon]]></interval>
+    <end-date><![CDATA[2013-12-15T00:06:21+00:00]]></end-date>
+</repeat>

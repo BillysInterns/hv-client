@@ -18,33 +18,27 @@ use elevate\HVObjects\Generic\Extension;
 
 
 /**
- * @XmlRoot("recurrent")
+ * @XmlRoot("repeat")
  */
 class Recurrent extends Extension
 {
     /**
      * @Type("string")
-     * @SerializedName("repeat")
+     * @SerializedName("interval")
      */
-    protected $repeat;
+    protected $interval;
 
     /**
-     * @Type("elevate\HVObjects\Generic\Date\ApproxDateTime")
+     * @Type("string")
      * @SerializedName("end-date")
      */
     protected $endDate;
 
-    /**
-     * @Type("string")
-     * @SerializedName("type")
-     */
-    protected $type;
 
-    function __construct($endDate = NULL, $repeat = NULL, $type = NULL)
+    function __construct($endDate = NULL, $interval = NULL )
     {
         $this->endDate = $endDate;
-        $this->repeat = $repeat;
-        $this->type = $type;
+        $this->interval = $interval;
     }
 
 
@@ -81,19 +75,19 @@ class Recurrent extends Extension
     }
 
     /**
-     * @param mixed $repeat
+     * @param mixed $interval
      */
-    public function setRepeat($repeat)
+    public function setinterval($interval)
     {
-        $this->repeat = $repeat;
+        $this->interval = $interval;
     }
 
     /**
      * @return mixed
      */
-    public function getRepeat()
+    public function getinterval()
     {
-        return $this->repeat;
+        return $this->interval;
     }
 
 }

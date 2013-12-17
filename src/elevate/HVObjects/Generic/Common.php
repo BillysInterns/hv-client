@@ -57,7 +57,7 @@ class Common
     protected $clientThingId;
     /**
      * @Type("array<elevate\HVObjects\Generic\Extension>")
-     * @XmlMap()
+     * @XmlKeyValuePairs()
      * @SerializedName("extension")
      */
     protected $extension;

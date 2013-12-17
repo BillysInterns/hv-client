@@ -27,12 +27,13 @@ class CommonTest extends BaseObjectTest
 
         $relatedThing = new RelatedThing('123456789', 'version', 'rel-type');
 
-        $time = new Time('10', '07', '45');
-        $date = new ApproxDate('2013', '12', '10');
-        $structued = new StructuredApproxDate($date, $time);
-        $dateTime = new ApproxDateTime($structued, 'TIME');
+//        $time = new Time('10', '07', '45');
+//        $date = new ApproxDate('2013', '12', '10');
+//        $structued = new StructuredApproxDate($date, $time);
+//        $dateTime = new ApproxDateTime($structued, 'TIME');
 
-        $recurrentThing = new Recurrent($dateTime, 'Always', 'Some Type');
+        $dateTime = '2013-12-15T00:06:21+00:00';
+        $recurrentThing = new Recurrent( $dateTime, 'mon' );
 
         self::$testObject = new Common(
             'Note',
@@ -40,7 +41,7 @@ class CommonTest extends BaseObjectTest
             'health, vault, microsoft',
             array($relatedThing),
             '3323-43242-4324234-43242',
-            array('recurrent' => $recurrentThing)
+            array('repeat' => $recurrentThing)
         );
         parent::setUpBeforeClass();
     }

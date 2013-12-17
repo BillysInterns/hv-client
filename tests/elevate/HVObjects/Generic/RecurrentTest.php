@@ -35,10 +35,10 @@ class RecurrentTest extends BaseObjectTest
 
         $approxDT= new ApproxDateTime( $structured, 'description');
 
+        $approxDT = '2013-12-15T00:06:21+00:00';
 
-
-        self::$testObject = new Recurrent($approxDT, 'abc', 'some');
+        self::$testObject = new Recurrent( $approxDT, 'mon' );
         parent::setUpBeforeClass();
     }
 
-} 
+}
