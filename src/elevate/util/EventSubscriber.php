@@ -48,7 +48,7 @@ class EventSubscriber implements \JMS\Serializer\EventDispatcher\EventSubscriber
         {
             $object                 = $event->getObject();
             $extension              = $object->getExtension();
-            $extension['recurrent'] = $extension[0];
+            $extension['recurrent'] = !empty($extension[0]) ? $extension[0] : "";
             unset($extension[0]);
             $object->setExtension($extension);
         }
