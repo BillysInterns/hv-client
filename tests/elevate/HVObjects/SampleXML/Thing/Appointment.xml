@@ -169,6 +169,18 @@
           <source><![CDATA[Appointment Source]]></source>
           <note><![CDATA[Appointment Note]]></note>
           <tags><![CDATA[appointmentTag]]></tags>
+          <extension source="Mentis Unit Test">
+              <repeat>
+                  <interval><![CDATA[mon]]></interval>
+                  <end-date><![CDATA[2013-12-15T00:06:21+00:00]]></end-date>
+              </repeat>
+          </extension>
+          <related-thing>
+              <thing-id><![CDATA[123456789]]></thing-id>
+              <version-stamp><![CDATA[version]]></version-stamp>
+              <relationship-type><![CDATA[rel-type]]></relationship-type>
+          </related-thing>
+          <client-thing-id><![CDATA[3323-43242-4324234-43242]]></client-thing-id>
       </common>
   </data-xml>
 </appointment>

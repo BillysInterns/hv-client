@@ -3,12 +3,6 @@
     <source><![CDATA[A Source]]></source>
     <note><![CDATA[Note]]></note>
     <tags><![CDATA[health, vault, microsoft]]></tags>
-    <extension>
-        <repeat>
-            <interval><![CDATA[mon]]></interval>
-            <end-date><![CDATA[2013-12-15T00:06:21+00:00]]></end-date>
-        </repeat>
-    </extension>
     <related-thing>
         <thing-id><![CDATA[123456789]]></thing-id>
         <version-stamp><![CDATA[version]]></version-stamp>

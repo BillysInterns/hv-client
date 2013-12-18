@@ -17,6 +17,7 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
 use elevate\HVObjects\Generic\Extension;
+use elevate\HVObjects\Generic\AppointmentExtension;
 
 
 use elevate\HVObjects\Generic\RelatedThing;
@@ -35,29 +36,33 @@ class Common
      * @SerializedName("note")
      */
     protected $note;
+
     /**
      * @Type("string")
      * @SerializedName("source")
      */
     protected $source;
+
     /**
      * @Type("string")
      * @SerializedName("tags")
      */
     protected $tags;
+
     /**
      * @Type("array<elevate\HVObjects\Generic\RelatedThing>")
      * @XmlList(inline=true, entry="related-thing")
      */
     protected $relatedThing;
+
     /**
      * @Type("string")
      * @SerializedName("client-thing-id")
      */
     protected $clientThingId;
+
     /**
-     * @Type("array<elevate\HVObjects\Generic\Extension>")
-     * @XmlKeyValuePairs()
+     * @Type("elevate\HVObjects\Generic\Extension")
      * @SerializedName("extension")
      */
     protected $extension;

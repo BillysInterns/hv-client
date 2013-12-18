@@ -13,7 +13,7 @@ abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
 {
     protected static $serializer;
     protected static $sampleXMLPath = null;
-    protected static $xmlString;
+    protected static $xmlString = null;
     protected static $testObject = null;
     protected static $objectNamespace = null;
     protected static $serializerBuilder;
@@ -29,11 +29,11 @@ abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
     public function testDeserialize()
     {
 
-        $object = self::$serializerBuilder->deserialize(
+        $deserializedObject = self::$serializerBuilder->deserialize(
             self::$xmlString, self::$objectNamespace, 'xml'
         );
 
-        $this->assertEquals(self::$testObject, $object);
+        $this->assertEquals(self::$testObject, $deserializedObject);
     }
 
 

@@ -22,16 +22,19 @@ class CodedValue
      * @Type("string")
      */
     protected $value;
+
     /**
      * @var array
      * @XmlList(inline=true, entry="family")
      * @Type("array<string>")
      */
     protected $families;
+
     /**
      * @Type("string")
      */
     protected $type;
+
     /**
      * @var array
      * @XmlList(inline=true, entry="version")

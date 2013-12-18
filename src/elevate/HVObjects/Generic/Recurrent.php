@@ -17,22 +17,19 @@ use JMS\Serializer\Annotation\Groups;
 use elevate\HVObjects\Generic\Extension;
 
 
-/**
- * @XmlRoot("repeat")
- */
-class Recurrent extends Extension
+class Recurrent
 {
     /**
      * @Type("string")
      * @SerializedName("interval")
      */
-    protected $interval;
+    public $interval;
 
     /**
      * @Type("string")
      * @SerializedName("end-date")
      */
-    protected $endDate;
+    public $endDate;
 
 
     function __construct($endDate = NULL, $interval = NULL )
@@ -41,53 +38,5 @@ class Recurrent extends Extension
         $this->interval = $interval;
     }
 
-
-    /**
-     * @param mixed $endDate
-     */
-    public function setEndDate($endDate)
-    {
-        $this->endDate = $endDate;
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEndDate()
-    {
-        return $this->endDate;
-    }
-
-    /**
-     * @param mixed $interval
-     */
-    public function setinterval($interval)
-    {
-        $this->interval = $interval;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getinterval()
-    {
-        return $this->interval;
-    }
 
 }

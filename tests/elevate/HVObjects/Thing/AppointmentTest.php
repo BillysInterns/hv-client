@@ -6,6 +6,9 @@
 
 namespace elevate\test\HVObjects\Thing;
 
+use elevate\HVObjects\Generic\AppointmentExtension;
+use elevate\HVObjects\Generic\Recurrent;
+use elevate\HVObjects\Generic\RelatedThing;
 use elevate\HVObjects\Thing\DataXML\AppointmentDataXML;
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Generic\Date\Date;
@@ -33,7 +36,7 @@ class AppointmentTest extends BaseObjectTest
     public static function setUpBeforeClass()
     {
         self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Appointment.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\Appointment';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\Thing';
 
         $date = new Date('2013', '12', '25');
         $time = new Time('12', '30', '12');
@@ -94,7 +97,23 @@ class AppointmentTest extends BaseObjectTest
 
 		$appointmentType = new AppointmentType($careClass, $clinic, $duration, $service, $specialty, $status, $when);
 
-		$common = new Common('Appointment Note', 'Appointment Source', 'appointmentTag');
+
+
+
+        $relatedThing = new RelatedThing('123456789', 'version', 'rel-type');
+
+        $dateTime = '2013-12-15T00:06:21+00:00';
+        $recurrentThing = new Recurrent( $dateTime, 'mon' );
+        $apptExtension = new AppointmentExtension('Mentis Unit Test', $recurrentThing);
+
+        $common = new Common(
+            'Appointment Note',
+            'Appointment Source',
+            'appointmentTag',
+            array($relatedThing),
+            '3323-43242-4324234-43242',
+            $apptExtension
+        );
 
 		$appointmentDataXml = new AppointmentDataXML($appointmentType, $common);
 
@@ -102,6 +121,23 @@ class AppointmentTest extends BaseObjectTest
 		
         parent::setUpBeforeClass();
 
+
+    }
+
+
+    public function testDeserialize2()
+    {
+        $contents = file_get_contents(self::$sampleXMLPath);
+
+        $deserializedObject = self::$serializerBuilder->deserialize(
+            $contents, self::$objectNamespace, 'xml'
+        );
+
+        $this->assertEquals(self::$testObject, $deserializedObject);
+
+        $xmlStringSerialized  = self::$serializerBuilder->serialize(self::$testObject, 'xml');
+
+        $this->assertEquals($xmlStringSerialized, $contents);
 
     }
 }

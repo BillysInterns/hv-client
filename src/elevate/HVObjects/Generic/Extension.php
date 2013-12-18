@@ -19,7 +19,35 @@ use JMS\Serializer\Annotation\AccessorOrder;
 /**
  * @XmlRoot("extension")
  */
-abstract class Extension
+class Extension
 {
+
+    /**
+     * @XmlAttribute
+     * @Type("string")
+     */
+    public $source;
+
+    // Subclasses should define whatever other data they need
+
+
+    /**
+     * @param mixed $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+
+
 
 } 
