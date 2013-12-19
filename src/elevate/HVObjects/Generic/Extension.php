@@ -15,6 +15,7 @@ use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\XmlKeyValuePairs;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
+use elevate\HVObjects\Generic\Recurrent;
 
 /**
  * @XmlRoot("extension")
@@ -26,10 +27,19 @@ class Extension
      * @XmlAttribute
      * @Type("string")
      */
-    public $source;
+    protected $source;
 
-    // Subclasses should define whatever other data they need
+    // Subclasses will define whatever other data they need once the bug with JMS is fixed
 
+    /**
+     * @Type("elevate\HVObjects\Generic\Recurrent")
+     */
+    protected $recurrent;
+
+    /**
+     * @Type("boolean")
+     */
+    protected $importance;
 
     /**
      * @param mixed $source
@@ -45,6 +55,38 @@ class Extension
     public function getSource()
     {
         return $this->source;
+    }
+
+    /**
+     * @param mixed $importance
+     */
+    public function setImportance($importance)
+    {
+        $this->importance = $importance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImportance()
+    {
+        return $this->importance;
+    }
+
+    /**
+     * @param mixed $recurrent
+     */
+    public function setRecurrent($recurrent)
+    {
+        $this->recurrent = $recurrent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRecurrent()
+    {
+        return $this->recurrent;
     }
 
 
