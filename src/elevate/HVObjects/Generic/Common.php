@@ -17,13 +17,11 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
 use elevate\HVObjects\Generic\Extension;
-use elevate\HVObjects\Generic\AppointmentExtension;
 
 
 use elevate\HVObjects\Generic\RelatedThing;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
-use elevate\HVObjects\Generic\CustomExtension;
 
 /** @XmlRoot("common")
  * @AccessorOrder("custom", custom = {"source", "note", "tags", "extension", "related-thing", "client-thing-id" })

@@ -34,13 +34,13 @@ class EventSubscriber implements \JMS\Serializer\EventDispatcher\EventSubscriber
             $event->setType('elevate\\HVObjects\\Thing\\' . $templateName);
             $this->hvTemplateName = $templateName;
         }
-        else if ($name === 'elevate\HVObjects\Generic\Extension')
-        {
-            if ( $this->hvTemplateName == "Appointment")
-            {
-                $event->setType('elevate\\HVObjects\\Generic\\' . $this->hvTemplateName . 'Extension');
-            }
-        }
+//        else if ($name === 'elevate\HVObjects\Generic\Extension')
+//        {
+//            if ( $this->hvTemplateName == "Appointment")
+//            {
+//                $event->setType('elevate\\HVObjects\\Generic\\' . $this->hvTemplateName . 'Extension');
+//            }
+//        }
     }
 
     /**
@@ -59,13 +59,13 @@ class EventSubscriber implements \JMS\Serializer\EventDispatcher\EventSubscriber
             $event->setType('elevate\\HVObjects\\Thing\\' . $templateName);
             $this->hvTemplateName = $templateName;
         }
-        else if ($name === 'elevate\HVObjects\Generic\Extension')
-        {
-            if ( $this->hvTemplateName == "Appointment")
-            {
-                $event->setType('elevate\\HVObjects\\Generic\\' . $this->hvTemplateName . 'Extension');
-            }
-        }
+//        else if ($name === 'elevate\HVObjects\Generic\Extension')
+//        {
+//            if ( $this->hvTemplateName == "Appointment")
+//            {
+//                $event->setType('elevate\\HVObjects\\Generic\\' . $this->hvTemplateName . 'Extension');
+//            }
+//        }
     }
 
 }
