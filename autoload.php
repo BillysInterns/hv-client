@@ -1,9 +1,17 @@
 <?php
 
-    require_once('vendor/autoload.php');
+// Bootstrap the JMS custom annotations for Object to JSON mapping
+$pathPrefix = "vendor";
+if ( !file_exists("vendor/autoload.php"))
+{
+    $pathPrefix = "../..";
+}
 
-// Bootstrap the JMS custom annotations for Object to Json mapping
-    \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
-        'JMS\Serializer\Annotation',
-        'vendor/jms/serializer/src'
-    );
+require_once($pathPrefix . '/autoload.php');
+
+\Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
+    'JMS\Serializer\Annotation',
+    $pathPrefix . '/jms/serializer/src'
+);
+
+
