@@ -27,14 +27,19 @@ class ThingFilterSpec
      */
     protected $typeId;
 
-
+    /**
+     * @Type("string")
+     * @SerializedName("xpath")
+     */
+    protected $xpath;
     /**
      * @param      $typeId
      * @param null $xpath
      */
-    function __construct($typeId)
+    function __construct($typeId, $xpath = NULL)
     {
         $this->typeId = $typeId;
+        $this->xpath = $xpath;
     }
 
     /**
@@ -55,6 +60,21 @@ class ThingFilterSpec
         return $this->typeId;
     }
 
+    /**
+     * @param mixed $xpath
+     */
+    public function setXpath($xpath)
+    {
+        $this->xpath = $xpath;
+        return $this;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getXpath()
+    {
+        return $this->xpath;
+    }
 
 }

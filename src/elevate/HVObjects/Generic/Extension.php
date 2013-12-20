@@ -15,6 +15,7 @@ use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\XmlKeyValuePairs;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
+use elevate\HVObjects\Generic\Repeat;
 
 /**
  * @XmlRoot("extension")
@@ -28,8 +29,25 @@ class Extension
      */
     public $source;
 
-    // Subclasses should define whatever other data they need
+    // Subclasses will define whatever other data they need once the bug with JMS is fixed
 
+    /**
+     * @Type("elevate\HVObjects\Generic\Repeat")
+     * @
+     */
+    public  $repeat;
+
+    /**
+     * @Type("boolean")
+     */
+    public  $importance;
+
+    function __construct($importance = NULL, $repeat = NULL, $source = NULL)
+    {
+        $this->importance = $importance;
+        $this->repeat = $repeat;
+        $this->source = $source;
+    }
 
     /**
      * @param mixed $source
@@ -45,6 +63,38 @@ class Extension
     public function getSource()
     {
         return $this->source;
+    }
+
+    /**
+     * @param mixed $importance
+     */
+    public function setImportance($importance)
+    {
+        $this->importance = $importance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImportance()
+    {
+        return $this->importance;
+    }
+
+    /**
+     * @param mixed $repeat
+     */
+    public function setRepeat($repeat)
+    {
+        $this->repeat = $repeat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRepeat()
+    {
+        return $this->repeat;
     }
 
 

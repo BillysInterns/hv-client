@@ -6,7 +6,7 @@
 
 namespace elevate\test\HVObjects\Thing;
 
-use elevate\HVObjects\Generic\AppointmentExtension;
+use elevate\HVObjects\Generic\Extension;
 use elevate\HVObjects\Generic\Recurrent;
 use elevate\HVObjects\Generic\RelatedThing;
 use elevate\HVObjects\Thing\DataXML\AppointmentDataXML;
@@ -104,7 +104,7 @@ class AppointmentTest extends BaseObjectTest
 
         $dateTime = '2013-12-15T00:06:21+00:00';
         $recurrentThing = new Recurrent( $dateTime, 'mon' );
-        $apptExtension = new AppointmentExtension('Mentis Unit Test', $recurrentThing);
+        $apptExtension = new Extension(0, $recurrentThing);
 
         $common = new Common(
             'Appointment Note',

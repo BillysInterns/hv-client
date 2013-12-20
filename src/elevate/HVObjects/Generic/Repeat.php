@@ -16,8 +16,10 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use elevate\HVObjects\Generic\Extension;
 
-
-class Recurrent
+/**
+ * @XmlRoot("repeat")
+ */
+class Repeat
 {
     /**
      * @Type("string")
