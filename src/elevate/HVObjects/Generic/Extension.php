@@ -27,19 +27,26 @@ class Extension
      * @XmlAttribute
      * @Type("string")
      */
-    protected $source;
+    public $source;
 
     // Subclasses will define whatever other data they need once the bug with JMS is fixed
 
     /**
      * @Type("elevate\HVObjects\Generic\Recurrent")
      */
-    protected $recurrent;
+    public  $recurrent;
 
     /**
      * @Type("boolean")
      */
-    protected $importance;
+    public  $importance;
+
+    function __construct($importance = NULL, $recurrent = NULL, $source = NULL)
+    {
+        $this->importance = $importance;
+        $this->recurrent = $recurrent;
+        $this->source = $source;
+    }
 
     /**
      * @param mixed $source
