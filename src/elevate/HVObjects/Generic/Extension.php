@@ -15,7 +15,7 @@ use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\XmlKeyValuePairs;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
-use elevate\HVObjects\Generic\Recurrent;
+use elevate\HVObjects\Generic\Repeat;
 
 /**
  * @XmlRoot("extension")
@@ -32,19 +32,20 @@ class Extension
     // Subclasses will define whatever other data they need once the bug with JMS is fixed
 
     /**
-     * @Type("elevate\HVObjects\Generic\Recurrent")
+     * @Type("elevate\HVObjects\Generic\Repeat")
+     * @
      */
-    public  $recurrent;
+    public  $repeat;
 
     /**
      * @Type("boolean")
      */
     public  $importance;
 
-    function __construct($importance = NULL, $recurrent = NULL, $source = NULL)
+    function __construct($importance = NULL, $repeat = NULL, $source = NULL)
     {
         $this->importance = $importance;
-        $this->recurrent = $recurrent;
+        $this->repeat = $repeat;
         $this->source = $source;
     }
 
@@ -81,19 +82,19 @@ class Extension
     }
 
     /**
-     * @param mixed $recurrent
+     * @param mixed $repeat
      */
-    public function setRecurrent($recurrent)
+    public function setRepeat($repeat)
     {
-        $this->recurrent = $recurrent;
+        $this->repeat = $repeat;
     }
 
     /**
      * @return mixed
      */
-    public function getRecurrent()
+    public function getRepeat()
     {
-        return $this->recurrent;
+        return $this->repeat;
     }
 
 
