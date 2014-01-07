@@ -44,7 +44,7 @@ class EventSubscriber implements \JMS\Serializer\EventDispatcher\EventSubscriber
     }
 
     /**
-     * @param \JMS\Serializer\EventDispatcher\PreDeserializeEvent $event
+     * @param \JMS\Serializer\EventDispatcher\PreSerializeEvent $event
      */
     public function onPreSerialize(\JMS\Serializer\EventDispatcher\PreSerializeEvent $event )
     {
