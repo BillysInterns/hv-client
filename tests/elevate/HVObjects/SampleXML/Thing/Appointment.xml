@@ -1,186 +1,186 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <appointment>
-  <type-id><![CDATA[4b18aeb6-5f01-444c-8c70-dbf13a2f510b]]></type-id>
-  <data-xml>
-    <appointment>
-      <when>
-        <date>
-          <y>2013</y>
-          <m>12</m>
-          <d>25</d>
-        </date>
-        <time>
-          <h>12</h>
-          <m>30</m>
-          <s>12</s>
-          <f>0</f>
-        </time>
-      </when>
-      <duration>
-        <start-date>
-          <structured>
-            <date>
-              <y>2013</y>
-              <m>12</m>
-              <d>25</d>
-            </date>
-            <time>
-              <h>12</h>
-              <m>20</m>
-              <s>45</s>
-              <f>0</f>
-            </time>
-            <tz>
-              <text><![CDATA[Code]]></text>
-              <code>
-                <value><![CDATA[5]]></value>
-                <family><![CDATA[Test Suite]]></family>
-                <type><![CDATA[Value Test]]></type>
-                <version><![CDATA[Version 4]]></version>
-              </code>
-            </tz>
-          </structured>
-          <descriptive><![CDATA[description]]></descriptive>
-        </start-date>
-        <end-date>
-          <structured>
-            <date>
-              <y>2013</y>
-              <m>12</m>
-              <d>30</d>
-            </date>
-            <time>
-              <h>12</h>
-              <m>30</m>
-              <s>45</s>
-              <f>0</f>
-            </time>
-            <tz>
-              <text><![CDATA[Code]]></text>
-              <code>
-                <value><![CDATA[5]]></value>
-                <family><![CDATA[Test Suite]]></family>
-                <type><![CDATA[Value Test]]></type>
-                <version><![CDATA[Version 4]]></version>
-              </code>
-            </tz>
-          </structured>
-          <descriptive><![CDATA[description]]></descriptive>
-        </end-date>
-      </duration>
-      <service>
-        <text><![CDATA[Code]]></text>
-        <code>
-          <value><![CDATA[5]]></value>
-          <family><![CDATA[Test Suite]]></family>
-          <type><![CDATA[Value Test]]></type>
-          <version><![CDATA[Version 4]]></version>
-        </code>
-      </service>
-      <clinic>
-        <name>
-          <full><![CDATA[Dr. Billy D Intern IX]]></full>
-          <title>
-            <text><![CDATA[Dr.]]></text>
-            <code>
-              <value><![CDATA[1337]]></value>
-              <family><![CDATA[Title]]></family>
-              <type><![CDATA[Title]]></type>
-              <version><![CDATA[Version 117]]></version>
-            </code>
-          </title>
-          <first><![CDATA[Billy]]></first>
-          <middle><![CDATA[D]]></middle>
-          <last><![CDATA[Intern]]></last>
-          <suffix>
-            <text><![CDATA[IX]]></text>
-            <code>
-              <value><![CDATA[9]]></value>
-              <family><![CDATA[Suffix]]></family>
-              <type><![CDATA[Suffix]]></type>
-              <version><![CDATA[Version 1]]></version>
-            </code>
-          </suffix>
-        </name>
-        <organization><![CDATA[Microsoft]]></organization>
-        <professional-training><![CDATA[Internship]]></professional-training>
-        <id><![CDATA[N7]]></id>
-        <contact>
-          <address>
-            <description><![CDATA[Home Address]]></description>
-            <is-primary>true</is-primary>
-            <street><![CDATA[123 Fake Ave]]></street>
-            <city><![CDATA[Faketon]]></city>
-            <state><![CDATA[FA]]></state>
-            <postcode><![CDATA[00700]]></postcode>
-            <country><![CDATA[United States]]></country>
-            <county><![CDATA[Fake]]></county>
-          </address>
-          <phone>
-            <description><![CDATA[Home Phone]]></description>
-            <is-primary>true</is-primary>
-            <number><![CDATA[555-555-5555]]></number>
-          </phone>
-          <email>
-            <description><![CDATA[Personal]]></description>
-            <is_primary>true</is_primary>
-            <address><![CDATA[billy@theintern.com]]></address>
-          </email>
-        </contact>
-        <type>
-          <text><![CDATA[Person]]></text>
-          <code>
-            <value><![CDATA[3]]></value>
-            <family><![CDATA[Type]]></family>
-            <type><![CDATA[Type]]></type>
-            <version><![CDATA[Version 4]]></version>
-          </code>
-        </type>
-      </clinic>
-      <specialty>
-        <text><![CDATA[Code]]></text>
-        <code>
-          <value><![CDATA[5]]></value>
-          <family><![CDATA[Test Suite]]></family>
-          <type><![CDATA[Value Test]]></type>
-          <version><![CDATA[Version 4]]></version>
-        </code>
-      </specialty>
-      <status>
-        <text><![CDATA[Code]]></text>
-        <code>
-          <value><![CDATA[5]]></value>
-          <family><![CDATA[Test Suite]]></family>
-          <type><![CDATA[Value Test]]></type>
-          <version><![CDATA[Version 4]]></version>
-        </code>
-      </status>
-      <care-class>
-        <text><![CDATA[Code]]></text>
-        <code>
-          <value><![CDATA[5]]></value>
-          <family><![CDATA[Test Suite]]></family>
-          <type><![CDATA[Value Test]]></type>
-          <version><![CDATA[Version 4]]></version>
-        </code>
-      </care-class>
-    </appointment>
-      <common>
-          <source><![CDATA[Appointment Source]]></source>
-          <note><![CDATA[Appointment Note]]></note>
-          <tags><![CDATA[appointmentTag]]></tags>
-          <extension source="Mentis Unit Test">
-              <repeat>
-                  <interval><![CDATA[mon]]></interval>
-                  <end-date><![CDATA[2013-12-15T00:06:21+00:00]]></end-date>
-              </repeat>
-          </extension>
-          <related-thing>
-              <thing-id><![CDATA[123456789]]></thing-id>
-              <version-stamp><![CDATA[version]]></version-stamp>
-              <relationship-type><![CDATA[rel-type]]></relationship-type>
-          </related-thing>
-          <client-thing-id><![CDATA[3323-43242-4324234-43242]]></client-thing-id>
-      </common>
-  </data-xml>
+    <type-id><![CDATA[4b18aeb6-5f01-444c-8c70-dbf13a2f510b]]></type-id>
+    <data-xml>
+        <appointment>
+            <when>
+                <date>
+                    <y>2013</y>
+                    <m>12</m>
+                    <d>25</d>
+                </date>
+                <time>
+                    <h>12</h>
+                    <m>30</m>
+                    <s>12</s>
+                    <f>0</f>
+                </time>
+            </when>
+            <duration>
+                <start-date>
+                    <structured>
+                        <date>
+                            <y>2013</y>
+                            <m>12</m>
+                            <d>25</d>
+                        </date>
+                        <time>
+                            <h>12</h>
+                            <m>20</m>
+                            <s>45</s>
+                            <f>0</f>
+                        </time>
+                        <tz>
+                            <text><![CDATA[Code]]></text>
+                            <code>
+                                <value><![CDATA[5]]></value>
+                                <family><![CDATA[Test Suite]]></family>
+                                <type><![CDATA[Value Test]]></type>
+                                <version><![CDATA[Version 4]]></version>
+                            </code>
+                        </tz>
+                    </structured>
+                    <descriptive><![CDATA[description]]></descriptive>
+                </start-date>
+                <end-date>
+                    <structured>
+                        <date>
+                            <y>2013</y>
+                            <m>12</m>
+                            <d>30</d>
+                        </date>
+                        <time>
+                            <h>12</h>
+                            <m>30</m>
+                            <s>45</s>
+                            <f>0</f>
+                        </time>
+                        <tz>
+                            <text><![CDATA[Code]]></text>
+                            <code>
+                                <value><![CDATA[5]]></value>
+                                <family><![CDATA[Test Suite]]></family>
+                                <type><![CDATA[Value Test]]></type>
+                                <version><![CDATA[Version 4]]></version>
+                            </code>
+                        </tz>
+                    </structured>
+                    <descriptive><![CDATA[description]]></descriptive>
+                </end-date>
+            </duration>
+            <service>
+                <text><![CDATA[Code]]></text>
+                <code>
+                    <value><![CDATA[5]]></value>
+                    <family><![CDATA[Test Suite]]></family>
+                    <type><![CDATA[Value Test]]></type>
+                    <version><![CDATA[Version 4]]></version>
+                </code>
+            </service>
+            <clinic>
+                <name>
+                    <full><![CDATA[Dr. Billy D Intern IX]]></full>
+                    <title>
+                        <text><![CDATA[Dr.]]></text>
+                        <code>
+                            <value><![CDATA[1337]]></value>
+                            <family><![CDATA[Title]]></family>
+                            <type><![CDATA[Title]]></type>
+                            <version><![CDATA[Version 117]]></version>
+                        </code>
+                    </title>
+                    <first><![CDATA[Billy]]></first>
+                    <middle><![CDATA[D]]></middle>
+                    <last><![CDATA[Intern]]></last>
+                    <suffix>
+                        <text><![CDATA[IX]]></text>
+                        <code>
+                            <value><![CDATA[9]]></value>
+                            <family><![CDATA[Suffix]]></family>
+                            <type><![CDATA[Suffix]]></type>
+                            <version><![CDATA[Version 1]]></version>
+                        </code>
+                    </suffix>
+                </name>
+                <organization><![CDATA[Microsoft]]></organization>
+                <professional-training><![CDATA[Internship]]></professional-training>
+                <id><![CDATA[N7]]></id>
+                <contact>
+                    <address>
+                        <description><![CDATA[Home Address]]></description>
+                        <is-primary>true</is-primary>
+                        <street><![CDATA[123 Fake Ave]]></street>
+                        <city><![CDATA[Faketon]]></city>
+                        <state><![CDATA[FA]]></state>
+                        <postcode><![CDATA[00700]]></postcode>
+                        <country><![CDATA[United States]]></country>
+                        <county><![CDATA[Fake]]></county>
+                    </address>
+                    <phone>
+                        <description><![CDATA[Home Phone]]></description>
+                        <is-primary>true</is-primary>
+                        <number><![CDATA[555-555-5555]]></number>
+                    </phone>
+                    <email>
+                        <description><![CDATA[Personal]]></description>
+                        <is_primary>true</is_primary>
+                        <address><![CDATA[billy@theintern.com]]></address>
+                    </email>
+                </contact>
+                <type>
+                    <text><![CDATA[Person]]></text>
+                    <code>
+                        <value><![CDATA[3]]></value>
+                        <family><![CDATA[Type]]></family>
+                        <type><![CDATA[Type]]></type>
+                        <version><![CDATA[Version 4]]></version>
+                    </code>
+                </type>
+            </clinic>
+            <specialty>
+                <text><![CDATA[Code]]></text>
+                <code>
+                    <value><![CDATA[5]]></value>
+                    <family><![CDATA[Test Suite]]></family>
+                    <type><![CDATA[Value Test]]></type>
+                    <version><![CDATA[Version 4]]></version>
+                </code>
+            </specialty>
+            <status>
+                <text><![CDATA[Code]]></text>
+                <code>
+                    <value><![CDATA[5]]></value>
+                    <family><![CDATA[Test Suite]]></family>
+                    <type><![CDATA[Value Test]]></type>
+                    <version><![CDATA[Version 4]]></version>
+                </code>
+            </status>
+            <care-class>
+                <text><![CDATA[Code]]></text>
+                <code>
+                    <value><![CDATA[5]]></value>
+                    <family><![CDATA[Test Suite]]></family>
+                    <type><![CDATA[Value Test]]></type>
+                    <version><![CDATA[Version 4]]></version>
+                </code>
+            </care-class>
+        </appointment>
+        <common>
+            <source><![CDATA[Appointment Source]]></source>
+            <note><![CDATA[Appointment Note]]></note>
+            <tags><![CDATA[appointmentTag]]></tags>
+            <extension>
+                <repeat>
+                    <interval><![CDATA[weekly]]></interval>
+                    <end-date><![CDATA[2013-12-15T00:06:21+00:00]]></end-date>
+                </repeat>
+            </extension>
+            <related-thing>
+                <thing-id><![CDATA[123456789]]></thing-id>
+                <version-stamp><![CDATA[version]]></version-stamp>
+                <relationship-type><![CDATA[rel-type]]></relationship-type>
+            </related-thing>
+            <client-thing-id><![CDATA[3323-43242-4324234-43242]]></client-thing-id>
+        </common>
+    </data-xml>
 </appointment>

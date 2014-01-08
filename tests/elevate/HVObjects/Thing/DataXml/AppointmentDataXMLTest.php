@@ -29,7 +29,7 @@ use elevate\HVObjects\Generic\Common;
 
 class AppointmentDataXMLTest extends BaseObjectTest 
 {
-/*	public static function setUpBeforeClass()
+	public static function setUpBeforeClass()
     {
 		self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/Appointment.xml';
         self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\AppointmentDataXML';
@@ -99,5 +99,5 @@ class AppointmentDataXMLTest extends BaseObjectTest
 
         parent::setUpBeforeClass();
 
-	}*/
+	}
 } 
