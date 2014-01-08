@@ -25,7 +25,7 @@ class PersonalImage extends Thing
 
     function __construct($dataXML = NULL)
     {
-        $typeID = TypeTranslator::lookupTypeID('Allergy');
+        $typeID = TypeTranslator::lookupTypeID('Personal Image');
         $this->dataXML = $dataXML;
         parent::__construct($dataXML, $typeID);
     }
