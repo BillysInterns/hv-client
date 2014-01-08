@@ -20,25 +20,25 @@ class EmotionType
      * @Type("elevate\HVObjects\Generic\Date\DateTime")
      * @SerializedName("when")
      */
-    private $when;
+    protected  $when;
 
     /**
      * @Type("integer")
      * @SerializedName("mood")
      */
-    private $mood;
+    protected  $mood;
 
     /**
      * @Type("integer")
      * @SerializedName("stress")
      */
-    private $stress;
+    protected  $stress;
 
     /**
      * @Type("integer")
      * @SerializedName("wellbeing")
      */
-    private $wellbeing;
+    protected  $wellbeing;
 
     function __construct(
         $mood = NULL, $stress = NULL, $wellbeing = NULL, DateTime $when = NULL

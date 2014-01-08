@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <emotion>
+        <when>
+            <date>
+                <y>2013</y>
+                <m>11</m>
+                <d>5</d>
+            </date>
+            <time>
+                <h>10</h>
+                <m>25</m>
+                <s>10</s>
+                <f>0</f>
+            </time>
+            <tz>
+                <text><![CDATA[Eastern US]]></text>
+                <code>
+                    <value><![CDATA[-5]]></value>
+                    <type><![CDATA[tz]]></type>
+                </code>
+            </tz>
+        </when>
+        <mood>3</mood>
+        <stress>4</stress>
+        <wellbeing>1</wellbeing>
+    </emotion>
+    <common>
+        <source><![CDATA[Emotion Test]]></source>
+        <note><![CDATA[Emotion Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
+</result>
