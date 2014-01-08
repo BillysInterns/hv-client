@@ -31,7 +31,8 @@ use elevate\HVObjects\Thing\DataXML\Type\AllergyType;
  *
  * @AccessorOrder("custom", custom = {"allergy", "common"})
  */
-class AllergyDataXML extends DataXML{
+class AllergyDataXML extends DataXML
+{
 
     /**
      * @Type("elevate\HVObjects\Thing\DataXML\Type\AllergyType")

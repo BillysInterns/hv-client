@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <health-journal-entry>
-    <when>
-        <structured>
-            <date>
-                <y>2013</y>
-                <m>10</m>
-                <d>12</d>
-            </date>
-            <time>
-                <h>4</h>
-                <m>0</m>
-                <s>0</s>
-                <f>0</f>
-            </time>
-            <tz>
-                <text><![CDATA[New York]]></text>
-            </tz>
-        </structured>
-        <descriptive><![CDATA[First Observed Date]]></descriptive>
-    </when>
-    <content><![CDATA[content]]></content>
-    <category>
-        <text><![CDATA[Hives]]></text>
-        <code>
-            <value><![CDATA[234]]></value>
-            <family><![CDATA[category]]></family>
-            <type><![CDATA[category]]></type>
-            <version><![CDATA[Version 5]]></version>
-        </code>
-    </category>
+    <common>
+        <source><![CDATA[Unit Test]]></source>
+        <note><![CDATA[Health Journal Entry Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
+    <health-journal-entry>
+        <when>
+            <structured>
+                <date>
+                    <y>2013</y>
+                    <m>10</m>
+                    <d>12</d>
+                </date>
+                <time>
+                    <h>4</h>
+                    <m>0</m>
+                    <s>0</s>
+                    <f>0</f>
+                </time>
+                <tz>
+                    <text><![CDATA[New York]]></text>
+                </tz>
+            </structured>
+            <descriptive><![CDATA[First Observed Date]]></descriptive>
+        </when>
+        <content><![CDATA[content]]></content>
+        <category>
+            <text><![CDATA[Hives]]></text>
+            <code>
+                <value><![CDATA[234]]></value>
+                <family><![CDATA[category]]></family>
+                <type><![CDATA[category]]></type>
+                <version><![CDATA[Version 5]]></version>
+            </code>
+        </category>
+    </health-journal-entry>
 </health-journal-entry>

@@ -7,7 +7,7 @@
 namespace elevate\test\HVObjects\Thing;
 
 use elevate\HVObjects\Generic\Extension;
-use elevate\HVObjects\Generic\Recurrent;
+use elevate\HVObjects\Generic\Repeat;
 use elevate\HVObjects\Generic\RelatedThing;
 use elevate\HVObjects\Thing\DataXML\AppointmentDataXML;
 use elevate\test\HVObjects\BaseObjectTest;
@@ -32,7 +32,7 @@ use elevate\HVObjects\Thing\Appointment;
 
 class AppointmentTest extends BaseObjectTest
 {
-/*
+
     public static function setUpBeforeClass()
     {
         self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Appointment.xml';
@@ -102,9 +102,11 @@ class AppointmentTest extends BaseObjectTest
 
         $relatedThing = new RelatedThing('123456789', 'version', 'rel-type');
 
-        $dateTime = '2013-12-15T00:06:21+00:00';
-        $recurrentThing = new Recurrent( $dateTime, 'mon' );
-        $apptExtension = new Extension(0, $recurrentThing);
+        $dateTime  = '2013-12-15T00:06:21+00:00';
+        $repeat    = new Repeat($dateTime, 'weekly');
+        $extension = new Extension();
+        $extension->setRepeat($repeat);
+
 
         $common = new Common(
             'Appointment Note',
@@ -112,32 +114,13 @@ class AppointmentTest extends BaseObjectTest
             'appointmentTag',
             array($relatedThing),
             '3323-43242-4324234-43242',
-            $apptExtension
+            $extension
         );
 
 		$appointmentDataXml = new AppointmentDataXML($appointmentType, $common);
 
 		self::$testObject = new Appointment( $appointmentDataXml );
-		
+
         parent::setUpBeforeClass();
-
-
     }
-
-
-    public function testDeserialize2()
-    {
-        $contents = file_get_contents(self::$sampleXMLPath);
-
-        $deserializedObject = self::$serializerBuilder->deserialize(
-            $contents, self::$objectNamespace, 'xml'
-        );
-
-        $this->assertEquals(self::$testObject, $deserializedObject);
-
-        $xmlStringSerialized  = self::$serializerBuilder->serialize(self::$testObject, 'xml');
-
-        $this->assertEquals($xmlStringSerialized, $contents);
-
-    }*/
 }

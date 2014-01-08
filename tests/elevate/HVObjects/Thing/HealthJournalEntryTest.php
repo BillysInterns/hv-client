@@ -1,11 +1,11 @@
 <?php
     /**
-     *
+     * @author - Sumit
      */
+    namespace elevate\test\HVObjects;
 
-    namespace elevate\test\HVObjects\Thing\DataXml;
 
-
+    use elevate\HVObjects\Thing\HealthJournalEntry;
     use elevate\HVObjects\Thing\DataXML\HealthJournalEntryDataXML;
     use elevate\HVObjects\Thing\DataXML\Type\HealthJournalEntryType;
     use elevate\test\HVObjects\BaseObjectTest;
@@ -23,12 +23,12 @@
     use elevate\HVObjects\Generic\Phone;
     use elevate\HVObjects\Generic\Common;
 
-    class HealthJournalEntryDataXmlTest extends BaseObjectTest
+    class HealthJournalEntryTest extends BaseObjectTest
     {
         public static function setUpBeforeClass()
         {
-            self::$sampleXMLPath    = __DIR__ . '/../../SampleXML/Thing/DataXml/HealthJournalEntryDataXML.xml';
-            self::$objectNamespace  = 'elevate\HVObjects\Thing\DataXml\HealthJournalEntryDataXML';
+            self::$sampleXMLPath    = __DIR__ . '/../SampleXML/Thing/HealthJournalEntry.xml';
+            self::$objectNamespace  = 'elevate\HVObjects\Thing\HealthJournalEntry';
 
             //When
             $whenTime = new Time(4, 0, 0, 0);
@@ -48,8 +48,10 @@
 
             $common = new Common('Health Journal Entry Note', 'Unit Test', 'Some tags');
 
-            self::$testObject = new HealthJournalEntryDataXML($healthJournalEntry, $common);
+            $healthJournalEntryDataXML = new HealthJournalEntryDataXML($healthJournalEntry, $common);
 
+            self::$testObject = new HealthJournalEntry($healthJournalEntryDataXML);
             parent::setUpBeforeClass();
-            }
+
+        }
     }

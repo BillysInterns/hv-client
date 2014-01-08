@@ -26,7 +26,7 @@ use elevate\HVObjects\Generic\Person;
 
 class AppointmentTypeTest extends BaseObjectTest
 {
-/*
+
     public static function setUpBeforeClass()
     {
         self::$sampleXMLPath = __DIR__ . '/../../../SampleXML/Thing/DataXml/Type/Appointment.xml';
@@ -93,5 +93,5 @@ class AppointmentTypeTest extends BaseObjectTest
         parent::setUpBeforeClass();
 
 
-	}*/
+	}
 }
