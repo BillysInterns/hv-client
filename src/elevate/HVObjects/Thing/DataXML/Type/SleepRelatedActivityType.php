@@ -76,5 +76,101 @@ class SleepRelatedActivityType
 
     }
 
+    /**
+     * @param mixed $alcohol
+     */
+    public function setAlcohol($alcohol)
+    {
+        $this->alcohol = $alcohol;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAlcohol()
+    {
+        return $this->alcohol;
+    }
+
+    /**
+     * @param mixed $caffeine
+     */
+    public function setCaffeine($caffeine)
+    {
+        $this->caffeine = $caffeine;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCaffeine()
+    {
+        return $this->caffeine;
+    }
+
+    /**
+     * @param mixed $exercise
+     */
+    public function setExercise($exercise)
+    {
+        $this->exercise = $exercise;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExercise()
+    {
+        return $this->exercise;
+    }
+
+    /**
+     * @param mixed $nap
+     */
+    public function setNap($nap)
+    {
+        $this->nap = $nap;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNap()
+    {
+        return $this->nap;
+    }
+
+    /**
+     * @param mixed $sleepiness
+     */
+    public function setSleepiness($sleepiness)
+    {
+        $this->sleepiness = $sleepiness;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSleepiness()
+    {
+        return $this->sleepiness;
+    }
+
+    /**
+     * @param mixed $when
+     */
+    public function setWhen($when)
+    {
+        $this->when = $when;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhen()
+    {
+        return $this->when;
+    }
+
 
 }
