@@ -12,14 +12,11 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
-use Doctrine\Common\Collections\ArrayCollection;
-use PhpCollection\Map;
-use PhpCollection\Sequence;
-use elevate\HVObjects\Thing\DataXML\DataXML;
-use elevate\HVObjects\Thing\Thing;
+
+use elevate\HVObjects\Generic\Date\DateTime;
 
 /** @XmlRoot("question-answer") */
-class QuestionAnswer
+class QuestionAnswerType
 {
 
     /**
@@ -44,6 +41,16 @@ class QuestionAnswer
      * @Type("array<elevate\HVObjects\Generic\CodableValue>")
      */
     protected $answers;
+
+    function __construct(
+        $answerChoices, $answers = NULL, $question, DateTime $when = NULL
+    )
+    {
+        $this->answerChoices = $answerChoices;
+        $this->answers       = $answers;
+        $this->question      = $question;
+        $this->when          = $when;
+    }
 
     /**
      * @param array $answerChoices
@@ -96,7 +103,7 @@ class QuestionAnswer
     /**
      * @param mixed $when
      */
-    public function setWhen($when)
+    public function setWhen(DateTime $when)
     {
         $this->when = $when;
     }
@@ -108,5 +115,6 @@ class QuestionAnswer
     {
         return $this->when;
     }
+
 
 }

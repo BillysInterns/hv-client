@@ -14,36 +14,28 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\AccessorOrder;
-use PhpCollection\Map;
-use PhpCollection\Sequence;
-use elevate\HVObjects\Thing\DataXML\DataXML;
+
+use elevate\HVObjects\Generic\Common;
+use elevate\HVObjects\Thing\DataXML\Type\QuestionAnswerType;
 
 /**
  * Class QuestionAnswer
  * @package elevate\HVObjects\Thing\DataXML
  * @AccessorOrder("custom", custom = {"question", "common"})
  */
-class QuestionAnswer extends DataXML
+class QuestionAnswerDataXML extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\DataXML\Type\QuestionAnswer")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\QuestionAnswerType")
      * @SerializedName("question-answer")
      */
-    protected $question;
+    protected $questionType;
 
-    public function getType()
+    function __construct(QuestionAnswerType $questionType, Common $common = NULL)
     {
-        return $this->question;
-    }
-
-    /**
-     * @param mixed $question
-     */
-    public function setType($question)
-    {
-        $this->question = $question;
-        return $this;
+        $this->questionType = $questionType;
+        $this->common = $common;
     }
 
 

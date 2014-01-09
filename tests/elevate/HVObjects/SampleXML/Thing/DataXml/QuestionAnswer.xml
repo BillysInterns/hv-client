@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <common>
+        <source><![CDATA[QuestionAnswer Test]]></source>
+        <note><![CDATA[QuestionAnswer Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
+    <question-answer>
+        <answer-choice>
+            <text><![CDATA[Question]]></text>
+            <code>
+                <value><![CDATA[Question1]]></value>
+                <type><![CDATA[Question2]]></type>
+            </code>
+        </answer-choice>
+        <answer>
+            <text><![CDATA[Choice]]></text>
+            <code>
+                <value><![CDATA[Choice1]]></value>
+                <type><![CDATA[Choice2]]></type>
+            </code>
+        </answer>
+    </question-answer>
+</result>
