@@ -29,7 +29,7 @@ class QuestionAnswerTypeTest extends BaseObjectTest
 
 
 
-        self::$testObject = new QuestionAnswerType(array($question),array($answerChoices));
+        self::$testObject = new QuestionAnswerType($question,array($answerChoices));
         parent::setUpBeforeClass();
     }
 }

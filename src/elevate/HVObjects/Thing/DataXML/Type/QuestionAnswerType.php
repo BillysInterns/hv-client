@@ -43,7 +43,7 @@ class QuestionAnswerType
     protected $answers;
 
     function __construct(
-        $answerChoices, $answers = NULL, $question, DateTime $when = NULL
+        $question, $answerChoices, $answers = array(), DateTime $when = NULL
     )
     {
         $this->answerChoices = $answerChoices;

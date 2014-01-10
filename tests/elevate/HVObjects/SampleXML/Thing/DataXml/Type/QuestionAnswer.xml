@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <question-answer>
-    <answer-choice>
+    <question>
         <text><![CDATA[Question]]></text>
         <code>
             <value><![CDATA[Question1]]></value>
             <type><![CDATA[Question2]]></type>
         </code>
-    </answer-choice>
-    <answer>
+    </question>
+    <answer-choice>
         <text><![CDATA[Choice]]></text>
         <code>
             <value><![CDATA[Choice1]]></value>
             <type><![CDATA[Choice2]]></type>
         </code>
-    </answer>
+    </answer-choice>
 </question-answer>
