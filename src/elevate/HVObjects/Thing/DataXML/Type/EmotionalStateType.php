@@ -13,7 +13,7 @@ use JMS\Serializer\Annotation\Groups;
 
 use elevate\HVObjects\Generic\Date\DateTime;
 
-class EmotionType
+class EmotionalStateType
 {
 
     /**

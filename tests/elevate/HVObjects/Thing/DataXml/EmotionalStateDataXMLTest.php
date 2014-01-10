@@ -3,23 +3,23 @@
 
 namespace elevate\test\HVObjects\Thing\DataXml;
 
-use elevate\HVObjects\Thing\DataXML\EmotionDataXML;
+use elevate\HVObjects\Thing\DataXML\EmotionalStateDataXML;
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Generic\CodableValue;
 use elevate\HVObjects\Generic\Date\DateTime;
-use elevate\HVObjects\Thing\DataXML\Type\EmotionType;
+use elevate\HVObjects\Thing\DataXML\Type\EmotionalStateType;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\Time;
 use elevate\HVObjects\Generic\CodedValue;
 use elevate\HVObjects\Generic\Common;
 
-class EmotionDataXMLTest extends BaseObjectTest
+class EmotionalStateDataXMLTest extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/Emotion.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXml\EmotionDataXML';
+        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/EmotionalState.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXml\EmotionalStateDataXML';
 
         $codes = new CodedValue('-5', 'tz');
 
@@ -29,11 +29,11 @@ class EmotionDataXMLTest extends BaseObjectTest
 
         $when = new DateTime($date, $time, $tz);
 
-        $emotionType = new EmotionType('3', '4', '1', $when);
+        $emotionalStateType = new EmotionalStateType('3', '4', '1', $when);
 
-        $common = new Common('Emotion Note', 'Emotion Test', 'Some tags');
+        $common = new Common('EmotionalState Note', 'EmotionalState Test', 'Some tags');
 
-        self::$testObject = new EmotionDataXML($emotionType, $common);
+        self::$testObject = new EmotionalStateDataXML($emotionalStateType, $common);
         parent::setUpBeforeClass();
     }
 

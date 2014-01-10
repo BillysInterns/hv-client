@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
-    <emotion>
+    <emotionalStateType>
         <when>
             <date>
                 <y>2013</y>
@@ -24,10 +24,10 @@
         <mood>3</mood>
         <stress>4</stress>
         <wellbeing>1</wellbeing>
-    </emotion>
+    </emotionalStateType>
     <common>
-        <source><![CDATA[Emotion Test]]></source>
-        <note><![CDATA[Emotion Note]]></note>
+        <source><![CDATA[EmotionalState Test]]></source>
+        <note><![CDATA[EmotionalState Note]]></note>
         <tags><![CDATA[Some tags]]></tags>
     </common>
 </result>
