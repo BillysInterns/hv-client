@@ -38,7 +38,7 @@ class EmotionalStateDataXML extends DataXML
      *
      * @return $this
      */
-    public function setEmotionalStateType(EmotionalStateType $emotionalStateType)
+    public function setType(EmotionalStateType $emotionalStateType)
     {
         $this->emotionalStateType = $emotionalStateType;
         return $this;
@@ -47,7 +47,7 @@ class EmotionalStateDataXML extends DataXML
     /**
      * @return \elevate\HVObjects\Thing\DataXML\Type\EmotionalStateType
      */
-    public function getEmotionalStateType()
+    public function getType()
     {
         return $this->emotionalStateType;
     }
