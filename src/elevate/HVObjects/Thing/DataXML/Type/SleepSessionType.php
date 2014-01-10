@@ -92,5 +92,133 @@ class SleepSessionType
 
     }
 
+    /**
+     * @param mixed $awakening
+     */
+    public function setAwakening($awakening)
+    {
+        $this->awakening = $awakening;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAwakening()
+    {
+        return $this->awakening;
+    }
+
+    /**
+     * @param mixed $bedTime
+     */
+    public function setBedTime($bedTime)
+    {
+        $this->bedTime = $bedTime;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBedTime()
+    {
+        return $this->bedTime;
+    }
+
+    /**
+     * @param mixed $medications
+     */
+    public function setMedications($medications)
+    {
+        $this->medications = $medications;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMedications()
+    {
+        return $this->medications;
+    }
+
+    /**
+     * @param mixed $settlingMinutes
+     */
+    public function setSettlingMinutes($settlingMinutes)
+    {
+        $this->settlingMinutes = $settlingMinutes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSettlingMinutes()
+    {
+        return $this->settlingMinutes;
+    }
+
+    /**
+     * @param mixed $sleepMinutes
+     */
+    public function setSleepMinutes($sleepMinutes)
+    {
+        $this->sleepMinutes = $sleepMinutes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSleepMinutes()
+    {
+        return $this->sleepMinutes;
+    }
+
+    /**
+     * @param mixed $wakeState
+     */
+    public function setWakeState($wakeState)
+    {
+        $this->wakeState = $wakeState;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWakeState()
+    {
+        return $this->wakeState;
+    }
+
+    /**
+     * @param mixed $wakeTime
+     */
+    public function setWakeTime($wakeTime)
+    {
+        $this->wakeTime = $wakeTime;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWakeTime()
+    {
+        return $this->wakeTime;
+    }
+
+    /**
+     * @param mixed $when
+     */
+    public function setWhen($when)
+    {
+        $this->when = $when;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhen()
+    {
+        return $this->when;
+    }
+
 
 }

@@ -38,15 +38,37 @@ class Extension
     public  $repeat;
 
     /**
+     * @param mixed $favorite
+     */
+    public function setFavorite($favorite)
+    {
+        $this->favorite = $favorite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFavorite()
+    {
+        return $this->favorite;
+    }
+
+    /**
+     * @Type("boolean")
+     */
+    public $favorite;
+
+    /**
      * @Type("boolean")
      */
     public  $importance;
 
-    function __construct($importance = NULL, $repeat = NULL, $source = NULL)
+    function __construct($importance = NULL, $repeat = NULL, $source = NULL, $favorite = NULL)
     {
         $this->importance = $importance;
-        $this->repeat = $repeat;
-        $this->source = $source;
+        $this->repeat     = $repeat;
+        $this->source     = $source;
+        $this->favorite   = $favorite;
     }
 
     /**
@@ -96,8 +118,5 @@ class Extension
     {
         return $this->repeat;
     }
-
-
-
 
 } 
