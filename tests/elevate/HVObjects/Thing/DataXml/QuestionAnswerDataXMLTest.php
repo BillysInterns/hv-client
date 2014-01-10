@@ -31,7 +31,7 @@ class QuestionAnswerDataXMLTest extends BaseObjectTest
 
 
 
-       $questionType = new QuestionAnswerType(array($question),array($answerChoices));
+       $questionType = new QuestionAnswerType($question,array($answerChoices));
 
         $common = new Common('QuestionAnswer Note', 'QuestionAnswer Test', 'Some tags');
         self::$testObject = new QuestionAnswerDataXML($questionType, $common);
