@@ -82,7 +82,6 @@ class SleepSessionType
     {
         $this->when = $when;
         $this->bedTime = $bedTime;
-        $this->bedTime = $bedTime;
         $this->sleepMinutes = $sleepMinutes;
         $this->settlingMinutes = $settlingMinutes;
         $this->awakening = $awakening;
