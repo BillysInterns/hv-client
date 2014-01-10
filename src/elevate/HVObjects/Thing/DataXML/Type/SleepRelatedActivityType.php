@@ -137,7 +137,7 @@ class SleepRelatedActivityType
      */
     public function getNap()
     {
-        return $this->nap; 
+        return $this->nap;
     }
 
     /**

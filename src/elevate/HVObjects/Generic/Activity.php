@@ -22,7 +22,7 @@ use PhpCollection\Sequence;
 
 use elevate\HVObjects\Generic\Date\DateTime;
 
-/** @XmlRoot("activiy") */
+/** @XmlRoot("activity") */
 class Activity
 {
     /**
