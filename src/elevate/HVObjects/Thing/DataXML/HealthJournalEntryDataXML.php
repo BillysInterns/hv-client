@@ -30,7 +30,7 @@ class HealthJournalEntryDataXML extends DataXML
     /**
      * @param HealthJournalEntryType $healthJournalEntry
      */
-    public function setHealthJournalEntry(HealthJournalEntryType $healthJournalEntry)
+    public function setType(HealthJournalEntryType $healthJournalEntry)
     {
         $this->healthJournalEntry = $healthJournalEntry;
     }
@@ -44,7 +44,7 @@ class HealthJournalEntryDataXML extends DataXML
     /**
      * @return HealthJournalEntryType
      */
-    public function getHealthJournalEntry()
+    public function getType()
     {
         return $this->healthJournalEntry;
     }
