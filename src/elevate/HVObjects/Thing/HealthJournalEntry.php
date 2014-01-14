@@ -16,7 +16,7 @@ use elevate\HVObjects\Thing\DataXML\HealthJournalEntryDataXML;
 use elevate\HVObjects\Thing\Thing;
 
 /** @XmlRoot("thing") */
-class HealthJournalEntry 
+class HealthJournalEntry extends Thing
 {
     /**
      * @var array elevate\HVObjects\Thing\DataXML\HealthJournalEntryDataXML
@@ -30,7 +30,8 @@ class HealthJournalEntry
      */
     function __construct(HealthJournalEntryDataXML $dataXML = NULL)
     {
-        $this->dataXML = $dataXML;
+        $typeID = TypeTranslator::lookupTypeID('Health Journal Entry');
+        parent::__construct($dataXML,$typeID);
     }
 
     /**

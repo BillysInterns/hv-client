@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <thing>
+    <type-id><![CDATA[21d75546-8717-4deb-8b17-a57f48917790]]></type-id>
     <data-xml>
         <common>
             <source><![CDATA[Unit Test]]></source>
