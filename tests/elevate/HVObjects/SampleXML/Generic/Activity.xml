@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<activiy>
+<activity>
     <when>
         <date>
             <y>1991</y>
@@ -13,5 +13,5 @@
             <f>9</f>
         </time>
     </when>
-    <minutes><![CDATA[10]]></minutes>
-</activiy>
+    <minutes>10</minutes>
+</activity>

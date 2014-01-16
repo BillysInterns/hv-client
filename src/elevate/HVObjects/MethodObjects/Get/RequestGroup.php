@@ -174,8 +174,4 @@ class RequestGroup
         return $this->name;
     }
 
-
-
-
-
 }

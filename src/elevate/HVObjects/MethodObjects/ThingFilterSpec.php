@@ -29,17 +29,32 @@ class ThingFilterSpec
 
     /**
      * @Type("string")
+     * @SerializedName("eff-date-min")
+     */
+    protected $effectiveMinimumDate;
+
+    /**
+     * @Type("string")
+     * @SerializedName("eff-date-max")
+     */
+    protected $effectiveMaximumDate;
+
+    /**
+     * @Type("string")
      * @SerializedName("xpath")
      */
     protected $xpath;
+
     /**
      * @param      $typeId
      * @param null $xpath
      */
-    function __construct($typeId, $xpath = NULL)
+    function __construct($typeId, $xpath = NULL, $effectiveMinimumDate = null, $effectiveMaximumDate = null)
     {
         $this->typeId = $typeId;
         $this->xpath = $xpath;
+        $this->effectiveMaximumDate = $effectiveMaximumDate;
+        $this->effectiveMinimumDate = $effectiveMinimumDate;
     }
 
     /**
@@ -50,6 +65,22 @@ class ThingFilterSpec
     {
         $this->typeId = $typeId;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEffectiveMaximumDate()
+    {
+        return $this->effectiveMaximumDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEffectiveMinimumDate()
+    {
+        return $this->effectiveMinimumDate;
     }
 
     /**
