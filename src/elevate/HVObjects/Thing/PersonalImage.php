@@ -23,10 +23,51 @@ class PersonalImage extends Thing
      */
     protected $dataXML;
 
-    function __construct($dataXML = NULL)
+    /**
+     * @Type("string")
+     * @serializedName("data-other")
+     */
+    protected $dataOther;
+
+    /**
+     * @param mixed $dataOther
+     */
+    public function setDataOther($dataOther)
+    {
+        $this->dataOther = $dataOther;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDataOther()
+    {
+        return $this->dataOther;
+    }
+
+    /**
+     * @param mixed $dataXML
+     */
+    public function setDataXML($dataXML)
+    {
+        $this->dataXML = $dataXML;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDataXML()
+    {
+        return $this->dataXML;
+    }
+
+
+
+    function __construct($dataXML = NULL, $dataOther = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('Personal Image');
         $this->dataXML = $dataXML;
+        $this->dataOther = $dataOther;
         parent::__construct($dataXML, $typeID);
     }
 

@@ -32,11 +32,23 @@ class QuestionAnswerDataXML extends DataXML
      */
     protected $questionType;
 
-    function __construct(QuestionAnswerType $questionType, Common $common = NULL)
+    function __construct(QuestionAnswerType $questionType = NULL, Common $common = NULL)
     {
         $this->questionType = $questionType;
-        $this->common = $common;
+        $this->common       = $common;
     }
 
+    public function setType(QuestionAnswerType $questionType)
+    {
+        $this->questionType = $questionType;
+        return $this;
+    }
 
+    /**
+     * @return \elevate\HVObjects\Thing\DataXML\Type\QuestionAnswerType
+     */
+    public function getType()
+    {
+        return $this->questionType;
+    }
 }
