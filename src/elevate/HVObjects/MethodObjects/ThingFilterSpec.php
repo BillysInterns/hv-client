@@ -29,6 +29,18 @@ class ThingFilterSpec
 
     /**
      * @Type("string")
+     * @SerializedName("eff-date-min")
+     */
+    protected $minDate;
+
+    /**
+     * @Type("string")
+     * @SerializedName("eff-date-max")
+     */
+    protected $maxDate;
+
+    /**
+     * @Type("string")
      * @SerializedName("xpath")
      */
     protected $xpath;
@@ -36,10 +48,12 @@ class ThingFilterSpec
      * @param      $typeId
      * @param null $xpath
      */
-    function __construct($typeId, $xpath = NULL)
+    function __construct($typeId, $xpath = NULL, $minDate = null, $maxDate = null)
     {
         $this->typeId = $typeId;
         $this->xpath = $xpath;
+        $this->maxDate = $maxDate;
+        $this->minDate = $minDate;
     }
 
     /**
@@ -77,4 +91,37 @@ class ThingFilterSpec
         return $this->xpath;
     }
 
+    /**
+     * @param mixed $maxDate
+     */
+    public function setMaxDate($maxDate)
+    {
+        $this->maxDate = $maxDate;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxDate()
+    {
+        return $this->maxDate;
+    }
+
+    /**
+     * @param mixed $minDate
+     */
+    public function setMinDate($minDate)
+    {
+        $this->minDate = $minDate;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMinDate()
+    {
+        return $this->minDate;
+    }
 }

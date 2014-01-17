@@ -23,7 +23,7 @@ class EmotionalStateDataXML extends DataXML
 
     /**
      * @Type("elevate\HVObjects\Thing\DataXML\Type\EmotionalStateType")
-     * @SerializedName("emotionalStateType")
+     * @SerializedName("emotion")
      */
     protected $emotionalStateType;
 

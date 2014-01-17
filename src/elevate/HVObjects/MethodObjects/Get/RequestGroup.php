@@ -16,10 +16,14 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\AccessorOrder;
 use  elevate\HVObjects\MethodObjects\ThingFilterSpec;
 use  elevate\HVObjects\MethodObjects\ThingFormatSpec;
 
-/** @XmlRoot("group") */
+/** @XmlRoot("group")
+ * @AccessorOrder("custom", custom = {"ids", "filter", "format", "currentVersionOnly"})
+ */
+
 class RequestGroup
 {
 
@@ -53,6 +57,12 @@ class RequestGroup
      * @Type("elevate\HVObjects\MethodObjects\ThingFormatSpec")
      */
     protected $format;
+
+    /**
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="id")
+     */
+    protected $ids;
 
     /**
      * @var bool
@@ -174,8 +184,22 @@ class RequestGroup
         return $this->name;
     }
 
+    /**
+     * @param $ids
+     *
+     * @return $this
+     */
+    public function setIds($ids)
+    {
+        $this->ids = $ids;
+        return $this;
+    }
 
-
-
-
+    /**
+    * @return mixed
+    */
+    public function getIds()
+    {
+        return $this->ids;
+    }
 }

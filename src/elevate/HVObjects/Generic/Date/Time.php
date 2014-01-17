@@ -121,6 +121,22 @@ class Time {
         return $this->second;
     }
 
+    /**
+     * Get a formed time string from the time object
+     *
+     * @return null|string
+     */
+    public function getTime()
+    {
+        if(!is_null($this->hour) && !is_null($this->minute) && !is_null($this->second))
+        {
+            return $this->getHour() . ":" . $this->getMinute() . ":" . $this->getSecond();
+        }
+        else
+        {
+            return null;
+        }
 
+    }
 
 }
