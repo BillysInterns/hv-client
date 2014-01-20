@@ -14,13 +14,14 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
+use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
-use \elevate\HVObjects\Generic\DataOther;
+use elevate\HVObjects\Generic\DataOther;
 
 
 /** @XmlRoot("thing") */
@@ -33,33 +34,39 @@ class Thing
      * @SerializedName("thing-id")
      */
     protected $thing_id;
+
     /**
      * @var string
      * @Type("elevate\HVObjects\Generic\TypeId")
      * @SerializedName("type-id")
      */
     protected $type_id;
+
     /**
      * @var string
      * @Type("string")
      */
     protected $flags;
+
     /**
      * @Type("elevate\HVObjects\Generic\Created")
      * @SerializedName("created")
      */
     protected $created;
+
     /**
      * @Type("elevate\HVObjects\Generic\Updated")
      * @SerializedName("updated")
      */
     protected $updated;
 
+
     /**
-     * @Type("DateTime<'DATE_ISO8601'>")
+     * @Type("string")
+     * @Accessor(getter="getEffDateAsString",setter="setEffDate")
      * @SerializedName("eff-date")
      */
-    //protected $effDate;
+    protected $effDate;
 
     /**
      * @var array elevate\HVObjects\Thing\DataXML\DataXML
@@ -67,6 +74,7 @@ class Thing
      * @SerializedName("data-xml")
      */
     protected $dataXML;
+
     /**
      * @var \elevate\HVObjects\Generic\DataOther
      * @Type("elevate\HVObjects\Generic\DataOther")
@@ -74,13 +82,14 @@ class Thing
      */
     protected $dataOther;
 
-    function __construct(
+    public function __construct(
         $dataXML,
         $type_id,
         $thing_id = NULL,
         $flags = NULL,
         $created = NULL,
-        $updated = NULL
+        $updated = NULL,
+        $effDate = NULL
     )
     {
         $this->dataXML = $dataXML;
@@ -89,8 +98,36 @@ class Thing
         $this->type_id = new TypeId(NULL, $type_id);
         $this->created = $created;
         $this->updated = $updated;
+        $this->effDate = $effDate;
         return $this;
     }
+
+    /**
+     * @param string $effDate
+     */
+    public function setEffDate($effDate)
+    {
+        // Parse it into a datetime object
+        $this->effDate = \DateTime::createFromFormat('Y-m-d\TH:i:s', $effDate);
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEffDate()
+    {
+        return $this->effDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEffDateAsString()
+    {
+        return $this->effDate->format('Y-m-d\TH:i:s');
+    }
+
 
     /**
      * @return array
