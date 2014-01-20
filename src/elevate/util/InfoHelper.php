@@ -50,14 +50,14 @@ class InfoHelper {
         return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath);
     }
 
-    static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null)
+    static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null, $xpath = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
 
         $formattedStartDate = date("Y-m-d",strtotime($startDate)) . 'T' . date("H:i:s",strtotime($startDate));
         $formattedEndDate = date("Y-m-d",strtotime($endDate)) . 'T' . date("H:i:s",strtotime($endDate));
 
-        $filter = new ThingFilterSpec($typeId, null, $formattedStartDate, $formattedEndDate );
+        $filter = new ThingFilterSpec($typeId, $xpath, $formattedStartDate, $formattedEndDate );
         $format = new ThingFormatSpec(array('core', 'audits'));
 
         return new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
