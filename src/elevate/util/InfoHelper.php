@@ -67,10 +67,16 @@ class InfoHelper {
     {
         $group = new RequestGroup();
 
+        $formattedStartDate = date("Y-m-d",strtotime("1900-01-01")) . 'T' . date("H:i:s",strtotime("1900-01-01"));
+        $formattedEndDate = date("Y-m-d",strtotime("2100-01-01")) . 'T' . date("H:i:s",strtotime("2100-01-01"));
+
+
         $format = new ThingFormatSpec(array('core', 'audits'));
+        $filter = new ThingFilterSpec(null, null, $formattedStartDate, $formattedEndDate);
 
         $group->setCurrentVersionOnly(false);
         $group->setFormat($format);
+        $group->setFilter($filter);
         $group->setIds($ids);
         $group->setMax($maxItems);
         $group->setName($groupName);

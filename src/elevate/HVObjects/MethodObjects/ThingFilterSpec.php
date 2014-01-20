@@ -48,7 +48,7 @@ class ThingFilterSpec
      * @param      $typeId
      * @param null $xpath
      */
-    function __construct($typeId, $xpath = NULL, $minDate = null, $maxDate = null)
+    function __construct($typeId = null, $xpath = null, $minDate = null, $maxDate = null)
     {
         $this->typeId = $typeId;
         $this->xpath = $xpath;
