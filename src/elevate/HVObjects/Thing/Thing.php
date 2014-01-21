@@ -125,8 +125,10 @@ class Thing
      */
     public function getEffDateAsString()
     {
-        return $this->effDate->format('Y-m-d\TH:i:s');
+        $effDate = (!empty($this->effDate)) ? ($this->effDate->format('Y-m-d\TH:i:s')) : $this->effDate;
+        return $effDate;
     }
+
 
 
     /**
