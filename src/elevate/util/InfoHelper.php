@@ -35,19 +35,19 @@ class InfoHelper {
         return $info;
     }
 
-    static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
-        $filter = new ThingFilterSpec($typeId, $xpath);
+        $filter = new ThingFilterSpec($typeId, $xpath,$startRangeDate, $endRangeDate);
         $format = new ThingFormatSpec(array('core', 'audits'));
 
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
         return $group;
     }
 
-    static function getHVRequestGroupForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
-        return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath);
+        return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath,$startRangeDate, $endRangeDate );
     }
 
     static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null, $xpath = null)
@@ -83,15 +83,15 @@ class InfoHelper {
         return $group;
     }
 
-    static function getHVRequestGroupForBase64ThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForBase64ThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
-        return self::getHVRequestGroupForBase64TypeId($typeId, $maxItems, $groupName, $xpath);
+        return self::getHVRequestGroupForBase64TypeId($typeId, $maxItems, $groupName, $xpath, $startRangeDate, $endRangeDate);
     }
 
-    static function getHVRequestGroupForBase64TypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForBase64TypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
-        $filter = new ThingFilterSpec($typeId, $xpath);
+        $filter = new ThingFilterSpec($typeId, $xpath, $startRangeDate, $endRangeDate);
         $format = new ThingFormatSpec(array('otherdata'));
 
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
