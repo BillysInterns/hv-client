@@ -38,6 +38,69 @@ class Extension
     public  $repeat;
 
     /**
+     * @Type("string")
+     */
+    public $domain;
+
+    /**
+     * @Type("string")
+     */
+    public $subdomain;
+
+    /**
+     * @Type("boolean")
+     */
+    public $favorite;
+
+    /**
+     * @Type("boolean")
+     */
+    public  $importance;
+
+    function __construct(
+        $importance = NULL, $repeat = NULL, $source = NULL, $favorite = NULL, $domain = NULL, $subdomain = NULL)
+    {
+        $this->importance = $importance;
+        $this->repeat     = $repeat;
+        $this->source     = $source;
+        $this->favorite   = $favorite;
+        $this->domain     = $domain;
+        $this->subdomain  = $subdomain;
+    }
+
+    /**
+     * @param mixed $domain
+     */
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDomain()
+    {
+        return $this->domain;
+    }
+
+    /**
+     * @param mixed $subdomain
+     */
+    public function setSubdomain($subdomain)
+    {
+        $this->subdomain = $subdomain;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubdomain()
+    {
+        return $this->subdomain;
+    }
+
+    /**
      * @param mixed $favorite
      */
     public function setFavorite($favorite)
@@ -51,24 +114,6 @@ class Extension
     public function getFavorite()
     {
         return $this->favorite;
-    }
-
-    /**
-     * @Type("boolean")
-     */
-    public $favorite;
-
-    /**
-     * @Type("boolean")
-     */
-    public  $importance;
-
-    function __construct($importance = NULL, $repeat = NULL, $source = NULL, $favorite = NULL)
-    {
-        $this->importance = $importance;
-        $this->repeat     = $repeat;
-        $this->source     = $source;
-        $this->favorite   = $favorite;
     }
 
     /**
