@@ -18,7 +18,9 @@ use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\DataXML\Type\HealthJournalEntryType;
 use elevate\HVObjects\Generic\Common;
 
-/** @XmlRoot("health-journal-entry") */
+/** @XmlRoot("health-journal-entry")
+ * @AccessorOrder("custom", custom = {"healthJournalEntry", "common"})
+ */
 class HealthJournalEntryDataXML extends DataXML
 {
     /**

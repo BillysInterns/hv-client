@@ -51,9 +51,9 @@ class HealthJournalEntryType
     }
 
     /**
-     * @param CodableValue $category
+     * @param $category
      */
-    public function setCategory(CodableValue $category)
+    public function setCategory($category)
     {
         $this->category = $category;
     }
@@ -83,9 +83,9 @@ class HealthJournalEntryType
     }
 
     /**
-     * @param ApproxDateTime $when
+     * @param $when
      */
-    public function setWhen(ApproxDateTime $when)
+    public function setWhen($when)
     {
         $this->when = $when;
     }
