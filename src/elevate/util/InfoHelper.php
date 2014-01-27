@@ -54,8 +54,16 @@ class InfoHelper {
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
 
-        $formattedStartDate = date("Y-m-d",strtotime($startDate)) . 'T' . date("H:i:s",strtotime($startDate));
-        $formattedEndDate = date("Y-m-d",strtotime($endDate)) . 'T' . date("H:i:s",strtotime($endDate));
+        $formattedStartDate = $formattedEndDate = null;
+
+        if ( !empty($startDate) )
+        {
+            $formattedStartDate = date("Y-m-d",strtotime($startDate)) . 'T' . date("H:i:s",strtotime($startDate));
+        }
+        if ( !empty($endDate) )
+        {
+            $formattedEndDate = date("Y-m-d",strtotime($endDate)) . 'T' . date("H:i:s",strtotime($endDate));
+        }
 
         $filter = new ThingFilterSpec($typeId, null, $formattedStartDate, $formattedEndDate );
         $format = new ThingFormatSpec(array('core', 'audits'));
