@@ -35,7 +35,7 @@ class InfoHelper {
         return $info;
     }
 
-    static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
+    static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $filter = new ThingFilterSpec($typeId, $xpath,$startRangeDate, $endRangeDate);
         $format = new ThingFormatSpec(array('core', 'audits'));
