@@ -2,11 +2,6 @@
 <thing>
     <type-id><![CDATA[21d75546-8717-4deb-8b17-a57f48917790]]></type-id>
     <data-xml>
-        <common>
-            <source><![CDATA[Unit Test]]></source>
-            <note><![CDATA[Health Journal Entry Note]]></note>
-            <tags><![CDATA[Some tags]]></tags>
-        </common>
         <health-journal-entry>
             <when>
                 <structured>
@@ -38,5 +33,10 @@
                 </code>
             </category>
         </health-journal-entry>
+        <common>
+            <source><![CDATA[Unit Test]]></source>
+            <note><![CDATA[Health Journal Entry Note]]></note>
+            <tags><![CDATA[Some tags]]></tags>
+        </common>
     </data-xml>
 </thing>

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <health-journal-entry>
-    <common>
-        <source><![CDATA[Unit Test]]></source>
-        <note><![CDATA[Health Journal Entry Note]]></note>
-        <tags><![CDATA[Some tags]]></tags>
-    </common>
     <health-journal-entry>
         <when>
             <structured>
@@ -36,4 +31,9 @@
             </code>
         </category>
     </health-journal-entry>
+    <common>
+        <source><![CDATA[Unit Test]]></source>
+        <note><![CDATA[Health Journal Entry Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
 </health-journal-entry>

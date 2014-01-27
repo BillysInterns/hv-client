@@ -2,7 +2,7 @@
 <thing>
     <type-id><![CDATA[4b7971d6-e427-427d-bf2c-2fbcf76606b3]]></type-id>
     <data-xml>
-        <emotionalStateType>
+        <emotion>
             <when>
                 <date>
                     <y>2013</y>
@@ -26,7 +26,7 @@
             <mood>3</mood>
             <stress>4</stress>
             <wellbeing>1</wellbeing>
-        </emotionalStateType>
+        </emotion>
         <common>
             <source><![CDATA[EmotionalState Test]]></source>
             <note><![CDATA[EmotionalState Note]]></note>
