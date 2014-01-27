@@ -35,22 +35,22 @@ class InfoHelper {
         return $info;
     }
 
-    static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
-        $filter = new ThingFilterSpec($typeId, $xpath);
+        $filter = new ThingFilterSpec($typeId, $xpath,$startRangeDate, $endRangeDate);
         $format = new ThingFormatSpec(array('core', 'audits'));
 
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
         return $group;
     }
 
-    static function getHVRequestGroupForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
-        return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath);
+        return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath,$startRangeDate, $endRangeDate );
     }
 
-    static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null)
+    static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null, $xpath = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
 
@@ -65,7 +65,7 @@ class InfoHelper {
             $formattedEndDate = date("Y-m-d",strtotime($endDate)) . 'T' . date("H:i:s",strtotime($endDate));
         }
 
-        $filter = new ThingFilterSpec($typeId, null, $formattedStartDate, $formattedEndDate );
+        $filter = new ThingFilterSpec($typeId, $xpath, $formattedStartDate, $formattedEndDate );
         $format = new ThingFormatSpec(array('core', 'audits'));
 
         return new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
@@ -75,25 +75,31 @@ class InfoHelper {
     {
         $group = new RequestGroup();
 
+        $formattedStartDate = date("Y-m-d",strtotime("1900-01-01")) . 'T' . date("H:i:s",strtotime("1900-01-01"));
+        $formattedEndDate = date("Y-m-d",strtotime("2100-01-01")) . 'T' . date("H:i:s",strtotime("2100-01-01"));
+
+
         $format = new ThingFormatSpec(array('core', 'audits'));
+        $filter = new ThingFilterSpec(null, null, $formattedStartDate, $formattedEndDate);
 
         $group->setCurrentVersionOnly(false);
         $group->setFormat($format);
+        $group->setFilter($filter);
         $group->setIds($ids);
         $group->setMax($maxItems);
         $group->setName($groupName);
         return $group;
     }
 
-    static function getHVRequestGroupForBase64ThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForBase64ThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
-        return self::getHVRequestGroupForBase64TypeId($typeId, $maxItems, $groupName, $xpath);
+        return self::getHVRequestGroupForBase64TypeId($typeId, $maxItems, $groupName, $xpath, $startRangeDate, $endRangeDate);
     }
 
-    static function getHVRequestGroupForBase64TypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForBase64TypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
-        $filter = new ThingFilterSpec($typeId, $xpath);
+        $filter = new ThingFilterSpec($typeId, $xpath, $startRangeDate, $endRangeDate);
         $format = new ThingFormatSpec(array('otherdata'));
 
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);

@@ -33,6 +33,28 @@ class Repeat
      */
     public $endDate;
 
+    /**
+     * @Type("string")
+     * @SerializedName("original-date")
+     */
+    public $originalDate;
+
+    /**
+     * @param mixed $originalDate
+     */
+    public function setOriginalDate($originalDate)
+    {
+        $this->originalDate = $originalDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOriginalDate()
+    {
+        return $this->originalDate;
+    }
+
 
     function __construct($endDate = NULL, $interval = NULL )
     {
