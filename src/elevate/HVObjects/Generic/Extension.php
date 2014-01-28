@@ -47,23 +47,12 @@ class Extension
      */
     public $subdomain;
 
-    /**
-     * @Type("boolean")
-     */
-    public $favorite;
-
-    /**
-     * @Type("boolean")
-     */
-    public  $importance;
 
     function __construct(
-        $importance = NULL, $repeat = NULL, $source = NULL, $favorite = NULL, $domain = NULL, $subdomain = NULL)
+        $repeat = NULL, $source = NULL, $domain = NULL, $subdomain = NULL)
     {
-        $this->importance = $importance;
         $this->repeat     = $repeat;
         $this->source     = $source;
-        $this->favorite   = $favorite;
         $this->domain     = $domain;
         $this->subdomain  = $subdomain;
     }
@@ -101,22 +90,6 @@ class Extension
     }
 
     /**
-     * @param mixed $favorite
-     */
-    public function setFavorite($favorite)
-    {
-        $this->favorite = $favorite;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFavorite()
-    {
-        return $this->favorite;
-    }
-
-    /**
      * @param mixed $source
      */
     public function setSource($source)
@@ -130,22 +103,6 @@ class Extension
     public function getSource()
     {
         return $this->source;
-    }
-
-    /**
-     * @param mixed $importance
-     */
-    public function setImportance($importance)
-    {
-        $this->importance = $importance;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImportance()
-    {
-        return $this->importance;
     }
 
     /**
