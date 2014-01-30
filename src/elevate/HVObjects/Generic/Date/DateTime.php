@@ -37,21 +37,6 @@ class DateTime {
      */
     protected $tz;
 
-    /**
-     * @param mixed $tz
-     */
-    public function setTz($tz)
-    {
-        $this->tz = $tz;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTz()
-    {
-        return $this->tz;
-    }
 
     /**
      * @param $date
@@ -97,5 +82,20 @@ class DateTime {
         return $this->time;
     }
 
+    /**
+     * @param mixed $tz
+     */
+    public function setTz($tz)
+    {
+        $this->tz = $tz;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTz()
+    {
+        return $this->tz;
+    }
 
 }

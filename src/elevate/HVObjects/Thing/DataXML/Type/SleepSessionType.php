@@ -9,6 +9,7 @@
 
 namespace elevate\HVObjects\Thing\DataXML\Type;
 
+use elevate\HVObjects\Generic\Date\DateTime;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -204,7 +205,7 @@ class SleepSessionType
     }
 
     /**
-     * @param mixed $when
+     * @param DateTime $when
      */
     public function setWhen($when)
     {
@@ -212,7 +213,7 @@ class SleepSessionType
     }
 
     /**
-     * @return mixed
+     * @return elevate\HVObjects\Generic\Date\DateTime
      */
     public function getWhen()
     {

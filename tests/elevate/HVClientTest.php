@@ -19,6 +19,7 @@ use elevate\HVObjects\Generic\Date\DateTime;
 use elevate\HVObjects\Generic\LengthValue;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\Time;
+use Mentis\BaseBundle\Factory\HealthVault\BaseFactory;
 
 class HVClientTest extends BaseTest
 {
@@ -267,10 +268,8 @@ class HVClientTest extends BaseTest
         $display = new Display('feet', '75');
         $value = new LengthValue('50', $display);
 
-        $date = new Date('2043', '12', '10');
-        $time = new Time('10', '45', '20');
+        $when = BaseFactory::convertPhpDateTimeToHvDateTime(new \DateTime());
 
-        $when = new DateTime($date,$time);
         $heightType = new HeightType($when, $value);
         $heightDataXML = new HeightDataXML($heightType);
         $thing = new HeightMeasurement($heightDataXML);
