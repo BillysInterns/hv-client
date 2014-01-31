@@ -129,4 +129,180 @@ class Immunization2Type
         $this->route = $route;
         $this->sequence = $sequence;
     }
+
+    /**
+     * @param mixed $administrationDate
+     */
+    public function setAdministrationDate($administrationDate)
+    {
+        $this->administrationDate = $administrationDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdministrationDate()
+    {
+        return $this->administrationDate;
+    }
+
+    /**
+     * @param mixed $administrator
+     */
+    public function setAdministrator($administrator)
+    {
+        $this->administrator = $administrator;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdministrator()
+    {
+        return $this->administrator;
+    }
+
+    /**
+     * @param mixed $adverseEvent
+     */
+    public function setAdverseEvent($adverseEvent)
+    {
+        $this->adverseEvent = $adverseEvent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdverseEvent()
+    {
+        return $this->adverseEvent;
+    }
+
+    /**
+     * @param mixed $anatomicSurface
+     */
+    public function setAnatomicSurface($anatomicSurface)
+    {
+        $this->anatomicSurface = $anatomicSurface;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnatomicSurface()
+    {
+        return $this->anatomicSurface;
+    }
+
+    /**
+     * @param mixed $consent
+     */
+    public function setConsent($consent)
+    {
+        $this->consent = $consent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConsent()
+    {
+        return $this->consent;
+    }
+
+    /**
+     * @param mixed $expirationDate
+     */
+    public function setExpirationDate($expirationDate)
+    {
+        $this->expirationDate = $expirationDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExpirationDate()
+    {
+        return $this->expirationDate;
+    }
+
+    /**
+     * @param mixed $lot
+     */
+    public function setLot($lot)
+    {
+        $this->lot = $lot;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLot()
+    {
+        return $this->lot;
+    }
+
+    /**
+     * @param mixed $manufacturer
+     */
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $route
+     */
+    public function setRoute($route)
+    {
+        $this->route = $route;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRoute()
+    {
+        return $this->route;
+    }
+
+    /**
+     * @param mixed $sequence
+     */
+    public function setSequence($sequence)
+    {
+        $this->sequence = $sequence;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSequence()
+    {
+        return $this->sequence;
+    }
 } 

@@ -31,4 +31,36 @@ class WeightType
         $this->when = $when;
         $this->value = $value;
     }
+
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param mixed $when
+     */
+    public function setWhen($when)
+    {
+        $this->when = $when;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhen()
+    {
+        return $this->when;
+    }
 } 

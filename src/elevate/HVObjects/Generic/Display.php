@@ -36,4 +36,36 @@ class Display
         $this->display = $display;
         return $this;
     }
+
+    /**
+     * @param mixed $display
+     */
+    public function setDisplay($display)
+    {
+        $this->display = $display;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
+     * @param mixed $units
+     */
+    public function setUnits($units)
+    {
+        $this->units = $units;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
 } 
