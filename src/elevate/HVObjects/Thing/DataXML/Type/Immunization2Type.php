@@ -114,7 +114,7 @@ class Immunization2Type
                          CodableValue $manufacturer = NULL,
                          CodableValue $name = NULL,
                          CodableValue $route = NULL,
-                         $sequence
+                         $sequence = NULL
     )
     {
         $this->administrationDate = $administrationDate;
