@@ -200,7 +200,7 @@ class Thing
     }
 
     /**
-     * @return mixed
+     * @return Created
      */
     public function getCreated()
     {

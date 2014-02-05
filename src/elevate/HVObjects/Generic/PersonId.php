@@ -50,7 +50,7 @@ class PersonId
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getId()
     {
@@ -69,7 +69,7 @@ class PersonId
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {

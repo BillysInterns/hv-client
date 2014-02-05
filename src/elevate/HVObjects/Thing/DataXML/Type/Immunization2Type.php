@@ -104,17 +104,17 @@ class Immunization2Type
     * @param CodableValue $route
     */
     function __construct(
-                         ApproxDateTime $administrationDate = NULL,
-                         Person $administrator = NULL,
+                         $administrationDate = NULL,
+                         $administrator = NULL,
                          $adverseEvent = NULL,
-                         CodableValue $anatomicSurface = NULL,
+                         $anatomicSurface = NULL,
                          $consent = NULL,
-                         ApproxDate $expirationDate = NULL,
+                         $expirationDate = NULL,
                          $lot = NULL,
-                         CodableValue $manufacturer = NULL,
-                         CodableValue $name = NULL,
-                         CodableValue $route = NULL,
-                         $sequence
+                         $manufacturer = NULL,
+                         $name = NULL,
+                         $route = NULL,
+                         $sequence = NULL
     )
     {
         $this->administrationDate = $administrationDate;

@@ -73,7 +73,7 @@ class Created
     }
 
     /**
-     * @return mixed
+     * @return PersonId
      */
     public function getPersonId()
     {
