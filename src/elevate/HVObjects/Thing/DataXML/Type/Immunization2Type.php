@@ -111,9 +111,9 @@ class Immunization2Type
                          $consent = NULL,
                          $expirationDate = NULL,
                          $lot = NULL,
-                         $manufacturer = NULL,
-                         $name = NULL,
-                         $route = NULL,
+                         CodableValue $manufacturer = NULL,
+                         CodableValue $name = NULL,
+                         CodableValue $route = NULL,
                          $sequence = NULL
     )
     {
