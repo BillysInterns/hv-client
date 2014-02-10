@@ -94,7 +94,7 @@ class PrescriptionTest extends BaseObjectTest
         $codedValue            = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
         $instructions      = new CodableValue('Code', array($codedValue));
 
-        self::$testObject = new Prescription($amountPrescribed, $datePrescribed, $daysSupply, $instructions, $prescribedBy, $prescriptionExpiration, $refills, $substitution);
+        self::$testObject = new Prescription($prescribedBy, $amountPrescribed, $datePrescribed, $daysSupply, $instructions, $prescriptionExpiration, $refills, $substitution);
 
         parent::setUpBeforeClass();
     }

@@ -116,7 +116,7 @@ class ResponseGroupTest extends BaseObjectTest
         $prescriptionExpiration = new Date('2013', '12', '25');
         $codedValue            = new CodedValue('5', 'Value Test', array('Test Suite'), array('Version 4'));
         $instructions      = new CodableValue('Code', array($codedValue));
-        $prescription = new Prescription($amountPrescribed, $datePrescribed, $daysSupply, $instructions, $prescribedBy, $prescriptionExpiration, $refills, $substitution);
+        $prescription = new Prescription($prescribedBy, $amountPrescribed, $datePrescribed, $daysSupply, $instructions, $prescriptionExpiration, $refills, $substitution);
         $unitCode = new CodedValue('lbs.', 'weight type', array('weight units'), array('Version 1'));
         $units = new CodableValue('pounds', array($unitCode));
         $measurement = new StructuredMeasurement('47', $units);

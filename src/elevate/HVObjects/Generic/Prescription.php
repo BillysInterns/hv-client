@@ -73,11 +73,11 @@ class Prescription {
     protected $instructions;
 
     function __construct(
+        $prescribedBy,
         $amountPrescribed= NULL,
         $datePrescribed= NULL,
         $daysSupply= NULL,
         $instructions= NULL,
-        $prescribedBy,
         $prescriptionExpiration= NULL,
         $refills= NULL,
         $substitution= NULL
