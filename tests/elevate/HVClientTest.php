@@ -268,7 +268,7 @@ class HVClientTest extends BaseTest
         $display = new Display('feet', '75');
         $value = new LengthValue('50', $display);
 
-        $when = BaseFactory::convertPhpDateTimeToHvDateTime(new \DateTime());
+        $when = HVClientHelper::convertPhpDateTimeToHvDateTime(new \DateTime());
 
         $heightType = new HeightType($when, $value);
         $heightDataXML = new HeightDataXML($heightType);

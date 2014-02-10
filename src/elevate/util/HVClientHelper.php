@@ -7,6 +7,9 @@
 
 namespace elevate\util;
 
+use elevate\HVObjects\Generic\CodableValue;
+use elevate\HVObjects\Generic\Date\DateTime;
+use elevate\HVObjects\Generic\Date\Time;
 use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\Serializer\XmlObjectDeserializationVisitor;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
@@ -18,6 +21,7 @@ use elevate\TypeTranslator;
 use JMS\Serializer\SerializerBuilder;
 use elevate\HVObjects\MethodObjects\ResponseGroup;
 use JMS\Serializer\SerializationContext;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Class HVClientHelper
@@ -87,6 +91,55 @@ class HVClientHelper {
         }
 
         return $response;
+    }
+
+    /**
+     * Takes PHP DateTime object and converts to Healthvault DateTime object
+     * @param $dt
+     *
+     * @return DateTime
+     */
+    public static function convertPhpDateTimeToHvDateTime( $dt )
+    {
+        $date = new DateTime(
+            self::convertPhpDateTimeToHvDate($dt),
+            self::convertPhpDateTimeToHvTime($dt),
+            new CodableValue(
+                $dt->getTimezone()->getName()
+            )
+        );
+        return $date;
+    }
+
+    /**
+     * Takes PHP DateTime object and converts to Healthvault Date object
+     * @param $dt
+     *
+     * @return Date
+     */
+    public static function convertPhpDateTimeToHvDate( $dt )
+    {
+        return new Date(
+            $dt->format('Y'),
+            $dt->format('m'),
+            $dt->format('d')
+        );
+    }
+
+    /**
+     * Takes PHP DateTime object and converts to HealthVault Time object
+     * @param $dt
+     *
+     * @return DateTime
+     */
+    public static function convertPhpDateTimeToHvTime(\DateTime $dt )
+    {
+        return new Time(
+            $dt->format('H'),
+            $dt->format('i'),
+            $dt->format('s'),
+            $dt->format('u')
+        );
     }
 
 }
