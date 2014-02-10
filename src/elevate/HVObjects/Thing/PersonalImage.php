@@ -24,7 +24,7 @@ class PersonalImage extends Thing
     protected $dataXML;
 
     /**
-     * @Type("string")
+     * @Type("elevate\HVObjects\Generic\DataOther")
      * @serializedName("data-other")
      */
     protected $dataOther;
