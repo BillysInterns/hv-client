@@ -21,7 +21,7 @@ use elevate\TypeTranslator;
 use JMS\Serializer\SerializerBuilder;
 use elevate\HVObjects\MethodObjects\ResponseGroup;
 use JMS\Serializer\SerializationContext;
-use Symfony\Component\Validator\Constraints\Date;
+use elevate\HVObjects\Generic\Date\Date;
 
 /**
  * Class HVClientHelper
