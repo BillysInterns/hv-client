@@ -22,7 +22,7 @@ use elevate\HVObjects\Generic\CodableValue;
 class DateTime {
 
     /**
-     * @var elevate\HVObjects\Generic\Date\Date
+     * @var \elevate\HVObjects\Generic\Date\Date
      * @Type("elevate\HVObjects\Generic\Date\Date")
      */
     protected $date;

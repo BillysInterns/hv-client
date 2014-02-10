@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <type-id><![CDATA[a5033c9d-08cf-4204-9bd3-cb412ce39fc0]]></type-id>
+    <data-xml>
+        <application-specific-information>
+            <format-app-id><![CDATA[TESTAppId]]></format-app-id>
+            <format-tag><![CDATA[TestTag]]></format-tag>
+            <when>
+                <date>
+                    <y>2014</y>
+                    <m>1</m>
+                    <d>15</d>
+                </date>
+                <time>
+                    <h>4</h>
+                    <m>0</m>
+                    <s>0</s>
+                    <f>0</f>
+                </time>
+            </when>
+            <summary><![CDATA[CamelCasedSentencesAreReallyCool]]></summary>
+            <school-year>
+                <grade><![CDATA[1st grade]]></grade>
+                <teacher><![CDATA[Mrs. Krabappel]]></teacher>
+                <school>
+                    <name><![CDATA[Dartmouth]]></name>
+                    <type><![CDATA[University]]></type>
+                </school>
+            </school-year>
+            <school>
+                <name><![CDATA[Dartmouth]]></name>
+                <type><![CDATA[University]]></type>
+            </school>
+        </application-specific-information>
+        <common>
+            <source><![CDATA[unit test]]></source>
+            <note><![CDATA[Appspecific]]></note>
+            <tags><![CDATA[tags]]></tags>
+        </common>
+    </data-xml>
+</thing>
