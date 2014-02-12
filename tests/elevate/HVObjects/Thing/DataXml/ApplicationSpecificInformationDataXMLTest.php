@@ -10,6 +10,10 @@ namespace elevate\test\HVObjects\Thing\DataXml;
 use elevate\HVObjects\Thing\DataXML\ApplicationSpecificInformationDataXML;
 use elevate\HVObjects\Thing\DataXML\Type\ApplicationSpecificInformationType;
 use elevate\test\HVObjects\BaseObjectTest;
+use elevate\HVObjects\Thing\DataXML\Type\SchoolType;
+use elevate\HVObjects\Thing\DataXML\Type\SchoolYearType;
+use elevate\HVObjects\Generic\Name;
+use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Date\Time;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\DateTime;
@@ -29,11 +33,22 @@ class ApplicationSpecificInformationDataXmlTest extends BaseObjectTest
         $when = new DateTime($date, $time);
         $summary = "CamelCasedSentencesAreReallyCool";
 
+        $name = "Yale";
+        $type = "university";
+        $specialty = array("law");
+        $school = new SchoolType($name, $type, $specialty);
+
+        $grade = "1st grade";
+        $teacher = new Person(new Name("Sir Derp Herpington"), NULL, "internship");
+        $schoolYear = new SchoolYearType($grade, $teacher);
+
         $applicationSpecificInformationType = new ApplicationSpecificInformationType(
             $formatAppId,
             $formatTag,
-            $when,
-            $summary
+            $school,
+            $schoolYear,
+            $summary,
+            $when
         );
 
         $common = new Common('Appspecific', 'unit test', 'tags');

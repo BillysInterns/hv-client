@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application-specific-information>
-    <format-app-id><![CDATA[TESTAppId]]></format-app-id>
+<app-specific>
+    <format-appid><![CDATA[TESTAppId]]></format-appid>
     <format-tag><![CDATA[TestTag]]></format-tag>
     <when>
         <date>
@@ -16,4 +16,18 @@
         </time>
     </when>
     <summary><![CDATA[CamelCasedSentencesAreReallyCool]]></summary>
-</application-specific-information>
+    <school>
+        <name><![CDATA[Yale]]></name>
+        <type><![CDATA[university]]></type>
+        <specialty><![CDATA[law]]></specialty>
+    </school>
+    <school-year>
+        <grade><![CDATA[1st grade]]></grade>
+        <teacher>
+            <name>
+                <full><![CDATA[Sir Derp Herpington]]></full>
+            </name>
+            <professional-training><![CDATA[internship]]></professional-training>
+        </teacher>
+    </school-year>
+</app-specific>
