@@ -29,6 +29,14 @@ class PersonalImage extends Thing
      */
     protected $dataOther;
 
+    function __construct($dataXML = NULL, $dataOther = NULL)
+    {
+        $typeID = TypeTranslator::lookupTypeID('Personal Image');
+        $this->dataXML = $dataXML;
+        $this->dataOther = $dataOther;
+        parent::__construct($dataXML, $typeID);
+    }
+
     /**
      * @param mixed $dataOther
      */
@@ -60,16 +68,4 @@ class PersonalImage extends Thing
     {
         return $this->dataXML;
     }
-
-
-
-    function __construct($dataXML = NULL, $dataOther = NULL)
-    {
-        $typeID = TypeTranslator::lookupTypeID('Personal Image');
-        $this->dataXML = $dataXML;
-        $this->dataOther = $dataOther;
-        parent::__construct($dataXML, $typeID);
-    }
-
-
 } 

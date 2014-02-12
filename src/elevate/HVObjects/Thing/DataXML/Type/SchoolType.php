@@ -4,7 +4,7 @@
  * @author jonfor
  */
 
-namespace elevate\HVObjects\Generic;
+namespace elevate\HVObjects\Thing\DataXML\Type;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -13,22 +13,26 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use Doctrine\Common\Collections\ArrayCollection;
 
-class School
+/** @XmlRoot("school") */
+class SchoolType
 {
     /**
      * @Type("string")
+     * @SerializedName("name")
      */
     protected $name;
 
     /**
      * @Type("string")
+     * @SerializedName("type")
      */
     protected $type;
 
     /**
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="related-thing")
+     * @XmlList(inline=true, entry="specialty")
      */
     protected $specialty;
 
@@ -40,7 +44,7 @@ class School
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -48,7 +52,7 @@ class School
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -72,7 +76,7 @@ class School
     }
 
     /**
-     * @param mixed $type
+     * @param string $type
      */
     public function setType($type)
     {
@@ -80,7 +84,7 @@ class School
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getType()
     {

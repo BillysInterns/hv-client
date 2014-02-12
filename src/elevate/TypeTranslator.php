@@ -137,6 +137,7 @@ class TypeTranslator
         {
             $flippedThingArray = array_flip(self::$things);
             $flippedThingArray = str_replace(' ', '', $flippedThingArray);
+            $flippedThingArray = str_replace('-', '', $flippedThingArray);
             $flippedThingArray = array_flip($flippedThingArray);
 
             if (isset($flippedThingArray[$typeName]))
@@ -170,18 +171,22 @@ class TypeTranslator
         if ($stripCharacters)
         {
             return str_replace(
-                '#(v',
+                '-',
                 '',
-                str_replace(
-                    ')',
-                    '',
                     str_replace(
-                        ' ',
-                        '',
-                        $flippedThingArray[$typeID]
+                    '#(v',
+                    '',
+                        str_replace(
+                            ')',
+                            '',
+                            str_replace(
+                                ' ',
+                                '',
+                                $flippedThingArray[$typeID]
+                            )
+                        )
                     )
-                )
-            );
+                );
         }
         //Otherwise, just return the type name
         else

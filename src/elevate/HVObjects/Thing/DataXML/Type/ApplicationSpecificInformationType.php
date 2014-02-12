@@ -4,8 +4,6 @@
  */
 namespace elevate\HVObjects\Thing\DataXML\Type;
 
-use elevate\HVObjects\Generic\School;
-use elevate\HVObjects\Generic\SchoolYear;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -16,12 +14,12 @@ use JMS\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use elevate\HVObjects\Generic\Date\DateTime;
 
-/** @XmlRoot("application-specific-information") */
+/** @XmlRoot("app-specific") */
 class ApplicationSpecificInformationType
 {
     /**
      * @Type("string")
-     * @SerializedName("format-app-id")
+     * @SerializedName("format-appid")
      */
     protected $formatAppId;
 
@@ -44,33 +42,27 @@ class ApplicationSpecificInformationType
     protected $summary;
 
     /**
-     * @Type("elevate\HVObjects\Generic\SchoolYear")
-     * @SerializedName("school-year")
-     */
-    protected $schoolYear;
-
-    /**
-     * @Type("elevate\HVObjects\Generic\School")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\SchoolType")
      * @SerializedName("school")
      */
     protected $school;
 
-    function __construct(
-        $formatAppId = NULL,
-        $formatTag = NULL,
-        DateTime $when = NULL,
-        $summary = NULL,
-        SchoolYear $schoolYear = NULL,
-        School $school = NULL
-    )
+    /**
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\SchoolYearType")
+     * @SerializedName("school-year")
+     */
+    protected $schoolYear;
+
+    function __construct($formatAppId, $formatTag, $school, $schoolYear, $summary, $when)
     {
         $this->formatAppId = $formatAppId;
         $this->formatTag = $formatTag;
-        $this->when = $when;
-        $this->summary = $summary;
-        $this->schoolYear = $schoolYear;
         $this->school = $school;
+        $this->schoolYear = $schoolYear;
+        $this->summary = $summary;
+        $this->when = $when;
     }
+
 
     /**
      * @param string $formatAppId
@@ -137,7 +129,7 @@ class ApplicationSpecificInformationType
     }
 
     /**
-     * @param School $school
+     * @param mixed $school
      */
     public function setSchool($school)
     {
@@ -145,7 +137,7 @@ class ApplicationSpecificInformationType
     }
 
     /**
-     * @return School
+     * @return mixed
      */
     public function getSchool()
     {
@@ -153,7 +145,7 @@ class ApplicationSpecificInformationType
     }
 
     /**
-     * @param SchoolYear $schoolYear
+     * @param mixed $schoolYear
      */
     public function setSchoolYear($schoolYear)
     {
@@ -161,12 +153,10 @@ class ApplicationSpecificInformationType
     }
 
     /**
-     * @return SchoolYear SchoolYear
+     * @return mixed
      */
     public function getSchoolYear()
     {
         return $this->schoolYear;
     }
-
-
 }

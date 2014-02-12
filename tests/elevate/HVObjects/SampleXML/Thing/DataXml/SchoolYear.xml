@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <school-year>
+        <grade><![CDATA[1st grade]]></grade>
+        <teacher>
+            <name>
+                <full><![CDATA[Sir Derp Herpington]]></full>
+            </name>
+            <professional-training><![CDATA[autism]]></professional-training>
+        </teacher>
+    </school-year>
+    <common>
+        <source><![CDATA[unit test]]></source>
+        <note><![CDATA[Appspecific]]></note>
+        <tags><![CDATA[tags]]></tags>
+    </common>
+</result>

@@ -12,8 +12,6 @@ use elevate\HVObjects\Thing\DataXML\Type\ApplicationSpecificInformationType;
 use elevate\HVObjects\Generic\Date\DateTime;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Date\Time;
-use elevate\HVObjects\Generic\School;
-use elevate\HVObjects\Generic\SchoolYear;
 use elevate\HVObjects\Generic\Common;
 
 class ApplicationSpecificInformationTest extends BaseObjectTest
@@ -29,16 +27,12 @@ class ApplicationSpecificInformationTest extends BaseObjectTest
         $time = new Time(4, 0, 0, 0);
         $when = new DateTime($date, $time);
         $summary = "CamelCasedSentencesAreReallyCool";
-        $school = new School("Dartmouth", "University");
-        $schoolYear = new SchoolYear("1st grade", "Mrs. Krabappel", $school);
 
         $applicationSpecificInformationType = new ApplicationSpecificInformationType(
             $formatAppId,
             $formatTag,
             $when,
-            $summary,
-            $schoolYear,
-            $school
+            $summary
         );
 
         $common = new Common('Appspecific', 'unit test', 'tags');

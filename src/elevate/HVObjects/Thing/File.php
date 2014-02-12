@@ -25,9 +25,17 @@ class File extends Thing
      */
     protected $dataXML;
 
-    function __construct($dataXML = NULL)
+    /**
+     * @Type("elevate\HVObjects\Generic\DataOther")
+     * @serializedName("data-other")
+     */
+    protected $dataOther;
+
+    function __construct($dataXML = NULL, $dataOther = NULL)
     {
         $typeID = TypeTranslator::lookupTypeID('File');
+        $this->dataXML = $dataXML;
+        $this->dataOther = $dataOther;
         parent::__construct($dataXML,$typeID);
     }
 
@@ -47,4 +55,22 @@ class File extends Thing
     {
         return $this->dataXML;
     }
+
+    /**
+     * @param mixed $dataOther
+     */
+    public function setDataOther($dataOther)
+    {
+        $this->dataOther = $dataOther;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDataOther()
+    {
+        return $this->dataOther;
+    }
+
+
 }

@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @author jonfor
  */
-
-namespace elevate\HVObjects\Generic;
+namespace elevate\HVObjects\Thing\DataXML\Type;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
@@ -13,9 +11,12 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use Doctrine\Common\Collections\ArrayCollection;
 
+use \elevate\HVObjects\Generic\Person;
 
-class SchoolYear
+/** @XmlRoot("school-year") */
+class SchoolYearType
 {
     /**
      * @Type("string")
@@ -23,20 +24,14 @@ class SchoolYear
     protected $grade;
 
     /**
-     * @Type("string")
+     * @Type("elevate\HVObjects\Generic\Person")
      */
     protected $teacher;
 
-    /**
-     * @Type("elevate\HVObjects\Generic\School")
-     */
-    protected $school;
-
-    public function __construct($grade = NULL, $teacher = NULL, $school = NULL)
+    public function __construct($grade = NULL, $teacher = NULL)
     {
         $this->grade = $grade;
         $this->teacher = $teacher;
-        $this->school = $school;
     }
 
     /**
@@ -56,7 +51,7 @@ class SchoolYear
     }
 
     /**
-     * @param string $teacher
+     * @param Person $teacher
      */
     public function setTeacher($teacher)
     {
@@ -70,22 +65,4 @@ class SchoolYear
     {
         return $this->teacher;
     }
-
-    /**
-     * @param mixed $school
-     */
-    public function setSchool($school)
-    {
-        $this->school = $school;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSchool()
-    {
-        return $this->school;
-    }
-
-
 }

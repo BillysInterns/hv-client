@@ -30,7 +30,7 @@ class ApplicationSpecificInformationDataXML extends DataXML
 {
     /**
      * @Type("elevate\HVObjects\Thing\DataXML\Type\ApplicationSpecificInformationType")
-     * @SerializedName("application-specific-information")
+     * @SerializedName("app-specific")
      */
     protected $applicationSpecificInformation;
 
@@ -43,7 +43,7 @@ class ApplicationSpecificInformationDataXML extends DataXML
     /**
      * @param mixed $applicationSpecificInformation
      */
-    public function setApplicationSpecificInformation($applicationSpecificInformation)
+    public function setType($applicationSpecificInformation)
     {
         $this->applicationSpecificInformation = $applicationSpecificInformation;
     }
@@ -51,7 +51,7 @@ class ApplicationSpecificInformationDataXML extends DataXML
     /**
      * @return mixed
      */
-    public function getApplicationSpecificInformation()
+    public function getType()
     {
         return $this->applicationSpecificInformation;
     }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <school>
+        <name><![CDATA[Dartmouth]]></name>
+        <type><![CDATA[university]]></type>
+        <specialty><![CDATA[autism]]></specialty>
+    </school>
+    <common>
+        <source><![CDATA[unit test]]></source>
+        <note><![CDATA[Appspecific]]></note>
+        <tags><![CDATA[tags]]></tags>
+    </common>
+</result>
