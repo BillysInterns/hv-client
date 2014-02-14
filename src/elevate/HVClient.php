@@ -176,8 +176,12 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         if ($this->isConnected())
         {
             //make the request
+            $start = microtime(true);
             $this->connector->makeRequest($method, $version, $xml, array('record-id' => $this->recordId), $this->personId);
-            return $this->connector->getRawResponse();
+            $end = microtime(true);
+            $rawResponse = $this->connector->getRawResponse();
+            $this->logger->debug("HV Call Time (sec): " . round($end-$start,1));
+            return $rawResponse;
         }
         else
         {
