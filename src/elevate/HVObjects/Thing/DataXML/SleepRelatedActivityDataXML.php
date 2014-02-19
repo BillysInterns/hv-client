@@ -32,7 +32,7 @@ use elevate\HVObjects\Generic\Common;
  * @package elevate\HVObjects\Thing\DataXML
  * @AccessorOrder("custom", custom = {"sleepRelatedActivity", "common"})
  */
-class SleepRelatedActivityDataXml extends DataXML
+class SleepRelatedActivityDataXML extends DataXML
 {
 
     /**
