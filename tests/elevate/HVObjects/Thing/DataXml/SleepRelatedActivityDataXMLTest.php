@@ -14,7 +14,7 @@ use elevate\HVObjects\Generic\Date\DateTime;
 use elevate\HVObjects\Generic\Activity;
 use elevate\HVObjects\Thing\DataXML\Type\SleepRelatedActivityType;
 use elevate\HVObjects\Generic\Common;
-use elevate\HVObjects\Thing\DataXML\SleepRelatedActivityDataXml;
+use elevate\HVObjects\Thing\DataXML\SleepRelatedActivityDataXML;
 
 
 class SleepRelatedActivityDataXMLTest extends BaseObjectTest
