@@ -38,55 +38,56 @@ class Extension
     public  $repeat;
 
     /**
-     * @Type("string")
+     * @Type("elevate\HVObjects\Generic/SymptomInfo")
      */
-    public $domain;
+    public $symptomInfo;
 
     /**
      * @Type("string")
      */
-    public $subdomain;
+    public $appointmentAttended;
+
 
 
     function __construct(
-        $repeat = NULL, $source = NULL, $domain = NULL, $subdomain = NULL)
+        $repeat = NULL, $source = NULL, $symptomInfo = NULL, $appointmentAttended = NULL)
     {
-        $this->repeat     = $repeat;
-        $this->source     = $source;
-        $this->domain     = $domain;
-        $this->subdomain  = $subdomain;
+        $this->repeat              = $repeat;
+        $this->source              = $source;
+        $this->symptomInfo           = $symptomInfo;
+        $this->appointmentAttended = $appointmentAttended;
     }
 
     /**
-     * @param mixed $domain
+     * @param mixed $appointmentAttended
      */
-    public function setDomain($domain)
+    public function setAppointmentAttended($appointmentAttended)
     {
-        $this->domain = $domain;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDomain()
-    {
-        return $this->domain;
-    }
-
-    /**
-     * @param mixed $subdomain
-     */
-    public function setSubdomain($subdomain)
-    {
-        $this->subdomain = $subdomain;
+        $this->appointmentAttended = $appointmentAttended;
     }
 
     /**
      * @return mixed
      */
-    public function getSubdomain()
+    public function getAppointmentAttended()
     {
-        return $this->subdomain;
+        return $this->appointmentAttended;
+    }
+
+    /**
+     * @param mixed $repeat
+     */
+    public function setRepeat($repeat)
+    {
+        $this->repeat = $repeat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRepeat()
+    {
+        return $this->repeat;
     }
 
     /**
@@ -106,19 +107,19 @@ class Extension
     }
 
     /**
-     * @param mixed $repeat
+     * @param mixed $symptomInfo
      */
-    public function setRepeat($repeat)
+    public function setSymptomInfo($symptomInfo)
     {
-        $this->repeat = $repeat;
+        $this->symptomInfo = $symptomInfo;
     }
 
     /**
      * @return mixed
      */
-    public function getRepeat()
+    public function getSymptomInfo()
     {
-        return $this->repeat;
+        return $this->symptomInfo;
     }
 
 } 

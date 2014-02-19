@@ -18,8 +18,6 @@ class ExtensionTest extends BaseObjectTest
 
         self::$testObject = new Extension();
 
-        self::$testObject->setDomain($domain);
-        self::$testObject->setSubdomain($subdomain);
 
         parent::setUpBeforeClass();
     }
