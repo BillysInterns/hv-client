@@ -35,17 +35,6 @@ class SearchVocabularyInfoHelper
     }
 
     /**
-     * @param Info $info
-     * @return string
-     */
-    static function HVInfoAsXML($info)
-    {
-        $serializer = SerializerBuilder::create()->build();
-        $xml = $serializer->serialize($info, 'xml');
-        return $xml;
-    }
-
-    /**
      * Pulls out an associative array from the SearchVocabularyData
      *
      * @param $rawResponse
