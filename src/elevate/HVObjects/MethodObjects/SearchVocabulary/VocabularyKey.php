@@ -11,7 +11,11 @@ use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\AccessorOrder;
 
-/** @XmlRoot("vocabulary-key") */
+
+/**
+ * @XmlRoot("vocabulary-key")
+ * @XmlNamespace(uri="http://www.w3.org/2001/XMLSchema", prefix="xml")
+ */
 class VocabularyKey
 {
 
@@ -33,7 +37,8 @@ class VocabularyKey
     /**
      * @XmlAttribute
      * @Type("string")
-     * @SerializedName("xml:lang")
+     * @SerializedName("lang")
+     * @XmlElement(namespace="http://www.w3.org/2001/XMLSchema")
      */
     private $xmlLang = NULL;
 
@@ -44,8 +49,5 @@ class VocabularyKey
         $this->name = $name;
         $this->xmlLang = $xmlLang;
     }
-
-
-
 
 }
