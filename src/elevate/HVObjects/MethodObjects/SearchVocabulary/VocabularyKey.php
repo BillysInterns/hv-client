@@ -14,10 +14,12 @@ use JMS\Serializer\Annotation\AccessorOrder;
 
 /**
  * @XmlRoot("vocabulary-key")
- * @XmlNamespace(uri="http://www.w3.org/2001/XMLSchema", prefix="xml")
  */
 class VocabularyKey
 {
+
+    // * @XmlNamespace(uri="http://www.w3.org/2001/XMLSchema", prefix="xml")
+
 
     /**
      * @var string
@@ -34,11 +36,13 @@ class VocabularyKey
     protected $family;
 
 
+//      * @XmlElement(namespace="http://www.w3.org/2001/XMLSchema")
+
+
     /**
      * @XmlAttribute
      * @Type("string")
-     * @SerializedName("lang")
-     * @XmlElement(namespace="http://www.w3.org/2001/XMLSchema")
+     * @SerializedName("xml:lang")
      */
     private $xmlLang = NULL;
 
