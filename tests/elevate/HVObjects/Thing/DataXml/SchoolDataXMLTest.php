@@ -19,9 +19,9 @@ class SchoolDataXmlTest extends BaseObjectTest
         self::$sampleXMLPath    = __DIR__ . "/../../SampleXML/Thing/DataXml/School.xml";
         self::$objectNamespace  = 'elevate\HVObjects\Thing\DataXml\SchoolDataXML';
 
-        $schoolName = "Dartmouth";
-        $instituteType = "university";
-        $speciality = ["autism"];
+        $schoolName = 'Dartmouth';
+        $instituteType = 'university';
+        $speciality[] = 'autism';
 
         $schoolType = new SchoolType(
             $schoolName,
