@@ -35,10 +35,10 @@ class DurationValue
      */
 	protected $endDate;
 
-    function __construct($endDate = NULL, $startDate = NULL)
+    function __construct($startDate = NULL, $endDate = NULL)
     {
-        $this->endDate = $endDate;
         $this->startDate = $startDate;
+        $this->endDate = $endDate;
     }
 
     /**
