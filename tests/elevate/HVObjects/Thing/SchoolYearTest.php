@@ -20,9 +20,9 @@ class SchoolYearTest extends BaseObjectTest
         self::$sampleXMLPath    = __DIR__ . '/../SampleXML/Thing/SchoolYear.xml';
         self::$objectNamespace  = 'elevate\HVObjects\Thing\SchoolYear';
 
-        $grade = "1st grade";
-        $name = new Name("Sir Derp Herpington");
-        $person = new Person($name, NULL, "autism");
+        $grade = '1st grade';
+        $name = new Name('Sir Derp Herpington');
+        $person = new Person($name, NULL, 'autism');
 
         $schoolYearType = new SchoolYearType(
             $grade,

@@ -20,9 +20,9 @@ class SchoolTest extends BaseObjectTest
         self::$sampleXMLPath    = __DIR__ . "/../SampleXML/Thing/School.xml";
         self::$objectNamespace  = 'elevate\HVObjects\Thing\School';
 
-        $schoolName = "Dartmouth";
-        $instituteType = "university";
-        $speciality = ["autism"];
+        $schoolName = 'Dartmouth';
+        $instituteType = 'university';
+        $speciality[] = 'autism';
 
         $schoolType = new SchoolType(
             $schoolName,
