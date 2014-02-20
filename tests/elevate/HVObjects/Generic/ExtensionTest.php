@@ -13,9 +13,6 @@ class ExtensionTest extends BaseObjectTest
         self::$sampleXMLPath    = __DIR__ . '/../SampleXML/Generic/Extension.xml';
         self::$objectNamespace  = 'elevate\HVObjects\Generic\Extension';
 
-        $domain = "recipricosity";
-        $subdomain = "myocardial";
-
         self::$testObject = new Extension();
 
 

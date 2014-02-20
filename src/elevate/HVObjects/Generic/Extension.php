@@ -38,7 +38,7 @@ class Extension
     public  $repeat;
 
     /**
-     * @Type("elevate\HVObjects\Generic/SymptomInfo")
+     * @Type("elevate\HVObjects\Generic\SymptomInfo")
      */
     public $symptomInfo;
 
