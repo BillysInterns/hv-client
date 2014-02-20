@@ -53,7 +53,7 @@ class ApplicationSpecificInformationType
      */
     protected $schoolYear;
 
-    function __construct($formatAppId, $formatTag, $school, $schoolYear, $summary, $when)
+    function __construct($formatAppId = NULL, $formatTag = NULL, $school = NULL, $schoolYear = NULL, $summary = NULL, $when = NULL)
     {
         $this->formatAppId = $formatAppId;
         $this->formatTag = $formatTag;
