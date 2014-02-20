@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension source="Mentis Unit Test">
+    <repeat>
+        <interval><![CDATA[mon]]></interval>
+        <end-date><![CDATA[2013-12-15T00:06:21+00:00]]></end-date>
+    </repeat>
+</extension>

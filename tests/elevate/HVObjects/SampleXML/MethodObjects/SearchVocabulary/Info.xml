@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" xmlns="http://www.w3.org/2001/XMLSchema" ?>
+<info>
+    <vocabulary-key xml:lang="en-US">
+        <name><![CDATA[RxNorm Active Medicines]]></name>
+        <family><![CDATA[RxNorm]]></family>
+    </vocabulary-key>
+    <text-search-parameters>
+        <search-string search-mode="Prefix"><![CDATA[Remicade]]></search-string>
+        <max-results>10</max-results>
+    </text-search-parameters>
+</info>
