@@ -33,7 +33,7 @@ class Extension
 
     /**
      * @Type("elevate\HVObjects\Generic\Repeat")
-     * @
+     *
      */
     public  $repeat;
 

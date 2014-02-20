@@ -123,4 +123,5 @@ class AppointmentTest extends BaseObjectTest
 
         parent::setUpBeforeClass();
     }
+
 }
