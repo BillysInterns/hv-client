@@ -32,7 +32,7 @@ use elevate\HVObjects\Generic\Date\Date;
 class HVClientHelper {
 
     /**
-     * @param Info $info
+     * @param object $info
      * @return string
      */
     static function HVInfoAsXML($info)

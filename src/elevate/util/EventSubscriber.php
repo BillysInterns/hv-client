@@ -2,6 +2,7 @@
 
 namespace elevate\util;
 
+use elevate\HVObjects\Thing\Thing;
 use elevate\TypeTranslator;
 
 class EventSubscriber implements \JMS\Serializer\EventDispatcher\EventSubscriberInterface
@@ -53,8 +54,11 @@ class EventSubscriber implements \JMS\Serializer\EventDispatcher\EventSubscriber
 
         if ($name === 'elevate\HVObjects\Thing\Thing')
         {
-            $data         = $event->getData();
-            $typeId       = ((string) $data->{'type-id'});
+            /**
+             * @var $data Thing
+             */
+            $data         = $event->getObject();
+            $typeId       = $data->getTypeId()->getTypeId();
             $templateName = TypeTranslator::lookupTypeName($typeId);
             $event->setType('elevate\\HVObjects\\Thing\\' . $templateName);
             $this->hvTemplateName = $templateName;

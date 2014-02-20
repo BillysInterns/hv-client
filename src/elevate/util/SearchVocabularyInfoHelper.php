@@ -34,6 +34,38 @@ class SearchVocabularyInfoHelper
         return new Info($textSearchParam, $vocabKey);
     }
 
+    /**
+     * @param Info $info
+     * @return string
+     */
+    static function HVInfoAsXML($info)
+    {
+        $serializer = SerializerBuilder::create()->build();
+        $xml = $serializer->serialize($info, 'xml');
+        return $xml;
+    }
+
+    /**
+     * Pulls out an associative array from the SearchVocabularyData
+     *
+     * @param $rawResponse
+     * @return array
+     */
+    static function VocabDataFromXML( $rawResponse )
+    {
+        $xml = simplexml_load_string( $rawResponse );
+        $xml->registerXPathNamespace('wc', 'urn:com.microsoft.wc.methods.response.SearchVocabulary');
+        $codeItemsXMLObjects = $xml->xpath('//code-item');
+
+        $vocabData = array();
+
+        foreach ($codeItemsXMLObjects as $group)
+        {
+            // TODO: Pull in the info here.
+        }
+
+        return $vocabData;
+    }
 
     /**
      * @param Info $info
