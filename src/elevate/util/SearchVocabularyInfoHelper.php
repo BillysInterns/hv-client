@@ -34,5 +34,29 @@ class SearchVocabularyInfoHelper
         return new Info($textSearchParam, $vocabKey);
     }
 
+    /**
+     * Pulls out an associative array from the SearchVocabularyData
+     *
+     * @param $rawResponse
+     * @return array
+     */
+    static function VocabDataFromXML( $rawResponse )
+    {
+        $xml = simplexml_load_string( $rawResponse );
+        $xml->registerXPathNamespace('wc', 'urn:com.microsoft.wc.methods.response.SearchVocabulary');
+        $codeItemsXMLObjects = $xml->xpath('//code-item');
+
+        $vocabData = array();
+
+        foreach ($codeItemsXMLObjects as $item)
+        {
+            $newEntry['name'] = (string)$item->{'display-text'};
+            $newEntry['code-value'] = (string)$item->{'code-value'};
+            $vocabData[] = $newEntry;
+        }
+
+        return $vocabData;
+    }
+
 
 }
