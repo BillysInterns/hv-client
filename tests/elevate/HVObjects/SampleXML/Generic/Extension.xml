@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension>
-    <domain><![CDATA[recipricosity]]></domain>
-    <subdomain><![CDATA[myocardial]]></subdomain>
+    <symptom_info>
+        <domain><![CDATA[domain]]></domain>
+        <sub_domain><![CDATA[subDomain]]></sub_domain>
+        <group><![CDATA[group]]></group>
+        <symptom_type><![CDATA[symptom]]></symptom_type>
+    </symptom_info>
 </extension>

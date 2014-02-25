@@ -47,7 +47,7 @@ class HVClientHelper {
         $groups = array();
         $xml = simplexml_load_string( $rawResponse );
         $xml->registerXPathNamespace('wc', 'urn:com.microsoft.wc.methods.response.GetThings3');
-        $groupXMLObjects = $xml->xpath('//group');
+        $groupXMLObjects = $xml->xpath('/response/wc:info/group');
 
         $serializer = \JMS\Serializer\SerializerBuilder::create();
         $serializer->configureListeners(
