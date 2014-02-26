@@ -6,7 +6,7 @@
 
 namespace elevate;
 
-use biologis\HV\HVRawConnector;
+
 
 use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\util\HVClientHelper;
