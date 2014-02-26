@@ -72,6 +72,11 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     private $authToken = NULL;
 
     /**
+     * @var string Used to sign the HV calls.
+     */
+    private $digest = NULL;
+
+    /**
      * Set the member variables to the passed HV credentials. Setup a Logger and create the serializer.
      *
      * @param string $thumbPrint HV Certificate Thumb Print
@@ -111,7 +116,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $this->config['healthVault'] = NULL;
         $this->connector             = NULL;
         $this->connection            = NULL;
-        $this->authToken             = NULL;
+        $this->setAuthToken(NULL);
         return $this;
     }
 
@@ -198,13 +203,20 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     }
 
     /**
-     * Make the inital connection to Health Vault and obtain the AuthToken for subsequent requests
+     * Make the initial connection to Health Vault and obtain the AuthToken for subsequent requests
      *
      * @return string The AuthToken for making requests to HV
      */
     public function connect()
     {
         //If there is no connector, generate one and set it's logger
+        // authToken
+        $authToken = $this->getAuthToken();
+        $digest = $this->getDigest();
+
+        $this->config['authToken'] = $authToken;
+        $this->config['digest'] = $digest;
+
         if (!$this->connector)
         {
             $this->connector = new HVRawConnector(
@@ -214,17 +226,19 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
                 $this->config
             );
             $this->connector->setLogger($this->logger);
+            $this->connector->setHealthVaultPlatform($this->healthVaultPlatform);
 
         }
 
-        if (!$this->authToken)
+        if (empty( $authToken ) )
         {
             //Configure connector
-            $this->connector->setHealthVaultPlatform($this->healthVaultPlatform);
-            $this->authToken = $this->connector->connect();
+            $authToken = $this->connector->connect();
+            $this->setAuthToken($authToken);
+            $this->setDigest($this->connector->getDigest());
         }
 
-        return $this->authToken;
+        return $authToken;
     }
 
     //Put things for request group
@@ -454,6 +468,37 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     {
     }
 
+    /**
+     * @param null|string $authToken
+     */
+    public function setAuthToken($authToken)
+    {
+        $this->authToken = $authToken;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAuthToken()
+    {
+        return $this->authToken;
+    }
+
+    /**
+     * @param string $digest
+     */
+    public function setDigest($digest)
+    {
+        $this->digest = $digest;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDigest()
+    {
+        return $this->digest;
+    }
 
 }
 

@@ -38,7 +38,7 @@ class InfoHelper {
     static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $filter = new ThingFilterSpec($typeId, $xpath,$startRangeDate, $endRangeDate);
-        $format = new ThingFormatSpec(array('core', 'audits'));
+        $format = new ThingFormatSpec(array('core'));
 
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
         return $group;
@@ -66,7 +66,7 @@ class InfoHelper {
         }
 
         $filter = new ThingFilterSpec($typeId, $xpath, $formattedStartDate, $formattedEndDate );
-        $format = new ThingFormatSpec(array('core', 'audits'));
+        $format = new ThingFormatSpec(array('core'));
 
         return new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
     }
@@ -79,7 +79,7 @@ class InfoHelper {
         $formattedEndDate = date("Y-m-d",strtotime("2100-01-01")) . 'T' . date("H:i:s",strtotime("2100-01-01"));
 
 
-        $format = new ThingFormatSpec(array('core', 'audits'));
+        $format = new ThingFormatSpec(array('core'));
         $filter = new ThingFilterSpec(null, null, $formattedStartDate, $formattedEndDate);
 
         $group->setCurrentVersionOnly(false);
