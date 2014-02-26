@@ -5,7 +5,8 @@
  */
 
 namespace elevate;
-
+use elevate\HVRawConnectorAuthenticationExpiredException;
+use elevate\HVRawConnectorUserNotAuthenticatedException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
@@ -73,7 +74,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
                                                 $healthVaultAuthInstance = 'https://account.healthvault-ppe.com/redirect.aspx',
                                                 $target = "AUTH")
     {
-        print_r("Using new connector");
+
         $config['healthVault']['redirectToken'] = md5(uniqid());
         $redirectUrl = urlencode("?appid=".$appId."&redirect=".$redirect."?redirectToken=".$config['healthVault']['redirectToken']."&isMRA=true");
         $url = $healthVaultAuthInstance."?target=".$target."&targetqs=".$redirectUrl;
@@ -107,7 +108,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         $infoReplacement = null;
         if(!empty($info))
         {
-            $infoReplacement =  '<info>'.$info.'</info>';
+            $infoReplacement =  $info;
         }
         else
         {
@@ -119,7 +120,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         $replacements = array('<method>'.$method.'</method>','<method-version>'.$methodVersion.'</method-version>',
             '<msg-time>'.gmdate("Y-m-d\TH:i:s").'</msg-time>', '<version>'.HVRawConnector::$version.'</version>',
             $infoReplacement,$this->hash($infoReplacement), '<auth-token>'.$this->authToken.'</auth-token>',
-            '<language>'.$this->config['language'].'</language>','<country>'.$this->config['country'].'</country>');
+            '<language>en</language>','<country>US</country>');
 
         return str_replace($tags,$replacements,$xml);
 
@@ -163,7 +164,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
             ),
         );
 
-        $this->logger->debug('Request: ' . $params['http']['content']);
+        $this->logger->debug('New Request: ' . $params['http']['content']);
 
         $this->rawResponse = @curl_get_file_contents($this->healthVaultPlatform, $postData);
 
@@ -171,10 +172,11 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
             $this->responseCode = -1;
             throw new \Exception('HealthVault Connection Failure', -1);
         }
-        $this->logger->debug('Response: ' . $this->rawResponse);
+        $this->logger->debug('New Response: ' . $this->rawResponse);
 
         $this->SXMLResponse = simplexml_load_string($this->rawResponse);
-        $this->responseCode = (int)$this->SXMLResponse->response->status->code;
+
+        $this->responseCode = (int)$this->SXMLResponse->status->code;
 
         if ($this->responseCode > 0) {
             switch ($this->responseCode)
@@ -182,9 +184,9 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
                 case 7: // The user authenticated session token has expired.
                 case 65: // The authenticated session token has expired.
                     HVRawConnector::invalidateSession($this->config);
-                    throw new HVRawConnectorAuthenticationExpiredException($this->SXMLResponse->response->error->message, $this->responseCode);
+                    throw new HVRawConnectorAuthenticationExpiredException($this->SXMLResponse->status->error->message, $this->responseCode);
                 default: // Handle all status's without a particular case
-                    throw new HVRawConnectorAuthenticationExpiredException($this->SXMLResponse->response->error->message,$this->responseCode);
+                    throw new HVRawConnectorAuthenticationExpiredException($this->SXMLResponse->status->error->message,$this->responseCode);
             }
         }
     }
@@ -213,13 +215,12 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         // Grab an authToken from HV
         if (empty($this->authToken)) {
             $baseXML = file_get_contents(__DIR__ . '/XmlTemplates/CreateAuthenticatedSessionTokenTemplate.xml');
-            $baseXML = str_replace('<app-id/>','<app-id>'.$this.'</app-di>',$baseXML);
-            $baseXML = str_replace('<sig digestMethod="SHA1" sigMethod="RSA-SHA1"/>','<sig digestMethod="SHA1" sigMethod="RSA-SHA1" thumbprint="'.
-                        $this->thumbPrint.'"/>',$baseXML);
+            $baseXML = str_replace('<app-id/>','<app-id>'.$this->appId.'</app-id>',$baseXML);
+
             $baseXML = str_replace('<hmac-alg algName="HMACSHA1"/>','<hmac-alg algName="HMACSHA1">'.$this->digest.'</hmac-alg>',$baseXML);
-            $contentString = substr($baseXML,strpos($baseXML,'<content>'),strlen($baseXML) - strpos($baseXML,'</content>') + 10);
-            $xml = str_replace('<sig digestMethod="SHA1" sigMethod="RSA-SHA1"/>','<sig digestMethod="SHA1" sigMethod="RSA-SHA1">'.
-                $this->sign($contentString).'</sig>',$baseXML);
+            $contentString = substr($baseXML,strpos($baseXML,'<content>'),strpos($baseXML,'</content>') - strpos($baseXML,'<content>') + 10);
+            $xml = str_replace('<sig digestMethod="SHA1" sigMethod="RSA-SHA1"/>','<sig digestMethod="SHA1" sigMethod="RSA-SHA1" thumbprint="'.
+                $this->thumbPrint.'">'.$this->sign($contentString).'</sig>',$baseXML);
 
             // throws HVRawConnectorAnonymousWcRequestException
             $this->anonymousWcRequest('CreateAuthenticatedSessionToken', '1', $xml);
@@ -325,6 +326,3 @@ function curl_get_file_contents($URL, $postData)
     return $result['body'];
 }
 
-class HVRawConnectorAuthenticationExpiredException extends \Exception
-{
-}
