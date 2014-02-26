@@ -73,7 +73,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
                                                 $healthVaultAuthInstance = 'https://account.healthvault-ppe.com/redirect.aspx',
                                                 $target = "AUTH")
     {
-        print_r("Using new connector");
+        
         $config['healthVault']['redirectToken'] = md5(uniqid());
         $redirectUrl = urlencode("?appid=".$appId."&redirect=".$redirect."?redirectToken=".$config['healthVault']['redirectToken']."&isMRA=true");
         $url = $healthVaultAuthInstance."?target=".$target."&targetqs=".$redirectUrl;
