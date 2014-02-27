@@ -12,7 +12,8 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
 /**
- * Class HVClient
+ * Class HVRaw Connector
+ * Performs XML requests to HV and checks responses
  * @package elevate
  */
 class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
@@ -46,6 +47,13 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
     // This gets set in the connect method.
     private $authToken;
 
+    /**
+     *
+     * @param $appId The Healthvault Application ID
+     * @param $thumbPrint Cert Thumbprint
+     * @param $privateKey The private key used to sign the request
+     * @param $config Important session variables
+     */
     public function __construct($appId, $thumbPrint, $privateKey, $config)
     {
         $this->appId = $appId;
@@ -70,6 +78,15 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
 
     }
 
+    /**
+     * Setups the redirect URL for sending the user to authenticate the App with HealthVault
+     * @param $appId The HV App Id
+     * @param $redirect The Url to redirect to
+     * @param $config Important session variables
+     * @param string $healthVaultAuthInstance The current HV instance to use
+     * @param string $target The goal of the request
+     * @return string The URL to go to for authorization, including the urlencoded redirect URL
+     */
     public static function getAuthenticationURL($appId, $redirect, $config,
                                                 $healthVaultAuthInstance = 'https://account.healthvault-ppe.com/redirect.aspx',
                                                 $target = "AUTH")
@@ -82,6 +99,13 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         return $url;
     }
 
+    /**
+     * @param $method The HV XML method to use
+     * @param $methodVersion The version of the HV XML method to use
+     * @param $info The information to send
+     * @param $additionalHeaders Additional eaders to add to the request
+     * @param $personId The HV person id to send with the request
+     */
     public function makeRequest($method, $methodVersion, $info,  $additionalHeaders, $personId)
     {
         $xml = null;
@@ -103,6 +127,14 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
 
     }
 
+    /**
+     * Convenience function for replacing the various xml tags with relevant information
+     * @param $xml The XML to be changed
+     * @param $method The HV method to use
+     * @param $methodVersion The version of the HV method
+     * @param $info Info to be added (if applicable)
+     * @return mixed The newly filled in XML
+     */
     private function setupRequestInfo($xml, $method, $methodVersion, $info)
     {
         $infoReplacement = null;
@@ -126,6 +158,12 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
 
     }
 
+    /**
+     * Adds additional tags to the XML request
+     * @param $xml The XML to change
+     * @param $additionalHeaders  New tags to be added to the template if needed
+     * @return mixed The newly altered XML
+     */
     private function setupAdditionalHeaders($xml,$additionalHeaders)
     {
         $newHeader = '</method-version>';
@@ -137,6 +175,11 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         return str_replace('</method-version>',$newHeader,$xml);
     }
 
+    /**
+     * Checks to see if the the person is online, if not checks to make sure they are at least authenticated
+     * @return bool
+     * @throws HVRawConnectorUserNotAuthenticatedException
+     */
     private function isOnlineRequest()
     {
         //check to see if we have a token
@@ -151,6 +194,12 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         }
     }
 
+    /**
+     * Makes the actual request to HV and checks the response to see if request was succesful
+     * @param $xml The XML to send
+     * @throws HVRawConnectorAuthenticationExpiredException
+     * @throws \Exception
+     */
     private function makeWCRequest($xml)
     {
 
@@ -191,25 +240,10 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         }
     }
 
-    public static function invalidateSession(&$config)
-    {
-        unset($config['healthVault']);
-    }
-
-    public function getRawResponse(){
-        return $this->rawResponse;
-    }
-
-    public function setLogger(LoggerInterface $logger)
-    {
-        $this->logger = $logger;
-    }
-
-    public function setHealthVaultPlatform($healthVaultPlatform)
-    {
-        $this->healthVaultPlatform = $healthVaultPlatform;
-    }
-
+    /**
+     * Connects to HV and receives the auth token to use
+     * @return mixed The auth token after a successful connection
+     */
     public function connect()
     {
         // Grab an authToken from HV
@@ -218,6 +252,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
             $baseXML = str_replace('<app-id/>','<app-id>'.$this->appId.'</app-id>',$baseXML);
 
             $baseXML = str_replace('<hmac-alg algName="HMACSHA1"/>','<hmac-alg algName="HMACSHA1">'.$this->digest.'</hmac-alg>',$baseXML);
+            //Gets the information that needs to be signed (This is the content between and including the <content>...</content> tags)
             $contentString = substr($baseXML,strpos($baseXML,'<content>'),strpos($baseXML,'</content>') - strpos($baseXML,'<content>') + 10);
             $xml = str_replace('<sig digestMethod="SHA1" sigMethod="RSA-SHA1"/>','<sig digestMethod="SHA1" sigMethod="RSA-SHA1" thumbprint="'.
                 $this->thumbPrint.'">'.$this->sign($contentString).'</sig>',$baseXML);
@@ -230,6 +265,13 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         return $this->authToken;
     }
 
+    /**
+     * Setups the XML to make the WC Request using the anonymous template
+     * @param $method HV method to use
+     * @param string $methodVersion The version of the HV method to use
+     * @param string $info The info to put in the request
+     * @param array $additionalHeaders Any additional tags to add
+     */
     public function anonymousWcRequest($method, $methodVersion = '1', $info = '', $additionalHeaders = array())
     {
         $header = $this->setupRequestInfo(file_get_contents(__DIR__ . '/XmlTemplates/AnonymousWcRequestTemplate.xml'), $method,
@@ -241,6 +283,44 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
 
         $this->makeWCRequest($header);
     }
+
+    /**
+     * Invalidates the current session
+     * @param $config Session values
+     */
+    public static function invalidateSession(&$config)
+    {
+        unset($config['healthVault']);
+    }
+
+    /**
+     * Returns the raw xml response
+     * @return mixed
+     */
+    public function getRawResponse(){
+        return $this->rawResponse;
+    }
+
+    /**
+     * Sets the logger to use
+     * @param LoggerInterface $logger
+     * @return null|void
+     */
+    public function setLogger(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
+
+    /**
+     * Sets the HV platform to use
+     * @param $healthVaultPlatform
+     */
+    public function setHealthVaultPlatform($healthVaultPlatform)
+    {
+        $this->healthVaultPlatform = $healthVaultPlatform;
+    }
+
+
 
     public function getDigest()
     {
@@ -266,6 +346,12 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         return trim(base64_encode(hash_hmac('sha1', preg_replace('/>\s+</', '><', $str), $key, TRUE)));
     }
 
+    /**
+     * Signs the appropriate XML information for HV to validate
+     * @param $str The XML to sign
+     * @return string The signed XML
+     * @throws \Exception
+     */
     protected function sign($str)
     {
         static $privateKey = NULL;
