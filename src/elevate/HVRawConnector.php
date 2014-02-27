@@ -205,17 +205,10 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
 
         $postData = preg_replace('/>\s+</', '><', $xml);
 
-        $params = array(
-            'http' => array(
-                'method' => 'POST',
-                // remove line breaks and spaces between elements, otherwise the signature check will fail
-                'content' => $postData,
-            ),
-        );
 
-        $this->logger->debug('New Request: ' . $params['http']['content']);
 
-        $this->rawResponse = @curl_get_file_contents($this->healthVaultPlatform, $postData);
+        $this->rawResponse =  $this->getWCResponse($this->healthVaultPlatform, $postData);
+      
 
         if (!$this->rawResponse) {
             $this->responseCode = -1;
@@ -238,6 +231,26 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
                     throw new HVRawConnectorAuthenticationExpiredException($this->SXMLResponse->status->error->message,$this->responseCode);
             }
         }
+    }
+
+    private function getWCResponse($URL, $postData)
+    {
+        $params = array(
+            'http' => array(
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\n".
+                    "Content-Length: ".strlen($postData)."\r\n".
+                    "User-Agent:MyAgent/1.0\r\n",
+                'method' => 'POST',
+                // remove line breaks and spaces between elements, otherwise the signature check will fail
+                'content' => $postData,
+            ),
+        );
+
+        $this->logger->debug('New Request: ' . $params['http']['content']);
+        $context  = stream_context_create($params);
+        $result = file_get_contents($URL, false, $context);
+
+        return $result;
     }
 
     /**
@@ -382,33 +395,5 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
     }
 
 
-}
-
-//TODO: Remove me
-function curl_get_file_contents($URL, $postData)
-{
-    $c = curl_init($URL);
-    curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($c, CURLOPT_POST, true);
-    curl_setopt($c, CURLOPT_POSTFIELDS, $postData );
-    curl_setopt($c, CURLOPT_VERBOSE, 1);
-    curl_setopt($c, CURLOPT_HEADER, 1);
-    curl_setopt($c, CURLINFO_HEADER_OUT, 1);
-
-    $response = curl_exec($c);
-
-
-    $header_size = curl_getinfo($c,CURLINFO_HEADER_SIZE);
-    $result['header'] = substr($response, 0, $header_size);
-    $result['body'] = substr( $response, $header_size );
-    $result['http_code'] = curl_getinfo($c,CURLINFO_HTTP_CODE);
-
-
-    $info = curl_getinfo($c);
-    $headerSent = curl_getinfo($c, CURLINFO_HEADER_OUT);
-
-    curl_close($c);
-
-    return $result['body'];
 }
 
