@@ -2,11 +2,6 @@
 <thing>
     <type-id><![CDATA[55d33791-58de-4cae-8c78-819e12ba5059]]></type-id>
     <data-xml>
-        <common>
-            <source><![CDATA[QuestionAnswer Test]]></source>
-            <note><![CDATA[QuestionAnswer Note]]></note>
-            <tags><![CDATA[Some tags]]></tags>
-        </common>
         <question-answer>
             <question>
                 <text><![CDATA[Question]]></text>
@@ -23,5 +18,10 @@
                 </code>
             </answer-choice>
         </question-answer>
+        <common>
+            <source><![CDATA[QuestionAnswer Test]]></source>
+            <note><![CDATA[QuestionAnswer Note]]></note>
+            <tags><![CDATA[Some tags]]></tags>
+        </common>
     </data-xml>
 </thing>

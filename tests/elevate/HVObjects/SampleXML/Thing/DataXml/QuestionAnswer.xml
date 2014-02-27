@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
-    <common>
-        <source><![CDATA[QuestionAnswer Test]]></source>
-        <note><![CDATA[QuestionAnswer Note]]></note>
-        <tags><![CDATA[Some tags]]></tags>
-    </common>
     <question-answer>
         <question>
             <text><![CDATA[Question]]></text>
@@ -21,4 +16,9 @@
             </code>
         </answer-choice>
     </question-answer>
+    <common>
+        <source><![CDATA[QuestionAnswer Test]]></source>
+        <note><![CDATA[QuestionAnswer Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
 </result>

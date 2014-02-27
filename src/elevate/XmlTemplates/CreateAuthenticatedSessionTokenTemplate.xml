@@ -1,0 +1,16 @@
+<info>
+    <auth-info>
+        <app-id/>
+        <credential>
+            <appserver>
+                <sig digestMethod="SHA1" sigMethod="RSA-SHA1"/>
+                <content>
+                    <app-id/>
+                    <shared-secret>
+                        <hmac-alg algName="HMACSHA1"/>
+                    </shared-secret>
+                </content>
+            </appserver>
+        </credential>
+    </auth-info>
+</info>
