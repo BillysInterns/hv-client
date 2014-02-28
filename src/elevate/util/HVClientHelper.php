@@ -53,7 +53,17 @@ class HVClientHelper {
         {
         $groups = array();
         $xml = simplexml_load_string( $rawResponse );
-        $xml->registerXPathNamespace('wc', 'urn:com.microsoft.wc.methods.response.GetThings3');
+
+        // Get the namespace for wc from the document and register for XPath
+        // There are two values coming back based on version of GetThings used
+        // Used for images -urn:com.microsoft.wc.methods.response.GetThings
+        // Used for rest - urn:com.microsoft.wc.methods.response.GetThings3
+        $namespace = $xml->getDocNamespaces(true);
+        foreach($namespace as $key=>$value)
+        {
+            $xml->registerXPathNamespace($key, $value);
+        }
+
         $groupXMLObjects = $xml->xpath('/response/wc:info/group');
 
         $serializer = \JMS\Serializer\SerializerBuilder::create();

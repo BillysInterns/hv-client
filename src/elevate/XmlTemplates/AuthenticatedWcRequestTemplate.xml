@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wc-request:request xmlns:wc-request="urn:com.microsoft.wc.request">
+    <auth>
+        <hmac-data algName="HMACSHA1"/>
+    </auth>
+    <header>
+        <method/>
+        <method-version/>
+        <auth-session>
+            <auth-token/>
+            <user-auth-token/>
+        </auth-session>
+        <language>en</language>
+        <country>US</country>
+        <msg-time/>
+        <msg-ttl>29100</msg-ttl>
+        <version/>
+        <info-hash>
+            <hash-data algName="SHA1"/>
+        </info-hash>
+    </header>
+    <info/>
+</wc-request:request>
