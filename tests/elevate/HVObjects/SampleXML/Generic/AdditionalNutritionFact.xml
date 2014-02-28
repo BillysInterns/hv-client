@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<additional-nutrition-fact>
+    <nutritionFact>
+        <name>
+            <text><![CDATA[Name]]></text>
+            <code>
+                <value><![CDATA[First Name]]></value>
+                <type><![CDATA[Last Name]]></type>
+            </code>
+        </name>
+    </nutritionFact>
+</additional-nutrition-fact>
