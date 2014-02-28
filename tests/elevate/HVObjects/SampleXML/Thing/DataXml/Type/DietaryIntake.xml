@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dietary-intake>
+    <foodItem>
+        <text><![CDATA[Food Item]]></text>
+        <code>
+            <value><![CDATA[Cake]]></value>
+            <type><![CDATA[Chocalate]]></type>
+        </code>
+    </foodItem>
+</dietary-intake>

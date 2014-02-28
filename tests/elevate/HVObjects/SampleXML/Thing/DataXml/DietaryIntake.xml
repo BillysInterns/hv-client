@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <dietary-intake>
+        <foodItem>
+            <text><![CDATA[Food Item]]></text>
+            <code>
+                <value><![CDATA[Cake]]></value>
+                <type><![CDATA[Chocalate]]></type>
+            </code>
+        </foodItem>
+    </dietary-intake>
+    <common>
+        <source><![CDATA[DietaryIntake Test]]></source>
+        <note><![CDATA[DietaryIntake Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
+</result>
