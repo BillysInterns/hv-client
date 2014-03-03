@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <family-history>
+        <condition>
+            <name>
+                <text><![CDATA[Skin Failure]]></text>
+                <code>
+                    <value><![CDATA[154]]></value>
+                    <family><![CDATA[Illness Issues]]></family>
+                    <type><![CDATA[Illness]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </name>
+            <onset-date>
+                <structured>
+                    <date>
+                        <y>2013</y>
+                        <m>11</m>
+                        <d>15</d>
+                    </date>
+                    <time>
+                        <h>12</h>
+                        <m>30</m>
+                        <s>44</s>
+                        <f>0</f>
+                    </time>
+                </structured>
+                <descriptive><![CDATA[Onset Time Description]]></descriptive>
+            </onset-date>
+            <status>
+                <text><![CDATA[Failed]]></text>
+                <code>
+                    <value><![CDATA[75]]></value>
+                    <family><![CDATA[illness status]]></family>
+                    <type><![CDATA[success/failure]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </status>
+            <stop-date>
+                <structured>
+                    <date>
+                        <y>2013</y>
+                        <m>11</m>
+                        <d>16</d>
+                    </date>
+                    <time>
+                        <h>10</h>
+                        <m>23</m>
+                        <s>11</s>
+                        <f>0</f>
+                    </time>
+                </structured>
+                <descriptive><![CDATA[Stop Time Description]]></descriptive>
+            </stop-date>
+            <stop-reason><![CDATA[Grew Back]]></stop-reason>
+        </condition>
+        <family-history-relative>
+            <relationship>
+                <text><![CDATA[Some Immunization]]></text>
+                <code>
+                    <value><![CDATA[154]]></value>
+                    <family><![CDATA[Some Immunization]]></family>
+                    <type><![CDATA[SomeImu]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </relationship>
+            <relative-name>
+                <name>
+                    <full><![CDATA[Sir Derp Herpington]]></full>
+                </name>
+                <professional-training><![CDATA[autism]]></professional-training>
+            </relative-name>
+            <date-of-birth>
+                <y>2013</y>
+                <m>12</m>
+                <d>25</d>
+            </date-of-birth>
+            <date-of-death>
+                <y>2014</y>
+                <m>12</m>
+                <d>25</d>
+            </date-of-death>
+            <region-of-origin>
+                <text><![CDATA[Failed]]></text>
+                <code>
+                    <value><![CDATA[75]]></value>
+                    <family><![CDATA[illness status]]></family>
+                    <type><![CDATA[success/failure]]></type>
+                    <version><![CDATA[Version 1]]></version>
+                </code>
+            </region-of-origin>
+        </family-history-relative>
+    </family-history>
+    <common>
+        <source><![CDATA[Immunization Source]]></source>
+        <note><![CDATA[Immunization Note]]></note>
+        <tags><![CDATA[immunizationTag]]></tags>
+    </common>
+</result>
