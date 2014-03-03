@@ -7,7 +7,7 @@
         <method/>
         <method-version/>
         <auth-session>
-            <auth-token />
+            <auth-token/>
             <offline-person-info>
                 <offline-person-id/>
             </offline-person-info>
