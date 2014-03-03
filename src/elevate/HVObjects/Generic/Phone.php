@@ -41,7 +41,7 @@ class Phone
      * @param $isPrimary
      * @param $number
      */
-    function __construct($description, $isPrimary, $number)
+    function __construct($number, $description = NULL, $isPrimary = NULL)
     {
         $this->description = $description;
         $this->isPrimary = $isPrimary;
