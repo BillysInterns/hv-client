@@ -53,8 +53,5 @@ class Immunization2DataXML extends DataXML
     public function setType($immunization)
     {
         $this->immunization = $immunization;
-        return $this;
     }
-
-
 } 

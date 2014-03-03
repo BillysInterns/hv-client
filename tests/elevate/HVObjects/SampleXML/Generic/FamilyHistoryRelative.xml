@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<family-history-relative>
+    <relationship>
+        <text><![CDATA[Some Immunization]]></text>
+        <code>
+            <value><![CDATA[154]]></value>
+            <family><![CDATA[Some Immunization]]></family>
+            <type><![CDATA[SomeImu]]></type>
+            <version><![CDATA[Version 1]]></version>
+        </code>
+    </relationship>
+    <relative-name>
+        <name>
+            <full><![CDATA[Sir Derp Herpington]]></full>
+        </name>
+        <professional-training><![CDATA[autism]]></professional-training>
+    </relative-name>
+    <date-of-birth>
+        <y>2013</y>
+        <m>12</m>
+        <d>25</d>
+    </date-of-birth>
+    <date-of-death>
+        <y>2014</y>
+        <m>12</m>
+        <d>25</d>
+    </date-of-death>
+    <region-of-origin>
+        <text><![CDATA[Failed]]></text>
+        <code>
+            <value><![CDATA[75]]></value>
+            <family><![CDATA[illness status]]></family>
+            <type><![CDATA[success/failure]]></type>
+            <version><![CDATA[Version 1]]></version>
+        </code>
+    </region-of-origin>
+</family-history-relative>
