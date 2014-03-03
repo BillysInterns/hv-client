@@ -11,7 +11,7 @@ namespace elevate;
 
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
-interface HVRawConnectorInterface {
+interface HVCommunicatorInterface {
 
 public static function getAuthenticationURL($appId,$redirectUrl,$config,$healthVaultAuthInstance,$target);
 

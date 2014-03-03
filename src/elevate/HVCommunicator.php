@@ -15,10 +15,10 @@ use Psr\Log\NullLogger;
  * Performs XML requests to HV and checks responses
  * @package elevate
  */
-class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
+class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 {
 
-    public static $version = 'HVRawConnector1.2.0';
+    public static $version = 'HVCommunicator1.2.0';
 
     protected $healthVaultPlatform = 'https://platform.healthvault-ppe.com/platform/wildcat.ashx';
     protected $language = '';
@@ -149,7 +149,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
             '<auth-token/>','<language>en</language>','<country>US</country>');
 
         $replacements = array('<method>'.$method.'</method>','<method-version>'.$methodVersion.'</method-version>',
-            '<msg-time>'.gmdate("Y-m-d\TH:i:s").'</msg-time>', '<version>'.HVRawConnector::$version.'</version>',
+            '<msg-time>'.gmdate("Y-m-d\TH:i:s").'</msg-time>', '<version>'.HVCommunicator::$version.'</version>',
             $infoReplacement,'<hash-data algName="SHA1">'.$this->hash($infoReplacement).'</hash-data>', '<auth-token>'.$this->authToken.'</auth-token>',
             '<language>en</language>','<country>US</country>');
 
@@ -185,7 +185,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
     /**
      * Checks to see if the the person is online, if not checks to make sure they are at least authenticated
      * @return bool
-     * @throws HVRawConnectorUserNotAuthenticatedException
+     * @throws HVCommunicatorUserNotAuthenticatedException
      */
     private function isOnlineRequest($personId)
     {
@@ -193,7 +193,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
         if (empty($this->config['wctoken'])) {
             // No token, is the user authenticated?
             if (empty($personId)) {
-                throw new HVRawConnectorUserNotAuthenticatedException();
+                throw new HVCommunicatorUserNotAuthenticatedException();
             }
             return false;
         } else {
@@ -204,7 +204,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
     /**
      * Makes the actual request to HV and checks the response to see if request was succesful
      * @param $xml The XML to send
-     * @throws HVRawConnectorAuthenticationExpiredException
+     * @throws HVCommunicatorAuthenticationExpiredException
      * @throws \Exception
      */
     private function makeWCRequest($xml)
@@ -240,10 +240,10 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
             {
                 case 7: // The user authenticated session token has expired.
                 case 65: // The authenticated session token has expired.
-                    HVRawConnector::invalidateSession($this->config);
-                    throw new HVRawConnectorAuthenticationExpiredException($this->SXMLResponse->status->error->message, $this->responseCode);
+                    HVCommunicator::invalidateSession($this->config);
+                    throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message, $this->responseCode);
                 default: // Handle all status's without a particular case
-                    throw new HVRawConnectorAuthenticationExpiredException($this->SXMLResponse->status->error->message,$this->responseCode);
+                    throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message,$this->responseCode);
             }
         }
     }
@@ -265,7 +265,7 @@ class HVRawConnector implements HVRawConnectorInterface, LoggerAwareInterface
             $xml = str_replace('<sig digestMethod="SHA1" sigMethod="RSA-SHA1"/>','<sig digestMethod="SHA1" sigMethod="RSA-SHA1" thumbprint="'.
                 $this->thumbPrint.'">'.$this->sign($contentString).'</sig>',$baseXML);
 
-            // throws HVRawConnectorAnonymousWcRequestException
+            // throws HVCommunicatorAnonymousWcRequestException
             $this->anonymousWcRequest('CreateAuthenticatedSessionToken', '1', $xml);
             $doc = new DOMDocument();
             $doc->loadXML($this->rawResponse);

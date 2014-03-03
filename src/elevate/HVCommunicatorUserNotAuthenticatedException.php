@@ -8,6 +8,6 @@
 
 namespace elevate;
 
-class HVRawConnectorUserNotAuthenticatedException extends \Exception
+class HVCommunicatorUserNotAuthenticatedException extends \Exception
 {
 }
