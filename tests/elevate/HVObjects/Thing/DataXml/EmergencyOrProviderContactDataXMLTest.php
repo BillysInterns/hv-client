@@ -32,7 +32,7 @@ class EmergencyOrProviderContactDataXMLTest extends BaseObjectTest
 
         $email = new Email('Work', 'bill@theinterns.com', TRUE);
 
-        $phone = new Phone('Mobile', FALSE, '654.213.4321');
+        $phone = new Phone('654.213.4321', 'Mobile', FALSE);
 
         $contact = new Contact($address, $email, $phone);
 

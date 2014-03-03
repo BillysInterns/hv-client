@@ -91,7 +91,7 @@ class ResponseGroupTest extends BaseObjectTest
             'United States',
             true
         );
-        $phone = new Phone("Home Phone", true, "555-555-5555");
+        $phone = new Phone("555-555-5555", "Home Phone", true);
         $email = new Email("Personal","billy@theintern.com", true);
         $contact = new Contact($address, $email, $phone);
 

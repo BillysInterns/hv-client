@@ -99,7 +99,7 @@ class AllergyTypeTest extends BaseObjectTest
         $phoneDescription = "Home";
         $phoneIsPrimary = TRUE;
         $phoneNumber = "(555)-555-5555";
-        $phone = new Phone($phoneDescription, $phoneIsPrimary, $phoneNumber);
+        $phone = new Phone($phoneNumber, $phoneDescription, $phoneIsPrimary);
         // --- Email --- //
         $emailDescription = "Personal";
         $emailIsPrimary = TRUE;

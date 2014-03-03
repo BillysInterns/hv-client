@@ -20,7 +20,9 @@ class PhoneTest extends BaseObjectTest
         self::$sampleXMLPath    = __DIR__ . '/../SampleXML/Generic/Phone.xml';
         self::$objectNamespace  = 'elevate\HVObjects\Generic\Phone';
         self::$testObject       = new Phone(
-            'New Phone', true, '555-555-5555'
+            '555-555-5555',
+            'New Phone',
+            true
         );
         parent::setUpBeforeClass();
     }
