@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <pregnancy>
+        <delivery>
+            <location>
+                <name><![CDATA[Organization Name]]></name>
+            </location>
+        </delivery>
+    </pregnancy>
+</result>

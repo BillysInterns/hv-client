@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <type-id><![CDATA[46d485cf-2b84-429d-9159-83152ba801f4]]></type-id>
+    <data-xml>
+        <pregnancy>
+            <delivery>
+                <location>
+                    <name><![CDATA[Organization Name]]></name>
+                </location>
+            </delivery>
+        </pregnancy>
+    </data-xml>
+</thing>
