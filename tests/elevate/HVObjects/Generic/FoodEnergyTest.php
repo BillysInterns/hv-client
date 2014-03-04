@@ -27,4 +27,3 @@ class FoodEnergyTest extends BaseObjectTest
     }
 
 }
- 
