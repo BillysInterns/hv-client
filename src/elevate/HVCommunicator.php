@@ -18,7 +18,7 @@ use Psr\Log\NullLogger;
 class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 {
 
-    public static $version = 'HVCommunicator1.2.0';
+    public static $version = 'HVRawConnector1.2.0';
 
     protected $healthVaultPlatform = 'https://platform.healthvault-ppe.com/platform/wildcat.ashx';
     protected $language = '';
@@ -48,10 +48,10 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
     /**
      *
-     * @param $appId The Healthvault Application ID
-     * @param $thumbPrint Cert Thumbprint
-     * @param $privateKey The private key used to sign the request
-     * @param $config Important session variables
+     * @param $appId String The Healthvault Application ID
+     * @param $thumbPrint String The Cert Thumbprint
+     * @param $privateKey String The private key used to sign the request
+     * @param $config Array Important session variables
      */
     public function __construct($appId, $thumbPrint, $privateKey, $config)
     {
@@ -102,7 +102,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      * @param $method The HV XML method to use
      * @param $methodVersion The version of the HV XML method to use
      * @param $info The information to send
-     * @param $additionalHeaders Additional eaders to add to the request
+     * @param $additionalHeaders array Additional headers to add to the request
      * @param $personId The HV person id to send with the request
      */
     public function makeRequest($method, $methodVersion, $info,  $additionalHeaders, $personId)
@@ -121,6 +121,8 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         }
         $xml = $this->setupRequestInfo($xml, $method, $methodVersion, $info);
         $xml = $this->setupAdditionalHeaders($xml,$additionalHeaders);
+        if($methodVersion == '2')
+          $xml = $xml;
         $this->makeWCRequest($xml);
 
 
@@ -139,7 +141,13 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $infoReplacement = null;
         if(!empty($info))
         {
+            $info = str_replace(array('<![CDATA[',']]>'),array('',''),$info);
             $infoReplacement =  $info;
+
+            if(strpos($infoReplacement,'<info>') === false)
+            {
+                $infoReplacement =  '<info>'.$info.'</info>';
+            }
         }
         else
         {
@@ -160,7 +168,8 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
         $xml = str_replace('<hmac-data algName="HMACSHA1"/>', '<hmac-data algName="HMACSHA1">'.$this->hmacSha1($header, base64_decode($this->digest)).
             '</hmac-data>',$xml);
-
+        if($methodVersion == '2')
+            $xml = $xml;
         return $xml;
 
     }
@@ -168,7 +177,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     /**
      * Adds additional tags to the XML request
      * @param $xml The XML to change
-     * @param $additionalHeaders  New tags to be added to the template if needed
+     * @param $additionalHeaders  array New tags to be added to the template if needed
      * @return mixed The newly altered XML
      */
     private function setupAdditionalHeaders($xml,$additionalHeaders)
@@ -179,7 +188,8 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
                 $newHeader .= '<' . $element . '>' . $text . '</' . $element . '>';
             }
         }
-        return str_replace('</method-version>',$newHeader,$xml);
+        $xml = str_replace('</method-version>',$newHeader,$xml);
+        return $xml;
     }
 
     /**
@@ -222,6 +232,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
         $this->logger->debug('New Request: ' . $params['http']['content']);
 
+
         $this->rawResponse = @curl_get_file_contents($this->healthVaultPlatform, $postData);
 
         if (!$this->rawResponse) {
@@ -229,7 +240,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             throw new \Exception('HealthVault Connection Failure', -1);
         }
         $this->logger->debug('New Response: ' . $this->rawResponse);
-        //echo htmlentities($this->rawResponse);
+
         $this->SXMLResponse = simplexml_load_string($this->rawResponse);
         $xmlInfo = $this->SXMLResponse->children('urn:com.microsoft.wc.methods.response.CreateAuthenticatedSessionToken');
 
