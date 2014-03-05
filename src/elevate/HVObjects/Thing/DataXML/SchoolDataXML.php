@@ -22,8 +22,6 @@ use elevate\HVObjects\Thing\DataXML\Type\SchoolType;
 /**
  * Class SchoolDataXML
  * @package elevate\HVObjects\Thing\DataXML
- *
- *
  * @AccessorOrder("custom", custom = {"school", "common"})
  */
 class SchoolDataXML extends DataXML
@@ -34,6 +32,10 @@ class SchoolDataXML extends DataXML
      */
     protected $school;
 
+    /**
+     * @param SchoolType $school
+     * @param Common     $common
+     */
     function __construct(SchoolType $school = NULL, Common $common = NULL)
     {
         $this->school = $school;

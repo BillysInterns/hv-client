@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <thing>
+    <type-id><![CDATA[162dd12d-9859-4a66-b75f-96760d67072b]]></type-id>
+<data-xml>
+    <personal-contact-information>
+        <contact>
+            <address>
+                <description><![CDATA[Home Address]]></description>
+                <is-primary>true</is-primary>
+                <street><![CDATA[123 Fake Ave]]></street>
+                <city><![CDATA[Faketon]]></city>
+                <state><![CDATA[FA]]></state>
+                <postcode><![CDATA[00700]]></postcode>
+                <country><![CDATA[United States]]></country>
+                <county><![CDATA[Fake]]></county>
+            </address>
+            <phone>
+                <description><![CDATA[Home Phone]]></description>
+                <is-primary>true</is-primary>
+                <number><![CDATA[555-555-5555]]></number>
+            </phone>
+            <email>
+                <description><![CDATA[Personal]]></description>
+                <is_primary>true</is_primary>
+                <address><![CDATA[billy@theintern.com]]></address>
+            </email>
+        </contact>
+    </personal-contact-information>
+    <common>
+        <source><![CDATA[unit test]]></source>
+        <note><![CDATA[Appspecific]]></note>
+        <tags><![CDATA[tags]]></tags>
+    </common>
+</data-xml>
+        </thing>

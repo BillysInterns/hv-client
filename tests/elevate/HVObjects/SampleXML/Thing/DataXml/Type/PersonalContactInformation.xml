@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personal-contact-information>
+    <contact>
+        <address>
+            <description><![CDATA[Home Address]]></description>
+            <is-primary>true</is-primary>
+            <street><![CDATA[123 Fake Ave]]></street>
+            <city><![CDATA[Faketon]]></city>
+            <state><![CDATA[FA]]></state>
+            <postcode><![CDATA[00700]]></postcode>
+            <country><![CDATA[United States]]></country>
+            <county><![CDATA[Fake]]></county>
+        </address>
+        <phone>
+            <description><![CDATA[Home Phone]]></description>
+            <is-primary>true</is-primary>
+            <number><![CDATA[555-555-5555]]></number>
+        </phone>
+        <email>
+            <description><![CDATA[Personal]]></description>
+            <is_primary>true</is_primary>
+            <address><![CDATA[billy@theintern.com]]></address>
+        </email>
+    </contact>
+</personal-contact-information>
