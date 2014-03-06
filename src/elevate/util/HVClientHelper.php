@@ -22,6 +22,8 @@ use JMS\Serializer\SerializerBuilder;
 use elevate\HVObjects\MethodObjects\ResponseGroup;
 use JMS\Serializer\SerializationContext;
 use elevate\HVObjects\Generic\Date\Date;
+use Mentis\BaseBundle\Utils\HealthVault\HvInfoDeserializer;
+use elevate\HVObjects\MethodObjects\PersonInfo\PersonInfo;
 
 /**
  * Class HVClientHelper
@@ -49,9 +51,13 @@ class HVClientHelper {
         return $xml;
     }
 
-    static function HVGroupsFromXML( $rawResponse )
-        {
-        $groups = array();
+    /**
+     * @param $rawResponse
+     * Helper function to pre-deserialize and build
+     * @return array
+     */
+    private static function HVDeserializeBuilder($rawResponse)
+    {
         $xml = simplexml_load_string( $rawResponse );
 
         // Get the namespace for wc from the document and register for XPath
@@ -64,9 +70,7 @@ class HVClientHelper {
             $xml->registerXPathNamespace($key, $value);
         }
 
-        $groupXMLObjects = $xml->xpath('/response/wc:info/group');
-
-        $serializer = \JMS\Serializer\SerializerBuilder::create();
+        $serializer = SerializerBuilder::create();
         $serializer->configureListeners(
             function(EventDispatcher $dispatcher)
             {
@@ -76,16 +80,59 @@ class HVClientHelper {
         $serializer->setDeserializationVisitor("xmlobject", new XmlObjectDeserializationVisitor(new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy())) );
         $serializerBuilder = $serializer->build();
 
+        return array(
+            'xml'               => $xml,
+            'serializerBuilder' => $serializerBuilder
+        );
+    }
+
+    /**
+     * @param $rawResponse
+     * Function that parses an HV response for Personinfo into a Personinfo object
+     * @return null|PersonInfo
+     */
+    static function HVPersonFromXML ($rawResponse)
+    {
+        $info = HVClientHelper::HVDeserializeBuilder($rawResponse);
+
+        $xmlObjects = $info['xml']->xpath('/response/wc:info/person-info');
+
+        $response = NULL;
+        foreach ($xmlObjects as $xmlObject)
+        {
+            $response = $info['serializerBuilder']->deserialize(
+                $xmlObject, 'elevate\HVObjects\MethodObjects\PersonInfo\PersonInfo', 'xmlobject'
+            );
+        }
+
+        return $response;
+    }
+
+    /**
+     * @param $rawResponse
+     * Function that parses an HV response for Things into an array of Thing objects
+     * @return array
+     */
+    static function HVGroupsFromXML( $rawResponse )
+    {
+        $info = HVClientHelper::HVDeserializeBuilder($rawResponse);
+
+        $groupXMLObjects = $info['xml']->xpath('/response/wc:info/group');
         $responseGroups = array();
 //        $responseGroups = $serializerBuilder->deserialize($groupXMLObjects, 'array<elevate\\HVObjects\\MethodObjects\\ResponseGroup>', 'xmlobject');
         foreach ($groupXMLObjects as $group)
         {
-            $responseGroups[] = $serializerBuilder->deserialize($group, 'elevate\HVObjects\MethodObjects\ResponseGroup', 'xmlobject');
+            $responseGroups[] = $info['serializerBuilder']->deserialize($group, 'elevate\HVObjects\MethodObjects\ResponseGroup', 'xmlobject');
         }
 
         return $responseGroups;
     }
 
+    /**
+     * @param $xmlResponse
+     *
+     * @return array
+     */
     static function parsePutThingsResponse($xmlResponse)
     {
         $xml = simplexml_load_string( $xmlResponse );

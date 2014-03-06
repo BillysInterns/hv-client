@@ -52,16 +52,15 @@ class Contact
     }
 
     /**
-     * @param mixed $address
+     * @param Address $address
      */
     public function setAddress($address)
     {
         $this->address = $address;
-        return $this;
     }
 
     /**
-     * @return mixed
+     * @return Address
      */
     public function getAddress()
     {
@@ -69,16 +68,15 @@ class Contact
     }
 
     /**
-     * @param mixed $email
+     * @param Email $email
      */
     public function setEmail($email)
     {
         $this->email = $email;
-        return $this;
     }
 
     /**
-     * @return mixed
+     * @return Email
      */
     public function getEmail()
     {
@@ -86,16 +84,15 @@ class Contact
     }
 
     /**
-     * @param mixed $phone
+     * @param Phone $phone
      */
     public function setPhone($phone)
     {
         $this->phone = $phone;
-        return $this;
     }
 
     /**
-     * @return mixed
+     * @return Phone
      */
     public function getPhone()
     {
