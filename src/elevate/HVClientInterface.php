@@ -34,6 +34,6 @@ interface HVClientInterface
 
     public function getHealthVaultPlatform();
 
-    public function setConnector(HVRawConnectorInterface $connector);
+    public function setConnector(HVCommunicatorInterface $connector);
 
 }

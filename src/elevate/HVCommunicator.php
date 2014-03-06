@@ -61,7 +61,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $this->config = $config;
         $this->logger = new NullLogger();
 
-
+     if($this->digest == null){
         if (empty($this->config['digest'])) {
             $this->sharedSecret = $this->hash(uniqid());
             $this->digest = $this->hmacSha1($this->sharedSecret, $this->sharedSecret);
@@ -74,6 +74,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         if (!empty($this->config['authToken'])) {
             $this->authToken = $this->config['authToken'];
         }
+     }
 
     }
 
@@ -151,7 +152,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         }
         else
         {
-            $infoReplacement = '<info/>';
+            $infoReplacement = '<info />';
         }
         $tags = array('<method/>', '<method-version/>', ' <msg-time/>', '<version/>', '<info/>', '<hash-data algName="SHA1"/>',
             '<auth-token/>','<language>en</language>','<country>US</country>');
@@ -231,7 +232,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         );
 
         $this->logger->debug('New Request: ' . $params['http']['content']);
-
+        echo ' XML: ' . $xml;
 
         $this->rawResponse = @curl_get_file_contents($this->healthVaultPlatform, $postData);
 
@@ -297,9 +298,10 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     public function anonymousWcRequest($method, $methodVersion = '1', $info = '', $additionalHeaders = array())
     {
-        $header = $this->setupRequestInfo(file_get_contents(__DIR__ . '/XmlTemplates/AnonymousWcRequestTemplate.xml'), $method,
-            $methodVersion, $info);
+        $header = file_get_contents(__DIR__ . '/XmlTemplates/AnonymousWcRequestTemplate.xml');
         $header = str_replace('<app-id/>','<app-id>'.$this->appId.'</app-id>',$header);
+        $header = $this->setupRequestInfo($header, $method, $methodVersion, $info);
+
 
 
         $this->setupAdditionalHeaders($header, $additionalHeaders);

@@ -57,15 +57,15 @@ class BaseTest extends \PHPUnit_Framework_TestCase
             $this->thumbPrint = file_get_contents($baseConfigPath . '/sample_keys/app.fp');
         }
 
-        if (file_exists($baseConfigPath . '/sample_keys/app.pem'))
+        if (file_exists($baseConfigPath . '/sample_keys/server.key'))
         {
-            $this->privateKey = file_get_contents($baseConfigPath . '/sample_keys/app.pem');
+            $this->privateKey = file_get_contents($baseConfigPath . '/sample_keys/server.key');
         }
 
         $this->session    = array();
 
-        $this->personId   = 'fe7e6e83-e8a1-433c-b72d-c52837eb1abd';
-        $this->recordId   = '3630afcd-169b-4e79-8b85-c4d0cfee9cd9';
+        $this->personId   = 'fa295fdb-c334-4c8f-b332-ec62074df84e';
+        $this->recordId   = '8813bcc7-4075-4f96-a8ea-8df6d184f3fa';
         if (!is_null($this->privateKey) && !is_null($this->appId) && !is_null($this->privateKey))
         {
             $this->hv = new HVClient($this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId);
