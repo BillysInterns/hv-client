@@ -120,8 +120,9 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             $xml = file_get_contents(__DIR__ . '/XmlTemplates/OfflineRequestTemplate.xml');
             $xml = str_replace('<offline-person-id/>','<offline-person-id>'.$personId.'</offline-person-id>',$xml);
         }
-        $xml = $this->setupRequestInfo($xml, $method, $methodVersion, $info);
         $xml = $this->setupAdditionalHeaders($xml,$additionalHeaders);
+        $xml = $this->setupRequestInfo($xml, $method, $methodVersion, $info);
+
         if($methodVersion == '2')
           $xml = $xml;
         $this->makeWCRequest($xml);
@@ -140,6 +141,9 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     private function setupRequestInfo($xml, $method, $methodVersion, $info)
     {
         $infoReplacement = null;
+        $dom = new \DOMDocument('1.0');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = false;
         if(!empty($info))
         {
             $info = str_replace(array('<![CDATA[',']]>'),array('',''),$info);
@@ -148,30 +152,56 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             if(strpos($infoReplacement,'<info>') === false)
             {
                 $infoReplacement =  '<info>'.$info.'</info>';
+
             }
         }
         else
         {
             $infoReplacement = '<info />';
         }
-        $tags = array('<method/>', '<method-version/>', ' <msg-time/>', '<version/>', '<info/>', '<hash-data algName="SHA1"/>',
-            '<auth-token/>','<language>en</language>','<country>US</country>');
+        $simpleXMLObj = simplexml_load_string($xml);
 
-        $replacements = array('<method>'.$method.'</method>','<method-version>'.$methodVersion.'</method-version>',
-            '<msg-time>'.gmdate("Y-m-d\TH:i:s").'</msg-time>', '<version>'.HVCommunicator::$version.'</version>',
-            $infoReplacement,'<hash-data algName="SHA1">'.$this->hash($infoReplacement).'</hash-data>', '<auth-token>'.$this->authToken.'</auth-token>',
-            '<language>en</language>','<country>US</country>');
+        // Set the attributes accordingly
+        $simpleXMLObj->{'header'}->{'method'} = $method;
+        $simpleXMLObj->{'header'}->{'method-version'} = $methodVersion;
+        $simpleXMLObj->{'header'}->{'msg-time'} = gmdate("Y-m-d\TH:i:s");
+        $simpleXMLObj->{'header'}->{'version'} = HVCommunicator::$version;
+        $simpleXMLObj->{'header'}->{'language'} = 'en';
+        $simpleXMLObj->{'header'}->{'country'} = 'US';
+        $infoXMLObj = simplexml_load_string($infoReplacement);
+        if($method !='CreateAuthenticatedSessionToken')
+        {
+            $simpleXMLObj->{'header'}->{'auth-session'}->{'auth-token'} = $this->authToken;
+
+            $dom->preserveWhiteSpace = false;
+            $dom->formatOutput = false;
+            $dom->loadXML($infoXMLObj->asXML());
+            $infoHashXML = $dom->saveXML($dom->documentElement);
+            $simpleXMLObj->{'header'}->{'info-hash'}->{'hash-data'} = $this->hash($infoHashXML);
+        }
+        // Create new DOMElements from the two SimpleXMLElements
+        $domRequest = dom_import_simplexml($simpleXMLObj);
+        $domInfo  = dom_import_simplexml($infoXMLObj);
+
+        // Import the <info> into the request
+        $domInfo  = $domRequest->ownerDocument->importNode($domInfo, TRUE);
+
+        // Append the <info> to request
+        $domRequest->appendChild($domInfo);
+
+        // Get the has of the content
+        $headerS = $simpleXMLObj->{'header'};
+       $dom->loadXML($headerS->asXML());
+       $headerXML = $dom->saveXML($dom->documentElement);
+
+       $headerXMLHashed = $this->hmacSha1($headerXML, base64_decode($this->digest));
+
+        $dom->loadXML($simpleXMLObj->asXML());
+        $newXML = $dom->saveXML($dom->documentElement);
 
 
-
-        $xml = str_replace($tags,$replacements,$xml);
-        $header = substr($xml,strpos($xml,'<header>'),strpos($xml,'</header>') - strpos($xml,'<header>') + 9);
-
-        $xml = str_replace('<hmac-data algName="HMACSHA1"/>', '<hmac-data algName="HMACSHA1">'.$this->hmacSha1($header, base64_decode($this->digest)).
-            '</hmac-data>',$xml);
-        if($methodVersion == '2')
-            $xml = $xml;
-        return $xml;
+        $newXML = str_replace('<hmac-data algName="HMACSHA1"/>', '<hmac-data algName="HMACSHA1">'.$headerXMLHashed.'</hmac-data>',$newXML);
+        return $newXML;
 
     }
 
@@ -186,9 +216,10 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $newHeader = '</method-version>';
         if (!empty($additionalHeaders)) {
             foreach ($additionalHeaders as $element => $text) {
-                $newHeader .= '<' . $element . '>' . $text . '</' . $element . '>';
+                $newHeader .= "<" . $element . ">" . $text . "</" . $element . ">";
             }
         }
+
         $xml = str_replace('</method-version>',$newHeader,$xml);
         return $xml;
     }
@@ -221,20 +252,25 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     private function makeWCRequest($xml)
     {
 
-        $postData = preg_replace('/>\s+</', '><', $xml);
+        $dom = new \DOMDocument('1.0');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = false;
+        $dom->loadXML($xml);
+        $formattedDOMXML = $dom->saveXML();
+        $formattedDOMXML = preg_replace("/[\n\r]/",'',$formattedDOMXML);
 
         $params = array(
             'http' => array(
                 'method' => 'POST',
                 // remove line breaks and spaces between elements, otherwise the signature check will fail
-                'content' => $postData,
+                'content' => $formattedDOMXML,
             ),
         );
 
         $this->logger->debug('New Request: ' . $params['http']['content']);
-        echo ' XML: ' . $xml;
+       // echo ' XML: ' . $xml;
 
-        $this->rawResponse = @curl_get_file_contents($this->healthVaultPlatform, $postData);
+        $this->rawResponse = @curl_get_file_contents($this->healthVaultPlatform, $params['http']['content']);
 
         if (!$this->rawResponse) {
             $this->responseCode = -1;
@@ -266,19 +302,38 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     public function connect()
     {
+
+        // Use this document to help remove whitespace.
+        $dom = new \DOMDocument('1.0');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = false;
+
         // Grab an authToken from HV
         if (empty($this->authToken)) {
             $baseXML = file_get_contents(__DIR__ . '/XmlTemplates/CreateAuthenticatedSessionTokenTemplate.xml');
-            $baseXML = str_replace('<app-id/>','<app-id>'.$this->appId.'</app-id>',$baseXML);
 
-            $baseXML = str_replace('<hmac-alg algName="HMACSHA1"/>','<hmac-alg algName="HMACSHA1">'.$this->digest.'</hmac-alg>',$baseXML);
-            //Gets the information that needs to be signed (This is the content between and including the <content>...</content> tags)
-            $contentString = substr($baseXML,strpos($baseXML,'<content>'),strpos($baseXML,'</content>') - strpos($baseXML,'<content>') + 10);
-            $xml = str_replace('<sig digestMethod="SHA1" sigMethod="RSA-SHA1"/>','<sig digestMethod="SHA1" sigMethod="RSA-SHA1" thumbprint="'.
-                $this->thumbPrint.'">'.$this->sign($contentString).'</sig>',$baseXML);
+            $simpleXMLObj = simplexml_load_string($baseXML);
+
+            // Set the attributes accordingly
+            $simpleXMLObj->{'auth-info'}->{'app-id'} = $this->appId;
+            $appServer = $simpleXMLObj->{'auth-info'}->credential->appserver;
+            $appServer->content->{'shared-secret'}->{'hmac-alg'} = $this->digest;
+            $appServer->content->{'app-id'} = $this->appId;
+
+            // Get the has of the content
+            $dom->loadXML($appServer->content->asXML());
+            $contentXML = $dom->saveXML($dom->documentElement);
+
+            $contentXMLSigned = $this->sign($contentXML);
+
+            $appServer->sig['thumbprint'] = $this->thumbPrint;
+            $appServer->sig = $contentXMLSigned;
+
+            $dom->loadXML($simpleXMLObj->asXML());
+            $newXML = $dom->saveXML($dom->documentElement);
 
             // throws HVCommunicatorAnonymousWcRequestException
-            $this->anonymousWcRequest('CreateAuthenticatedSessionToken', '1', $xml);
+            $this->anonymousWcRequest('CreateAuthenticatedSessionToken', '1', $newXML);
             $doc = new DOMDocument();
             $doc->loadXML($this->rawResponse);
 
@@ -289,6 +344,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         return $this->authToken;
     }
 
+
     /**
      * Setups the XML to make the WC Request using the anonymous template
      * @param $method HV method to use
@@ -298,15 +354,26 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     public function anonymousWcRequest($method, $methodVersion = '1', $info = '', $additionalHeaders = array())
     {
-        $header = file_get_contents(__DIR__ . '/XmlTemplates/AnonymousWcRequestTemplate.xml');
-        $header = str_replace('<app-id/>','<app-id>'.$this->appId.'</app-id>',$header);
-        $header = $this->setupRequestInfo($header, $method, $methodVersion, $info);
+        // Use this document to help remove whitespace.
+        $dom = new \DOMDocument('1.0');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = false;
+        $baseXML = file_get_contents(__DIR__ . '/XmlTemplates/AnonymousWcRequestTemplate.xml');
+
+        $simpleXMLObj = simplexml_load_string($baseXML);
+
+        // Set the attributes accordingly
+        $simpleXMLObj->{'header'}->{'app-id'} = $this->appId;
 
 
+        $dom->loadXML($simpleXMLObj->asXML());
+        $newXML = $dom->saveXML($dom->documentElement);
+        $newXML = $this->setupAdditionalHeaders($newXML, $additionalHeaders);
+        $newXML = $this->setupRequestInfo($newXML, $method, $methodVersion, $info);
 
-        $this->setupAdditionalHeaders($header, $additionalHeaders);
+        $newXML = $this->setupAdditionalHeaders($newXML, $additionalHeaders);
 
-        $this->makeWCRequest($header);
+        $this->makeWCRequest($newXML);
     }
 
     /**
@@ -362,7 +429,10 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     private function hash($str)
     {
-        return trim(base64_encode(sha1(preg_replace('/>\s+</', '><', $str), TRUE)));
+        $hash = preg_replace('/>\s+</', '><', $str);
+        $hash = preg_replace("/[\n\r]/",'',$hash);
+        $hash = trim(base64_encode(sha1($hash, TRUE)));
+        return $hash;
     }
 
     /** Hmac Sha 1
@@ -372,7 +442,10 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     private function hmacSha1($str, $key)
     {
-        return trim(base64_encode(hash_hmac('sha1', preg_replace('/>\s+</', '><', $str), $key, TRUE)));
+        $hmac = preg_replace('/>\s+</', '><', $str);
+        $hmac = preg_replace("/[\n\r]/",'',$hmac);
+        $hmac =  trim(base64_encode(hash_hmac('sha1', $hmac, $key, TRUE)));
+        return $hmac;
     }
 
     /**
@@ -399,15 +472,16 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
         // TODO check if $privateKey really is a key (format)
 
-
+        $toSign = preg_replace("/[\n\r]/",'',$str);
+        $toSign = preg_replace('/>\s+</', '><', $toSign);
         openssl_sign(
         // remove line breaks and spaces between elements, otherwise the signature check will fail
-            preg_replace('/>\s+</', '><', $str),
+            $toSign,
             $signature,
             $privateKey,
             OPENSSL_ALGO_SHA1);
-
-        return trim(base64_encode($signature));
+        $sig = trim(base64_encode($signature));
+        return $sig;
     }
 
     /** Holds all Microsoft Health Vault things and their associated ID.

@@ -4,22 +4,21 @@
         <hmac-data algName="HMACSHA1"/>
     </auth>
     <header>
-        <method/>
-        <method-version/>
+        <method></method>
+        <method-version></method-version>
         <auth-session>
-            <auth-token/>
+            <auth-token></auth-token>
             <offline-person-info>
                 <offline-person-id/>
             </offline-person-info>
         </auth-session>
         <language>en</language>
         <country>US</country>
-        <msg-time/>
+        <msg-time></msg-time>
         <msg-ttl>29100</msg-ttl>
-        <version/>
+        <version></version>
         <info-hash>
-            <hash-data algName="SHA1"/>
+            <hash-data algName="SHA1"></hash-data>
         </info-hash>
     </header>
-    <info/>
 </wc-request:request>
