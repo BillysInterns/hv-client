@@ -196,7 +196,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $simpleXMLObj->{'header'}->{'method'} = $method;
         $simpleXMLObj->{'header'}->{'method-version'} = $methodVersion;
         $simpleXMLObj->{'header'}->{'msg-time'} = gmdate("Y-m-d\TH:i:s");
-        $simpleXMLObj->{'header'}->{'version'} = HVCommunicator::$version;
+        $simpleXMLObj->{'header'}->{'version'} = self::$version;
         $simpleXMLObj->{'header'}->{'language'} = 'en';
         $simpleXMLObj->{'header'}->{'country'} = 'US';
         $infoXMLObj = simplexml_load_string($infoReplacement);
@@ -389,7 +389,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             {
                 case 7: // The user authenticated session token has expired.
                 case 65: // The authenticated session token has expired.
-                    HVCommunicator::invalidateSession($this->config);
+                    self::invalidateSession($this->config);
                     throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message, $this->responseCode);
                 default: // Handle all status's without a particular case
                     throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message,$this->responseCode);
