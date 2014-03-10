@@ -8,6 +8,7 @@
 
 namespace elevate\test;
 
+use elevate\HVCommunicator;
 use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\util\InfoHelper;
 use elevate\util\HVClientHelper;
@@ -105,7 +106,7 @@ class HVCommunicatorTest extends BaseTest {
         $xml = '<header><method>GetThings</method><method-version>2</method-version><record-id>'.$this->recordId.
             '</record-id><auth-session><auth-token>'.$this->hv->getAuthToken().'</auth-token><offline-person-info><offline-person-id>'.
             $this->personId.'</offline-person-id></offline-person-info></auth-session><language>en</language><country>US</country><msg-time>'.
-            $time.'</msg-time><msg-ttl>29100</msg-ttl><version>HVRawConnector1.2.0</version><info-hash><hash-data algName="SHA1">'.
+            $time.'</msg-time><msg-ttl>29100</msg-ttl><version>'.HVCommunicator::$version.'</version><info-hash><hash-data algName="SHA1">'.
             $hashData.'</hash-data></info-hash></header>';
        $this->assertEquals($xml,$requestHeaderXML);
 

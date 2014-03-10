@@ -18,7 +18,7 @@ use Psr\Log\NullLogger;
 class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 {
 
-    public static $version = 'HVRawConnector1.2.0';
+    public static $version = 'HVCommunicator1.0';
 
     protected $healthVaultPlatform = 'https://platform.healthvault-ppe.com/platform/wildcat.ashx';
     protected $language = '';
@@ -40,6 +40,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     private $SXMLResponse;
     private $responseCode;
 
+    //Useful for testing and debugging
     private $rawRequest;
 
     // Call setLogger to change this from the default NullLogger
@@ -81,228 +82,6 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     }
 
     /**
-     * Setups the redirect URL for sending the user to authenticate the App with HealthVault
-     * @param $appId The HV App Id
-     * @param $redirect The Url to redirect to
-     * @param $config Important session variables
-     * @param string $healthVaultAuthInstance The current HV instance to use
-     * @param string $target The goal of the request
-     * @return string The URL to go to for authorization, including the urlencoded redirect URL
-     */
-    public static function getAuthenticationURL($appId, $redirect, $config,
-                                                $healthVaultAuthInstance = 'https://account.healthvault-ppe.com/redirect.aspx',
-                                                $target = "AUTH")
-    {
-
-        if(empty($config['healthVault']['redirectToken']))
-        {
-            $config['healthVault']['redirectToken'] = md5(uniqid());
-        }
-
-        $redirectUrl = urlencode("?appid=".$appId."&redirect=".$redirect."?redirectToken=".$config['healthVault']['redirectToken']."&isMRA=true");
-        $url = $healthVaultAuthInstance."?target=".$target."&targetqs=".$redirectUrl;
-
-        return $url;
-    }
-
-    /**
-     * @param $method The HV XML method to use
-     * @param $methodVersion The version of the HV XML method to use
-     * @param $info The information to send
-     * @param $additionalHeaders array Additional headers to add to the request
-     * @param $personId The HV person id to send with the request
-     */
-    public function makeRequest($method, $methodVersion, $info,  $additionalHeaders, $personId)
-    {
-        $xml = null;
-        $online = $this->isOnlineRequest($personId);
-        if($online)
-        {
-            $xml = file_get_contents(__DIR__ . '/XmlTemplates/AuthenticatedWcRequestTemplate.xml');
-            $xml = str_replace('<user-auth-token/>','<user-auth-token>'.$this->config['wctoken'].'</user-auth-token>',$xml);
-        }
-        else
-        {
-            $xml = file_get_contents(__DIR__ . '/XmlTemplates/OfflineRequestTemplate.xml');
-            $xml = str_replace('<offline-person-id/>','<offline-person-id>'.$personId.'</offline-person-id>',$xml);
-        }
-        $xml = $this->setupAdditionalHeaders($xml,$additionalHeaders);
-        $xml = $this->setupRequestInfo($xml, $method, $methodVersion, $info);
-
-        if($methodVersion == '2')
-          $xml = $xml;
-        $this->makeWCRequest($xml);
-
-
-    }
-
-    /**
-     * Convenience function for replacing the various xml tags with relevant information
-     * @param $xml The XML to be changed
-     * @param $method The HV method to use
-     * @param $methodVersion The version of the HV method
-     * @param $info Info to be added (if applicable)
-     * @return mixed The newly filled in XML
-     */
-    private function setupRequestInfo($xml, $method, $methodVersion, $info)
-    {
-        $infoReplacement = null;
-        $dom = new \DOMDocument('1.0');
-        $dom->preserveWhiteSpace = false;
-        $dom->formatOutput = false;
-        if(!empty($info))
-        {
-            $info = str_replace(array('<![CDATA[',']]>'),array('',''),$info);
-            $infoReplacement =  $info;
-
-            if(strpos($infoReplacement,'<info>') === false)
-            {
-                $infoReplacement =  '<info>'.$info.'</info>';
-
-            }
-        }
-        else
-        {
-            $infoReplacement = '<info />';
-        }
-        $simpleXMLObj = simplexml_load_string($xml);
-
-        // Set the attributes accordingly
-        $simpleXMLObj->{'header'}->{'method'} = $method;
-        $simpleXMLObj->{'header'}->{'method-version'} = $methodVersion;
-        $simpleXMLObj->{'header'}->{'msg-time'} = gmdate("Y-m-d\TH:i:s");
-        $simpleXMLObj->{'header'}->{'version'} = HVCommunicator::$version;
-        $simpleXMLObj->{'header'}->{'language'} = 'en';
-        $simpleXMLObj->{'header'}->{'country'} = 'US';
-        $infoXMLObj = simplexml_load_string($infoReplacement);
-        if($method !='CreateAuthenticatedSessionToken')
-        {
-            $simpleXMLObj->{'header'}->{'auth-session'}->{'auth-token'} = $this->authToken;
-
-            $dom->preserveWhiteSpace = false;
-            $dom->formatOutput = false;
-            $dom->loadXML($infoXMLObj->asXML());
-            $infoHashXML = $dom->saveXML($dom->documentElement);
-            $simpleXMLObj->{'header'}->{'info-hash'}->{'hash-data'} = $this->hash($infoHashXML);
-        }
-        // Create new DOMElements from the two SimpleXMLElements
-        $domRequest = dom_import_simplexml($simpleXMLObj);
-        $domInfo  = dom_import_simplexml($infoXMLObj);
-
-        // Import the <info> into the request
-        $domInfo  = $domRequest->ownerDocument->importNode($domInfo, TRUE);
-
-        // Append the <info> to request
-        $domRequest->appendChild($domInfo);
-
-        // Get the has of the content
-        $headerS = $simpleXMLObj->{'header'};
-       $dom->loadXML($headerS->asXML());
-       $headerXML = $dom->saveXML($dom->documentElement);
-
-       $headerXMLHashed = $this->hmacSha1($headerXML, base64_decode($this->digest));
-
-        $dom->loadXML($simpleXMLObj->asXML());
-        $newXML = $dom->saveXML($dom->documentElement);
-
-
-        $newXML = str_replace('<hmac-data algName="HMACSHA1"/>', '<hmac-data algName="HMACSHA1">'.$headerXMLHashed.'</hmac-data>',$newXML);
-        return $newXML;
-
-    }
-
-    /**
-     * Adds additional tags to the XML request
-     * @param $xml The XML to change
-     * @param $additionalHeaders  array New tags to be added to the template if needed
-     * @return mixed The newly altered XML
-     */
-    private function setupAdditionalHeaders($xml,$additionalHeaders)
-    {
-        $newHeader = '</method-version>';
-        if (!empty($additionalHeaders)) {
-            foreach ($additionalHeaders as $element => $text) {
-                $newHeader .= "<" . $element . ">" . $text . "</" . $element . ">";
-            }
-        }
-
-        $xml = str_replace('</method-version>',$newHeader,$xml);
-        return $xml;
-    }
-
-    /**
-     * Checks to see if the the person is online, if not checks to make sure they are at least authenticated
-     * @return bool
-     * @throws HVCommunicatorUserNotAuthenticatedException
-     */
-    private function isOnlineRequest($personId)
-    {
-        //check to see if we have a token
-        if (empty($this->config['wctoken'])) {
-            // No token, is the user authenticated?
-            if (empty($personId)) {
-                throw new HVCommunicatorUserNotAuthenticatedException();
-            }
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    /**
-     * Makes the actual request to HV and checks the response to see if request was succesful
-     * @param $xml The XML to send
-     * @throws HVCommunicatorAuthenticationExpiredException
-     * @throws \Exception
-     */
-    private function makeWCRequest($xml)
-    {
-
-        $dom = new \DOMDocument('1.0');
-        $dom->preserveWhiteSpace = false;
-        $dom->formatOutput = false;
-        $dom->loadXML($xml);
-        $formattedDOMXML = $dom->saveXML();
-        $formattedDOMXML = preg_replace("/[\n\r]/",'',$formattedDOMXML);
-
-        $params = array(
-            'http' => array(
-                'method' => 'POST',
-                // remove line breaks and spaces between elements, otherwise the signature check will fail
-                'content' => $formattedDOMXML,
-            ),
-        );
-
-        $this->logger->debug('New Request: ' . $params['http']['content']);
-       // echo ' XML: ' . $xml;
-        $this->rawRequest = $params['http']['content'];
-        $this->rawResponse = @curl_get_file_contents($this->healthVaultPlatform, $params['http']['content']);
-
-        if (!$this->rawResponse) {
-            $this->responseCode = -1;
-            throw new \Exception('HealthVault Connection Failure', -1);
-        }
-        $this->logger->debug('New Response: ' . $this->rawResponse);
-
-        $this->SXMLResponse = simplexml_load_string($this->rawResponse);
-        $xmlInfo = $this->SXMLResponse->children('urn:com.microsoft.wc.methods.response.CreateAuthenticatedSessionToken');
-
-        $this->responseCode = (int)$this->SXMLResponse->status->code;
-
-        if ($this->responseCode > 0) {
-            switch ($this->responseCode)
-            {
-                case 7: // The user authenticated session token has expired.
-                case 65: // The authenticated session token has expired.
-                    HVCommunicator::invalidateSession($this->config);
-                    throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message, $this->responseCode);
-                default: // Handle all status's without a particular case
-                    throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message,$this->responseCode);
-            }
-        }
-    }
-
-    /**
      * Connects to HV and receives the auth token to use
      * @return mixed The auth token after a successful connection
      */
@@ -340,6 +119,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
             // throws HVCommunicatorAnonymousWcRequestException
             $this->anonymousWcRequest('CreateAuthenticatedSessionToken', '1', $newXML);
+            //using DOMDocument, SXML has issues with HV's weird namespaceing
             $doc = new DOMDocument();
             $doc->loadXML($this->rawResponse);
 
@@ -348,6 +128,148 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         }
 
         return $this->authToken;
+    }
+
+    /**
+     * @param $method String The HV XML method to use
+     * @param $methodVersion String The version of the HV XML method to use
+     * @param $info String The information to send
+     * @param $additionalHeaders array Additional headers to add to the request
+     * @param $personId String The HV person id to send with the request
+     */
+    public function makeRequest($method, $methodVersion, $info,  $additionalHeaders, $personId)
+    {
+        $xml = null;
+        $online = $this->isOnlineRequest($personId);
+        if($online)
+        {
+            $xml = file_get_contents(__DIR__ . '/XmlTemplates/AuthenticatedWcRequestTemplate.xml');
+            $xml = str_replace('<user-auth-token/>','<user-auth-token>'.$this->config['wctoken'].'</user-auth-token>',$xml);
+        }
+        else
+        {
+            $xml = file_get_contents(__DIR__ . '/XmlTemplates/OfflineRequestTemplate.xml');
+            $xml = str_replace('<offline-person-id/>','<offline-person-id>'.$personId.'</offline-person-id>',$xml);
+        }
+        //Do this first, record-id generally needs to be tacked on
+        $xml = $this->setupAdditionalHeaders($xml,$additionalHeaders);
+
+        $xml = $this->setupRequestInfo($xml, $method, $methodVersion, $info);
+
+        $this->makeWCRequest($xml);
+
+
+    }
+
+    /**
+     * Convenience function for replacing the various xml tags with relevant information
+     * @param $xml String The XML to be changed
+     * @param $method String The HV method to use
+     * @param $methodVersion String The version of the HV method
+     * @param $info String Info to be added (if applicable)
+     * @return mixed The newly filled in XML
+     */
+    private function setupRequestInfo($xml, $method, $methodVersion, $info)
+    {
+        $infoReplacement = null;
+        $dom = new \DOMDocument('1.0');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = false;
+        if(!empty($info))
+        {
+            $info = str_replace(array('<![CDATA[',']]>'),array('',''),$info);
+            $infoReplacement =  $info;
+
+            if(strpos($infoReplacement,'<info>') === false)
+            {
+                $infoReplacement =  '<info>'.$info.'</info>';
+
+            }
+        }
+        else
+        {
+            $infoReplacement = '<info />';
+        }
+        $simpleXMLObj = simplexml_load_string($xml);
+
+        // Set the attributes accordingly
+        $simpleXMLObj->{'header'}->{'method'} = $method;
+        $simpleXMLObj->{'header'}->{'method-version'} = $methodVersion;
+        $simpleXMLObj->{'header'}->{'msg-time'} = gmdate("Y-m-d\TH:i:s");
+        $simpleXMLObj->{'header'}->{'version'} = HVCommunicator::$version;
+        $simpleXMLObj->{'header'}->{'language'} = 'en';
+        $simpleXMLObj->{'header'}->{'country'} = 'US';
+        $infoXMLObj = simplexml_load_string($infoReplacement);
+        if($method !='CreateAuthenticatedSessionToken')
+        {
+            $simpleXMLObj->{'header'}->{'auth-session'}->{'auth-token'} = $this->authToken;
+            $dom->loadXML($infoXMLObj->asXML());
+            $infoHashXML = $dom->saveXML($dom->documentElement);
+            $simpleXMLObj->{'header'}->{'info-hash'}->{'hash-data'} = $this->hash($infoHashXML);
+        }
+        // Create new DOMElements from the two SimpleXMLElements
+        $domRequest = dom_import_simplexml($simpleXMLObj);
+        $domInfo  = dom_import_simplexml($infoXMLObj);
+
+        // Import the <info> into the request
+        $domInfo  = $domRequest->ownerDocument->importNode($domInfo, TRUE);
+
+        // Append the <info> to request
+        $domRequest->appendChild($domInfo);
+
+        // Get the header XML
+        $headerS = $simpleXMLObj->{'header'};
+       $dom->loadXML($headerS->asXML());
+       $headerXML = $dom->saveXML($dom->documentElement);
+
+       $headerXMLHashed = $this->hmacSha1($headerXML, base64_decode($this->digest));
+
+        $dom->loadXML($simpleXMLObj->asXML());
+        $newXML = $dom->saveXML($dom->documentElement);
+
+
+        $newXML = str_replace('<hmac-data algName="HMACSHA1"/>', '<hmac-data algName="HMACSHA1">'.$headerXMLHashed.'</hmac-data>',$newXML);
+        return $newXML;
+
+    }
+
+    /**
+     * Adds additional tags to the XML request
+     * @param $xml String The XML to change
+     * @param $additionalHeaders  array New tags to be added to the template if needed
+     * @return mixed The newly altered XML
+     */
+    private function setupAdditionalHeaders($xml,$additionalHeaders)
+    {
+        $newHeader = '</method-version>';
+        if (!empty($additionalHeaders)) {
+            foreach ($additionalHeaders as $element => $text) {
+                $newHeader .= "<" . $element . ">" . $text . "</" . $element . ">";
+            }
+        }
+
+        $xml = str_replace('</method-version>',$newHeader,$xml);
+        return $xml;
+    }
+
+    /**
+     * Checks to see if the the person is online, if not checks to make sure they are at least authenticated
+     * @param $personId
+     * @throws HVCommunicatorUserNotAuthenticatedException
+     * @return bool
+     */
+    private function isOnlineRequest($personId)
+    {
+        //check to see if we have a token
+        if (empty($this->config['wctoken'])) {
+            // No token, is the user authenticated?
+            if (empty($personId)) {
+                throw new HVCommunicatorUserNotAuthenticatedException();
+            }
+            return false;
+        } else {
+            return true;
+        }
     }
 
 
@@ -383,8 +305,123 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     }
 
     /**
+     * Makes the actual request to HV and checks the response to see if request was succesful
+     * @param $xml String The XML to send
+     */
+    private function makeWCRequest($xml)
+    {
+
+        $dom = new \DOMDocument('1.0');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = false;
+        $dom->loadXML($xml);
+        $formattedDOMXML = $dom->saveXML();
+        $formattedDOMXML = preg_replace("/[\n\r]/",'',$formattedDOMXML);
+
+        $params = array(
+            'http' => array(
+                'method' => 'POST',
+                // remove line breaks and spaces between elements, otherwise the signature check will fail
+                'content' => $formattedDOMXML,
+            ),
+        );
+
+        $this->logger->debug('New Request: ' . $params['http']['content']);
+        $this->rawRequest = $params['http']['content'];
+
+        $this->rawResponse = $this->performRequest();
+
+        $this->processResponse();
+    }
+
+    /**
+     * Makes a cURL request and returns the response
+     * @return string The Raw XML response
+     */
+    private function performRequest()
+    {
+        $c = curl_init($this->healthVaultPlatform);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_POST, true);
+        curl_setopt($c, CURLOPT_POSTFIELDS, $this->rawRequest);
+        curl_setopt($c, CURLOPT_VERBOSE, 1);
+        curl_setopt($c, CURLOPT_HEADER, 1);
+        curl_setopt($c, CURLINFO_HEADER_OUT, 1);
+
+        $response = curl_exec($c);
+
+
+        $header_size = curl_getinfo($c,CURLINFO_HEADER_SIZE);
+        $result['header'] = substr($response, 0, $header_size);
+        $result['body'] = substr( $response, $header_size );
+        $result['http_code'] = curl_getinfo($c,CURLINFO_HTTP_CODE);
+
+
+        $info = curl_getinfo($c);
+        $headerSent = curl_getinfo($c, CURLINFO_HEADER_OUT);
+
+        curl_close($c);
+        return $result['body'];
+    }
+
+    /**
+     * Processes the XML response and checks for errors
+     * @throws HVCommunicatorAuthenticationExpiredException
+     * @throws \Exception
+     */
+    private function processResponse()
+    {
+        if (!$this->rawResponse) {
+            $this->responseCode = -1;
+            throw new \Exception('HealthVault Connection Failure', -1);
+        }
+        $this->logger->debug('New Response: ' . $this->rawResponse);
+
+        $this->SXMLResponse = simplexml_load_string($this->rawResponse);
+
+        $this->responseCode = (int)$this->SXMLResponse->status->code;
+
+        if ($this->responseCode > 0) {
+            switch ($this->responseCode)
+            {
+                case 7: // The user authenticated session token has expired.
+                case 65: // The authenticated session token has expired.
+                    HVCommunicator::invalidateSession($this->config);
+                    throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message, $this->responseCode);
+                default: // Handle all status's without a particular case
+                    throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message,$this->responseCode);
+            }
+        }
+    }
+
+    /**
+     * Setups the redirect URL for sending the user to authenticate the App with HealthVault
+     * @param $appId String The HV App Id
+     * @param $redirect String The Url to redirect to
+     * @param $config array Important session variables
+     * @param string $healthVaultAuthInstance The current HV instance to use
+     * @param string $target The goal of the request
+     * @return string The URL to go to for authorization, including the urlencoded redirect URL
+     */
+    public static function getAuthenticationURL($appId, $redirect, $config,
+                                                $healthVaultAuthInstance = 'https://account.healthvault-ppe.com/redirect.aspx',
+                                                $target = "AUTH")
+    {
+
+        if(empty($config['healthVault']['redirectToken']))
+        {
+            $config['healthVault']['redirectToken'] = md5(uniqid());
+        }
+
+        $redirectUrl = urlencode("?appid=".$appId."&redirect=".$redirect."?redirectToken=".$config['healthVault']['redirectToken']."&isMRA=true");
+        $url = $healthVaultAuthInstance."?target=".$target."&targetqs=".$redirectUrl;
+
+        return $url;
+    }
+
+    /**
      * Invalidates the current session
-     * @param $config Session values
+     * @param $config array Session values
      */
     public static function invalidateSession(&$config)
     {
@@ -399,6 +436,10 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         return $this->rawResponse;
     }
 
+    /**
+     * Returns the SimpleXML representation of the response
+     * @return mixed
+     */
     public function getSXMLResponse(){
         return $this->SXMLResponse;
     }
@@ -423,7 +464,9 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     }
 
 
-
+    /**
+     * @return mixed
+     */
     public function getDigest()
     {
         return $this->digest;
@@ -477,7 +520,6 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         }
 
         // TODO check if $privateKey really is a key (format)
-
         $toSign = preg_replace("/[\n\r]/",'',$str);
         $toSign = preg_replace('/>\s+</', '><', $toSign);
         openssl_sign(
@@ -490,39 +532,15 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         return $sig;
     }
 
+    /**
+     * Gets the raw XML request sent
+     * @return mixed
+     */
     public function getRawRequest()
     {
         return $this->rawRequest;
     }
 
 
-}
-
-//TODO: Remove me
-function curl_get_file_contents($URL, $postData)
-{
-    $c = curl_init($URL);
-    curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($c, CURLOPT_POST, true);
-    curl_setopt($c, CURLOPT_POSTFIELDS, $postData );
-    curl_setopt($c, CURLOPT_VERBOSE, 1);
-    curl_setopt($c, CURLOPT_HEADER, 1);
-    curl_setopt($c, CURLINFO_HEADER_OUT, 1);
-
-    $response = curl_exec($c);
-
-
-    $header_size = curl_getinfo($c,CURLINFO_HEADER_SIZE);
-    $result['header'] = substr($response, 0, $header_size);
-    $result['body'] = substr( $response, $header_size );
-    $result['http_code'] = curl_getinfo($c,CURLINFO_HTTP_CODE);
-
-
-    $info = curl_getinfo($c);
-    $headerSent = curl_getinfo($c, CURLINFO_HEADER_OUT);
-
-    curl_close($c);
-
-    return $result['body'];
 }
 
