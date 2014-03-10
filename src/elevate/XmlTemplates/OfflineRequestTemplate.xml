@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wc-request:request xmlns:wc-request="urn:com.microsoft.wc.request">
     <auth>
-        <hmac-data algName="HMACSHA1"/>
+        <hmac-data algName="HMACSHA1"></hmac-data>
     </auth>
     <header>
         <method></method>

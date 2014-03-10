@@ -200,6 +200,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $simpleXMLObj->{'header'}->{'language'} = 'en';
         $simpleXMLObj->{'header'}->{'country'} = 'US';
         $infoXMLObj = simplexml_load_string($infoReplacement);
+        //Theses not present in AuthToken Request
         if($method !='CreateAuthenticatedSessionToken')
         {
             $simpleXMLObj->{'header'}->{'auth-session'}->{'auth-token'} = $this->authToken;
@@ -223,12 +224,14 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
        $headerXML = $dom->saveXML($dom->documentElement);
 
        $headerXMLHashed = $this->hmacSha1($headerXML, base64_decode($this->digest));
-
+        //Not present in Auth token request
+        if($method !='CreateAuthenticatedSessionToken')
+        {
+            $simpleXMLObj->{'auth'}->{'hmac-data'} = $headerXMLHashed;
+        }
         $dom->loadXML($simpleXMLObj->asXML());
         $newXML = $dom->saveXML($dom->documentElement);
 
-
-        $newXML = str_replace('<hmac-data algName="HMACSHA1"/>', '<hmac-data algName="HMACSHA1">'.$headerXMLHashed.'</hmac-data>',$newXML);
         return $newXML;
 
     }
