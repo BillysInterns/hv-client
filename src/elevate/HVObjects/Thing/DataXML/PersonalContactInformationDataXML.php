@@ -24,7 +24,7 @@ class PersonalContactInformationDataXML extends DataXML
 
     /**
      * @Type("elevate\HVObjects\Thing\DataXML\Type\PersonalContactInformationType")
-     * @SerializedName("personal-contact-information")
+     * @SerializedName("contact")
      */
     protected $personalContactInformation;
 

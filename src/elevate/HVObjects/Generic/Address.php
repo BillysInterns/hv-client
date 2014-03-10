@@ -84,7 +84,7 @@ class Address
     }
 
     /**
-     * @param mixed $city
+     * @param string $city
      */
     public function setCity($city)
     {
@@ -92,7 +92,7 @@ class Address
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCity()
     {
@@ -100,7 +100,7 @@ class Address
     }
 
     /**
-     * @param mixed $country
+     * @param string $country
      */
     public function setCountry($country)
     {
@@ -108,7 +108,7 @@ class Address
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCountry()
     {
@@ -116,7 +116,7 @@ class Address
     }
 
     /**
-     * @param mixed $county
+     * @param string $county
      */
     public function setCounty($county)
     {
@@ -124,7 +124,7 @@ class Address
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCounty()
     {
@@ -132,7 +132,7 @@ class Address
     }
 
     /**
-     * @param mixed $description
+     * @param string $description
      */
     public function setDescription($description)
     {
@@ -140,7 +140,7 @@ class Address
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getDescription()
     {
@@ -148,7 +148,7 @@ class Address
     }
 
     /**
-     * @param mixed $isPrimary
+     * @param boolean $isPrimary
      */
     public function setIsPrimary($isPrimary)
     {
@@ -156,7 +156,7 @@ class Address
     }
 
     /**
-     * @return mixed
+     * @return boolean
      */
     public function getIsPrimary()
     {
@@ -164,7 +164,7 @@ class Address
     }
 
     /**
-     * @param mixed $postCode
+     * @param string $postCode
      */
     public function setPostCode($postCode)
     {
@@ -172,7 +172,7 @@ class Address
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPostCode()
     {
@@ -180,7 +180,7 @@ class Address
     }
 
     /**
-     * @param mixed $state
+     * @param string $state
      */
     public function setState($state)
     {
@@ -188,7 +188,7 @@ class Address
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getState()
     {
@@ -196,7 +196,7 @@ class Address
     }
 
     /**
-     * @param mixed $street
+     * @param string $street
      */
     public function setStreet($street)
     {
@@ -204,7 +204,7 @@ class Address
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getStreet()
     {

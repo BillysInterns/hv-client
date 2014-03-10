@@ -147,7 +147,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     {
         $method  = 'GetPersonInfo';
         $version = 1;
-        return HVClientHelper::HVPersonFromXML($this->callHealthVault(NULL, $method, $version));
+        $response = $this->callHealthVault(NULL, $method, $version);
+        return HVClientHelper::HVPersonFromXML($response);
     }
 
     public function callHealthVault($info, $method, $version)

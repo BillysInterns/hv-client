@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <person-info>
-    <person-id>3933614a-92bc-4da5-95c0-6085f7aef4aa</person-id>
-    <name>Billy D Intern</name>
-    <selected-record-id>97cb6d50-8c8e-4aff-8818-483efdfed7d5</selected-record-id>
+    <person-id><![CDATA[3933614a-92bc-4da5-95c0-6085f7aef4aa]]></person-id>
+    <name><![CDATA[Billy D Intern]]></name>
+    <selected-record-id><![CDATA[97cb6d50-8c8e-4aff-8818-483efdfed7d5]]></selected-record-id>
     <record id="97cb6d50-8c8e-4aff-8818-483efdfed7d5" record-custodian="true" rel-type="1" rel-name="Self" auth-expires="9999-12-31T23:59:59.999Z" display-name="Bryan" state="Active" date-created="2013-05-28T13:52:01.097Z" max-size-bytes="4294967296" size-bytes="4557031" app-record-auth-action="NoActionRequired" app-specific-record-id="240623" location-country="US" location-state-province="NJ" date-updated="2013-08-21T17:33:51.623Z"><![CDATA[Lord Varys]]></record>
     <record id="362cf065-e7de-433d-8eaa-eb5f5c4fb69b" record-custodian="true" rel-type="5" rel-name="Child" auth-expires="9999-12-31T23:59:59.999Z" display-name="Tyrion" state="Active" date-created="2013-06-25T17:08:33.983Z" max-size-bytes="4294967296" size-bytes="58709" app-record-auth-action="NoActionRequired" app-specific-record-id="243084" location-country="US" location-state-province="NJ" date-updated="2013-08-21T17:33:52.183Z"><![CDATA[Tyrion Lanister]]></record>
     <preferred-culture>
-        <language>en-GB</language>
+        <language><![CDATA[en-GB]]></language>
     </preferred-culture>
     <preferred-uiculture>
-        <language>en-GB</language>
+        <language><![CDATA[en-GB]]></language>
     </preferred-uiculture>
     <location>
-        <country>US</country>
+        <country><![CDATA[US]]></country>
     </location>
 </person-info>

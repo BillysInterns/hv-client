@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\XmlRoot;
 
 use elevate\HVObjects\Generic\Contact;
 
-/** @XmlRoot("personal-contact-information") */
+/** @XmlRoot("contact") */
 class PersonalContactInformationType
 {
     /**

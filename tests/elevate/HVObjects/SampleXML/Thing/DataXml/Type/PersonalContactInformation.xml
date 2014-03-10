@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<personal-contact-information>
+<contact>
     <contact>
         <address>
             <description><![CDATA[Home Address]]></description>
@@ -22,4 +22,4 @@
             <address><![CDATA[billy@theintern.com]]></address>
         </email>
     </contact>
-</personal-contact-information>
+</contact>

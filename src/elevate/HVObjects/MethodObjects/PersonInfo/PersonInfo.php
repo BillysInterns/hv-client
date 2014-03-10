@@ -49,7 +49,7 @@ class PersonInfo
      * @Type("string")
      * @SerializedName("selected-record-id")
      */
-    protected $selectedRecondId;
+    protected $selectedRecordId;
 
     /**
      * @Type("boolean")
@@ -94,7 +94,7 @@ class PersonInfo
     function __construct(
         $personId,
         $name,
-        $selectedRecondId,
+        $selectedRecordId,
         $moreRecords,
         array $record,
         Culture $preferredCulture,
@@ -115,7 +115,7 @@ class PersonInfo
         $this->preferredCulture = $preferredCulture;
         $this->preferredUiculture = $preferredUiculture;
         $this->record = $record;
-        $this->selectedRecondId = $selectedRecondId;
+        $this->selectedRecordId = $selectedRecordId;
     }
 
     /**
@@ -279,19 +279,19 @@ class PersonInfo
     }
 
     /**
-     * @param mixed $selectedRecondId
+     * @param mixed $selectedRecordId
      */
-    public function setSelectedRecondId($selectedRecondId)
+    public function setSelectedRecordId($selectedRecordId)
     {
-        $this->selectedRecondId = $selectedRecondId;
+        $this->selectedRecordId = $selectedRecordId;
     }
 
     /**
      * @return mixed
      */
-    public function getSelectedRecondId()
+    public function getSelectedRecordId()
     {
-        return $this->selectedRecondId;
+        return $this->selectedRecordId;
     }
 
 

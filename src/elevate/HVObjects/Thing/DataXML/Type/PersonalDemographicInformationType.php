@@ -156,7 +156,7 @@ class PersonalDemographicInformationType
     }
 
     /**
-     * @return mixed
+     * @return CodableValue
      */
     public function getBloodType()
     {
@@ -204,7 +204,7 @@ class PersonalDemographicInformationType
     }
 
     /**
-     * @return mixed
+     * @return CodableValue
      */
     public function getEthnicity()
     {
@@ -220,7 +220,7 @@ class PersonalDemographicInformationType
     }
 
     /**
-     * @return mixed
+     * @return Codablevalue
      */
     public function getHighestEducationLevel()
     {
@@ -284,7 +284,7 @@ class PersonalDemographicInformationType
     }
 
     /**
-     * @return mixed
+     * @return CodableValue
      */
     public function getMaritalStatus()
     {
@@ -292,7 +292,7 @@ class PersonalDemographicInformationType
     }
 
     /**
-     * @param mixed $name
+     * @param Name $name
      */
     public function setName($name)
     {
@@ -300,7 +300,7 @@ class PersonalDemographicInformationType
     }
 
     /**
-     * @return mixed
+     * @return Name
      */
     public function getName()
     {
@@ -332,7 +332,7 @@ class PersonalDemographicInformationType
     }
 
     /**
-     * @return mixed
+     * @return Codablevalue
      */
     public function getReligon()
     {
