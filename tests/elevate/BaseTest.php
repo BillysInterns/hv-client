@@ -6,13 +6,13 @@
 
 namespace elevate\test;
 
-use biologis\HV\HVRawConnector;
+use elevate\HVCommunicator;
 use elevate\HVClient;
 
 class BaseTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var HVRawConnector $connector
+     * @var HVCommunicator $connector
      */
     protected $connector;
     /**
@@ -37,6 +37,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($this->appId, "Application ID is empty.");
         $this->assertNotEmpty($this->thumbPrint, "Thumbprint is empty.");
         $this->assertNotEmpty($this->privateKey, "Private key is empty");
+        $this->assertNotEmpty($this->connector);
     }
 
     /**
@@ -71,6 +72,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
             $this->hv = new HVClient($this->thumbPrint, $this->privateKey, $this->appId, $this->personId, $this->recordId);
         }
         $this->hv->connect();
+        $this->connector = $this->hv->getConnector();
     }
 }
  
