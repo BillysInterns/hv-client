@@ -66,8 +66,8 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
      if($this->digest == null){
         if (empty($this->config['digest'])) {
-            $this->sharedSecret = $this->hash(uniqid());
-            $this->digest = $this->hmacSha1($this->sharedSecret, $this->sharedSecret);
+            $this->sharedSecret = $this->hashString(uniqid());
+            $this->digest = $this->hmacSha1Content($this->sharedSecret, $this->sharedSecret);
         }
         else
         {
@@ -109,7 +109,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             $dom->loadXML($appServer->content->asXML());
             $contentXML = $dom->saveXML($dom->documentElement);
 
-            $contentXMLSigned = $this->sign($contentXML);
+            $contentXMLSigned = $this->signRequest($contentXML);
 
             $appServer->sig['thumbprint'] = $this->thumbPrint;
             $appServer->sig = $contentXMLSigned;
@@ -156,7 +156,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
         $xml = $this->setupRequestInfo($xml, $method, $methodVersion, $info);
 
-        $this->makeWCRequest($xml);
+        $this->makeHVRequest($xml);
 
 
     }
@@ -206,7 +206,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             $simpleXMLObj->{'header'}->{'auth-session'}->{'auth-token'} = $this->authToken;
             $dom->loadXML($infoXMLObj->asXML());
             $infoHashXML = $dom->saveXML($dom->documentElement);
-            $simpleXMLObj->{'header'}->{'info-hash'}->{'hash-data'} = $this->hash($infoHashXML);
+            $simpleXMLObj->{'header'}->{'info-hash'}->{'hash-data'} = $this->hashString($infoHashXML);
         }
         // Create new DOMElements from the two SimpleXMLElements
         $domRequest = dom_import_simplexml($simpleXMLObj);
@@ -223,7 +223,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
        $dom->loadXML($headerS->asXML());
        $headerXML = $dom->saveXML($dom->documentElement);
 
-       $headerXMLHashed = $this->hmacSha1($headerXML, base64_decode($this->digest));
+       $headerXMLHashed = $this->hmacSha1Content($headerXML, base64_decode($this->digest));
         //Not present in Auth token request
         if($method !='CreateAuthenticatedSessionToken')
         {
@@ -304,14 +304,14 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
         $newXML = $this->setupAdditionalHeaders($newXML, $additionalHeaders);
 
-        $this->makeWCRequest($newXML);
+        $this->makeHVRequest($newXML);
     }
 
     /**
      * Makes the actual request to HV and checks the response to see if request was succesful
      * @param $xml String The XML to send
      */
-    private function makeWCRequest($xml)
+    private function makeHVRequest($xml)
     {
 
         $dom = new \DOMDocument('1.0');
@@ -479,7 +479,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      * @param $str
      * @return string
      */
-    private function hash($str)
+    private function hashString($str)
     {
         $hash = preg_replace('/>\s+</', '><', $str);
         $hash = preg_replace("/[\n\r]/",'',$hash);
@@ -492,7 +492,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      * @param $key
      * @return string
      */
-    private function hmacSha1($str, $key)
+    private function hmacSha1Content($str, $key)
     {
         $hmac = preg_replace('/>\s+</', '><', $str);
         $hmac = preg_replace("/[\n\r]/",'',$hmac);
@@ -506,7 +506,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      * @return string The signed XML
      * @throws \Exception
      */
-    protected function sign($str)
+    protected function signRequest($str)
     {
         static $privateKey = NULL;
 
