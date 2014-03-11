@@ -7,18 +7,21 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\AccessorOrder;
 
 
 /**
+ * @XmlNamespace(uri="http://www.w3.org/2001/XMLSchema", prefix="xml")
  * @XmlRoot("vocabulary-key")
  */
 class VocabularyKey
 {
 
-    // * @XmlNamespace(uri="http://www.w3.org/2001/XMLSchema", prefix="xml")
+
 
 
     /**
@@ -40,18 +43,20 @@ class VocabularyKey
 
 
     /**
-     * @XmlAttribute
+     * @XmlAttribute(namespace="http://www.w3.org/2001/XMLSchema")
+     *
+     * @SerializedName("lang")
      * @Type("string")
-     * @SerializedName("xml:lang")
+     *
      */
-    private $xmlLang = NULL;
+    private $lang = "en-US";
 
 
-    public function __construct($name = null, $family = null, $xmlLang = "en-US")
+    public function __construct($name = null, $family = null, $lang = "en-US")
     {
         $this->family = $family;
         $this->name = $name;
-        $this->xmlLang = $xmlLang;
+        $this->lang = $lang;
     }
 
 }

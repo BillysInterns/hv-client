@@ -15,7 +15,9 @@
 
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>tests</directory>
+            <!-- Added our HV library to the unit test suite -->
+            <!-- <directory>vendor/communitychair1</directory> -->
+            <directory>tests/elevate</directory>
         </testsuite>
     </testsuites>
 
