@@ -6,7 +6,6 @@
     "homepage": "https://github.com/BillysInterns/hv-client",
     "license": "GPL-2.0+",
     "require": {
-        "communitychair1/hv-raw-connector": "dev-master",
         "psr/log": "1.0.0",
         "jms/serializer": "0.15.0",
         "doctrine/collections": "1.2.*@dev"
