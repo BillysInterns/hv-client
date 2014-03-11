@@ -6,7 +6,7 @@
 
 namespace elevate;
 
-use biologis\HV\HVRawConnector;
+use elevate\HVCommunicator;
 
 use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\util\HVClientHelper;
@@ -35,7 +35,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
      */
     private $config;
     /**
-     * @var \biologis\HV\HVRawConnector|null Instance of the HV Raw Connector
+     * @var HVCommunicator|null Instance of the HV Raw Connector
      */
     private $connector = NULL;
     /**
@@ -133,7 +133,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $additionalTargetQSParams = NULL
     )
     {
-        return HVRawConnector::getAuthenticationURL(
+        return HVCommunicator::getAuthenticationURL(
             $this->appId,
             $redirectUrl,
             $this->config,
@@ -220,7 +220,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
 
         if (!$this->connector)
         {
-            $this->connector = new HVRawConnector(
+            $this->connector = new HVCommunicator(
                 $this->appId,
                 $this->thumbPrint,
                 $this->privateKey,
@@ -325,11 +325,11 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     }
 
     /**
-     * @param HVRawConnectorInterface $connector
+     * @param HVCommunicatorInterface $connector
      *
      * @return $this
      */
-    public function setConnector(HVRawConnectorInterface $connector)
+    public function setConnector(HVCommunicatorInterface $connector)
     {
         $this->connector = $connector;
         return $this;

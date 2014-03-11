@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wc-request:request xmlns:wc-request="urn:com.microsoft.wc.request">
     <header>
-        <method/>
-        <method-version/>
-        <app-id/>
+        <method></method>
+        <method-version></method-version>
+        <app-id></app-id>
         <language>en</language>
         <country>US</country>
-        <msg-time/>
+        <msg-time></msg-time>
         <msg-ttl>36000</msg-ttl>
-        <version/>
+        <version></version>
     </header>
-    <info/>
 </wc-request:request>

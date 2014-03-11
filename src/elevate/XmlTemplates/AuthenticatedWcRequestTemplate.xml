@@ -4,10 +4,10 @@
         <hmac-data algName="HMACSHA1"/>
     </auth>
     <header>
-        <method/>
-        <method-version/>
+        <method></method>
+        <method-version></method-version>
         <auth-session>
-            <auth-token/>
+            <auth-token></auth-token>
             <user-auth-token/>
         </auth-session>
         <language>en</language>
@@ -19,5 +19,4 @@
             <hash-data algName="SHA1"/>
         </info-hash>
     </header>
-    <info/>
 </wc-request:request>
