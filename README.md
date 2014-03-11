@@ -47,7 +47,7 @@ limited at the moment (the essential ones are available):
 
 If you need more and understand the available
 [Documentation](http://developer.healthvault.com/default.aspx), you can always
-use HVRawCommunicatorPHP directly.
+use HVCommunicatorPHP directly.
 
 
 Usage
@@ -96,7 +96,7 @@ try {
   $hv->connect($yourCertThumbPrint, $yourPrivateKey);
   $personInfo = $hv->getPersonInfo();
 }
-catch (HVRawConnectorUserNotAuthenticatedException $e) {
+catch (HVCommunicatorUserNotAuthenticatedException $e) {
  print '<a href="' .
    $hv->getAuthenticationURL($yourReturnURL) .
    ">Authenticate</a>';
