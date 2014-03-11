@@ -5,9 +5,8 @@ HVClientLibPHP
 [![Code Coverage](https://scrutinizer-ci.com/g/BillysInterns/hv-client/badges/coverage.png?s=279553c6fd46e5797c5178fc1a920816695389c9)](https://scrutinizer-ci.com/g/BillysInterns/hv-client/)
 
 An easy to use PHP library to connect to
-[Microsoft® HealthVault™](https://www.healthvault.com/)
-on top of
-[HVRawConnectorPHP](https://github.com/communitychair1/HVRawConnectorPHP).
+[Microsoft® HealthVault™](https://www.healthvault.com/).
+
 It adds a nicer object oriented programming interface and hides (most) of the
 complicated XML parts in the HealthVault protocol.
 
@@ -16,34 +15,6 @@ This library was inspired from [HVClientPHP](https://github.com/mkalkbrenner/HVC
 
 Installation
 ------------
-
-HVClientLibPHP depends on
-[HVRawConnectorPHP](https://github.com/communitychair1/HVRawConnectorPHP).
-
-You can simply use composer to install HVRawConnectorPHP and it's dependencies.
-
-To add HVClientLibPHP as a library in your project, add something like that to
-the 'require' section of your `composer.json`:
-
-```json
-{
-  "require": {
-    "communitychair1/hv-client-lib": "dev-master"
-  }
-}
-```
-
-If composer complains about an unknown pear channel, add this to your `composer.json`:
-```json
-{
-  "repositories": [
-    {
-      "type": "pear",
-      "url": "http://pear.php.net"
-    }
-  ]
-}
-```
 
 Earlier version of HVClientLibPHP could also be installed by pear including all
 it's dependencies:
@@ -76,8 +47,7 @@ limited at the moment (the essential ones are available):
 
 If you need more and understand the available
 [Documentation](http://developer.healthvault.com/default.aspx), you can always
-use HVRawConnectorPHP directly. In that case you should ideally contribute your
-work to let HVClientLibPHP grow faster.
+use HVRawCommunicatorPHP directly.
 
 
 Usage
@@ -146,6 +116,7 @@ So register your app there first and start coding afterwards.
 The demo_app (aka Hello World) is already registered. For your first tests you
 can also use it's credentials to start right away.
 
+The unit tests also have been registered and the credentials have been included
 
 Demo
 ----
@@ -170,8 +141,9 @@ Changes And Additions
 - The HV Connect function has been updated to support both online and offline connection modes.
 - The Get Things function has been updated to support putting of pictures and files
 - Unit tests have been created to test all of this functionality and some of the functionality of the original library.
+- The HVCommunicator has been added to provide a more integrated connection
 
 Licence
 -------
 
-[GPLv2](https://raw.github.com/BillysInterns/hv-client/master/LICENSE.md).
+[MIT](https://raw.github.com/BillysInterns/hv-client/master/LICENSE.md).
