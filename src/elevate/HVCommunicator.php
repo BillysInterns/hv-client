@@ -9,6 +9,7 @@ use DOMDocument;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use SimpleXMLElement;
 
 /**
  * Class HVRaw Connector
@@ -100,8 +101,8 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             $simpleXMLObj = simplexml_load_string($baseXML);
 
             // Set the attributes accordingly
-            $simpleXMLObj->{'auth-info'}->{'app-id'} = $this->appId;
-            $appServer = $simpleXMLObj->{'auth-info'}->credential->appserver;
+            $simpleXMLObj->{'app-id'} = $this->appId;
+            $appServer = $simpleXMLObj->credential->appserver;
             $appServer->content->{'shared-secret'}->{'hmac-alg'} = $this->digest;
             $appServer->content->{'app-id'} = $this->appId;
 
@@ -144,12 +145,16 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         if($online)
         {
             $xml = file_get_contents(__DIR__ . '/XmlTemplates/AuthenticatedWcRequestTemplate.xml');
-            $xml = str_replace('<user-auth-token/>','<user-auth-token>'.$this->config['wctoken'].'</user-auth-token>',$xml);
+            $simpleXMLObj = simplexml_load_string($xml);
+            $simpleXMLObj->{'header'}->{'auth-session'}->{'auth-token'} = $this->config['wctoken'];
+            $xml = $simpleXMLObj->asXML();
         }
         else
         {
             $xml = file_get_contents(__DIR__ . '/XmlTemplates/OfflineRequestTemplate.xml');
-            $xml = str_replace('<offline-person-id/>','<offline-person-id>'.$personId.'</offline-person-id>',$xml);
+            $simpleXMLObj = simplexml_load_string($xml);
+            $simpleXMLObj->{'header'}->{'auth-session'}->{'offline-person-info'}->{'offline-person-id'} = $personId;
+            $xml = $simpleXMLObj->asXML();
         }
         //Do this first, record-id generally needs to be tacked on
         $xml = $this->setupAdditionalHeaders($xml,$additionalHeaders);
@@ -177,14 +182,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $dom->formatOutput = false;
         if(!empty($info))
         {
-            $info = str_replace(array('<![CDATA[',']]>'),array('',''),$info);
-            $infoReplacement =  $info;
-
-            if(strpos($infoReplacement,'<info>') === false)
-            {
-                $infoReplacement =  '<info>'.$info.'</info>';
-
-            }
+            $infoReplacement =  '<info>'.$info.'</info>';
         }
         else
         {
@@ -244,15 +242,32 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     private function setupAdditionalHeaders($xml,$additionalHeaders)
     {
-        $newHeader = '</method-version>';
+        $sxe = new SimpleXMLElement($xml);
         if (!empty($additionalHeaders)) {
             foreach ($additionalHeaders as $element => $text) {
-                $newHeader .= "<" . $element . ">" . $text . "</" . $element . ">";
+                $newHeader = "<" . $element . ">" . $text . "</" . $element . ">";
+
+                // New element to be inserted
+                $insert = new SimpleXMLElement($newHeader);
+                // Get the method-version element
+                $target = current($sxe->xpath('//method-version'));
+                // Insert the new element after the method-version element
+                $this->simplexml_insert_after($insert, $target);
+
             }
         }
+        return $sxe->asXML();
+    }
 
-        $xml = str_replace('</method-version>',$newHeader,$xml);
-        return $xml;
+    private function simplexml_insert_after(SimpleXMLElement $insert, SimpleXMLElement $target)
+    {
+        $target_dom = dom_import_simplexml($target);
+        $insert_dom = $target_dom->ownerDocument->importNode(dom_import_simplexml($insert), true);
+        if ($target_dom->nextSibling) {
+            return $target_dom->parentNode->insertBefore($insert_dom, $target_dom->nextSibling);
+        } else {
+            return $target_dom->parentNode->appendChild($insert_dom);
+        }
     }
 
     /**
@@ -319,7 +334,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $dom->formatOutput = false;
         $dom->loadXML($xml);
         $formattedDOMXML = $dom->saveXML();
-        $formattedDOMXML = preg_replace("/[\n\r]/",'',$formattedDOMXML);
+
 
         $params = array(
             'http' => array(
@@ -481,9 +496,8 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     private function hashString($str)
     {
-        $hash = preg_replace('/>\s+</', '><', $str);
-        $hash = preg_replace("/[\n\r]/",'',$hash);
-        $hash = trim(base64_encode(sha1($hash, TRUE)));
+
+        $hash = trim(base64_encode(sha1($str, TRUE)));
         return $hash;
     }
 
@@ -494,9 +508,8 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     private function hmacSha1Content($str, $key)
     {
-        $hmac = preg_replace('/>\s+</', '><', $str);
-        $hmac = preg_replace("/[\n\r]/",'',$hmac);
-        $hmac =  trim(base64_encode(hash_hmac('sha1', $hmac, $key, TRUE)));
+
+        $hmac =  trim(base64_encode(hash_hmac('sha1', $str, $key, TRUE)));
         return $hmac;
     }
 
@@ -523,11 +536,10 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         }
 
         // TODO check if $privateKey really is a key (format)
-        $toSign = preg_replace("/[\n\r]/",'',$str);
-        $toSign = preg_replace('/>\s+</', '><', $toSign);
+
         openssl_sign(
         // remove line breaks and spaces between elements, otherwise the signature check will fail
-            $toSign,
+            $str,
             $signature,
             $privateKey,
             OPENSSL_ALGO_SHA1);

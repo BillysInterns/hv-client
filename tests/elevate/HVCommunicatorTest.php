@@ -45,12 +45,9 @@ class HVCommunicatorTest extends BaseTest {
         // Get the has of the content
         $dom->loadXML($appServer->content->asXML());
         $contentXML = $dom->saveXML($dom->documentElement);
-
-        $toSign = preg_replace("/[\n\r]/",'',$contentXML);
-        $toSign = preg_replace('/>\s+</', '><', $toSign);
         openssl_sign(
         // remove line breaks and spaces between elements, otherwise the signature check will fail
-            $toSign,
+            $contentXML,
             $signature,
             $this->privateKey,
             OPENSSL_ALGO_SHA1);
@@ -65,7 +62,6 @@ class HVCommunicatorTest extends BaseTest {
         $info = new Info(array($reqGroup));
         $this->hv->connect();
         $xml = HVClientHelper::HVInfoAsXML($info);
-        $xml = str_replace(array('<![CDATA[',']]>'),array('',''),$xml);
         $response = $this->hv->callHealthVault($info, 'GetThings', 2);
         $this->assertNotNull($response);
 
@@ -75,9 +71,9 @@ class HVCommunicatorTest extends BaseTest {
         $dom->formatOutput = false;
         $dom->loadXML($xml);
         $infoHashXML = $dom->saveXML($dom->documentElement);
-        $hash = preg_replace('/>\s+</', '><', $infoHashXML);
-        $hash = preg_replace("/[\n\r]/",'',$hash);
-        $expectedHash = trim(base64_encode(sha1($hash, TRUE)));
+        $dom->loadXML($request);
+        $request = $dom->saveXML($dom->documentElement);
+        $expectedHash = trim(base64_encode(sha1($infoHashXML, TRUE)));
 
         // Get the has of the content
         $requestSXML = simplexml_load_string($request);
@@ -96,8 +92,11 @@ class HVCommunicatorTest extends BaseTest {
         $this->assertNotNull($response);
 
         $request = $this->connector->getRawRequest();
-
-
+        $dom = new \DOMDocument('1.0');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = false;
+        $dom->loadXML($request);
+        $request = $dom->saveXML($dom->documentElement);
         // Get the has of the content
         $requestSXML = simplexml_load_string($request);
         $time =  (string) $requestSXML->{'header'}->{'msg-time'};
@@ -110,9 +109,7 @@ class HVCommunicatorTest extends BaseTest {
             $hashData.'</hash-data></info-hash></header>';
        $this->assertEquals($xml,$requestHeaderXML);
 
-        $expectedHash = preg_replace('/>\s+</', '><', $xml);
-        $expectedHash = preg_replace("/[\n\r]/",'',$expectedHash);
-        $expectedHash =  trim(base64_encode(hash_hmac('sha1', $expectedHash, base64_decode($this->connector->getDigest()), TRUE)));
+        $expectedHash =  trim(base64_encode(hash_hmac('sha1', $xml, base64_decode($this->connector->getDigest()), TRUE)));
         $actualHash = (string) $requestSXML->{'auth'}->{'hmac-data'};
         $this->assertEquals($expectedHash,$actualHash);
 

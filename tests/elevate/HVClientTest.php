@@ -273,8 +273,8 @@ class HVClientTest extends BaseTest
         $heightType = new HeightType($when, $value);
         $heightDataXML = new HeightDataXML($heightType);
         $thing = new HeightMeasurement($heightDataXML);
-
-        $info = new PutInfo(array($thing));
+        $thing2 = new HeightMeasurement($heightDataXML);
+        $info = new PutInfo(array($thing,$thing2));
 
         $this->hv->connect();
         $response = $this->hv->putThings($info);
