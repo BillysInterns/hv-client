@@ -54,7 +54,7 @@ class FileType
     }
 
     /**
-     * @return mixed
+     * @return CodableValue
      */
     public function getContentType()
     {
@@ -71,7 +71,7 @@ class FileType
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -88,7 +88,7 @@ class FileType
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getSize()
     {
