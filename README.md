@@ -2,30 +2,12 @@ HVClientLibPHP
 ==============
 [![Build Status](https://travis-ci.org/BillysInterns/hv-client.png?branch=master)](https://travis-ci.org/BillysInterns/hv-client)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/BillysInterns/hv-client/badges/quality-score.png?s=d2c0e29fd9992c71ac7dca6210198d42ac3ee52b)](https://scrutinizer-ci.com/g/BillysInterns/hv-client/)
-[![Code Coverage](https://scrutinizer-ci.com/g/BillysInterns/hv-client/badges/coverage.png?s=279553c6fd46e5797c5178fc1a920816695389c9)](https://scrutinizer-ci.com/g/BillysInterns/hv-client/)
 
-An easy to use PHP library to connect to
+A PHP Library to interface with
 [Microsoft® HealthVault™](https://www.healthvault.com/).
 
 It adds a nicer object oriented programming interface and hides (most) of the
 complicated XML parts in the HealthVault protocol.
-
-This library was inspired from [HVClientPHP](https://github.com/mkalkbrenner/HVClientLibPHP) and many new features have been created and added to the library. A list of changes is at the bottom of this document.
-
-
-Installation
-------------
-
-Earlier version of HVClientLibPHP could also be installed by pear including all
-it's dependencies:
-
-    pear channel-discover pear.biologis.com
-    pear channel-discover pear.querypath.org
-    pear install biologis/HVClient
-
-This method will install HVClientLibPHP as a library, but without the
-available demo application.
-
 
 Status
 ------
@@ -56,30 +38,16 @@ Usage
 This is a simple example to display all weight measurements:
 
 ```php
-$hv = new HVClient($yourAppId, $_SESSION);
-$hv->connect($yourCertThumbPrint, $yourPrivateKey);
+$hv = new HVClient($thumbPrint,$privateKey,$appId,$personId,$recordId)
+$hv->connect();
 
 $personInfo = $hv->getPersonInfo();
-$recordId = $personInfo->selected_record_id;
+$recordId = $personInfo->getRecord()[0]->getId();
 
 $things = $hv->getThings('Weight Measurement', $recordId);
 foreach ($things as $thing) {
   print $thing->weight->value->kg;
 }
-```
-
-Connect a different HealthVault™ instance using a different country and
-language:
-
-```php
-$hv = new HVClient($yourAppId, $_SESSION);
-
-$hv->setHealthVaultPlatform(
-  'https://platform.healthvault-ppe.co.uk/platform/wildcat.ashx');
-$hv->setLanguage('de');
-$hv->setCountry('DE');
-
-$hv->connect($yourCertThumbPrint, $yourPrivateKey);
 ```
 
 To connect your PHP based HealthVault™ app, your app needs to authorized by
@@ -89,19 +57,6 @@ exceptions. In this case you can create a link that takes the user to
 HealthVault™ to authenticate himself and to authorize your app and takes him
 back to your site afterwards:
 
-```php
-$hv = new HVClient($yourAppId, $_SESSION);
-
-try {
-  $hv->connect($yourCertThumbPrint, $yourPrivateKey);
-  $personInfo = $hv->getPersonInfo();
-}
-catch (HVCommunicatorUserNotAuthenticatedException $e) {
- print '<a href="' .
-   $hv->getAuthenticationURL($yourReturnURL) .
-   ">Authenticate</a>';
-}
-```
 
 For more examples have a look at the demo_app source code included in
 HVClientLibPHP.
