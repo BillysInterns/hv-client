@@ -6,7 +6,7 @@
  * Time: 4:43 PM
  */
 
-namespace elevate;
+namespace elevate\Exceptions;
 
 class HVCommunicatorAppNotAuthenticatedException extends \Exception
 {

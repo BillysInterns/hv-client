@@ -6,7 +6,7 @@
  * Time: 10:43 AM
  */
 
-namespace elevate;
+namespace elevate\Interfaces;
 
 
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
