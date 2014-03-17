@@ -16,11 +16,13 @@ class SchoolTypeTest extends BaseObjectTest
         $schoolName = 'Dartmouth';
         $schoolType = 'university';
         $speciality[] = 'autism';
+        $current = true;
 
         self::$testObject = new SchoolType(
             $schoolName,
             $schoolType,
-            $speciality
+            $speciality,
+            $current
 
         );
 

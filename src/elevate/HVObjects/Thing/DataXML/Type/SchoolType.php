@@ -36,11 +36,18 @@ class SchoolType
      */
     protected $specialty;
 
-    public function __construct($name = NULL, $type = NULL, $specialty = array())
+    /**
+     * @Type("boolean")
+     * @SerializedName("current")
+     */
+    protected $current;
+
+    public function __construct($name = NULL, $type = NULL, $specialty = array(), $current = NULL)
     {
         $this->name = $name;
         $this->type = $type;
         $this->specialty = $specialty;
+        $this->current = $current;
     }
 
     /**
@@ -90,4 +97,22 @@ class SchoolType
     {
         return $this->type;
     }
+
+    /**
+     * @param boolean $current
+     */
+    public function setCurrent($current)
+    {
+        $this->current = $current;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getCurrent()
+    {
+        return $this->current;
+    }
+
+
 }

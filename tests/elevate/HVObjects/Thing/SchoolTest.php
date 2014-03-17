@@ -23,11 +23,13 @@ class SchoolTest extends BaseObjectTest
         $schoolName = 'Dartmouth';
         $instituteType = 'university';
         $speciality[] = 'autism';
+        $current = true;
 
         $schoolType = new SchoolType(
             $schoolName,
             $instituteType,
-            $speciality
+            $speciality,
+            $current
 
         );
 
