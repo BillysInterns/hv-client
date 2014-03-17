@@ -4,8 +4,9 @@
  * @author troussos
  */
 
-namespace elevate;
+namespace elevate\Interfaces;
 use elevate\HVObjects\MethodObjects\PutThings\Info;
+use elevate\Interfaces\HVCommunicatorInterface;
 
 /**
  * Interface HVClientInterface

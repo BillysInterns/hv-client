@@ -18,6 +18,11 @@ use elevate\util\InfoHelper;
 use SimpleXMLElement;
 use elevate\TypeTranslator;
 
+use elevate\Interfaces\HVClientInterface;
+use elevate\Interfaces\HVCommunicatorInterface;
+
+use elevate\Exceptions\HVCommunicatorAccessDeniedException;
+
 
 /**
  * Class HVClient
@@ -183,7 +188,14 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         {
             //make the request
             $start = microtime(true);
-            $this->connector->makeRequest($method, $version, $xml, array('record-id' => $this->recordId), $this->personId);
+            try{
+                $this->connector->makeRequest($method, $version, $xml, array('record-id' => $this->recordId), $this->personId);
+            }
+            catch (HVCommunicatorAuthenticationExpiredException $e)
+            {
+                $this->connect();
+                $this->callHealthVaultWithXML($xml, $method, $version);
+            }
             $end = microtime(true);
             $rawResponse = $this->connector->getRawResponse();
             $this->logger->debug("HV Call Time (sec): " . round($end-$start,1));

@@ -11,6 +11,15 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SimpleXMLElement;
 
+use elevate\Interfaces\HVCommunicatorInterface;
+
+//Load the custom exceptions
+use elevate\Exceptions\HVCommunicatorAppNotAuthenticatedException;
+use elevate\Exceptions\HVCommunicatorAuthenticationExpiredException;
+use elevate\Exceptions\HVCommunicatorUserNotAuthenticatedException;
+use elevate\Exceptions\HVCommunicatorGenericException;
+use elevate\Exceptions\HVCommunicatorAccessDeniedException;
+
 /**
  * Class HVRaw Connector
  * Performs XML requests to HV and checks responses
@@ -43,6 +52,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
     //Useful for testing and debugging
     private $rawRequest;
+    private $requestParameters;
 
     // Call setLogger to change this from the default NullLogger
     private $logger = NULL;
@@ -162,7 +172,6 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $xml = $this->setupRequestInfo($xml, $method, $methodVersion, $info);
 
         $this->makeHVRequest($xml);
-
 
     }
 
@@ -349,7 +358,6 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
 
         $this->rawResponse = $this->performRequest();
 
-        $this->processResponse();
     }
 
     /**
@@ -402,12 +410,15 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         if ($this->responseCode > 0) {
             switch ($this->responseCode)
             {
+                case 11: //Access Denied (Bad Auth Token)
+                    throw new HVCommunicatorAccessDeniedException($this->SXMLResponse->status->error->message, $this->responseCode);
                 case 7: // The user authenticated session token has expired.
                 case 65: // The authenticated session token has expired.
-                    self::invalidateSession($this->config);
+                    unset($this->config);
+                    unset($this->authToken);
                     throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message, $this->responseCode);
                 default: // Handle all status's without a particular case
-                    throw new HVCommunicatorAuthenticationExpiredException($this->SXMLResponse->status->error->message,$this->responseCode);
+                    throw new HVCommunicatorGenericException($this->SXMLResponse->status->error->message,$this->responseCode);
             }
         }
     }
@@ -443,7 +454,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
      */
     public static function invalidateSession(&$config)
     {
-        unset($config['healthVault']);
+        unset($config);
     }
 
     /**
