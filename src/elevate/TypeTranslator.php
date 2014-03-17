@@ -8,7 +8,7 @@ namespace elevate;
 
 /**
  * Class TypeTranslator
- * @package biologis\HV
+ * @package elevate
  */
 class TypeTranslator
 {

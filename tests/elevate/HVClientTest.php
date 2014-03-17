@@ -209,6 +209,7 @@ class HVClientTest extends BaseTest
         $this->assertNotNull($response);
 
         $hvResponseGroups = HVClientHelper::HVGroupsFromXML($response);
+        $request = $this->hv->getConnector()->getRawRequest();
         $this->assertNotNull($hvResponseGroups);
     }
 

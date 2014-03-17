@@ -279,6 +279,41 @@ class PersonInfo
     }
 
     /**
+     * @param string $id
+     * @return mixed
+     */
+    public function getRecordById($id)
+    {
+        foreach($this->record as $relRecord)
+        {
+            if($relRecord->getId() == $id)
+            {
+                return $relRecord;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param string $id
+     * @return mixed
+     */
+    public function getRecordIndex($id)
+    {
+        $index = 0;
+        foreach($this->record as $relRecord)
+        {
+            if($relRecord->getId() == $id)
+            {
+                return $index;
+            }
+            $index += 1;
+
+        }
+        return null;
+    }
+
+    /**
      * @param mixed $selectedRecordId
      */
     public function setSelectedRecordId($selectedRecordId)
