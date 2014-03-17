@@ -156,7 +156,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         {
             $xml = file_get_contents(__DIR__ . '/XmlTemplates/AuthenticatedWcRequestTemplate.xml');
             $simpleXMLObj = simplexml_load_string($xml);
-            $simpleXMLObj->{'header'}->{'auth-session'}->{'auth-token'} = $this->config['wctoken'];
+            $simpleXMLObj->{'header'}->{'auth-session'}->{'user-auth-token'} = $this->config['wctoken'];
             $xml = $simpleXMLObj->asXML();
         }
         else
@@ -191,7 +191,13 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $dom->formatOutput = false;
         if(!empty($info))
         {
-            $infoReplacement =  '<info>'.$info.'</info>';
+            $infoReplacement =  $info;
+
+ 		    if(strpos($infoReplacement,'<info>') === false)
+            {
+                $infoReplacement =  '<info>'.$info.'</info>';
+
+ 		    }
         }
         else
         {
@@ -254,15 +260,16 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $sxe = new SimpleXMLElement($xml);
         if (!empty($additionalHeaders)) {
             foreach ($additionalHeaders as $element => $text) {
-                $newHeader = "<" . $element . ">" . $text . "</" . $element . ">";
+                if($text != null){
+                    $newHeader = "<" . $element . ">" . $text . "</" . $element . ">";
 
-                // New element to be inserted
-                $insert = new SimpleXMLElement($newHeader);
-                // Get the method-version element
-                $target = current($sxe->xpath('//method-version'));
-                // Insert the new element after the method-version element
-                $this->simplexml_insert_after($insert, $target);
-
+                    // New element to be inserted
+                    $insert = new SimpleXMLElement($newHeader);
+                    // Get the method-version element
+                    $target = current($sxe->xpath('//method-version'));
+                    // Insert the new element after the method-version element
+                    $this->simplexml_insert_after($insert, $target);
+                }
             }
         }
         return $sxe->asXML();
@@ -357,7 +364,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
         $this->rawRequest = $params['http']['content'];
 
         $this->rawResponse = $this->performRequest();
-
+        $this->processResponse();
     }
 
     /**

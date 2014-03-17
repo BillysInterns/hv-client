@@ -6,9 +6,10 @@
 
 namespace elevate;
 
+use DOMDocument;
 use elevate\HVCommunicator;
-
 use elevate\HVObjects\MethodObjects\Get\Info;
+use elevate\HVObjects\MethodObjects\PersonInfo\PersonInfo;
 use elevate\util\HVClientHelper;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerAwareInterface;
@@ -159,15 +160,29 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     public function callHealthVault($info, $method, $version)
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
-
-        // Remove XML line and pull out group from inside info tag
-        $groupObjs = new SimpleXMLElement($xml);
+        $xml = str_replace('<personal-image><![CDATA[]]></personal-image>','<personal-image />',$xml);
         $newXML    = "";
-        // Get groups
-        $groupObjs->xpath("//group");
-        foreach ($groupObjs as $groupObj)
-        {
-            $newXML .= $groupObj->asXML();
+        //check if this is a group request
+        if(!empty($info)){
+            if (strpos($xml, '<group') !== FALSE)
+            {
+                // Remove XML line and pull out group from inside info tag
+                $groupObjs = new SimpleXMLElement($xml);
+
+                // Get groups
+                $groupObjs->xpath("//group");
+                foreach ($groupObjs as $groupObj)
+                {
+                    $newXML .= $groupObj->asXML();
+                }
+            }
+            else
+            {
+                $doc = new DOMDocument();
+                $doc->loadXML($xml);
+                // Remove XML line
+                $newXML = $doc->saveXML($doc->documentElement);
+            }
         }
         $newXML = str_replace('<xpath><![CDATA[', '<xpath>', $newXML);
         $newXML = str_replace(']]></xpath>', '</xpath>', $newXML);
