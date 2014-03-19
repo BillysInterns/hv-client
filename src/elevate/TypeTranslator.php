@@ -118,6 +118,7 @@ class TypeTranslator
         'Weekly Aerobic Exercise Goal'                      => 'e4501363-fb95-4a11-bb60-da64e98048b5',
         'Weight Goal'                                       => 'b7925180-d69e-48fa-ae1d-cb3748ca170e',
         'Weight Measurement'                                => '3d34d87e-7fc1-4153-800f-f56592cb0d17',
+        'Symptom' => '55d33791-58de-4cae-8c78-819e12ba5059'
     );
 
     /**
@@ -135,17 +136,18 @@ class TypeTranslator
         }
         else
         {
-            $flippedThingArray = array_flip(self::$things);
-            $flippedThingArray = str_replace(' ', '', $flippedThingArray);
-            $flippedThingArray = str_replace('-', '', $flippedThingArray);
-            $flippedThingArray = array_flip($flippedThingArray);
-
-            if (isset($flippedThingArray[$typeName]))
+            foreach (self::$things as $key => $thing)
             {
-                return ($flippedThingArray[$typeName]);
+                $key          = str_replace(" ", "", $key);
+                $key          = str_replace("-", "", $key);
+                $things[$key] = $thing;
             }
+            if (isset($things[$typeName]))
+            {
+                return ($things[$typeName]);
+            }
+            return FALSE;
         }
-        return FALSE;
     }
 
     /**
@@ -158,14 +160,16 @@ class TypeTranslator
      */
     public static function lookupTypeName($typeID, $stripCharacters = TRUE)
     {
-        //Flip the Array so that the Keys become the values and the values become the keys
-        $flippedThingArray = array_flip(self::$things);
+        $keys = array_keys(self::$things, $typeID);
 
         //If the Type ID is invalid, return FALSE
-        if (!(isset($flippedThingArray[$typeID])))
+        if (empty($keys))
         {
             return FALSE;
         }
+
+        // Check for subtypes of Question Answer. Return Question Answer if it is found.
+        $name = (in_array('Question Answer', $keys)) ? 'Question Answer' : $keys[0];
 
         //If stripCharacters is true, then remove the versioning information from the type name
         if ($stripCharacters)
@@ -182,7 +186,7 @@ class TypeTranslator
                             str_replace(
                                 ' ',
                                 '',
-                                $flippedThingArray[$typeID]
+                                $name
                             )
                         )
                     )
