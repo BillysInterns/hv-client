@@ -12,6 +12,7 @@ use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
+use elevate\HVObjects\Generic\CodableValue;
 
 use elevate\HVObjects\Generic\Date\DateTime;
 
@@ -85,7 +86,7 @@ class QuestionAnswerType
     }
 
     /**
-     * @param mixed $question
+     * @param CodableValue $question
      */
     public function setQuestion($question)
     {
@@ -93,7 +94,7 @@ class QuestionAnswerType
     }
 
     /**
-     * @return mixed
+     * @return CodableValue
      */
     public function getQuestion()
     {
