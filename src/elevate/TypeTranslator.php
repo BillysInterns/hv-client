@@ -196,9 +196,6 @@ class TypeTranslator
                 );
         }
         //Otherwise, just return the type name
-        else
-        {
-            return $flippedThingArray[$typeID];
-        }
+        return $name;
     }
 }
