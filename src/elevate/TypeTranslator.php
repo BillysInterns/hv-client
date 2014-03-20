@@ -118,7 +118,9 @@ class TypeTranslator
         'Weekly Aerobic Exercise Goal'                      => 'e4501363-fb95-4a11-bb60-da64e98048b5',
         'Weight Goal'                                       => 'b7925180-d69e-48fa-ae1d-cb3748ca170e',
         'Weight Measurement'                                => '3d34d87e-7fc1-4153-800f-f56592cb0d17',
-        'Symptom' => '55d33791-58de-4cae-8c78-819e12ba5059'
+        'Symptom'                                           => '55d33791-58de-4cae-8c78-819e12ba5059',
+        'School'                                            => '55d33791-58de-4cae-8c78-819e12ba5059',
+        'School Year'                                       => '55d33791-58de-4cae-8c78-819e12ba5059'
     );
 
     /**
