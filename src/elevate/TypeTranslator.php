@@ -140,9 +140,10 @@ class TypeTranslator
         {
             foreach (self::$things as $key => $thing)
             {
-                $key          = str_replace(" ", "", $key);
-                $key          = str_replace("-", "", $key);
-                $things[$key] = $thing;
+                $newKey          = str_replace(" ", "", $key);
+                $newKey          = str_replace("-", "", $newKey);
+                $things[$newKey] = $thing;
+                unset($things[$key]);
             }
             if (isset($things[$typeName]))
             {
