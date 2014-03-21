@@ -17,20 +17,6 @@
             </time>
         </when>
         <summary><![CDATA[CamelCasedSentencesAreReallyCool]]></summary>
-        <school>
-            <name><![CDATA[Yale]]></name>
-            <type><![CDATA[university]]></type>
-            <specialty><![CDATA[law]]></specialty>
-        </school>
-        <school-year>
-            <grade><![CDATA[1st grade]]></grade>
-            <teacher>
-                <name>
-                    <full><![CDATA[Sir Derp Herpington]]></full>
-                </name>
-                <professional-training><![CDATA[internship]]></professional-training>
-            </teacher>
-        </school-year>
     </app-specific>
     <common>
         <source><![CDATA[unit test]]></source>

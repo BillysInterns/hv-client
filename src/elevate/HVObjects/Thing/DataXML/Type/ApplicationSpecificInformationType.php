@@ -41,24 +41,11 @@ class ApplicationSpecificInformationType
      */
     protected $summary;
 
-    /**
-     * @Type("elevate\HVObjects\Thing\DataXML\Type\SchoolType")
-     * @SerializedName("school")
-     */
-    protected $school;
 
-    /**
-     * @Type("elevate\HVObjects\Thing\DataXML\Type\SchoolYearType")
-     * @SerializedName("school-year")
-     */
-    protected $schoolYear;
-
-    function __construct($formatAppId = NULL, $formatTag = NULL, $school = NULL, $schoolYear = NULL, $summary = NULL, $when = NULL)
+    function __construct($formatAppId = NULL, $formatTag = NULL, $summary = NULL, $when = NULL)
     {
         $this->formatAppId = $formatAppId;
         $this->formatTag = $formatTag;
-        $this->school = $school;
-        $this->schoolYear = $schoolYear;
         $this->summary = $summary;
         $this->when = $when;
     }
@@ -126,37 +113,5 @@ class ApplicationSpecificInformationType
     public function getWhen()
     {
         return $this->when;
-    }
-
-    /**
-     * @param mixed $school
-     */
-    public function setSchool($school)
-    {
-        $this->school = $school;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSchool()
-    {
-        return $this->school;
-    }
-
-    /**
-     * @param mixed $schoolYear
-     */
-    public function setSchoolYear($schoolYear)
-    {
-        $this->schoolYear = $schoolYear;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSchoolYear()
-    {
-        return $this->schoolYear;
     }
 }
