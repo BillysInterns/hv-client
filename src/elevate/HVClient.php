@@ -7,9 +7,6 @@
 namespace elevate;
 
 use DOMDocument;
-use elevate\HVCommunicator;
-use elevate\HVObjects\MethodObjects\Get\Info;
-use elevate\HVObjects\MethodObjects\PersonInfo\PersonInfo;
 use elevate\util\HVClientHelper;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerAwareInterface;
@@ -17,12 +14,9 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use elevate\util\InfoHelper;
 use SimpleXMLElement;
-use elevate\TypeTranslator;
 
 use elevate\Interfaces\HVClientInterface;
 use elevate\Interfaces\HVCommunicatorInterface;
-
-use elevate\Exceptions\HVCommunicatorAccessDeniedException;
 
 
 /**
@@ -85,13 +79,11 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     /**
      * Set the member variables to the passed HV credentials. Setup a Logger and create the serializer.
      *
-     * @param string $thumbPrint HV Certificate Thumb Print
-     * @param string $privateKey HV Private Key for the Application
-     * @param string $appId      HV Application Id
-     * @param null   $personId   HV Person Id for the current request
-     * @param array  $config     Any extra HV parameters
-     *
-     * @return $this
+     * @param $thumbPrint
+     * @param $privateKey
+     * @param $appId
+     * @param $personId
+     * @param $recordId
      */
     public function __construct(
         $thumbPrint,
