@@ -14,16 +14,13 @@ use elevate\HVObjects\MethodObjects\Get\Info;
 use elevate\Serializer\XmlObjectDeserializationVisitor;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
-use elevate\util\EventSubscriber;
 use JMS\Serializer\EventDispatcher\EventDispatcher;
-use JMS\Serializer\EventDispatcher\PreSerializeEvent;
-use elevate\TypeTranslator;
 use JMS\Serializer\SerializerBuilder;
-use elevate\HVObjects\MethodObjects\ResponseGroup;
-use JMS\Serializer\SerializationContext;
 use elevate\HVObjects\Generic\Date\Date;
-use Mentis\BaseBundle\Utils\HealthVault\HvInfoDeserializer;
 use elevate\HVObjects\MethodObjects\PersonInfo\PersonInfo;
+use Mentis\BaseBundle\Utils\HealthVault\ResponseGroupParser;
+use Mentis\BaseBundle\Services\MentisHVClient2;
+use Mentis\BaseBundle\Services\UserManagerHelper;
 
 /**
  * Class HVClientHelper
@@ -32,6 +29,25 @@ use elevate\HVObjects\MethodObjects\PersonInfo\PersonInfo;
  * Utility class to help parse, create objects for HealthVault calls
  */
 class HVClientHelper {
+
+    /**
+     * An instance of the Health Vault Client. This is used to assist with the Health
+     * Vault calls (create item, put, get, etc.)
+     *
+     * @var MentisHVClient2
+     */
+    private $hv;
+
+    /**
+     * @var UserManagerHelper
+     */
+    private $umh;
+
+    function __construct($hv, $umh)
+    {
+        $this->hv  = $hv;
+        $this->umh = $umh;
+    }
 
     /**
      * @param object $info
@@ -206,4 +222,48 @@ class HVClientHelper {
         );
     }
 
+    /**
+     * Make a GET request to HV given the request groups and the user ID
+     *
+     * The response will be a nicely parsed array.
+     *
+     * @param $uid - Mentis Specific User ID
+     * @param $groups - HV Request Groups
+     * @param $version - version of get request
+     *
+     * @return array - HV Things in a nicely formatted array
+     */
+    public function makeHVGETRequest($uid, $groups, $version = 3)
+    {
+        $info = new Info($groups);
+
+        $response = $this->makeGenericHVRequest($uid, $info, 'GetThings', $version);
+
+        $responseGroups = HVClientHelper::HVGroupsFromXML($response);
+
+        return ResponseGroupParser::parseResponseGroups($responseGroups);
+    }
+
+    /**
+     * A generic HV request call.
+     *
+     * This call will set the user tokens and make an HV request based on the
+     * method, the version, and info object.
+     *
+     * @param $uid - Mentis specific user id
+     * @param $info - The Info request to send to healthvault
+     * @param $method - The type of request to make
+     * @param $version - The version of the request to make
+     *
+     * @return mixed
+     */
+    public function makeGenericHVRequest($uid, $info, $method, $version)
+    {
+        $user = $this->umh->loadUserFromUserID($uid);
+        $this->hv->setRecordId($user->getHvRecordId());
+        $this->hv->setPersonId($user->getHvPersonId());
+
+        $response = $this->hv->callHealthVault($info, $method, $version);
+        return $response;
+    }
 }
