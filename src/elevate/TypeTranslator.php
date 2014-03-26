@@ -44,7 +44,7 @@ class TypeTranslator
         'Comment'                                           => '9f4e0fcd-10d7-416d-855a-90514ce2016b',
         'Concern'                                           => 'aea2e8f2-11dd-4a7d-ab43-1d58764ebc19',
         'Condition'                                         => '7ea7a1f9-880b-4bd4-b593-f5660f20eda8',
-        'Continuity of Care Document (CCD)'                 => '9c48a2b8-952c-4f5a-935d-f3292326bf54',
+        'Continuity Of Care Document'                       => '9c48a2b8-952c-4f5a-935d-f3292326bf54',
         'Continuity of Care Record (CCR)'                   => '1e1ccbfc-a55d-4d91-8940-fa2fbf73c195',
         'Contraindication'                                  => '046d0ad7-6d7f-4bfd-afd4-4192ca2e913d',
         'Daily Dietary Intake'                              => '9c29c6b9-f40e-44ff-b24e-fba6f3074638',
@@ -126,7 +126,7 @@ class TypeTranslator
     /**
      * Given the thing type name, translate it to a type id
      *
-     * @param $typeName The Type Name to translate
+     * @param $typeName string The Type Name to translate
      *
      * @return string|bool The type id for the passed type name or false if it dose not exist
      */
