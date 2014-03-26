@@ -7,6 +7,7 @@
 namespace elevate;
 
 use DOMDocument;
+use elevate\Exceptions\HVCommunicatorAuthenticationExpiredException;
 use elevate\util\HVClientHelper;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Log\LoggerAwareInterface;
@@ -201,6 +202,8 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
             catch (HVCommunicatorAuthenticationExpiredException $e)
             {
                 $this->connector->clearAuthToken();
+                $this->setAuthToken(NULL);
+                unset($this->authToken);
                 $this->connect();
                 $this->callHealthVaultWithXML($xml, $method, $version);
             }
