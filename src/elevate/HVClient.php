@@ -200,6 +200,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
             }
             catch (HVCommunicatorAuthenticationExpiredException $e)
             {
+                $this->connector->clearAuthToken();
                 $this->connect();
                 $this->callHealthVaultWithXML($xml, $method, $version);
             }
