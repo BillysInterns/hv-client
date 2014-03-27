@@ -21,7 +21,7 @@ use elevate\Exceptions\HVCommunicatorGenericException;
 use elevate\Exceptions\HVCommunicatorAccessDeniedException;
 
 /**
- * Class HVRaw Connector
+ * Class HVCommunicator
  * Performs XML requests to HV and checks responses
  * @package elevate
  */
@@ -462,6 +462,11 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     public static function invalidateSession(&$config)
     {
         unset($config);
+    }
+
+    public function clearAuthToken()
+    {
+        $this->authToken = NULL;
     }
 
     /**
