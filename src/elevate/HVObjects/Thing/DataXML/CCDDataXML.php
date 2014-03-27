@@ -30,7 +30,7 @@ class CCDDataXML extends DataXML
 {
 
     /**
-     * @Type("string")
+     * @Type("rawxml")
      * @SerializedName("ClinicalDocument")
      */
     protected $ClinicalDocument;
@@ -54,7 +54,5 @@ class CCDDataXML extends DataXML
         $this->ClinicalDocument = $ClinicalDocument;
         return $this;
     }
-
-
 
 }

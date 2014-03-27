@@ -22,6 +22,8 @@ use Mentis\BaseBundle\Utils\HealthVault\ResponseGroupParser;
 use Mentis\BaseBundle\Services\MentisHVClient2;
 use Mentis\BaseBundle\Services\UserManagerHelper;
 
+use JMS\Serializer\Handler\HandlerRegistry;
+
 /**
  * Class HVClientHelper
  * @package elevate\util
@@ -95,6 +97,16 @@ class HVClientHelper {
         );
         $serializer->setDeserializationVisitor("xmlobject", new XmlObjectDeserializationVisitor(new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy())) );
         $serializerBuilder = $serializer->build();
+
+
+        $serializer->configureHandlers(function(HandlerRegistry $registry) {
+                $registry->registerHandler('deserialization', 'rawxml', 'xmlobject',
+                    function($visitor, $obj, array $type) {
+                        return $obj->asXML();
+                    }
+                );
+            })
+        ;
 
         return array(
             'xml'               => $xml,
