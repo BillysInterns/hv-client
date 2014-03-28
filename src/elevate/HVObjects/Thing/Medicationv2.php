@@ -15,7 +15,7 @@ use elevate\HVObjects\Thing\DataXML\Medication2DataXML;
 
 
 /** @XmlRoot("medication") */
-class Medication2 extends Thing
+class Medicationv2 extends Thing
 {
     /**
      * @var array elevate\HVObjects\Thing\DataXML\Medication2DataXML
