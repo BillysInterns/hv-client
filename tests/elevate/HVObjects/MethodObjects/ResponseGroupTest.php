@@ -20,9 +20,9 @@ use elevate\HVObjects\Generic\Contact;
 use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Date\Date;
 use elevate\HVObjects\Generic\Prescription;
-use elevate\HVObjects\Thing\DataXML\Type\Medication2Type;
+use elevate\HVObjects\Thing\DataXML\Type\Medicationv2Type;
 use elevate\HVObjects\Generic\Common;
-use elevate\HVObjects\Thing\DataXML\Medication2DataXML;
+use elevate\HVObjects\Thing\DataXML\Medicationv2DataXML;
 use elevate\HVObjects\Thing\Medicationv2;
 use elevate\HVObjects\Thing\DataXML\Type\FileType;
 use elevate\HVObjects\Thing\DataXML\FileDataXML;
@@ -121,9 +121,9 @@ class ResponseGroupTest extends BaseObjectTest
         $units = new CodableValue('pounds', array($unitCode));
         $measurement = new StructuredMeasurement('47', $units);
         $strength = new GeneralMeasurement('47 Pounds', $measurement);
-        $medicationType = new Medication2Type($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
+        $medicationType = new Medicationv2Type($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
         $common = new Common('Medication Note', 'Medication Source', 'medicationTag');
-        $medicationDataXml = new Medication2DataXML($medicationType, $common);
+        $medicationDataXml = new Medicationv2DataXML($medicationType, $common);
         $things[] = new Medicationv2($medicationDataXml);
         $name = "abcdefg";
 

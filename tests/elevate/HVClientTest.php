@@ -184,7 +184,7 @@ class HVClientTest extends BaseTest
          $this->hv->connect();
          $person = $this->hv->getPersonInfo();
 
-         print_r($person);
+         //print_r($person);
      }
 
     public function testFormatResults()

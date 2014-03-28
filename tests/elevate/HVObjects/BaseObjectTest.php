@@ -43,10 +43,12 @@ abstract class BaseObjectTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-        if(is_null(self::$sampleXMLPath) || is_null(self::$testObject) || is_null(self::$objectNamespace))
+        if(empty(self::$sampleXMLPath) || empty(self::$testObject))
         {
             throw new HVUnitTestBaseParameterNotDefinedException();
         }
+
+        self::$objectNamespace = get_class(self::$testObject);
 
         self::$serializer = \JMS\Serializer\SerializerBuilder::create();
         self::$serializer->configureListeners(

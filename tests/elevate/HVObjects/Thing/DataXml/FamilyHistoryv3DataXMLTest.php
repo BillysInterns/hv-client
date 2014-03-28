@@ -1,12 +1,11 @@
 <?php
 
 
-namespace elevate\test\HVObjects\DataXml;
+namespace elevate\test\HVObjects\Thing\DataXml;
 
 use elevate\HVObjects\Thing\DataXML\Type\FamilyHistory3Type;
 use elevate\HVObjects\Thing\DataXML\Type\ConditionType;
 use elevate\HVObjects\Thing\DataXML\FamilyHistory3DataXML;
-use elevate\HVObjects\Thing\FamilyHistory3;
 
 use elevate\test\HVObjects\BaseObjectTest;
 
@@ -23,16 +22,16 @@ use elevate\HVObjects\Generic\Common;
 
 
 /**
- * Class FamilyHistory3Test
- * @package elevate\test\HVObjects\DataXml
+ * Class FamilyHistory3DataXmlTest
+ * @package elevate\test\HVObjects\Thing\DataXml
  */
-class FamilyHistory3Test extends BaseObjectTest
+class FamilyHistoryv3DataXmlTest extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/FamilyHistory3.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\FamilyHistory3';
+        self::$sampleXMLPath = __DIR__ . '/../../SampleXML/Thing/DataXml/FamilyHistoryv3.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXML\FamilyHistory3DataXML';
 
         $nameCode = new CodedValue('154', 'Illness', array('Illness Issues'), array('Version 1'));
         $name = new CodableValue('Skin Failure', array($nameCode));
@@ -67,9 +66,10 @@ class FamilyHistory3Test extends BaseObjectTest
         $relative = new FamilyHistoryRelative($relationship, $relativeName, $dateBirth, $dateDeath, $regionOrigin);
 
         $FamilyHistory3Type = new FamilyHistory3Type($condition, $relative);
+
         $common = new Common('Immunization Note', 'Immunization Source', 'immunizationTag');
-        $FamilyHistory3DataXML = new FamilyHistory3DataXML($FamilyHistory3Type, $common);
-        self::$testObject = new FamilyHistory3($FamilyHistory3DataXML);
+
+        self::$testObject = new FamilyHistory3DataXML($FamilyHistory3Type, $common);
 
         parent::setUpBeforeClass();
 

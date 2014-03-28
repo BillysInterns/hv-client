@@ -1,32 +1,38 @@
 <?php
 
-/** author jonfor */
 
-namespace elevate\test\HVObjects\Thing\DataXML\Type;
-
-use elevate\test\HVObjects\BaseObjectTest;
-
-use elevate\HVObjects\Generic\Date\StructuredApproxDate;
-use elevate\HVObjects\Generic\FamilyHistoryRelative;
-use elevate\HVObjects\Generic\Name;
-use elevate\HVObjects\Generic\Person;
-use elevate\HVObjects\Generic\Date\ApproxDateTime;
-use elevate\HVObjects\Generic\Date\ApproxDate;
-use elevate\HVObjects\Generic\Date\Time;
-use elevate\HVObjects\Generic\CodableValue;
-use elevate\HVObjects\Generic\CodedValue;
+namespace elevate\test\HVObjects\DataXml;
 
 use elevate\HVObjects\Thing\DataXML\Type\FamilyHistory3Type;
 use elevate\HVObjects\Thing\DataXML\Type\ConditionType;
+use elevate\HVObjects\Thing\DataXML\FamilyHistory3DataXML;
+use elevate\HVObjects\Thing\FamilyHistory3;
+
+use elevate\test\HVObjects\BaseObjectTest;
+
+use elevate\HVObjects\Generic\FamilyHistoryRelative;
+use elevate\HVObjects\Generic\CodedValue;
+use elevate\HVObjects\Generic\CodableValue;
+use elevate\HVObjects\Generic\Date\Time;
+use elevate\HVObjects\Generic\Date\ApproxDate;
+use elevate\HVObjects\Generic\Date\ApproxDateTime;
+use elevate\HVObjects\Generic\Date\StructuredApproxDate;
+use elevate\HVObjects\Generic\Name;
+use elevate\HVObjects\Generic\Person;
+use elevate\HVObjects\Generic\Common;
 
 
-class FamilyHistory3TypeTest extends BaseObjectTest
+/**
+ * Class FamilyHistory3Test
+ * @package elevate\test\HVObjects\DataXml
+ */
+class FamilyHistoryv3Test extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . "/../../../SampleXML/Thing/DataXml/Type/FamilyHistory3.xml";
-        self::$objectNamespace = 'elevate\HVObjects\Thing\DataXml\Type\FamilyHistory3Type';
+        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/FamilyHistoryv3.xml';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\FamilyHistory3';
 
         $nameCode = new CodedValue('154', 'Illness', array('Illness Issues'), array('Version 1'));
         $name = new CodableValue('Skin Failure', array($nameCode));
@@ -60,7 +66,12 @@ class FamilyHistory3TypeTest extends BaseObjectTest
 
         $relative = new FamilyHistoryRelative($relationship, $relativeName, $dateBirth, $dateDeath, $regionOrigin);
 
-        self::$testObject = new FamilyHistory3Type($condition, $relative);
+        $FamilyHistory3Type = new FamilyHistory3Type($condition, $relative);
+        $common = new Common('Immunization Note', 'Immunization Source', 'immunizationTag');
+        $FamilyHistory3DataXML = new FamilyHistory3DataXML($FamilyHistory3Type, $common);
+        self::$testObject = new FamilyHistory3($FamilyHistory3DataXML);
+
         parent::setUpBeforeClass();
+
     }
 }

@@ -32,15 +32,15 @@ use elevate\HVObjects\Generic\Email;
 use elevate\HVObjects\Generic\Contact;
 use elevate\HVObjects\Generic\Person;
 use elevate\HVObjects\Generic\Prescription;
-use elevate\HVObjects\Thing\DataXML\Type\Medication2Type;
-use elevate\HVObjects\Thing\DataXML\Medication2DataXML;
+use elevate\HVObjects\Thing\DataXML\Type\Medicationv2Type;
+use elevate\HVObjects\Thing\DataXML\Medicationv2DataXML;
 
-class Medication2Test  extends BaseObjectTest
+class Medicationv2Test  extends BaseObjectTest
 {
 
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Medication2.xml';
+        self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Medicationv2.xml';
         self::$objectNamespace = 'elevate\HVObjects\Thing\Medicationv2';
 
         $nameCode = new CodedValue('154', 'SomeMed', array('Some Medication'), array('Version 1'));
@@ -146,11 +146,11 @@ class Medication2Test  extends BaseObjectTest
         $measurement = new StructuredMeasurement('47', $units);
         $strength = new GeneralMeasurement('47 Pounds', $measurement);
 
-        $medicationType = new Medication2Type($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
+        $medicationType = new Medicationv2Type($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
 
         $common = new Common('Medication Note', 'Medication Source', 'medicationTag');
 
-        $medicationDataXml = new Medication2DataXML($medicationType, $common);
+        $medicationDataXml = new Medicationv2DataXML($medicationType, $common);
 
         self::$testObject = new Medicationv2($medicationDataXml);
 
