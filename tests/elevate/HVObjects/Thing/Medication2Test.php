@@ -9,7 +9,7 @@
 namespace elevate\test\HVObjects;
 
 use elevate\HVObjects\Thing\Condition;
-use elevate\HVObjects\Thing\Medication2;
+use elevate\HVObjects\Thing\Medicationv2;
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Thing\DataXML\Type\ConditionType;
 use elevate\HVObjects\Thing\DataXML\ConditionDataXML;
@@ -151,7 +151,7 @@ class Medication2Test  extends BaseObjectTest
 
         $medicationDataXml = new Medication2DataXML($medicationType, $common);
 
-        self::$testObject = new Medication2($medicationDataXml);
+        self::$testObject = new Medicationv2($medicationDataXml);
 
         parent::setUpBeforeClass();
 
