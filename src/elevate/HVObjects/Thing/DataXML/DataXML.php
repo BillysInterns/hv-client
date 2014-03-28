@@ -38,7 +38,7 @@ abstract class DataXML
     }
 
     /**
-     * @param mixed $common
+     * @param Common $common
      */
     public function setCommon($common)
     {
@@ -46,7 +46,7 @@ abstract class DataXML
     }
 
     /**
-     * @return mixed
+     * @return Common
      */
     public function getCommon()
     {

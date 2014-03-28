@@ -21,39 +21,44 @@ use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Generic\Common;
 
 /**
- * Class CCDDataXML
+ * Class CCRDataXML
  * @package elevate\HVObjects\Thing\DataXML
  *
  * @AccessorOrder("custom", custom = {"ClinicalDocument", "common"})
  */
-class CCDDataXML extends DataXML
+class CCRDataXML extends DataXML
 {
 
     /**
      * @var \SimpleXMLElement
      * @Type("SimpleXMLElement")
-     * @SerializedName("ClinicalDocument")
+     * @SerializedName("ContinuityOfCareRecord")
      */
-    protected $ClinicalDocument;
+    protected $continuityOfCareRecord;
 
-    public function __construct($ClinicalDocument = NULL, Common $common = NULL)
+    public function __construct($continuityOfCareRecord = NULL, Common $common = NULL)
     {
-        $this->ClinicalDocument = $ClinicalDocument;
+        $this->continuityOfCareRecord = $continuityOfCareRecord;
         parent::__construct($common);
     }
 
-    public function getCCD()
+    /**
+     * @param \SimpleXMLElement $continuityOfCareRecord
+     */
+    public function setContinuityOfCareRecord($continuityOfCareRecord)
     {
-        return $this->ClinicalDocument;
+        $this->continuityOfCareRecord = $continuityOfCareRecord;
     }
 
     /**
-     * @param \SimpleXMLElement $ClinicalDocument
+     * @return \SimpleXMLElement
      */
-    public function setCCD($ClinicalDocument)
+    public function getContinuityOfCareRecord()
     {
-        $this->ClinicalDocument = $ClinicalDocument;
-        return $this;
+        return $this->continuityOfCareRecord;
     }
+
+
+
 
 }

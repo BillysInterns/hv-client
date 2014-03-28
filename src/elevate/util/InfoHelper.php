@@ -20,6 +20,11 @@ use elevate\TypeTranslator;
 class InfoHelper {
 
 
+    static function getHvInfoForThingIds(array $ids, $groupName = null)
+    {
+        return new Info(array(self::getHVRequestGroupForIds($ids, $groupName)));
+    }
+
     static function getHVInfoForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
@@ -71,22 +76,18 @@ class InfoHelper {
         return new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
     }
 
-    static function getHVRequestGroupForIds(array $ids, $maxItems = 1, $groupName)
+    static function getHVRequestGroupForIds(array $ids, $groupName = null)
     {
         $group = new RequestGroup();
 
-        $formattedStartDate = date("Y-m-d",strtotime("1900-01-01")) . 'T' . date("H:i:s",strtotime("1900-01-01"));
-        $formattedEndDate = date("Y-m-d",strtotime("2100-01-01")) . 'T' . date("H:i:s",strtotime("2100-01-01"));
-
-
         $format = new ThingFormatSpec(array('core'));
-        $filter = new ThingFilterSpec(null, null, $formattedStartDate, $formattedEndDate);
+        $filter = new ThingFilterSpec();
 
         $group->setCurrentVersionOnly(false);
         $group->setFormat($format);
         $group->setFilter($filter);
         $group->setIds($ids);
-        $group->setMax($maxItems);
+        $group->setMax(count($ids));
         $group->setName($groupName);
         return $group;
     }

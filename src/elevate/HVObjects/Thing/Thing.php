@@ -107,8 +107,13 @@ class Thing
      */
     public function setEffDate($effDate)
     {
-        // Parse it into a datetime object
+        // Parse it into a datetime object, try w/o milliseconds first
         $this->effDate = \DateTime::createFromFormat('Y-m-d\TH:i:s', $effDate);
+        if ( !$this->effDate)
+        {
+            // Ok, now try with milliseconds
+            $this->effDate = \DateTime::createFromFormat('Y-m-d\TH:i:s.u', $effDate);
+        }
         return $this;
     }
 

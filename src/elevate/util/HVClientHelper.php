@@ -105,6 +105,11 @@ class HVClientHelper {
                         return $obj->asXML();
                     }
                 );
+                $registry->registerHandler('deserialization', 'SimpleXMLElement', 'xmlobject',
+                    function($visitor, $obj, array $type) {
+                        return $obj;
+                    }
+                );
             })
         ;
 

@@ -286,7 +286,14 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
         $method  = 'GetThings';
         $version = 3;
         return HVClientHelper::HVGroupsFromXML($this->callHealthVault($info, $method, $version));
+    }
 
+    public function getThingsByThingIds($thingIds, $groupName = NULL)
+    {
+        $info    = InfoHelper::getHvInfoForThingIds($thingIds, $groupName);
+        $method  = 'GetThings';
+        $version = 3;
+        return HVClientHelper::HVGroupsFromXML($this->callHealthVault($info, $method, $version));
     }
 
     public function putThings($info, $version = 2)
