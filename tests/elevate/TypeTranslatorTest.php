@@ -49,7 +49,7 @@ class TypeTranslatorTest extends BaseTest
         );
 
         $this->assertEquals(
-            'FamilyHistory3', TypeTranslator::lookupTypeName('4a04fcc8-19c1-4d59-a8c7-2031a03f21de')
+            'FamilyHistoryv3', TypeTranslator::lookupTypeName('4a04fcc8-19c1-4d59-a8c7-2031a03f21de')
         );
 
         $this->assertEquals(
@@ -62,7 +62,7 @@ class TypeTranslatorTest extends BaseTest
         );
 
         $this->assertEquals(
-            'FamilyHistory3', TypeTranslator::lookupTypeName('4a04fcc8-19c1-4d59-a8c7-2031a03f21de', TRUE)
+            'FamilyHistoryv3', TypeTranslator::lookupTypeName('4a04fcc8-19c1-4d59-a8c7-2031a03f21de', TRUE)
         );
 
         $this->assertEquals(
