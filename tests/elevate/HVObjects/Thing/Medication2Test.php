@@ -9,6 +9,7 @@
 namespace elevate\test\HVObjects;
 
 use elevate\HVObjects\Thing\Condition;
+
 use elevate\HVObjects\Thing\Medicationv2;
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Thing\DataXML\Type\ConditionType;
@@ -40,7 +41,7 @@ class Medication2Test  extends BaseObjectTest
     public static function setUpBeforeClass()
     {
         self::$sampleXMLPath = __DIR__ . '/../SampleXML/Thing/Medication2.xml';
-        self::$objectNamespace = 'elevate\HVObjects\Thing\Medication2';
+        self::$objectNamespace = 'elevate\HVObjects\Thing\Medicationv2';
 
         $nameCode = new CodedValue('154', 'SomeMed', array('Some Medication'), array('Version 1'));
         $nameOfMed = new CodableValue("Some Medication", array($nameCode));

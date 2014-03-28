@@ -23,7 +23,7 @@ use elevate\HVObjects\Generic\Prescription;
 use elevate\HVObjects\Thing\DataXML\Type\Medication2Type;
 use elevate\HVObjects\Generic\Common;
 use elevate\HVObjects\Thing\DataXML\Medication2DataXML;
-use elevate\HVObjects\Thing\Medication2;
+use elevate\HVObjects\Thing\Medicationv2;
 use elevate\HVObjects\Thing\DataXML\Type\FileType;
 use elevate\HVObjects\Thing\DataXML\FileDataXML;
 use elevate\HVObjects\Thing\File;
@@ -124,7 +124,7 @@ class ResponseGroupTest extends BaseObjectTest
         $medicationType = new Medication2Type($nameOfMed, $dateDiscontinued, $dateStarted, $dose, $frequency, $genericName, $indication, $prescribed, $prescription, $route, $strength);
         $common = new Common('Medication Note', 'Medication Source', 'medicationTag');
         $medicationDataXml = new Medication2DataXML($medicationType, $common);
-        $things[] = new Medication2($medicationDataXml);
+        $things[] = new Medicationv2($medicationDataXml);
         $name = "abcdefg";
 
         $size = 20;
