@@ -15,7 +15,7 @@ use elevate\HVObjects\Thing\DataXML\FileDataXML;
 use elevate\HVObjects\Generic\DataOther;
 
 
-/** @XmlRoot("file") */
+/** @XmlRoot("thing") */
 class File extends Thing
 {
     /**
