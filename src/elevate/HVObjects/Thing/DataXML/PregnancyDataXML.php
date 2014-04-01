@@ -38,21 +38,29 @@ class PregnancyDataXML extends DataXML
      */
     protected $pregnancy;
 
+    /**
+     * @param PregnancyType $pregnancy
+     * @param Common        $common
+     */
     public function __construct(PregnancyType $pregnancy = NULL, Common $common = NULL)
     {
         $this->pregnancy = $pregnancy;
         parent::__construct($common);
     }
 
+    /**
+     * @return PregnancyType
+     */
     public function getType()
     {
         return $this->pregnancy;
     }
 
-    public function setType(PregnancyType $pregnancyType)
+    /**
+     * @param PregnancyType $pregnancy
+     */
+    public function setType(PregnancyType $pregnancy)
     {
-        $this->$pregnancyType = $pregnancyType;
-        return $this;
+        $this->pregnancy = $pregnancy;
     }
-
 } 
