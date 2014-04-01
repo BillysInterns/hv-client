@@ -35,7 +35,7 @@ class LengthValue
      * @param $value
      * @param $display
      */
-    public function __construct($value, Display $display)
+    public function __construct($value, Display $display = NULL)
     {
         $this->value = $value;
         $this->display = $display;
