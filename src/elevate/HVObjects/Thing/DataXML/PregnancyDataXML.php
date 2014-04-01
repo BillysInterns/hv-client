@@ -28,7 +28,7 @@ use elevate\HVObjects\Thing\DataXML\Type\PregnancyType;
 /**
  * Class Pregnancy
  * @package elevate\HVObjects\Thing\DataXML
- * @AccessorOrder("custom", custom = {"pregnancyType", "common"})
+ * @AccessorOrder("custom", custom = {"pregnancy", "common"})
  */
 class PregnancyDataXML extends DataXML
 {
@@ -36,17 +36,17 @@ class PregnancyDataXML extends DataXML
      * @Type("elevate\HVObjects\Thing\DataXML\Type\PregnancyType")
      * @SerializedName("pregnancy")
      */
-    protected $pregnancyType;
+    protected $pregnancy;
 
-    public function __construct(PregnancyType $pregnancyType = NULL, Common $common = NULL)
+    public function __construct(PregnancyType $pregnancy = NULL, Common $common = NULL)
     {
-        $this->pregnancyType = $pregnancyType;
+        $this->pregnancy = $pregnancy;
         parent::__construct($common);
     }
 
     public function getType()
     {
-        return $this->dietaryIntakeType;
+        return $this->pregnancy;
     }
 
     public function setType(PregnancyType $pregnancyType)
