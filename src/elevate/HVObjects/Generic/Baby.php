@@ -49,9 +49,9 @@ class Baby
 
     /**
      * @Type("elevate\HVObjects\Generic\LengthValue")
-     * @SerializedName("headLength")
+     * @SerializedName("headCircumference")
      */
-    protected $headLength;
+    protected $headCircumference;
 
     /**
      * @Type("string")
@@ -59,10 +59,10 @@ class Baby
      */
     protected $note;
 
-    function __construct($name = NULL, $gender = NULL, $headLength = NULL, $length = NULL, $note = NULL, $weight = NULL)
+    function __construct($name = NULL, $gender = NULL, $headCircumference = NULL, $length = NULL, $note = NULL, $weight = NULL)
     {
         $this->gender     = $gender;
-        $this->headLength = $headLength;
+        $this->headCircumference = $headCircumference;
         $this->length     = $length;
         $this->name       = $name;
         $this->note       = $note;
@@ -86,19 +86,19 @@ class Baby
     }
 
     /**
-     * @param mixed $headLength
+     * @param mixed $headCircumference
      */
-    public function setHeadLength($headLength)
+    public function setHeadCircumference($headCircumference)
     {
-        $this->headLength = $headLength;
+        $this->headCircumference = $headCircumference;
     }
 
     /**
      * @return mixed
      */
-    public function getHeadLength()
+    public function getHeadCircumference()
     {
-        return $this->headLength;
+        return $this->headCircumference;
     }
 
     /**
