@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<file>
+<thing>
     <type-id><![CDATA[bd0403c5-4ae2-4b0e-a8db-1888678e4528]]></type-id>
       <data-xml>
         <file>
@@ -21,4 +21,4 @@
               <tags><![CDATA[fileTag]]></tags>
           </common>
     </data-xml>
-</file>
+</thing>
