@@ -43,7 +43,7 @@ class Extension
     public $symptomInfo;
 
     /**
-     * @Type("boolean")
+     * @Type("string")
      */
     public $appointmentAttended;
 
