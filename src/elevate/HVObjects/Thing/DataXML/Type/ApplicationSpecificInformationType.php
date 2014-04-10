@@ -41,6 +41,11 @@ class ApplicationSpecificInformationType
      */
     protected $summary;
 
+    /**
+     * @Type("string")
+     * @SerializedName("data")
+     */
+    protected $data;
 
     function __construct($formatAppId = NULL, $formatTag = NULL, $summary = NULL, $when = NULL)
     {
@@ -114,4 +119,23 @@ class ApplicationSpecificInformationType
     {
         return $this->when;
     }
+
+    /**
+     * @param string $data
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+
+
 }
