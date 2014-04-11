@@ -22,6 +22,7 @@ class ApplicationSpecificInformationTypeTest extends BaseObjectTest
         $time = new Time(4, 0, 0, 0);
         $when = new DateTime($date, $time);
         $summary = "CamelCasedSentencesAreReallyCool";
+        $data = '[{"something":"else"}]';
 
         self::$testObject = new ApplicationSpecificInformationType(
             $formatAppId,
@@ -29,6 +30,7 @@ class ApplicationSpecificInformationTypeTest extends BaseObjectTest
             $summary,
             $when
         );
+        self::$testObject->setData($data);
 
         parent::setUpBeforeClass();
     }
