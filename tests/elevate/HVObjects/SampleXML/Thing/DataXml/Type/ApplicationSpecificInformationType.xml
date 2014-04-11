@@ -16,4 +16,5 @@
         </time>
     </when>
     <summary><![CDATA[CamelCasedSentencesAreReallyCool]]></summary>
+    <data><![CDATA[[{"something":"else"}]]]></data>
 </app-specific>
