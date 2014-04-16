@@ -14,7 +14,6 @@ use SimpleXMLElement;
 use elevate\Interfaces\HVCommunicatorInterface;
 
 //Load the custom exceptions
-use elevate\Exceptions\HVCommunicatorAppNotAuthenticatedException;
 use elevate\Exceptions\HVCommunicatorAuthenticationExpiredException;
 use elevate\Exceptions\HVCommunicatorUserNotAuthenticatedException;
 use elevate\Exceptions\HVCommunicatorGenericException;
