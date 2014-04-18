@@ -26,4 +26,21 @@ class Info
         $this->things = $things;
         return $this;
     }
+
+    /**
+     * @param mixed $things
+     */
+    public function setThings($things)
+    {
+        $this->things = $things;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getThings()
+    {
+        return $this->things;
+    }
+
 }
