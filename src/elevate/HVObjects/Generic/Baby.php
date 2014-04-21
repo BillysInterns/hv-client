@@ -49,7 +49,7 @@ class Baby
 
     /**
      * @Type("elevate\HVObjects\Generic\LengthValue")
-     * @SerializedName("headCircumference")
+     * @SerializedName("head-circumference")
      */
     protected $headCircumference;
 

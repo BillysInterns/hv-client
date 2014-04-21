@@ -43,13 +43,13 @@ class PregnancyType
 
     /**
      * @Type("integer")
-     * @SerializedName("fetusCount")
+     * @SerializedName("fetus-count")
      */
     protected $fetusCount;
 
     /**
      * @Type("integer")
-     * @SerializedName("gestationalAge")
+     * @SerializedName("gestational-age")
      */
     protected $gestationalAge;
 
