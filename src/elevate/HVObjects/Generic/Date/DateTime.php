@@ -51,7 +51,7 @@ class DateTime {
     }
 
     /**
-     * @param \elevate\HVObjects\Generic\Date\elevate\HVObjects\Generic\Date\Date $date
+     * @param \elevate\HVObjects\Generic\Date\\Date\Date $date
      */
     public function setDate($date)
     {
@@ -59,7 +59,7 @@ class DateTime {
     }
 
     /**
-     * @return \elevate\HVObjects\Generic\Date\elevate\HVObjects\Generic\Date\Date
+     * @return \elevate\HVObjects\Generic\Date\\Date\Date
      */
     public function getDate()
     {
