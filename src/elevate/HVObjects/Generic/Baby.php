@@ -164,8 +164,4 @@ class Baby
     {
         return $this->weight;
     }
-
-
-
-
 } 

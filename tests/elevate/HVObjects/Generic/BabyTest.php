@@ -9,12 +9,12 @@
 namespace elevate\test\HVObjects\Generic;
 
 
+use elevate\HVObjects\Generic\LengthValue;
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Generic\Baby;
 use elevate\HVObjects\Generic\Name;
 
 use elevate\HVObjects\Generic\CodableValue;
-use elevate\HVObjects\Generic\CodedValue;
 
 class BabyTest extends BaseObjectTest
 {
@@ -26,7 +26,9 @@ class BabyTest extends BaseObjectTest
 
         $name = new Name("FUll Baby Name");
 
-        self::$testObject = new Baby($name);
+        $gender = new CodableValue('test');
+
+        self::$testObject = new Baby($name, $gender, new LengthValue(2), new LengthValue(3), 'test');
 
         parent::setUpBeforeClass();
     }

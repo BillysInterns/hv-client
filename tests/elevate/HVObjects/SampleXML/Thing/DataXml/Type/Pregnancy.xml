@@ -3,6 +3,37 @@
     <delivery>
         <location>
             <name><![CDATA[Organization Name]]></name>
+            <contact>
+                <address>
+                    <description><![CDATA[test]]></description>
+                    <is-primary>true</is-primary>
+                    <street><![CDATA[johnson]]></street>
+                    <city><![CDATA[new brunswick]]></city>
+                    <state><![CDATA[townsville]]></state>
+                    <postcode><![CDATA[new jersey]]></postcode>
+                    <country><![CDATA[united states]]></country>
+                    <county><![CDATA[08854]]></county>
+                </address>
+                <phone>
+                    <description><![CDATA[New Phone]]></description>
+                    <is-primary>true</is-primary>
+                    <number><![CDATA[555-555-5555]]></number>
+                </phone>
+                <email>
+                    <description><![CDATA[Personal Email]]></description>
+                    <is_primary>true</is_primary>
+                    <address><![CDATA[billy@theintern.com]]></address>
+                </email>
+            </contact>
+            <type>
+                <text><![CDATA[test]]></text>
+            </type>
+            <website><![CDATA[www.test.com]]></website>
         </location>
+        <baby>
+            <name>
+                <full><![CDATA[FUll Baby Name]]></full>
+            </name>
+        </baby>
     </delivery>
 </pregnancy>
