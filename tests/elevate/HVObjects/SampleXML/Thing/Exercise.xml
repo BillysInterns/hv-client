@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing>
+    <type-id>85a21ddb-db20-4c65-8d30-33c899ccf612</type-id>
+    <data-xml>
+        <exercise>
+            <when>
+                <structured>
+                    <date>
+                        <y>2014</y>
+                        <m>3</m>
+                        <d>14</d>
+                    </date>
+                    <time>
+                        <h>0</h>
+                        <m>0</m>
+                        <s>0</s>
+                        <f>0</f>
+                    </time>
+                </structured>
+            </when>
+            <activity>
+                <text>Daily Summary</text>
+            </activity>
+            <distance>
+                <m>2254</m>
+                <display units="miles">1.4</display>
+            </distance>
+            <detail>
+                <name>
+                    <value>Steps_count</value>
+                    <family>wc</family>
+                    <type>exercise-detail-names</type>
+                    <version>1</version>
+                </name>
+                <value>
+                    <value>3143</value>
+                    <units>
+                        <text>Steps</text>
+                        <code>
+                            <value>Steps</value>
+                            <family>wc</family>
+                            <type>exercise-units</type>
+                            <version>1</version>
+                        </code>
+                    </units>
+                </value>
+            </detail>
+        </exercise>
+        <common>
+            <source>Exercise Source</source>
+            <note>Exercise Note</note>
+            <tags>Exercise Tag</tags>
+        </common>
+    </data-xml>
+</thing>

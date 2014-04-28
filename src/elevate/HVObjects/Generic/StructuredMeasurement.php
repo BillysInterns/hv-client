@@ -38,7 +38,7 @@ class StructuredMeasurement {
      * @param              $value
      * @param CodableValue $units
      */
-    public function __construct($value, CodableValue $units = NULL)
+    public function     __construct($value, CodableValue $units = NULL)
     {
         $this->units = $units;
         $this->value = $value;

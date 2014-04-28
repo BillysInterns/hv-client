@@ -45,6 +45,7 @@ class AllergyDataXML extends DataXML
         $this->allergy = $allergy;
         parent::__construct($common);
     }
+
     public function getType()
     {
         return $this->allergy;
@@ -57,6 +58,5 @@ class AllergyDataXML extends DataXML
     {
         $this->allergy = $allergy;
     }
-
 
 }

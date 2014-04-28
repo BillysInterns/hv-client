@@ -22,11 +22,11 @@ use elevate\HVObjects\Thing\DataXML\DeviceDataXML;
 /** @XmlRoot("device") */
 class Device extends Thing
 {
-/**
-* @var array elevate\HVObjects\Thing\DataXML\DeviceDataXML
-* @Type("elevate\HVObjects\Thing\DataXML\DeviceDataXML")
-* @SerializedName("data-xml")
-*/
+    /**
+    * @var array elevate\HVObjects\Thing\DataXML\DeviceDataXML
+    * @Type("elevate\HVObjects\Thing\DataXML\DeviceDataXML")
+    * @SerializedName("data-xml")
+    */
     protected $dataXML;
 
     function __construct($dataXML = NULL)
