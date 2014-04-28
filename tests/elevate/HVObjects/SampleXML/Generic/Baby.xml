@@ -3,4 +3,14 @@
     <name>
         <full><![CDATA[FUll Baby Name]]></full>
     </name>
+    <gender>
+        <text><![CDATA[test]]></text>
+    </gender>
+    <length>
+        <m>3</m>
+    </length>
+    <head-circumference>
+        <m>2</m>
+    </head-circumference>
+    <note><![CDATA[test]]></note>
 </baby>

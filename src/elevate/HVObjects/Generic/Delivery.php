@@ -38,7 +38,7 @@ class Delivery
 
     /**
      * @Type("double")
-     * @SerializedName("laborDuration")
+     * @SerializedName("labor-duration")
      */
     protected $laborDuration;
 
