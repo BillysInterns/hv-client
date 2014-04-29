@@ -17,14 +17,33 @@ use elevate\HVObjects\MethodObjects\ThingFilterSpec;
 use elevate\HVObjects\MethodObjects\ThingFormatSpec;
 use elevate\TypeTranslator;
 
+/**
+ * Class InfoHelper
+ * @package elevate\util
+ */
 class InfoHelper {
 
-
+    /**
+     * TODO Make me return keys as numbers not IDs! See ResponseGroupParser
+     *
+     * @param array $ids
+     * @param null  $groupName
+     *
+     * @return Info
+     */
     static function getHvInfoForThingIds(array $ids, $groupName = null)
     {
         return new Info(array(self::getHVRequestGroupForIds($ids, $groupName)));
     }
 
+    /**
+     * @param      $thingName
+     * @param int  $maxItems
+     * @param null $groupName
+     * @param null $xpath
+     *
+     * @return Info
+     */
     static function getHVInfoForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
@@ -33,6 +52,14 @@ class InfoHelper {
         return $info;
     }
 
+    /**
+     * @param      $typeId
+     * @param int  $maxItems
+     * @param null $groupName
+     * @param null $xpath
+     *
+     * @return Info
+     */
     static function getHVInfoForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null)
     {
         $group = self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath);
@@ -40,6 +67,16 @@ class InfoHelper {
         return $info;
     }
 
+    /**
+     * @param      $typeId
+     * @param int  $maxItems
+     * @param null $groupName
+     * @param null $xpath
+     * @param null $startRangeDate
+     * @param null $endRangeDate
+     *
+     * @return RequestGroup
+     */
     static function getHVRequestGroupForTypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $filter = new ThingFilterSpec($typeId, $xpath,$startRangeDate, $endRangeDate);
@@ -55,6 +92,16 @@ class InfoHelper {
         return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath,$startRangeDate, $endRangeDate );
     }
 
+    /**
+     * @param      $thingName
+     * @param      $startDate
+     * @param      $endDate
+     * @param int  $maxItems
+     * @param null $groupName
+     * @param null $xpath
+     *
+     * @return RequestGroup
+     */
     static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null, $xpath = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
@@ -76,6 +123,12 @@ class InfoHelper {
         return new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
     }
 
+    /**
+     * @param array $ids
+     * @param null  $groupName
+     *
+     * @return RequestGroup
+     */
     static function getHVRequestGroupForIds(array $ids, $groupName = null)
     {
         $group = new RequestGroup();
@@ -92,12 +145,32 @@ class InfoHelper {
         return $group;
     }
 
+    /**
+     * @param      $thingName
+     * @param int  $maxItems
+     * @param null $groupName
+     * @param null $xpath
+     * @param null $startRangeDate
+     * @param null $endRangeDate
+     *
+     * @return RequestGroup
+     */
     static function getHVRequestGroupForBase64ThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
         return self::getHVRequestGroupForBase64TypeId($typeId, $maxItems, $groupName, $xpath, $startRangeDate, $endRangeDate);
     }
 
+    /**
+     * @param      $typeId
+     * @param int  $maxItems
+     * @param null $groupName
+     * @param null $xpath
+     * @param null $startRangeDate
+     * @param null $endRangeDate
+     *
+     * @return RequestGroup
+     */
     static function getHVRequestGroupForBase64TypeId($typeId, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $filter = new ThingFilterSpec($typeId, $xpath, $startRangeDate, $endRangeDate);
