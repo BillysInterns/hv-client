@@ -64,7 +64,7 @@ class ExerciseType {
      * @param ApproxDateTime $when
      * @param CodableValue $activity
      */
-    function __construct($when, $activity)
+    function __construct($when = null, $activity = null)
     {
         $this->activity = $activity;
         $this->when = $when;

@@ -49,6 +49,21 @@ class ExerciseDataXML extends DataXML
         return $this->exercise;
     }
 
+    /**
+     * @param ExerciseType $exercise
+     */
+    public function setType(ExerciseType $exercise)
+    {
+        $this->exercise = $exercise;
+    }
+
+    /**
+     * @return ExerciseType
+     */
+    public function getType()
+    {
+        return $this->exercise;
+    }
 
 
 } 

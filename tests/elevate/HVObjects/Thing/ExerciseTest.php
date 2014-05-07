@@ -53,7 +53,6 @@ class ExerciseTest extends BaseObjectTest
         // Create some details to go along with this exercise...
         $structuredNameValue = new StructuredNameValue($detailName, $stucturedValue);
 
-
         // Add the exercise detail
         $exerciseType->addDetail($structuredNameValue);
 
