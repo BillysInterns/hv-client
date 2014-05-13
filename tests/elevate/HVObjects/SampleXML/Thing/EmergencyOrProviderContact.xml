@@ -34,7 +34,7 @@
                 </phone>
                 <email>
                     <description><![CDATA[Work]]></description>
-                    <is_primary>true</is_primary>
+                    <is-primary>true</is-primary>
                     <address><![CDATA[bill@theinterns.com]]></address>
                 </email>
             </contact>

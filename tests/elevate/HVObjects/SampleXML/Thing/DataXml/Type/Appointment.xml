@@ -120,7 +120,7 @@
       </phone>
       <email>
         <description><![CDATA[Personal]]></description>
-        <is_primary>true</is_primary>
+        <is-primary>true</is-primary>
         <address><![CDATA[billy@theintern.com]]></address>
       </email>
     </contact>

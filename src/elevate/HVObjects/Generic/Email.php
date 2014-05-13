@@ -26,6 +26,7 @@ class Email
 
     /**
      * @Type("boolean")
+     * @SerializedName("is-primary")
      */
     protected $isPrimary = null;
 

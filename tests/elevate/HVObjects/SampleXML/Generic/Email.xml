@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <email>
     <description><![CDATA[Personal Email]]></description>
-    <is_primary>false</is_primary>
+    <is-primary>false</is-primary>
     <address><![CDATA[billy@theintern.com]]></address>
 </email>
