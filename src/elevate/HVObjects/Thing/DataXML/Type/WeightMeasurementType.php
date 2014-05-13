@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\XmlList;
 
 use elevate\HVObjects\Generic\Date\DateTime;
 use elevate\HVObjects\Generic\WeightValue;
-class WeightType 
+class WeightMeasurementType
 {
 
     /**

@@ -21,23 +21,23 @@ use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
 use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Generic\Common;
-use elevate\HVObjects\Thing\DataXML\Type\WeightType;
+use elevate\HVObjects\Thing\DataXML\Type\WeightMeasurementType;
 
 /**
- * Class WeightDataXML
+ * Class WeightMeasurementDataXML
  * @package elevate\HVObjects\Thing\DataXML
  * @AccessorOrder("custom", custom = {"weight", "common"})
  */
-class WeightDataXML extends DataXML
+class WeightMeasurementDataXML extends DataXML
 {
 
     /**
-     * @Type("elevate\HVObjects\Thing\DataXML\Type\WeightType")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\WeightMeasurementType")
      * @SerializedName("weight")
      */
     protected $weight;
 
-    public function __construct(WeightType $weight = NULL, Common $common = NULL)
+    public function __construct(WeightMeasurementType $weight = NULL, Common $common = NULL)
     {
         $this->weight = $weight;
         parent::__construct($common);

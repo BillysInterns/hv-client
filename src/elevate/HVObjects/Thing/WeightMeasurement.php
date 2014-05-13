@@ -18,8 +18,8 @@ class WeightMeasurement extends Thing
 {
 
     /**
-     * @var array elevate\HVObjects\Thing\DataXML\WeightDataXML
-     * @Type("elevate\HVObjects\Thing\DataXML\WeightDataXML")
+     * @var array elevate\HVObjects\Thing\DataXML\WeightMeasurementDataXML
+     * @Type("elevate\HVObjects\Thing\DataXML\WeightMeasurementDataXML")
      * @SerializedName("data-xml")
      */
     protected $dataXML;
