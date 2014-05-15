@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <common>
+        <source><![CDATA[Unit Test]]></source>
+        <note><![CDATA[Sleep Session Note]]></note>
+        <tags><![CDATA[Some tags]]></tags>
+    </common>
+    <basic>
+        <gender><![CDATA[m]]></gender>
+        <birthyear><![CDATA[1999]]></birthyear>
+        <country>
+            <text><![CDATA[USA]]></text>
+        </country>
+        <postcode><![CDATA[123455]]></postcode>
+        <city><![CDATA[Raritan]]></city>
+        <state>
+            <text><![CDATA[NJ]]></text>
+        </state>
+        <firstdow><![CDATA[firstDow]]></firstdow>
+        <language>
+            <language>
+                <text><![CDATA[English]]></text>
+            </language>
+            <is-primary>true</is-primary>
+        </language>
+    </basic>
+</result>

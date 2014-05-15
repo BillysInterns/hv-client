@@ -1,0 +1,19 @@
+<result>
+  <gender><![CDATA[m]]></gender>
+  <birthyear><![CDATA[1999]]></birthyear>
+  <country>
+    <text><![CDATA[USA]]></text>
+  </country>
+  <postcode><![CDATA[123455]]></postcode>
+  <city><![CDATA[Raritan]]></city>
+  <state>
+    <text><![CDATA[NJ]]></text>
+  </state>
+  <firstdow><![CDATA[firstDow]]></firstdow>
+  <language>
+    <language>
+      <text><![CDATA[English]]></text>
+    </language>
+    <is-primary>true</is-primary>
+  </language>
+</result>
