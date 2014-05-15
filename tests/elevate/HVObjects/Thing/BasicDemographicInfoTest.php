@@ -8,9 +8,9 @@ namespace elevate\test\HVObjects\Thing;
 
 use elevate\HVObjects\Generic\CodableValue;
 use elevate\HVObjects\Generic\Common;
-use elevate\HVObjects\Thing\BasicDemographicInfo;
-use elevate\HVObjects\Thing\DataXML\BasicDemographicInfoDataXML;
-use elevate\HVObjects\Thing\DataXML\Type\BasicDemographicInfoType;
+use elevate\HVObjects\Thing\BasicDemographicInformationv2;
+use elevate\HVObjects\Thing\DataXML\BasicDemographicInformationv2DataXML;
+use elevate\HVObjects\Thing\DataXML\Type\BasicDemographicInformationv2Type;
 use elevate\test\HVObjects\BaseObjectTest;
 use elevate\HVObjects\Generic\Language;
 
@@ -18,8 +18,8 @@ class BasicDemographicInfoTest extends BaseObjectTest
 {
     public static function setUpBeforeClass()
     {
-        self::$sampleXMLPath    = __DIR__ . '/../SampleXML/Thing/BasicDemographicInfo.xml';
-        self::$objectNamespace  = 'elevate\HVObjects\Thing\BasicDemographicInfo';
+        self::$sampleXMLPath    = __DIR__ . '/../SampleXML/Thing/BasicDemographicInformationv2.xml';
+        self::$objectNamespace  = 'elevate\HVObjects\Thing\BasicDemographicInformationv2';
 
         $birthYear = '1999';
         $city      = 'Raritan';
@@ -30,7 +30,7 @@ class BasicDemographicInfoTest extends BaseObjectTest
         $postcode  = '123455';
         $state     = new CodableValue('NJ');
 
-        $basicDemographicInfoType = new BasicDemographicInfoType
+        $basicDemographicInfoType = new BasicDemographicInformationv2Type
         (
             $gender,
             $birthYear,
@@ -44,9 +44,9 @@ class BasicDemographicInfoTest extends BaseObjectTest
 
         $common = new Common('Sleep Session Note', 'Unit Test', 'Some tags');
 
-        $dataXML = new BasicDemographicInfoDataXML($basicDemographicInfoType, $common);
+        $dataXML = new BasicDemographicInformationv2DataXML($basicDemographicInfoType, $common);
 
-        self::$testObject = new BasicDemographicInfo($dataXML);
+        self::$testObject = new BasicDemographicInformationv2($dataXML);
         parent::setUpBeforeClass();
     }
 } 

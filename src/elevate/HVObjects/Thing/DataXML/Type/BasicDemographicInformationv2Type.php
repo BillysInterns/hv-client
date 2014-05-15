@@ -12,7 +12,7 @@ use JMS\Serializer\Annotation\XmlRoot;
 
 use elevate\HVObjects\Generic\CodableValue;
 
-class BasicDemographicInfoType
+class BasicDemographicInformationv2Type
 {
     /**
      * @Type("string")

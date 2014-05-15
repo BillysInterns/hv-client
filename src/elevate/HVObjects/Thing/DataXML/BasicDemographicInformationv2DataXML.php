@@ -6,7 +6,7 @@
 namespace elevate\HVObjects\Thing\DataXML;
 
 use elevate\HVObjects\Generic\Common;
-use elevate\HVObjects\Thing\DataXML\Type\BasicDemographicInfoType;
+use elevate\HVObjects\Thing\DataXML\Type\BasicDemographicInformationv2Type;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlMap;
@@ -23,15 +23,15 @@ use PhpCollection\Sequence;
 use elevate\HVObjects\Thing\DataXML\DataXML;
 
 
-class BasicDemographicInfoDataXML extends DataXML
+class BasicDemographicInformationv2DataXML extends DataXML
 {
     /**
-     * @Type("elevate\HVObjects\Thing\DataXML\Type\BasicDemographicInfoType")
+     * @Type("elevate\HVObjects\Thing\DataXML\Type\BasicDemographicInformationv2Type")
      * @SerializedName("basic")
      */
     protected $basicDemographicInfo;
 
-    function __construct(BasicDemographicInfoType $basicDemographicInfo = NULL, Common $common = NULL)
+    function __construct(BasicDemographicInformationv2Type $basicDemographicInfo = NULL, Common $common = NULL)
     {
         $this->basicDemographicInfo = $basicDemographicInfo;
         parent::__construct($common);
@@ -40,7 +40,7 @@ class BasicDemographicInfoDataXML extends DataXML
     /**
      * @param mixed $basicDemographicInfo
      */
-    public function setBasicDemographicInfo($basicDemographicInfo)
+    public function setType($basicDemographicInfo)
     {
         $this->basicDemographicInfo = $basicDemographicInfo;
     }
@@ -48,7 +48,7 @@ class BasicDemographicInfoDataXML extends DataXML
     /**
      * @return mixed
      */
-    public function getBasicDemographicInfo()
+    public function getType()
     {
         return $this->basicDemographicInfo;
     }
