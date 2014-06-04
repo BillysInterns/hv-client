@@ -123,6 +123,7 @@ class TypeTranslator
         'DevHistory'                                        => '55d33791-58de-4cae-8c78-819e12ba5059',
         'FormType'                                          => '55d33791-58de-4cae-8c78-819e12ba5059'
     );
+    
 
     /**
      * Given the thing type name, translate it to a type id
