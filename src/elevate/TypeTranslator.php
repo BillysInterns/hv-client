@@ -15,7 +15,6 @@ class TypeTranslator
     /**
      * @var array Key Value array of the various Health Vault Thing Types
      */
-
     public static $things = array(
         'Advance Directive'                                 => '822a5e5a-14f1-4d06-b92f-8f3f1b05218f',
         'Aerobic Exercise Session'                          => '90dbf000-fc55-4b92-b4a1-da45c36ad8bb',
