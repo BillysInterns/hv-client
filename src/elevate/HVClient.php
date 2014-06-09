@@ -154,6 +154,7 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
     {
         $xml = HVClientHelper::HVInfoAsXML($info);
         $xml = str_replace('<personal-image><![CDATA[]]></personal-image>','<personal-image />',$xml);
+        $xml = str_replace('<appointment_attended><![CDATA[]]></appointment_attended>', '<appointment_attended><![CDATA[0]]></appointment_attended>', $xml);
         $newXML    = "";
         //check if this is a group request
         if(!empty($info)){
