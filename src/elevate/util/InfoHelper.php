@@ -106,18 +106,7 @@ class InfoHelper {
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
 
-        $formattedStartDate = $formattedEndDate = null;
-
-        if ( !empty($startDate) )
-        {
-            $formattedStartDate = date("Y-m-d",strtotime($startDate)) . 'T' . date("H:i:s",strtotime($startDate));
-        }
-        if ( !empty($endDate) )
-        {
-            $formattedEndDate = date("Y-m-d",strtotime($endDate)) . 'T' . date("H:i:s",strtotime($endDate));
-        }
-
-        $filter = new ThingFilterSpec($typeId, $xpath, $formattedStartDate, $formattedEndDate );
+        $filter = new ThingFilterSpec($typeId, $xpath, $startDate, $endDate);
         $format = new ThingFormatSpec(array('core'));
 
         return new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
