@@ -16,6 +16,7 @@ use elevate\HVObjects\MethodObjects\Get\RequestGroup;
 use elevate\HVObjects\MethodObjects\ThingFilterSpec;
 use elevate\HVObjects\MethodObjects\ThingFormatSpec;
 use elevate\TypeTranslator;
+use Mentis\BaseBundle\Services\DateTimeHelper;
 
 /**
  * Class InfoHelper
@@ -110,11 +111,11 @@ class InfoHelper {
 
         if ( !empty($startDate) )
         {
-            $formattedStartDate = date("Y-m-d",strtotime($startDate)) . 'T' . date("H:i:s",strtotime($startDate));
+            $formattedStartDate = DateTimeHelper::convertToGMT(date("c", strtotime($startDate)));
         }
         if ( !empty($endDate) )
         {
-            $formattedEndDate = date("Y-m-d",strtotime($endDate)) . 'T' . date("H:i:s",strtotime($endDate));
+            $formattedEndDate = DateTimeHelper::convertToGMT(date("c", strtotime($endDate)));
         }
 
         $filter = new ThingFilterSpec($typeId, $xpath, $formattedStartDate, $formattedEndDate );
