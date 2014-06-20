@@ -41,19 +41,28 @@ class ThingFilterSpec
 
     /**
      * @Type("string")
+     * @SerializedName("created-person-id")
+     */
+    protected $createPersonId;
+
+    /**
+     * @Type("string")
      * @SerializedName("xpath")
      */
     protected $xpath;
+
+
     /**
      * @param      $typeId
      * @param null $xpath
      */
-    function __construct($typeId = null, $xpath = null, $minDate = null, $maxDate = null)
+    function __construct($typeId = null, $xpath = null, $minDate = null, $maxDate = null, $createdPersonId = null)
     {
-        $this->typeId = $typeId;
-        $this->xpath = $xpath;
-        $this->maxDate = $maxDate;
-        $this->minDate = $minDate;
+        $this->typeId         = $typeId;
+        $this->xpath          = $xpath;
+        $this->maxDate        = $maxDate;
+        $this->minDate        = $minDate;
+        $this->createPersonId = $createdPersonId;
     }
 
     /**

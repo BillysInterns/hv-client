@@ -103,7 +103,7 @@ class InfoHelper {
      *
      * @return RequestGroup
      */
-    static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null, $xpath = null)
+    static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null, $xpath = null, $createdPersonId = NULL)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
 
@@ -118,7 +118,7 @@ class InfoHelper {
             $formattedEndDate = DateTimeHelper::convertToGMT(date("c", strtotime($endDate)));
         }
 
-        $filter = new ThingFilterSpec($typeId, $xpath, $formattedStartDate, $formattedEndDate );
+        $filter = new ThingFilterSpec($typeId, $xpath, $formattedStartDate, $formattedEndDate, $createdPersonId);
         $format = new ThingFormatSpec(array('core'));
 
         return new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
