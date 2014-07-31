@@ -8,14 +8,11 @@
 
 namespace elevate\Interfaces;
 
-
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
-
 interface HVCommunicatorInterface {
 
-    public static function getAuthenticationURL($appId,$redirectUrl,$config,$healthVaultAuthInstance,$target);
+    public static function getAuthenticationURL($appId, $redirectUrl, $config, $healthVaultAuthInstance, $target, $additionalTargetQSParams);
 
-    public function makeRequest($method, $methodVersion, $xml,  $additionalHeaders, $personId);
+    public function makeRequest($method, $methodVersion, $xml, $additionalHeaders, $personId);
 
     public function getRawResponse();
 

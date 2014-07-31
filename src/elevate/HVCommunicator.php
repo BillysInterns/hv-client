@@ -430,17 +430,21 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     }
 
     /**
-     * Setups the redirect URL for sending the user to authenticate the App with HealthVault
-     * @param $appId String The HV App Id
-     * @param $redirect String The Url to redirect to
-     * @param $config array Important session variables
-     * @param string $healthVaultAuthInstance The current HV instance to use
-     * @param string $target The goal of the request
+     * Setup the redirect URL for sending the user to authenticate the App with HealthVault
+     *
+     * @param string $appId                     - The HV App ID
+     * @param string $redirect                  - the URL to redirect to
+     * @param array $config                     - Important session variables
+     * @param array  $additionalTargetQSParams  - Any additional parameters to append to the URL
+     * @param string $healthVaultAuthInstance   - The current HV instance to use
+     * @param string $target                    - The goal of the request
+     *
      * @return string The URL to go to for authorization, including the urlencoded redirect URL
      */
     public static function getAuthenticationURL($appId, $redirect, $config,
+                                                $additionalTargetQSParams = NULL,
                                                 $healthVaultAuthInstance = 'https://account.healthvault-ppe.com/redirect.aspx',
-                                                $target = "AUTH")
+                                                $target = 'AUTH')
     {
 
         if(empty($config['healthVault']['redirectToken']))
@@ -448,8 +452,17 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             $config['healthVault']['redirectToken'] = md5(uniqid());
         }
 
-        $redirectUrl = urlencode("?appid=".$appId."&redirect=".$redirect."?redirectToken=".$config['healthVault']['redirectToken']."&isMRA=true");
-        $url = $healthVaultAuthInstance."?target=".$target."&targetqs=".$redirectUrl;
+        $redirectUrl = urlencode('?appid='.$appId.'&redirect='.$redirect.'?redirectToken='.$config['healthVault']['redirectToken'].'&isMRA=true');
+        $url = $healthVaultAuthInstance.'?target='.$target.'&targetqs='.$redirectUrl;
+
+        // If the additional parameters are not in associative array then do nothing.
+        if (is_array($additionalTargetQSParams))
+        {
+            foreach ($additionalTargetQSParams as $paramKey => $paramData)
+            {
+                $url = $url . '&' . $paramKey . '=' . $paramData;
+            }
+        }
 
         return $url;
     }

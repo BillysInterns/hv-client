@@ -20,9 +20,12 @@ class HVCommunicatorTest extends BaseTest {
     {
         $config = null;
         $config['healthVault']['redirectToken'] = "12345";
-        $url = $this->connector->getAuthenticationURL($this->appId,"www.test.com",$config);
+        $additionalTargetQSParams = array ('test' => 'blah');
+        $url = $this->connector->getAuthenticationURL($this->appId, "www.test.com", $config, $additionalTargetQSParams);
         $targetqs = urlencode("?appid=".$this->appId."&redirect=www.test.com?redirectToken=12345&isMRA=true");
-        $this->assertEquals('https://account.healthvault-ppe.com/redirect.aspx?target=AUTH&targetqs='.$targetqs,$url);
+        $this->assertEquals(
+            'https://account.healthvault-ppe.com/redirect.aspx?target=AUTH&targetqs='.$targetqs . '&test=blah', $url
+        );
     }
 
     public function testConnect()
