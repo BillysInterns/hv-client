@@ -136,9 +136,9 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
             $this->appId,
             $redirectUrl,
             $this->config,
+            $additionalTargetQSParams,
             $this->healthVaultAuthInstance,
-            $target,
-            $additionalTargetQSParams
+            $target
         );
     }
 
