@@ -17,7 +17,7 @@ use elevate\HVObjects\Thing\DataXML\CCRDataXML;
 
 
 /** @XmlRoot("thing") */
-class ContinuityOfCareRecordCCR extends Thing
+class ContinuityOfCareRecord extends Thing
 {
     /**
      * @var array elevate\HVObjects\Thing\DataXML\CCRDataXML
@@ -28,7 +28,7 @@ class ContinuityOfCareRecordCCR extends Thing
 
     function __construct($dataXML = NULL)
     {
-        $typeID = TypeTranslator::lookupTypeID('Continuity of Care Record (CCR)');
+        $typeID = TypeTranslator::lookupTypeID('Continuity of Care Record');
         $this->dataXML = $dataXML;
         parent::__construct($dataXML,$typeID);
     }
@@ -50,8 +50,4 @@ class ContinuityOfCareRecordCCR extends Thing
     {
         return $this->dataXML;
     }
-
-
-
-
 }

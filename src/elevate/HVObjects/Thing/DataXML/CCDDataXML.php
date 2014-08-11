@@ -36,24 +36,31 @@ class CCDDataXML extends DataXML
      */
     protected $ClinicalDocument;
 
-    public function __construct($ClinicalDocument = NULL, Common $common = NULL)
+    /**
+     * @param \SimpleXMLElement $ClinicalDocument
+     * @param Common            $common
+     */
+    public function __construct(\SimpleXMLElement $ClinicalDocument = NULL, Common $common = NULL)
     {
         $this->ClinicalDocument = $ClinicalDocument;
         parent::__construct($common);
     }
 
-    public function getCCD()
+    /**
+     * @param \SimpleXMLElement $ClinicalDocument
+     */
+    public function setClinicalDocument($ClinicalDocument)
+    {
+        $this->ClinicalDocument = $ClinicalDocument;
+    }
+
+    /**
+     * @return \SimpleXMLElement
+     */
+    public function getClinicalDocument()
     {
         return $this->ClinicalDocument;
     }
 
-    /**
-     * @param \SimpleXMLElement $ClinicalDocument
-     */
-    public function setCCD($ClinicalDocument)
-    {
-        $this->ClinicalDocument = $ClinicalDocument;
-        return $this;
-    }
 
 }

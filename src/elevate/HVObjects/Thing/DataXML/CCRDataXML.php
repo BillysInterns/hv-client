@@ -36,7 +36,11 @@ class CCRDataXML extends DataXML
      */
     protected $continuityOfCareRecord;
 
-    public function __construct($continuityOfCareRecord = NULL, Common $common = NULL)
+    /**
+     * @param \SimpleXMLElement $continuityOfCareRecord
+     * @param Common            $common
+     */
+    public function __construct(\SimpleXMLElement $continuityOfCareRecord = NULL, Common $common = NULL)
     {
         $this->continuityOfCareRecord = $continuityOfCareRecord;
         parent::__construct($common);
@@ -57,8 +61,4 @@ class CCRDataXML extends DataXML
     {
         return $this->continuityOfCareRecord;
     }
-
-
-
-
 }

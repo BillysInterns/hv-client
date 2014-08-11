@@ -49,8 +49,4 @@ class ContinuityOfCareDocument extends Thing
     {
         return $this->dataXML;
     }
-
-
-
-
 }

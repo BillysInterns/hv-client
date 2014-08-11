@@ -246,7 +246,7 @@ class HVClientHelper {
      *
      * @param $uid - Mentis Specific User ID
      * @param $groups - HV Request Groups
-     * @param $version - version of get request
+     * @param $version - version of GET request
      *
      * @return array - HV Things in a nicely formatted array
      */
