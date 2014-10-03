@@ -47,15 +47,70 @@ class Extension
      */
     public $appointmentAttended;
 
+    /**
+     * @Type("string")
+     */
+    public $conditionStartDate;
 
+    /**
+     * @Type("string")
+     */
+    public $conditionEndDate;
+
+    /**
+     * @Type("string")
+     */
+    public $conditionStopReason;
 
     function __construct(
-        $repeat = NULL, $source = NULL, $symptomInfo = NULL, $appointmentAttended = NULL)
+        $repeat = NULL,
+        $source = NULL,
+        $symptomInfo = NULL,
+        $appointmentAttended = NULL,
+        $conditionStartDate = NULL,
+        $conditionEndDate = NULL,
+        $conditionStopReason = NULL
+    )
     {
         $this->repeat              = $repeat;
         $this->source              = $source;
-        $this->symptomInfo           = $symptomInfo;
+        $this->symptomInfo = $symptomInfo;
         $this->appointmentAttended = $appointmentAttended;
+        $this->conditionEndDate = $conditionEndDate;
+        $this->conditionStartDate = $conditionStartDate;
+        $this->conditionStopReason = $conditionStopReason;
+    }
+
+    /**
+     * @param mixed $conditionEndDate
+     */
+    public function setConditionEndDate($conditionEndDate)
+    {
+        $this->conditionEndDate = $conditionEndDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConditionEndDate()
+    {
+        return $this->conditionEndDate;
+    }
+
+    /**
+     * @param mixed $conditionStartDate
+     */
+    public function setConditionStartDate($conditionStartDate)
+    {
+        $this->conditionStartDate = $conditionStartDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConditionStartDate()
+    {
+        return $this->conditionStartDate;
     }
 
     /**
