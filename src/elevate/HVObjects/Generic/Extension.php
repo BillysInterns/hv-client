@@ -82,6 +82,22 @@ class Extension
     }
 
     /**
+     * @param mixed $conditionStopReason
+     */
+    public function setConditionStopReason($conditionStopReason)
+    {
+        $this->conditionStopReason = $conditionStopReason;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConditionStopReason()
+    {
+        return $this->conditionStopReason;
+    }
+
+    /**
      * @param mixed $conditionEndDate
      */
     public function setConditionEndDate($conditionEndDate)
