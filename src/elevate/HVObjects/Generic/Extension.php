@@ -13,6 +13,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\XmlKeyValuePairs;
+use JMS\Serializer\Annotation\XmlAttributeMap;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\AccessorOrder;
 use elevate\HVObjects\Generic\Repeat;
@@ -62,24 +63,16 @@ class Extension
      */
     public $conditionStopReason;
 
-    function __construct(
-        $repeat = NULL,
-        $source = NULL,
-        $symptomInfo = NULL,
-        $appointmentAttended = NULL,
-        $conditionStartDate = NULL,
-        $conditionEndDate = NULL,
-        $conditionStopReason = NULL
-    )
-    {
-        $this->repeat              = $repeat;
-        $this->source              = $source;
-        $this->symptomInfo = $symptomInfo;
-        $this->appointmentAttended = $appointmentAttended;
-        $this->conditionEndDate = $conditionEndDate;
-        $this->conditionStartDate = $conditionStartDate;
-        $this->conditionStopReason = $conditionStopReason;
-    }
+    /**
+     * @Type("string")
+     */
+    public $locationType;
+
+    /**
+     * @Type("string")
+     */
+    public $locationContext;
+
 
     /**
      * @param mixed $conditionStopReason
@@ -193,4 +186,36 @@ class Extension
         return $this->symptomInfo;
     }
 
-} 
+    /**
+     * @param mixed $locationContext
+     */
+    public function setLocationContext($locationContext)
+    {
+        $this->locationContext = $locationContext;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocationContext()
+    {
+        return $this->locationContext;
+    }
+
+    /**
+     * @param mixed $locationType
+     */
+    public function setLocationType($locationType)
+    {
+        $this->locationType = $locationType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocationType()
+    {
+        return $this->locationType;
+    }
+
+}
