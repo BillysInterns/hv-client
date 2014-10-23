@@ -27,6 +27,12 @@ class ResponseGroup
      */
     private $things = NULL;
 
+    /**
+     * @Type("array<elevate\HVObjects\MethodObjects\UnprocessedThingKeyInfo>")
+     * @XmlList(inline=true, entry="unprocessed-thing-key-info")
+     */
+    private $unprocessedThings;
+
     function __construct($name, $things)
     {
         $this->name = $name;
@@ -65,6 +71,19 @@ class ResponseGroup
         return $this->things;
     }
 
+    /**
+     * @param mixed $unprocessedThings
+     */
+    public function setUnprocessedThings($unprocessedThings)
+    {
+        $this->unprocessedThings = $unprocessedThings;
+    }
 
-
+    /**
+     * @return mixed
+     */
+    public function getUnprocessedThings()
+    {
+        return $this->unprocessedThings;
+    }
 }
