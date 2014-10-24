@@ -45,7 +45,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
     private $digest;
 
     // Saved responses from HealthVault
-    private $rawResponse;
+    protected $rawResponse;
     private $SXMLResponse;
     private $responseCode;
 
