@@ -33,10 +33,11 @@ class ResponseGroup
      */
     private $unprocessedThings;
 
-    function __construct($name, $things)
+    function __construct($name, $things, $unprocessedThings = [])
     {
         $this->name = $name;
         $this->things = $things;
+        $this->unprocessedThings = $unprocessedThings;
     }
 
     /**
