@@ -83,6 +83,12 @@ class InfoHelper {
         $filter = new ThingFilterSpec($typeId, $xpath,$startRangeDate, $endRangeDate);
         $format = new ThingFormatSpec(array('core'));
 
+        // Conditions. Used for sorting on overview page.
+        if ($typeId === '7ea7a1f9-880b-4bd4-b593-f5660f20eda8')
+        {
+            $format = new ThingFormatSpec(array('core', 'audits'));
+        }
+
         $group = new RequestGroup($filter, $format, $maxItems, $maxItems, $groupName);
         return $group;
     }
@@ -90,7 +96,7 @@ class InfoHelper {
     static function getHVRequestGroupForThingName($thingName, $maxItems = 1, $groupName = null, $xpath = null, $startRangeDate = null, $endRangeDate = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
-        return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath,$startRangeDate, $endRangeDate );
+        return self::getHVRequestGroupForTypeId($typeId, $maxItems, $groupName, $xpath, $startRangeDate, $endRangeDate);
     }
 
     /**
