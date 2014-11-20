@@ -171,6 +171,7 @@ class HVClientHelper {
         $xml = simplexml_load_string( $xmlResponse );
         $xml->registerXPathNamespace('wc', 'urn:com.microsoft.wc.methods.response.PutThings2');
         $thingIds = $xml->xpath('//thing-id');
+        $response = [];
 
         $serializer = \JMS\Serializer\SerializerBuilder::create();
         $serializer->configureListeners(
