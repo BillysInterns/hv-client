@@ -19,7 +19,7 @@ class ThingFilterSpecTest extends BaseObjectTest
     {
         self::$sampleXMLPath = __DIR__ . '/../SampleXML/MethodObjects/ThingFilterSpec.xml';
         self::$objectNamespace = 'elevate\HVObjects\MethodObjects\ThingFilterSpec';
-        self::$testObject = new ThingFilterSpec('92ba621e-66b3-4a01-bd73-74844aed4f5b', '/thing/data-xml/question-answer/question/code[value=\'AX1\']');
+        self::$testObject = new ThingFilterSpec('92ba621e-66b3-4a01-bd73-74844aed4f5b', '/thing/data-xml/question-answer/question/code[value=\'AX1\']', null, null, null, '2015-01-30T19:43:19-00:00', '2015-02-14T19:43:19-00:00');
         parent::setUpBeforeClass();
     }
 }
