@@ -107,7 +107,7 @@ class InfoHelper {
      *
      * @return RequestGroup
      */
-    static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $updatedDateMin = null, $updatedDateMax = null, $maxItems = 1, $groupName = null, $xpath = null, $createdPersonId = NULL)
+    static function getHVRequestGroupForThingBetweenDates($thingName, $startDate, $endDate, $maxItems = 1, $groupName = null, $xpath = null, $createdPersonId = NULL, $updatedDateMin = null, $updatedDateMax = null)
     {
         $typeId = TypeTranslator::lookupTypeId($thingName);
 
