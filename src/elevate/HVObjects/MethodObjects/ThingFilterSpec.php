@@ -20,7 +20,6 @@ use JMS\Serializer\Annotation\Groups;
 /** @XmlRoot("filter") */
 class ThingFilterSpec
 {
-
     /**
      * @Type("string")
      * @SerializedName("type-id")
@@ -47,6 +46,18 @@ class ThingFilterSpec
 
     /**
      * @Type("string")
+     * @SerializedName("updated-date-min")
+     */
+    protected $updatedDateMin;
+
+    /**
+     * @Type("string")
+     * @SerializedName("updated-date-max")
+     */
+    protected $updatedDateMax;
+
+    /**
+     * @Type("string")
      * @SerializedName("xpath")
      */
     protected $xpath;
@@ -56,13 +67,15 @@ class ThingFilterSpec
      * @param      $typeId
      * @param null $xpath
      */
-    function __construct($typeId = null, $xpath = null, $minDate = null, $maxDate = null, $createdPersonId = null)
+    function __construct($typeId = null, $xpath = null, $minDate = null, $maxDate = null, $createdPersonId = null, $updatedDateMin = null, $updatedDateMax = null)
     {
         $this->typeId         = $typeId;
         $this->xpath          = $xpath;
         $this->maxDate        = $maxDate;
         $this->minDate        = $minDate;
         $this->createPersonId = $createdPersonId;
+        $this->updatedDateMin = $updatedDateMin;
+        $this->updatedDateMax = $updatedDateMax;
     }
 
     /**
@@ -132,5 +145,39 @@ class ThingFilterSpec
     public function getMinDate()
     {
         return $this->minDate;
+    }
+
+    /**
+     * @param mixed $updatedDateMin
+     */
+    public function setUpdatedDateMin($updatedDateMin)
+    {
+        $this->updatedDateMin = $updatedDateMin;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedDateMin()
+    {
+        return $this->updatedDateMin;
+    }
+
+    /**
+     * @param mixed $updatedDateMax
+     */
+    public function setUpdatedDateMax($updatedDateMax)
+    {
+        $this->updatedDateMax = $updatedDateMax;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedDateMax()
+    {
+        return $this->updatedDateMax;
     }
 }

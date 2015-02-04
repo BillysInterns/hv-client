@@ -1,4 +1,6 @@
 <filter>
     <type-id><![CDATA[92ba621e-66b3-4a01-bd73-74844aed4f5b]]></type-id>
+    <updated-date-min>2015-01-30T19:43:19-00:00</updated-date-min>
+    <updated-date-max>2015-02-14T19:43:19-00:00</updated-date-max>
     <xpath><![CDATA[/thing/data-xml/question-answer/question/code[value='AX1']]]></xpath>
 </filter>
