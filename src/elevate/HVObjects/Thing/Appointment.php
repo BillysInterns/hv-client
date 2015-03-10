@@ -16,7 +16,7 @@ use elevate\TypeTranslator;
 use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Thing\DataXML\AppointmentDataXML;
 
-/** @XmlRoot("appointment") */
+/** @XmlRoot("thing") */
 class Appointment extends Thing
 {
 

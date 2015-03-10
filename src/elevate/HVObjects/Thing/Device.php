@@ -19,7 +19,7 @@ use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Thing\DataXML\DeviceDataXML;
 
 
-/** @XmlRoot("device") */
+/** @XmlRoot("thing") */
 class Device extends Thing
 {
     /**

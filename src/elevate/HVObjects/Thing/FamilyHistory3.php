@@ -18,7 +18,7 @@ use elevate\HVObjects\Thing\DataXML\FamilyHistory3DataXML;
 /**
  * Class FamilyHistory3
  * @package elevate\HVObjects\Thing
- * @XmlRoot("family-history")
+ * @XmlRoot("thing")
  */
 class FamilyHistory3 extends Thing
 {

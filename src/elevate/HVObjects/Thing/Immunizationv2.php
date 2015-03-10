@@ -19,7 +19,7 @@ use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Thing\DataXML\Immunizationv2DataXML;
 
 
-/** @XmlRoot("immunization") */
+/** @XmlRoot("thing") */
 class Immunizationv2 extends Thing
 {
     /**

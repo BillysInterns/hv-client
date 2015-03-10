@@ -14,7 +14,7 @@ use elevate\HVObjects\Thing\Thing;
 use elevate\HVObjects\Thing\DataXML\Medicationv2DataXML;
 
 
-/** @XmlRoot("medication") */
+/** @XmlRoot("thing") */
 class Medicationv2 extends Thing
 {
     /**
