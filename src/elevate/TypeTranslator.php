@@ -123,7 +123,8 @@ class TypeTranslator
         'DevHistory'                                        => '55d33791-58de-4cae-8c78-819e12ba5059',
         'FormType'                                          => '55d33791-58de-4cae-8c78-819e12ba5059',
         'Diet'                                              => '55d33791-58de-4cae-8c78-819e12ba5059',
-        'Supplement'                                        => '55d33791-58de-4cae-8c78-819e12ba5059'
+        'Supplement'                                        => '55d33791-58de-4cae-8c78-819e12ba5059',
+        'Treatment'                                         => '55d33791-58de-4cae-8c78-819e12ba5059'
     );
 
 
