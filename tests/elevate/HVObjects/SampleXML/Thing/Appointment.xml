@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<appointment>
+<thing>
     <type-id><![CDATA[4b18aeb6-5f01-444c-8c70-dbf13a2f510b]]></type-id>
     <data-xml>
         <appointment>
@@ -183,4 +183,4 @@
             <client-thing-id><![CDATA[3323-43242-4324234-43242]]></client-thing-id>
         </common>
     </data-xml>
-</appointment>
+</thing>

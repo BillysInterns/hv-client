@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<device>
+<thing>
     <type-id><![CDATA[ef9cf8d5-6c0b-4292-997f-4047240bc7be]]></type-id>
     <data-xml>
         <device>
@@ -88,4 +88,4 @@
             <tags><![CDATA[deviceTag]]></tags>
         </common>
     </data-xml>
-</device>
+</thing>

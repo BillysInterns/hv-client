@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<family-history>
+<thing>
     <type-id><![CDATA[4a04fcc8-19c1-4d59-a8c7-2031a03f21de]]></type-id>
     <data-xml>
         <family-history>
@@ -99,4 +99,4 @@
             <tags><![CDATA[immunizationTag]]></tags>
         </common>
     </data-xml>
-</family-history>
+</thing>

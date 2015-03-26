@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<medication>
+<thing>
     <type-id><![CDATA[30cafccc-047d-4288-94ef-643571f7919d]]></type-id>
     <data-xml>
         <medication>
@@ -277,4 +277,4 @@
             <tags><![CDATA[medicationTag]]></tags>
         </common>
     </data-xml>
-</medication>
+</thing>
