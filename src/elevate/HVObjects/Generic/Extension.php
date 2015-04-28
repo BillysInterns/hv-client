@@ -73,6 +73,11 @@ class Extension
      */
     public $locationContext;
 
+    /**
+     * @Type("string")
+     */
+    public $studyName;
+
 
     /**
      * @param mixed $conditionStopReason
@@ -216,6 +221,22 @@ class Extension
     public function getLocationType()
     {
         return $this->locationType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStudyName()
+    {
+        return $this->studyName;
+    }
+
+    /**
+     * @param mixed $studyName
+     */
+    public function setStudyName($studyName)
+    {
+        $this->studyName = $studyName;
     }
 
 }
