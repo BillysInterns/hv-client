@@ -37,12 +37,18 @@ class SymptomInfo
      */
     public $symptomType;
 
-    function __construct($domain = null, $group = null, $subDomain = null, $symptomType = null)
+    /**
+     * @Type("string")
+     */
+    public $scaleType;
+
+    function __construct($domain = null, $group = null, $subDomain = null, $symptomType = null, $scaleType = null)
     {
         $this->domain      = $domain;
         $this->group       = $group;
         $this->subDomain   = $subDomain;
         $this->symptomType = $symptomType;
+        $this->scaleType   = $scaleType;
     }
 
     /**
@@ -107,6 +113,22 @@ class SymptomInfo
     public function getSymptomType()
     {
         return $this->symptomType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getScaleType()
+    {
+        return $this->scaleType;
+    }
+
+    /**
+     * @param mixed $scaleType
+     */
+    public function setScaleType($scaleType)
+    {
+        $this->scaleType = $scaleType;
     }
 
 
