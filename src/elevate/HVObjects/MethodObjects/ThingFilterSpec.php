@@ -15,6 +15,7 @@ use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\Groups;
 
 /** @XmlRoot("filter") */
@@ -59,6 +60,7 @@ class ThingFilterSpec
     /**
      * @Type("string")
      * @SerializedName("xpath")
+     * @XmlElement(cdata=false)
      */
     protected $xpath;
 

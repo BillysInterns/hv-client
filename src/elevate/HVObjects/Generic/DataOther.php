@@ -11,6 +11,8 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlElement;
+
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
@@ -25,6 +27,7 @@ class DataOther
      * @var string
      * @XmlValue
      * @Type("string")
+     * @XmlElement(cdata=false)
      */
     private $data;
 
@@ -42,9 +45,9 @@ class DataOther
      * @Type("string")
      * @SerializedName("content-encoding")
      */
-    private $contentEncoding;
+    private $contentEncoding = 'base64';
 
-    function __construct($data, $contentType = NULL, $contentEncoding = NULL)
+    function __construct($data, $contentType = NULL, $contentEncoding = 'base64')
     {
         $this->contentEncoding = $contentEncoding;
         $this->contentType     = $contentType;

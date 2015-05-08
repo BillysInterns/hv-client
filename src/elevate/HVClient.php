@@ -178,8 +178,6 @@ class HVClient implements HVClientInterface, LoggerAwareInterface
                 $newXML = $doc->saveXML($doc->documentElement);
             }
         }
-        $newXML = str_replace('<xpath><![CDATA[', '<xpath>', $newXML);
-        $newXML = str_replace(']]></xpath>', '</xpath>', $newXML);
 
         return $this->callHealthVaultWithXML($newXML, $method, $version);
     }

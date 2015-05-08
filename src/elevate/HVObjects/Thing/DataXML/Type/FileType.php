@@ -9,6 +9,8 @@ use JMS\Serializer\Annotation\XmlMap;
 use JMS\Serializer\Annotation\XmlRoot;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlElement;
+
 use JMS\Serializer\Annotation\Groups;
 use PhpCollection\Map;
 use PhpCollection\Sequence;
@@ -28,6 +30,7 @@ class FileType
     /**
      * @Type("integer")
      * @SerializedName("size")
+     * @XmlElement(cdata=false)
      */
     protected $size;
 
