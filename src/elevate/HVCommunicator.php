@@ -447,7 +447,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
                                                 $target = 'AUTH')
     {
 
-        if(empty($config['healthVault']['redirectToken']))
+        if (empty($config['healthVault']['redirectToken']))
         {
             $config['healthVault']['redirectToken'] = md5(uniqid());
         }
