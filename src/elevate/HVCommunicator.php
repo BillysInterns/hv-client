@@ -452,7 +452,7 @@ class HVCommunicator implements HVCommunicatorInterface, LoggerAwareInterface
             $config['healthVault']['redirectToken'] = md5(uniqid());
         }
 
-        $redirectUrl = urlencode('?appid='.$appId.'&redirect='.$redirect.'&redirectToken='.$config['healthVault']['redirectToken'].'&isMRA=true');
+        $redirectUrl = urlencode('?appid='.$appId.'&redirect='.$redirect.'&redirectToken='.$config['healthVault']['redirectToken']);
 
         // If the additional parameters are not in associative array then do nothing.
         if (is_array($additionalTargetQSParams))
