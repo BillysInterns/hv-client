@@ -21,7 +21,7 @@ use  elevate\HVObjects\MethodObjects\ThingFilterSpec;
 use  elevate\HVObjects\MethodObjects\ThingFormatSpec;
 
 /** @XmlRoot("group")
- * @AccessorOrder("custom", custom = {"ids", "filter", "format", "currentVersionOnly"})
+ * @AccessorOrder("custom", custom = {"ids", "clientThingIds", "filter", "format", "currentVersionOnly"})
  */
 
 class RequestGroup
@@ -63,6 +63,12 @@ class RequestGroup
      * @XmlList(inline=true, entry="id")
      */
     protected $ids;
+
+    /**
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="client-thing-id")
+     */
+    protected $clientThingIds;
 
     /**
      * @var bool
@@ -201,5 +207,21 @@ class RequestGroup
     public function getIds()
     {
         return $this->ids;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClientThingIds()
+    {
+        return $this->clientThingIds;
+    }
+
+    /**
+     * @param mixed $clientThingIds
+     */
+    public function setClientThingIds($clientThingIds)
+    {
+        $this->clientThingIds = $clientThingIds;
     }
 }

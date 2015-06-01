@@ -25,6 +25,7 @@ class RequestGroupTest extends BaseObjectTest
         $thingFormat = new ThingFormatSpec(array('core'));
         $requestGroup = new RequestGroup($thingFilter, $thingFormat, 100);
         $requestGroup->setIds(array());
+        $requestGroup->setClientThingIds(array());
         self::$testObject = $requestGroup;
         parent::setUpBeforeClass();
     }

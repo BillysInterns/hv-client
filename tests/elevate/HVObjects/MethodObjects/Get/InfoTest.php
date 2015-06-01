@@ -30,6 +30,8 @@ class InfoTest extends BaseObjectTest
         $group2 = new RequestGroup($thingFilter2, $thingFormat, 100);
         $group1->setIds(array());
         $group2->setIds(array());
+        $group1->setClientThingIds(array());
+        $group2->setClientThingIds(array());
         $groups = array($group1, $group2);
 
         self::$testObject = new Info($groups);

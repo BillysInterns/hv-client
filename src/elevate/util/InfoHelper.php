@@ -160,6 +160,28 @@ class InfoHelper {
     }
 
     /**
+     * @param array $clientIds
+     * @param null  $groupName
+     *
+     * @return RequestGroup
+     */
+    static function getHVRequestGroupForClientIds(array $clientIds, $groupName = null)
+    {
+        $group = new RequestGroup();
+
+        $format = new ThingFormatSpec(array('core'));
+        $filter = new ThingFilterSpec();
+
+        $group->setCurrentVersionOnly(false);
+        $group->setFormat($format);
+        $group->setFilter($filter);
+        $group->setClientThingIds($clientIds);
+        $group->setMax(count($clientIds));
+        $group->setName($groupName);
+        return $group;
+    }
+
+    /**
      * @param      $thingName
      * @param int  $maxItems
      * @param null $groupName
