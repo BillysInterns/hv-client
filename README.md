@@ -1,6 +1,5 @@
 HVClientLibPHP
 ==============
-[![Build Status](https://travis-ci.org/BillysInterns/hv-client.png?branch=master)](https://travis-ci.org/BillysInterns/hv-client)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/BillysInterns/hv-client/badges/quality-score.png?s=d2c0e29fd9992c71ac7dca6210198d42ac3ee52b)](https://scrutinizer-ci.com/g/BillysInterns/hv-client/)
 
 
