@@ -78,6 +78,10 @@ class Extension
      */
     public $studyName;
 
+    /**
+     * @Type("string")
+     */
+    public $timestamp;
 
     /**
      * @param mixed $conditionStopReason
@@ -238,5 +242,20 @@ class Extension
     {
         $this->studyName = $studyName;
     }
+    
+    /**
+     * @return mixed
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
 
+    /**
+     * @param mixed $timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
 }
