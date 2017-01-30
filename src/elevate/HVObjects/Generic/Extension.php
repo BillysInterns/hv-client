@@ -84,6 +84,16 @@ class Extension
     public $timestamp;
 
     /**
+     * @Type("string")
+     */
+    public $paperScale;
+
+    /**
+     * @Type("string")
+     */
+    public $studyVisitType;
+
+    /**
      * @param mixed $conditionStopReason
      */
     public function setConditionStopReason($conditionStopReason)
@@ -258,4 +268,37 @@ class Extension
     {
         $this->timestamp = $timestamp;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPaperScale()
+    {
+        return $this->paperScale;
+    }
+
+    /**
+     * @param mixed $paperScale
+     */
+    public function setPaperScale($paperScale)
+    {
+        $this->paperScale = $paperScale;
+    }
+
+    /**
+     * @return JSON
+     */
+    public function getStudyVisitType()
+    {
+        return $this->studyVisitType;
+    }
+
+    /**
+     * @param JSON $studyVisitType
+     */
+    public function setStudyVisitType($studyVisitType)
+    {
+        $this->studyVisitType = $studyVisitType;
+    }
+
 }
