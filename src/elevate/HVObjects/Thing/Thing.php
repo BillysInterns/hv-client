@@ -108,7 +108,11 @@ class Thing
     public function setEffDate($effDate)
     {
         // Parse it into a datetime object, try w/o milliseconds first
-        $this->effDate = \DateTime::createFromFormat('Y-m-d\TH:i:s', $effDate);
+        $this->effDate = \DateTime::createFromFormat('Y-m-d\TH:i:s', $effDate, new \DateTimeZone('GMT'));
+        if (!empty($this->effDate)) {
+            $this->effDate->setTimezone(new \DateTimeZone('US/Eastern'));
+        }
+
         if ( !$this->effDate)
         {
             // Ok, now try with milliseconds
