@@ -94,6 +94,11 @@ class Extension
     public $studyVisitType;
 
     /**
+     * @Type("string")
+     */
+    public $timeSpent;
+
+    /**
      * @param mixed $conditionStopReason
      */
     public function setConditionStopReason($conditionStopReason)
@@ -299,6 +304,23 @@ class Extension
     public function setStudyVisitType($studyVisitType)
     {
         $this->studyVisitType = $studyVisitType;
+    }
+
+    /**
+     *
+     * @return JSON
+     */
+    public function getTimeSpent()
+    {
+        return $this->timeSpent;
+    }
+
+    /**
+     * @param JSON $timeSpent
+     */
+    public function setTimeSpent($timeSpent)
+    {
+        $this->timeSpent = $timeSpent;
     }
 
 }
